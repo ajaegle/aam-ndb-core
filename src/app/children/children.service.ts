@@ -154,12 +154,12 @@ export class ChildrenService {
 
   queryLatestRelation(childId: string): Promise<ChildSchoolRelation> {
     return this.querySortedRelations(childId, 1).then(children => children[0])
- }
+  } 
 
  querySortedRelations(childId: string, limit?: number): Promise<ChildSchoolRelation[]> {
     const options: any = {
-      startkey: childId + '\uffff', //  higher value needs to be startkey
-      endkey: childId,              //  \uffff is not a character -> only relations staring with childId will be selected
+      startkey: childId + '_' + '\uffff', //  higher value needs to be startkey
+      endkey: childId + '_',              //  \uffff is not a character -> only relations staring with childId will be selected
       descending: true,
       include_docs: true,
       limit: limit
