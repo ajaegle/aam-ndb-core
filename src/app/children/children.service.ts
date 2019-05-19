@@ -21,7 +21,29 @@ export class ChildrenService {
     this.createAttendanceAnalysisIndex();
     this.createNotesIndex();
     this.createAttendancesIndex();
-    this.createChildSchoolRelationIndex()
+    this.createChildSchoolRelationIndex();
+    // this.createPerformanceData();
+  }
+
+  async createPerformanceData() {
+    const school = new School('test-school');
+    await this.entityMapper.save<School>(school);
+    for (let i = 1; i <= 500; i++) {
+      const child = new Child('test-child-' + i);
+      child.name = 'TestChild:' + i;
+      await this.entityMapper.save<Child>(child);
+      const relation = new ChildSchoolRelation('test-relation-' + i);
+      relation.childId = child.getId();
+      relation.schoolId = school.getId();
+      const year = 1500 + i;
+      relation.start = '' + year + '-04-18';
+      await this.entityMapper.save<ChildSchoolRelation>(relation);
+      for (let j = 0; j < 15; j++) {
+        const note = new Note('test-note-' + i + '-' + j);
+        note.children = [child.getId()];
+        await this.entityMapper.save<Note>(note);
+      }
+    }
   }
 
   async getChildrenWithRelation(): Promise<ChildWithRelation[]> {
