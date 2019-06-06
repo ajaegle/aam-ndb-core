@@ -48,11 +48,42 @@ export class ChildrenService {
 
   async getChildrenWithRelation(): Promise<ChildWithRelation[]> {
     const children = await this.entityMapper.loadType<Child>(Child);
-    const tableData: ChildWithRelation[] = [];
-    for (const child of children) {
-      const relation: ChildSchoolRelation = await this.queryLatestRelation(child.getId());
-      tableData.push(new ChildWithRelation(child, relation));
-    }
+    const childrenIds = children.map(child => child.getId());
+
+    // const childSchoolRelations = await this.entityMapper.loadType<ChildSchoolRelation>(ChildSchoolRelation);
+
+    let sChildId = '';
+    let dLatestDate;
+    const mResultMap = {};
+
+    this.db.query('childSchoolRelations_index/by_child', {keys: childrenIds, include_docs: true})
+      .then(loadedEntities => {
+        loadedEntities.rows.forEach(relationEntity => {
+          if (relationEntity.childId != sChildId) {
+            // new child entry found
+            sChildId = relationEntity.childId;
+            dLatestDate = relationEntity.start;
+
+            const entity = new ChildSchoolRelation('');
+            entity.load(relationEntity.doc);
+            mResultMap[sChildId] = entity;
+          } else if (relationEntity.start > dLatestDate) {
+            // later school children relation found
+            dLatestDate = relationEntity.start;
+
+            const entity = new ChildSchoolRelation('');
+            entity.load(relationEntity.doc);
+            mResultMap[sChildId] = entity;
+          }
+        });
+      });
+
+      const tableData: ChildWithRelation[] = [];
+
+      children.forEach(child => {
+        tableData.push(new ChildWithRelation(child, mResultMap[child.getId()]));        
+      });
+    
     return tableData;
   }
 
