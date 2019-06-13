@@ -59,22 +59,17 @@ export class ChildrenService {
     this.db.query('childSchoolRelations_index/by_child', {keys: childrenIds, include_docs: true})
       .then(loadedEntities => {
         loadedEntities.rows.forEach(relationEntity => {
-          if (relationEntity.childId != sChildId) {
+          if (relationEntity.childId === sChildId && relationEntity.start <= dLatestDate) return;
+
+          if (relationEntity.childId !== sChildId) {
             // new child entry found
             sChildId = relationEntity.childId;
-            dLatestDate = relationEntity.start;
-
-            const entity = new ChildSchoolRelation('');
-            entity.load(relationEntity.doc);
-            mResultMap[sChildId] = entity;
-          } else if (relationEntity.start > dLatestDate) {
-            // later school children relation found
-            dLatestDate = relationEntity.start;
-
-            const entity = new ChildSchoolRelation('');
-            entity.load(relationEntity.doc);
-            mResultMap[sChildId] = entity;
           }
+          dLatestDate = relationEntity.start;
+
+          const entity = new ChildSchoolRelation('');
+          entity.load(relationEntity.doc);
+          mResultMap[sChildId] = entity;
         });
       });
 
