@@ -1,11 +1,12 @@
 import {Child} from './child';
 import {ChildSchoolRelation} from './childSchoolRelation';
+import {School} from '../schools/school';
 
 export class ChildWithRelation extends Child {
   public schoolId = '';
   public schoolClass = '';
 
-  constructor(private _child: Child = new Child(''), private _childSchoolRelation: ChildSchoolRelation = new ChildSchoolRelation('')) {
+  constructor(private _child: Child = new Child(''), private _childSchoolRelation: ChildSchoolRelation = new ChildSchoolRelation(''), public schoolObj?: School) {
     super(_child.getId());
     this.load(_child);
     this.schoolId = this._childSchoolRelation.schoolId;

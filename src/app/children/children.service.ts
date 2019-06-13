@@ -23,6 +23,7 @@ export class ChildrenService {
     this.createAttendancesIndex();
     this.createChildSchoolRelationIndex();
     // this.createPerformanceData();
+
   }
 
   async createPerformanceData() {
@@ -55,28 +56,36 @@ export class ChildrenService {
     let sChildId = '';
     let dLatestDate;
     const mResultMap = {};
-
-    this.db.query('childSchoolRelations_index/by_child', {keys: childrenIds, include_docs: true})
+    let schools: School[] = await this.entityMapper.loadType<School>(School);
+    let schoolMap = {}
+    schools.forEach(school => {
+        schoolMap[school.getId()] = school;
+    });
+    await this.db.query('childSchoolRelations_index/by_child', {keys: childrenIds, include_docs: true})
       .then(loadedEntities => {
         loadedEntities.rows.forEach(relationEntity => {
-          if (relationEntity.childId === sChildId && relationEntity.start <= dLatestDate) return;
+          if (relationEntity.doc.childId === sChildId && relationEntity.doc.start <= dLatestDate) return;
 
-          if (relationEntity.childId !== sChildId) {
+          if (relationEntity.doc.childId !== sChildId) {
             // new child entry found
-            sChildId = relationEntity.childId;
+            sChildId = relationEntity.doc.childId;
           }
-          dLatestDate = relationEntity.start;
+          dLatestDate = relationEntity.doc.start;
 
           const entity = new ChildSchoolRelation('');
           entity.load(relationEntity.doc);
           mResultMap[sChildId] = entity;
         });
       });
-
       const tableData: ChildWithRelation[] = [];
 
       children.forEach(child => {
-        tableData.push(new ChildWithRelation(child, mResultMap[child.getId()]));        
+        const relation: ChildSchoolRelation = mResultMap[child.getId()];
+        if (relation) {
+            tableData.push(new ChildWithRelation(child, relation, schoolMap[relation.schoolId]));
+        } else {
+            tableData.push(new ChildWithRelation(child, relation));
+        }
       });
     
     return tableData;
