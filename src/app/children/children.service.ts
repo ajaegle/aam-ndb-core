@@ -9,19 +9,21 @@ import {EducationalMaterial} from './educational-material/educational-material';
 import {Aser} from './aser/aser';
 import {ChildSchoolRelation} from './childSchoolRelation';
 import {School} from '../schools/school';
-import {ChildWithRelation} from './childWithRelation';
 import {SchoolWithRelation} from '../schools/schoolWithRelation';
-import {HealthCheck} from './health-checkup/health-check'
+import {HealthCheck} from './health-checkup/health-check';
+import {EntitySchemaService} from '../entity/schema/entity-schema.service';
 
 @Injectable()
 export class ChildrenService {
 
   constructor(private entityMapper: EntityMapperService,
+              private entitySchemaService: EntitySchemaService,
               private db: Database) {
     this.createAttendanceAnalysisIndex();
     this.createNotesIndex();
     this.createAttendancesIndex();
     this.createChildSchoolRelationIndex();
+<<<<<<< HEAD
     // this.createPerformanceData();
 
   }
@@ -96,6 +98,10 @@ export class ChildrenService {
     const relation = await this.queryLatestRelation(childId);
     return new ChildWithRelation(child, relation);
   }
+=======
+  }
+
+>>>>>>> b00e7b5d77eee938176d92f96410785c2f55f1a3
 
   getChildren(): Observable<Child[]> {
     return from(this.entityMapper.loadType<Child>(Child));
@@ -113,7 +119,7 @@ export class ChildrenService {
       .then(loadedEntities => {
         return loadedEntities.rows.map(loadedRecord => {
           const entity = new AttendanceMonth('');
-          entity.load(loadedRecord.doc);
+          this.entitySchemaService.loadDataIntoEntity(entity, loadedRecord.doc);
           return entity;
         });
       });
@@ -127,7 +133,7 @@ export class ChildrenService {
       .then(loadedEntities => {
         return loadedEntities.rows.map(loadedRecord => {
           const entity = new AttendanceMonth('');
-          entity.load(loadedRecord.doc);
+          this.entitySchemaService.loadDataIntoEntity(entity, loadedRecord.doc);
           return entity;
         });
       });
@@ -188,8 +194,13 @@ export class ChildrenService {
   }
 
   queryLatestRelation(childId: string): Promise<ChildSchoolRelation> {
+<<<<<<< HEAD
     return this.querySortedRelations(childId, 1).then(children => children[0])
   } 
+=======
+    return this.querySortedRelations(childId, 1).then(children => children[0]);
+ }
+>>>>>>> b00e7b5d77eee938176d92f96410785c2f55f1a3
 
  querySortedRelations(childId: string, limit?: number): Promise<ChildSchoolRelation[]> {
     const options: any = {
@@ -206,7 +217,7 @@ export class ChildrenService {
       .then(loadedEntities => {
         return loadedEntities.rows.map(loadedRecord => {
           const entity = new ChildSchoolRelation('');
-          entity.load(loadedRecord.doc);
+          this.entitySchemaService.loadDataIntoEntity(entity, loadedRecord.doc);
           return entity;
         });
       });
@@ -217,7 +228,7 @@ export class ChildrenService {
       .then(loadedEntities => {
         return loadedEntities.rows.map(loadedRecord => {
           const entity = new ChildSchoolRelation('');
-          entity.load(loadedRecord.doc);
+          this.entitySchemaService.loadDataIntoEntity(entity, loadedRecord.doc);
           return entity;
         });
       });
@@ -290,7 +301,7 @@ export class ChildrenService {
       .then(loadedEntities => {
         return loadedEntities.rows.map(loadedRecord => {
           const entity = new Note('');
-          entity.load(loadedRecord.doc);
+          this.entitySchemaService.loadDataIntoEntity(entity, loadedRecord.doc);
           return entity;
         });
       });
@@ -350,7 +361,7 @@ export class ChildrenService {
     return this.queryLatestRelation(childId)
       .then(relation => {
         if (relation) {
-         return this.entityMapper.load<School>(School, relation.schoolId)
+         return this.entityMapper.load<School>(School, relation.schoolId);
         }
         return null;
       });

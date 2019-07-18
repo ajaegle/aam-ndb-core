@@ -20,7 +20,7 @@ export class SchoolBlockComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.entityId !== undefined && this.entity.getId() === '') {
+    if (this.entityId && !(this.entity && this.entity.getId())) {
       this.entityMapper.load(School, this.entityId).then(school => {
         this.entity = school;
       });
