@@ -23,7 +23,6 @@ export class ChildrenService {
     this.createNotesIndex();
     this.createAttendancesIndex();
     this.createChildSchoolRelationIndex();
-<<<<<<< HEAD
     // this.createPerformanceData();
 
   }
@@ -98,10 +97,6 @@ export class ChildrenService {
     const relation = await this.queryLatestRelation(childId);
     return new ChildWithRelation(child, relation);
   }
-=======
-  }
-
->>>>>>> b00e7b5d77eee938176d92f96410785c2f55f1a3
 
   getChildren(): Observable<Child[]> {
     return from(this.entityMapper.loadType<Child>(Child));
@@ -194,13 +189,8 @@ export class ChildrenService {
   }
 
   queryLatestRelation(childId: string): Promise<ChildSchoolRelation> {
-<<<<<<< HEAD
-    return this.querySortedRelations(childId, 1).then(children => children[0])
-  } 
-=======
     return this.querySortedRelations(childId, 1).then(children => children[0]);
  }
->>>>>>> b00e7b5d77eee938176d92f96410785c2f55f1a3
 
  querySortedRelations(childId: string, limit?: number): Promise<ChildSchoolRelation[]> {
     const options: any = {
