@@ -39,7 +39,7 @@ export class HealthCheckupComponent implements OnInit {
     /** 
    * Convert given heights into the selected unit
    */
-  convertUnit(height : number) : number {
+  convertUnit(height : Number) : Number {
 
     if (height === undefined) {
       return 0;
@@ -48,10 +48,10 @@ export class HealthCheckupComponent implements OnInit {
     if (this.selectedUnit === ' cm') {
       // cm is the default unit, so it does not need to be changed
       return height;
-    } else if (this.selectedUnit === ' in') {
-      return height / 2.54;
+    } else if (this.selectedUnit === ' in') { 
+      return height.valueOf() / 2.54;
     } else if (this.selectedUnit === ' ft') {
-      return height / 30.48;
+      return height.valueOf() / 30.48;
     }
   }
 
@@ -60,7 +60,6 @@ export class HealthCheckupComponent implements OnInit {
     this.route.paramMap.subscribe (params => {
       this.childId = params.get('id').toString();
       this.loadHealthChecks();
-
     } );
   }
 
