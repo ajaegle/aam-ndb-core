@@ -1,1 +1,10 @@
 <app-entity-subrecord [records]="records" [columns]="columns" [newRecordFactory]="generateNewRecordFactory()"></app-entity-subrecord>
+
+<mat-form-field class="unit_select">
+        <mat-label>Unit</mat-label>
+        <mat-select [(value)]="selectedUnit">
+            <mat-option *ngFor="let unit of units" value="{{unit}}">
+                {{unit}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
