@@ -19,11 +19,15 @@ export class HealthCheckupComponent implements OnInit {
    * The Date-Column needs to be transformed to apply the MathFormCheck in the SubentityRecordComponent
    * BMI is rounded to 2 decimal digits
    */
+  selectedUnit: string = ' cm';
+  units: string[] = [' in', ' cm', ' ft']; // Array that stores the selectable units
+
+
   columns: Array<ColumnDescription> = [
     new ColumnDescription('date', 'Date', ColumnDescriptionInputType.DATE, null,
     (v: Date) => this.datePipe.transform(v, 'yyyy-MM-dd')),
     new ColumnDescription('height', 'Height [cm]', ColumnDescriptionInputType.NUMBER, null,
-    (height: Number) => height + ' cm' ),
+    (height: Number) => this.convertUnit(height).toFixed(2) + this.selectedUnit),
     new ColumnDescription('weight', 'Weight [kg]', ColumnDescriptionInputType.NUMBER, null,
     (weight: Number) => weight + ' kg'),
     new ColumnDescription('bmi', 'BMI', ColumnDescriptionInputType.READONLY, null,
@@ -31,6 +35,26 @@ export class HealthCheckupComponent implements OnInit {
   ];
   childId: string;
   constructor(private route: ActivatedRoute, private childrenService: ChildrenService, private datePipe: DatePipe ) { }
+
+    /** 
+   * Convert given heights into the selected unit
+   */
+  convertUnit(height : number) : number {
+
+    if (height === undefined) {
+      return 0;
+    }
+
+    if (this.selectedUnit === ' cm') {
+      // cm is the default unit, so it does not need to be changed
+      return height;
+    } else if (this.selectedUnit === ' in') {
+      return height / 2.54;
+    } else if (this.selectedUnit === ' ft') {
+      return height / 30.48;
+    }
+  }
+
 
   ngOnInit() {
     this.route.paramMap.subscribe (params => {
