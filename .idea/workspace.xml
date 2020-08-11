@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="014244bf-8b30-4ac9-ace3-ab076cf2a46b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/documentation/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts/documentation-structure.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts/entity-schema.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts/overall-architecture.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts/session-and-authentication-system.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/concepts/ux-guidelines.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/contribute-code-to-the-project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/create-a-new-entity-type.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/display-dialogs-and-notifications.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/display-related-entities.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/document-code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/generate-demo-data.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/load-and-save-data.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/log-errors.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/navigate-the-code-structure.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/review-a-pull-request.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/use-queries-and-indices.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/how-to-guides/write-automated-unit-tests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/prerequisites.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/tutorial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/tutorial/diving-into-the-code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/tutorial/overview-of-technologies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/tutorial/setting-up-the-project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional-documentation/tutorial/using-aam-digital-(as-a-user).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Alert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Aser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/AttendanceDay.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/AttendanceMonth.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Changelog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Child.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ChildSchoolRelation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ColumnDescription.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/CustomFaker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Database.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoChildConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoDataGenerator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoDataServiceConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoEducationMaterialConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoNoteConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/DemoSchoolConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/EducationalMaterial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Entity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/FilterSelection.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/HealthCheck.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/LoadChildPhotoEntitySchemaDatatype.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/MeetingNoteAttendance.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/MenuItem.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/MockDatabase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/MockSessionService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/NdbCorePage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Note.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/OnlineSessionService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/PouchDatabase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProgressDashboardConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/QueryDataSource.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/School.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/StateHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/User.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddDayAttendanceComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddMonthAttendanceComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdminComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AlertComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppVersionComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AserComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceAverageDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceBlockComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceDayBlockComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceDaysComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceDetailsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceManagerComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceWarningsDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AttendanceWeekDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChangelogComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildAttendanceComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildBlockComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildDetailsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildMeetingNoteAttendanceComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildSelectComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildrenCountDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChildrenListComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CloudFileServiceUserSettingsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CompareRevComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ConfirmationDialogComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ConflictResolutionListComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DemoDataGeneratingProgressDialogComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/EducationalMaterialComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/EntitySubrecordComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ExportDataComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormDialogWrapperComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/HealthCheckupComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/HowToComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/InitialSyncDialogComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LoginComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NavigationComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NoRecentNotesDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NoteDetailsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NotePresenceListComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NotesManagerComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NotesOfChildComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PreviousSchoolsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PrimaryActionComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProgressDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecentNotesDashboardComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RollCallComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SchoolBlockComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SchoolDetailsComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SchoolsListComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SearchComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SelectGroupChildrenComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SyncStatusComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UiComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserAccountComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserListComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contributing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ionicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-300.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-300.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-300.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-300.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-300.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-700.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-700.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-700.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-700.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-700.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-italic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-italic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/roboto-v15-latin-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guards/AdminGuard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guards/LoggedInGuard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/architecture_concrete-project.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/architecture_core.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/compodoc-vectorise-inverted.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/compodoc-vectorise-inverted.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/compodoc-vectorise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/compodoc-vectorise.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/coverage-badge-documentation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/domain-model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/initial__offline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/initial__online_correct_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/initial__online_wrong_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/initial__sync_failed.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/new-session-flows.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/normal__right_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/normal__wrong_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/offline__right_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/offline__wrong_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/pwd_changed__new_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/pwd_changed__old_pwd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/sync_failed__local_login_failure.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/new-session-flows/sync_failed__local_login_success.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/session_classes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/session_state.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/state_handler.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/system_overview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/AlertService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/AppConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/AttendanceMonthConflictResolutionStrategy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/AutoResolutionService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/BackupService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/ChildPhotoService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/ChildPhotoUpdateService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/ChildrenService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/CloudFileService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/ConfirmationDialogService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoAserGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoAttendanceGenerator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoChildGenerator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoChildSchoolRelationGenerator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoDataService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoEducationalMaterialGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoHealthCheckGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoNoteGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoSchoolGenerator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoUserGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/DemoWidgetGeneratorService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/EntityMapperService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/EntitySchemaService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/FormDialogService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/LatestChangesDialogService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/LatestChangesService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/LocalSession.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/LoggingErrorHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/LoggingService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/NavigationItemsService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/RemoteSession.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/SchoolsService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/SessionService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/SyncedSessionService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injectables/UpdateManagerService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/AttendanceProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ColumnGroup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ConfirmationDialogConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ConflictResolutionStrategy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/EntitySchemaDatatype.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/EntitySchemaField.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/FilterSelectionOption.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/FormValidationResult.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/IAppConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ProgressDashboardPart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/RollCallRecord.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ShowsEntity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/StateChangedEvent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/compodoc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lazy-load-graphs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/EventDispatcher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/bootstrap-native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/custom-elements-es5-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/custom-elements.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/d3.v3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/deep-iterator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/es6-shim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/htmlparser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/innersvg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/lit-html.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/prism.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/promise.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/svg-pan-zoom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/tablesort.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/tablesort.number.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/vis.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/libs/zepto.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menu-wc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search/lunr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search/search-lunr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search/search_index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/sourceCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/svg-pan-zoom.controls.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/tabs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscellaneous/enumerations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscellaneous/functions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscellaneous/typealiases.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscellaneous/variables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AdminModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AdminModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AlertsModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AlertsModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AppConfigModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AppConfigModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AppModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/AppModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ChildrenModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ChildrenModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ConfirmationDialogModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ConfirmationDialogModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ConflictResolutionModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ConflictResolutionModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ConflictResolutionRoutingModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/DashboardModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/DashboardModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/DemoDataModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/DemoDataModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/EntityModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/EntityModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/EntitySubrecordModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/EntitySubrecordModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/FormDialogModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/FormDialogModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/HelpModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/HelpModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/LatestChangesModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/LatestChangesModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/NavigationModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/NavigationModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/NotesModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/NotesModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SchoolsModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SchoolsModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SessionModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SessionModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SyncStatusModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/SyncStatusModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/UiModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/UiModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/UserModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/UserModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/WebdavModule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/WebdavModule/dependencies.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipes/KeysPipe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/bootstrap-card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/compodoc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/laravel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/material.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/original.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/postmark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/prism.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/readthedocs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/stripe.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/tablesort.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/vagrant.css" beforeDir="false" />
+    </list>
+    <list id="76f9d401-c73f-4084-82f4-835d3cb1dc22" name="added new user list component" comment="added new user list component">
+      <changelist_data name="Simon" email="therealslimv@yahoo.de" date="1571751678000" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test-deploys" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectId" id="1SWeCwgw4xf3H7hu3SGoAIvEVWr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.karma.karma_node_package_dir" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../WASA/marwin" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Simon\Desktop\EWB\AAM-Digital\ndb-core\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="C:\Users\Simon\Desktop\EWB\AAM-Digital\ndb-core\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Simon\Desktop\EWB\AAM-Digital\ndb-core\documentation" />
+      <recent name="C:\Users\Simon\Desktop\EWB\AAM-Digital\ndb-core\src\app\core\admin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Run">
+    <configuration name="All Tests" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="ChildrenService.should get all children correctly" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-names>
+        <test-name value="ChildrenService" />
+        <test-name value="should get all children correctly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="MockDatabase tests.returns ChildSchoolRelations in correct order" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-names>
+        <test-name value="MockDatabase tests" />
+        <test-name value="returns ChildSchoolRelations in correct order" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="NavigationComponent" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-names>
+        <test-name value="NavigationComponent" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="NavigationComponent.should load navigation items correctly" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-names>
+        <test-name value="NavigationComponent" />
+        <test-name value="should load navigation items correctly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ViewSchoolsComponent.should create" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-names>
+        <test-name value="ViewSchoolsComponent" />
+        <test-name value="should create" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (ndb-core-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Run" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="Karma.All Tests" />
+      <item itemvalue="Karma.ChildrenService.should get all children correctly" />
+      <item itemvalue="Karma.MockDatabase tests.returns ChildSchoolRelations in correct order" />
+      <item itemvalue="Karma.NavigationComponent" />
+      <item itemvalue="Karma.NavigationComponent.should load navigation items correctly" />
+      <item itemvalue="Karma.ViewSchoolsComponent.should create" />
+      <item itemvalue="npm.Run" />
+      <item itemvalue="Protractor.E2E Tests (ndb-core-e2e)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Karma.ViewSchoolsComponent.should create" />
+        <item itemvalue="Karma.NavigationComponent.should load navigation items correctly" />
+        <item itemvalue="Karma.NavigationComponent" />
+        <item itemvalue="Karma.MockDatabase tests.returns ChildSchoolRelations in correct order" />
+        <item itemvalue="Karma.ChildrenService.should get all children correctly" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="014244bf-8b30-4ac9-ace3-ab076cf2a46b" name="Default Changelist" comment="" />
+      <created>1571683654983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571683654983</updated>
+      <workItem from="1571683660536" duration="3335000" />
+      <workItem from="1571687068135" duration="3424000" />
+      <workItem from="1571725097471" duration="3820000" />
+      <workItem from="1571748306016" duration="2306000" />
+      <workItem from="1571750707714" duration="1361000" />
+      <workItem from="1571813372647" duration="246000" />
+      <workItem from="1572374571076" duration="2145000" />
+      <workItem from="1572448487334" duration="52000" />
+      <workItem from="1572736823854" duration="179000" />
+      <workItem from="1572977334508" duration="6360000" />
+      <workItem from="1573216246948" duration="14000" />
+      <workItem from="1573223420726" duration="4467000" />
+      <workItem from="1573582656347" duration="5369000" />
+      <workItem from="1574192648881" duration="989000" />
+      <workItem from="1574242044265" duration="136000" />
+      <workItem from="1574270526681" duration="10300000" />
+      <workItem from="1574793282589" duration="5460000" />
+      <workItem from="1574801063102" duration="1833000" />
+      <workItem from="1574838528260" duration="2354000" />
+      <workItem from="1575396210210" duration="5865000" />
+      <workItem from="1575841283841" duration="36000" />
+      <workItem from="1576003940556" duration="4066000" />
+      <workItem from="1576688744410" duration="12667000" />
+      <workItem from="1576936421707" duration="24000" />
+      <workItem from="1578171479835" duration="4033000" />
+      <workItem from="1578202059681" duration="2369000" />
+      <workItem from="1578419985844" duration="5983000" />
+      <workItem from="1579025120827" duration="4818000" />
+      <workItem from="1579108079609" duration="13815000" />
+      <workItem from="1579127728502" duration="4665000" />
+      <workItem from="1579170340272" duration="77000" />
+      <workItem from="1579170651148" duration="699000" />
+      <workItem from="1579274143428" duration="342000" />
+      <workItem from="1579274523790" duration="13000" />
+      <workItem from="1579275424761" duration="753000" />
+      <workItem from="1579439588835" duration="3119000" />
+      <workItem from="1579630678096" duration="3043000" />
+      <workItem from="1579640433060" duration="603000" />
+      <workItem from="1580235776258" duration="1337000" />
+      <workItem from="1580629821650" duration="1258000" />
+      <workItem from="1580632164431" duration="159000" />
+      <workItem from="1580667940177" duration="2518000" />
+      <workItem from="1580673513080" duration="391000" />
+      <workItem from="1581101524450" duration="130000" />
+      <workItem from="1581103545328" duration="1179000" />
+      <workItem from="1595960189860" duration="1505000" />
+      <workItem from="1597166365246" duration="4628000" />
+      <workItem from="1597176656937" duration="1892000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added component test for export link interaction">
+      <created>1571686265875</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571686265876</updated>
+    </task>
+    <task id="LOCAL-00002" summary="reset package-lock">
+      <created>1571686573703</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571686573703</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added EntitySchemaService to providers to fix the broken unit tess">
+      <created>1571687569820</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571687569820</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixed lint error">
+      <created>1571688123309</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571688123309</updated>
+    </task>
+    <task id="LOCAL-00005" summary="removed the script in angular.json">
+      <created>1571688965324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571688965324</updated>
+    </task>
+    <task id="LOCAL-00006" summary="removed the script in angular.json">
+      <created>1571689238527</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571689238527</updated>
+    </task>
+    <task id="LOCAL-00007" summary="undo changes">
+      <created>1571689678333</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571689678333</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated package-lock">
+      <created>1571726124199</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571726124199</updated>
+    </task>
+    <task id="LOCAL-00009" summary="updated package-lock">
+      <created>1571726157697</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571726157697</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added new user list component">
+      <created>1571751678153</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571751678153</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added the user edit component">
+      <created>1574273231782</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1574273231782</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed the way previous schools are displayed">
+      <created>1574283690150</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1574283690150</updated>
+    </task>
+    <task id="LOCAL-00013" summary="made username disabled for editing">
+      <created>1575397162999</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1575397162999</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added demoAdmin user">
+      <created>1575397872406</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1575397872407</updated>
+    </task>
+    <task id="LOCAL-00015" summary="cleaned up code and tried to get tests running">
+      <created>1576005819221</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576005819221</updated>
+    </task>
+    <task id="LOCAL-00016" summary="cleaning up link after usage">
+      <created>1576692917416</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1576692917416</updated>
+    </task>
+    <task id="LOCAL-00017" summary="updated documentation of the backup service">
+      <created>1576694270994</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1576694270994</updated>
+    </task>
+    <task id="LOCAL-00018" summary="cleaned up the csv function">
+      <created>1576695638892</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1576695638893</updated>
+    </task>
+    <task id="LOCAL-00019" summary="removed type of expected csv data">
+      <created>1576696567535</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1576696567535</updated>
+    </task>
+    <task id="LOCAL-00020" summary="made csv function more readable">
+      <created>1576696886856</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1576696886857</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fixed csv function">
+      <created>1576698151157</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1576698151157</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fixed component tests">
+      <created>1576698647811</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1576698647812</updated>
+    </task>
+    <task id="LOCAL-00023" summary="removed package-lock.json and inserted from master">
+      <created>1576699298027</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1576699298027</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fixed csv allField generation">
+      <created>1576699540422</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1576699540423</updated>
+    </task>
+    <task id="LOCAL-00025" summary="cleaned up code a little bit">
+      <created>1578422725001</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1578422725001</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added some test cases">
+      <created>1578424730779</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1578424730779</updated>
+    </task>
+    <task id="LOCAL-00027" summary="undone changes in the the package-lock.json">
+      <created>1578425221430</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1578425221430</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added another test but this one is not getting executed">
+      <created>1578427682902</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1578427682902</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added a test for loading the child">
+      <created>1579111822632</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1579111822632</updated>
+    </task>
+    <task id="LOCAL-00030" summary="adapted new folder structure of master">
+      <created>1579113421127</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1579113421127</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixed import error">
+      <created>1579115050714</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1579115050716</updated>
+    </task>
+    <task id="LOCAL-00032" summary="undone package-lock.json">
+      <created>1579115815244</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1579115815245</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixed tests">
+      <created>1579121923598</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1579121923598</updated>
+    </task>
+    <task id="LOCAL-00034" summary="created more test cases for edge cases">
+      <created>1579130446366</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1579130446366</updated>
+    </task>
+    <task id="LOCAL-00035" summary="applied new folder structure and tslint">
+      <created>1579130983061</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1579130983061</updated>
+    </task>
+    <task id="LOCAL-00036" summary="extended test case">
+      <created>1579131362711</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1579131362711</updated>
+    </task>
+    <task id="LOCAL-00037" summary="undonde package-lock.json">
+      <created>1579131583376</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1579131583376</updated>
+    </task>
+    <task id="LOCAL-00038" summary="changed demo data generator to create students which currently attend a school">
+      <created>1580672862859</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1580672862859</updated>
+    </task>
+    <task id="LOCAL-00039" summary="cleaned up code">
+      <created>1580673866952</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1580673866952</updated>
+    </task>
+    <task id="LOCAL-00040" summary="cleaned up code">
+      <created>1581104792727</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1581104792727</updated>
+    </task>
+    <task id="LOCAL-00041" summary="created workflow for compodoc in subfolder">
+      <created>1597176961678</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1597176961678</updated>
+    </task>
+    <task id="LOCAL-00042" summary="created new folder structure and test pages">
+      <created>1597177263428</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1597177263429</updated>
+    </task>
+    <task id="LOCAL-00043" summary="added home page">
+      <created>1597177543882</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1597177543882</updated>
+    </task>
+    <task id="LOCAL-00044" summary="renamed files to get loaded correctly">
+      <created>1597177623389</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1597177623389</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fixed on syntax">
+      <created>1597177779450</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1597177779451</updated>
+    </task>
+    <task id="LOCAL-00046" summary="added correct source directory">
+      <created>1597177918459</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1597177918459</updated>
+    </task>
+    <task id="LOCAL-00047" summary="changed gh push action to latest version to allow deployment to subdirectory">
+      <created>1597178461264</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1597178461265</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="admin_ui_v2" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removed package-lock.json and inserted from master" />
+    <MESSAGE value="fixed csv allField generation" />
+    <MESSAGE value="cleaned up code a little bit" />
+    <MESSAGE value="added some test cases" />
+    <MESSAGE value="undone changes in the the package-lock.json" />
+    <MESSAGE value="added another test but this one is not getting executed" />
+    <MESSAGE value="added a test for loading the child" />
+    <MESSAGE value="adapted new folder structure of master" />
+    <MESSAGE value="fixed import error" />
+    <MESSAGE value="undone package-lock.json" />
+    <MESSAGE value="fixed tests" />
+    <MESSAGE value="created more test cases for edge cases" />
+    <MESSAGE value="applied new folder structure" />
+    <MESSAGE value="applied new folder structure and tslint" />
+    <MESSAGE value="extended test case" />
+    <MESSAGE value="undonde package-lock.json" />
+    <MESSAGE value="changed demo data generator to create students which currently attend a school" />
+    <MESSAGE value="cleaned up code" />
+    <MESSAGE value="created workflow for compodoc in subfolder" />
+    <MESSAGE value="created new folder structure and test pages" />
+    <MESSAGE value="added home page" />
+    <MESSAGE value="renamed files to get loaded correctly" />
+    <MESSAGE value="fixed on syntax" />
+    <MESSAGE value="added correct source directory" />
+    <MESSAGE value="changed gh push action to latest version to allow deployment to subdirectory" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed gh push action to latest version to allow deployment to subdirectory" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="0" key="CommitChangelistDialog2" timestamp="1597178455555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597178455555" />
+    <state x="147" y="65" width="1228" height="687" key="DiffContextDialog" timestamp="1597178590310">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" width="1228" height="687" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1597178590310" />
+    <state width="1515" height="242" key="GridCell.Tab.0.bottom" timestamp="1597172269272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597172269272" />
+    <state width="1515" height="242" key="GridCell.Tab.0.center" timestamp="1597172269272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597172269272" />
+    <state width="1515" height="242" key="GridCell.Tab.0.left" timestamp="1597172269272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597172269272" />
+    <state width="1515" height="242" key="GridCell.Tab.0.right" timestamp="1597172269272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597172269272" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1597178466321">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1597178466321" />
+    <state x="564" y="146" key="VcsDiffUtil.ChangesDialog" timestamp="1597178562125">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="564" y="146" key="VcsDiffUtil.ChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597178562125" />
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597169279501">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1597169279501" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1597171973194">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597171973194" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/children/children.service.ts</url>
+          <line>296</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ndb_core$All_Tests.dat" NAME="All Tests Coverage Results" MODIFIED="1579120706840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
