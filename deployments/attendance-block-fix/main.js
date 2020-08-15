@@ -7810,12 +7810,14 @@ var ChildrenListComponent = /** @class */ (function () {
      * Calculate the number of attendance blocks that fit into the columns based on their width to avoid overlap.
      */
     ChildrenListComponent.prototype.calculateMaxAttendanceBlocks = function () {
-        var _a, _b;
+        if (!this.coachingCell || !this.schoolCell) {
+            return;
+        }
         // correlates with (block width + margin) as set in the attendance-block.component.scss
         var blockWidth = 52;
         var cellWidth = Object(lodash__WEBPACK_IMPORTED_MODULE_9__["min"])([
-            (_a = this.coachingCell) === null || _a === void 0 ? void 0 : _a.nativeElement.offsetWidth,
-            (_b = this.schoolCell) === null || _b === void 0 ? void 0 : _b.nativeElement.offsetWidth,
+            this.coachingCell.nativeElement.offsetWidth,
+            this.schoolCell.nativeElement.offsetWidth,
         ]);
         this.maxAttendanceBlocks = Object(lodash__WEBPACK_IMPORTED_MODULE_9__["floor"])(cellWidth / blockWidth);
     };
