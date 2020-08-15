@@ -7303,7 +7303,7 @@ function ChildrenListComponent_td_50_Template(rf, ctx) { if (rf & 1) {
     var child_r83 = ctx.$implicit;
     var ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](2, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 5, ctx_r19.attendanceList.get(child_r83.getId()), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](8, _c2)), 0, ctx_r19.blockNumber));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](2, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 5, ctx_r19.attendanceList.get(child_r83.getId()), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](8, _c2)), 0, ctx_r19.maxAttendanceBlocks));
 } }
 function ChildrenListComponent_th_52_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 63, 67);
@@ -7327,7 +7327,7 @@ function ChildrenListComponent_td_53_Template(rf, ctx) { if (rf & 1) {
     var child_r87 = ctx.$implicit;
     var ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](2, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 5, ctx_r21.attendanceList.get(child_r87.getId()), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](8, _c3)), 0, ctx_r21.blockNumber));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](2, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 5, ctx_r21.attendanceList.get(child_r87.getId()), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](8, _c3)), 0, ctx_r21.maxAttendanceBlocks));
 } }
 function ChildrenListComponent_th_55_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 59);
@@ -7712,7 +7712,7 @@ var ChildrenListComponent = /** @class */ (function () {
     ChildrenListComponent.prototype.ngAfterViewInit = function () {
         this.childrenDataSource.sort = this.sort;
         this.childrenDataSource.paginator = this.paginator;
-        this.calculateBoxNumber();
+        this.calculateMaxAttendanceBlocks();
     };
     ChildrenListComponent.prototype.loadData = function (replaceUrl) {
         var _this = this;
@@ -7806,14 +7806,18 @@ var ChildrenListComponent = /** @class */ (function () {
         this.childrenDataSource.data = filteredData;
         this.updateUrl(replaceUrl);
     };
-    ChildrenListComponent.prototype.calculateBoxNumber = function () {
+    /**
+     * Calculate the number of attendance blocks that fit into the columns based on their width to avoid overlap.
+     */
+    ChildrenListComponent.prototype.calculateMaxAttendanceBlocks = function () {
+        var _a, _b;
         // correlates with (block width + margin) as set in the attendance-block.component.scss
         var blockWidth = 52;
         var cellWidth = Object(lodash__WEBPACK_IMPORTED_MODULE_9__["min"])([
-            this.coachingCell.nativeElement.offsetWidth,
-            this.schoolCell.nativeElement.offsetWidth,
+            (_a = this.coachingCell) === null || _a === void 0 ? void 0 : _a.nativeElement.offsetWidth,
+            (_b = this.schoolCell) === null || _b === void 0 ? void 0 : _b.nativeElement.offsetWidth,
         ]);
-        this.blockNumber = Object(lodash__WEBPACK_IMPORTED_MODULE_9__["floor"])(cellWidth / blockWidth);
+        this.maxAttendanceBlocks = Object(lodash__WEBPACK_IMPORTED_MODULE_9__["floor"])(cellWidth / blockWidth);
     };
     ChildrenListComponent.ɵfac = function ChildrenListComponent_Factory(t) { return new (t || ChildrenListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_6__["MediaObserver"])); };
     ChildrenListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChildrenListComponent, selectors: [["app-children-list"]], viewQuery: function ChildrenListComponent_Query(rf, ctx) { if (rf & 1) {
@@ -7828,8 +7832,8 @@ var ChildrenListComponent = /** @class */ (function () {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.schoolCell = _t.first);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.coachingCell = _t.first);
         } }, hostBindings: function ChildrenListComponent_HostBindings(rf, ctx) { if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("resize", function ChildrenListComponent_resize_HostBindingHandler() { return ctx.calculateBoxNumber(); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
-        } }, decls: 108, vars: 17, consts: [["expanded", "true", "fxLayout", "column wrap", "fxLayoutGap", "10px", 1, "filter-panel"], ["fxLayout", "row", "fxLayoutGap", "10px", "fxLayoutAlign", "none end"], ["fxFlex", "50"], [2, "width", "100%"], ["matInput", "", "placeholder", "Filter", 3, "ngModel", "ngModelChange"], ["mat-icon-button", "", "matSuffix", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], ["fxFlex", "25", "fxHide.xs", "true", 1, "align-form-field"], ["fxFlex", "25", 1, "align-form-field"], ["mat-stroked-button", "", "color", "accent", 3, "routerLink"], ["aria-label", "add child", "fontIcon", "fa-plus-circle", 1, "button-icon"], ["fxHide.lt-md", "true"], ["format", "csv", "filename", "ChildrenList", 3, "data"], ["aria-label", "download csv", "fontIcon", "fa-download", 1, "button-icon"], ["fxLayout", "row wrap", "fxLayoutGap", "10px", "fxHide.lt-sm", "", 1, "filter-button"], ["name", "columnSelection", "fxLayout", "row wrap", 3, "value", "valueChange"], [3, "value", "click", 4, "ngFor", "ngForOf"], [3, "name", "value", 4, "ngFor", "ngForOf"], ["fxLayout", "row wrap", "fxHide.gt-xs", ""], ["style", "padding-right: 1%", 4, "ngFor", "ngForOf"], [1, "mat-elevation-z8", "table-list"], ["mat-table", "", "matSort", "", "width", "100%", 3, "dataSource"], ["matColumnDef", "projectNumber"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "name"], ["matColumnDef", "age"], ["matColumnDef", "dateOfBirth"], ["matColumnDef", "gender"], ["matColumnDef", "schoolClass"], ["matColumnDef", "schoolId"], ["matColumnDef", "attendance-school"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["matColumnDef", "attendance-coaching"], ["matColumnDef", "center"], ["matColumnDef", "status"], ["matColumnDef", "admissionDate"], ["matColumnDef", "motherTongue"], ["matColumnDef", "has_aadhar"], ["matColumnDef", "has_bankAccount"], ["matColumnDef", "has_kanyashree"], ["matColumnDef", "has_rationCard"], ["matColumnDef", "has_bplCard"], ["matColumnDef", "health_vaccinationStatus"], ["matColumnDef", "health_bloodGroup"], ["matColumnDef", "health_eyeHealthStatus"], ["matColumnDef", "health_LastEyeCheckup"], ["matColumnDef", "health_LastDentalCheckup"], ["matColumnDef", "health_LastENTCheckup"], ["matColumnDef", "health_LastVitaminD"], ["matColumnDef", "health_LastDeworming"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", "style", "cursor:pointer;", "class", "table-list-item", 3, "routerLink", 4, "matRowDef", "matRowDefColumns"], [3, "pageSize", "pageSizeOptions", "showFirstLastButtons"], ["mat-icon-button", "", "matSuffix", "", "aria-label", "Clear", 3, "click"], ["fontIcon", "fa-times"], [3, "value", "click"], [3, "name", "value"], [2, "padding-right", "1%"], ["placeholder", "filterSelection.name", 3, "id", "value"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [3, "entity"], [3, "entityId"], ["mat-header-cell", ""], ["attendanceSchoolCell", ""], [3, "attendanceData", 4, "ngFor", "ngForOf"], [3, "attendanceData"], ["attendanceCoachingCell", ""], ["mat-header-row", ""], ["mat-row", "", 1, "table-list-item", 2, "cursor", "pointer", 3, "routerLink"]], template: function ChildrenListComponent_Template(rf, ctx) { if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("resize", function ChildrenListComponent_resize_HostBindingHandler() { return ctx.calculateMaxAttendanceBlocks(); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
+        } }, decls: 108, vars: 17, consts: [["expanded", "true", "fxLayout", "column wrap", "fxLayoutGap", "10px", 1, "filter-panel"], ["fxLayout", "row", "fxLayoutGap", "10px", "fxLayoutAlign", "none end"], ["fxFlex", "50"], [2, "width", "100%"], ["matInput", "", "placeholder", "Filter", 3, "ngModel", "ngModelChange"], ["mat-icon-button", "", "matSuffix", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], ["fxFlex", "25", "fxHide.xs", "true", 1, "align-form-field"], ["fxFlex", "25", 1, "align-form-field"], ["mat-stroked-button", "", "color", "accent", 3, "routerLink"], ["aria-label", "add child", "fontIcon", "fa-plus-circle", 1, "button-icon"], ["fxHide.lt-md", "true"], ["format", "csv", "filename", "ChildrenList", 3, "data"], ["aria-label", "download csv", "fontIcon", "fa-download", 1, "button-icon"], ["fxLayout", "row wrap", "fxLayoutGap", "10px", "fxHide.lt-sm", "", 1, "filter-button"], ["name", "columnSelection", "fxLayout", "row wrap", 3, "value", "valueChange"], [3, "value", "click", 4, "ngFor", "ngForOf"], [3, "name", "value", 4, "ngFor", "ngForOf"], ["fxLayout", "row wrap", "fxHide.gt-xs", ""], ["style", "padding-right: 1%", 4, "ngFor", "ngForOf"], [1, "mat-elevation-z8", "table-list"], ["mat-table", "", "matSort", "", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "projectNumber"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "name"], ["matColumnDef", "age"], ["matColumnDef", "dateOfBirth"], ["matColumnDef", "gender"], ["matColumnDef", "schoolClass"], ["matColumnDef", "schoolId"], ["matColumnDef", "attendance-school"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["matColumnDef", "attendance-coaching"], ["matColumnDef", "center"], ["matColumnDef", "status"], ["matColumnDef", "admissionDate"], ["matColumnDef", "motherTongue"], ["matColumnDef", "has_aadhar"], ["matColumnDef", "has_bankAccount"], ["matColumnDef", "has_kanyashree"], ["matColumnDef", "has_rationCard"], ["matColumnDef", "has_bplCard"], ["matColumnDef", "health_vaccinationStatus"], ["matColumnDef", "health_bloodGroup"], ["matColumnDef", "health_eyeHealthStatus"], ["matColumnDef", "health_LastEyeCheckup"], ["matColumnDef", "health_LastDentalCheckup"], ["matColumnDef", "health_LastENTCheckup"], ["matColumnDef", "health_LastVitaminD"], ["matColumnDef", "health_LastDeworming"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", "style", "cursor:pointer;", "class", "table-list-item", 3, "routerLink", 4, "matRowDef", "matRowDefColumns"], [3, "pageSize", "pageSizeOptions", "showFirstLastButtons"], ["mat-icon-button", "", "matSuffix", "", "aria-label", "Clear", 3, "click"], ["fontIcon", "fa-times"], [3, "value", "click"], [3, "name", "value"], [2, "padding-right", "1%"], ["placeholder", "filterSelection.name", 3, "id", "value"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [3, "entity"], [3, "entityId"], ["mat-header-cell", ""], ["attendanceSchoolCell", ""], [3, "attendanceData", 4, "ngFor", "ngForOf"], [3, "attendanceData"], ["attendanceCoachingCell", ""], ["mat-header-row", ""], ["mat-row", "", 1, "table-list-item", 2, "cursor", "pointer", 3, "routerLink"]], template: function ChildrenListComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Children List");
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -8040,7 +8044,7 @@ var ChildrenListComponent = /** @class */ (function () {
         }], coachingCell: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
             args: ["attendanceCoachingCell"]
-        }], calculateBoxNumber: [{
+        }], calculateMaxAttendanceBlocks: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
             args: ["window:resize"]
         }] }); })();
