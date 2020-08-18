@@ -7742,12 +7742,6 @@ var ChildrenListComponent = /** @class */ (function () {
         this.user = this.sessionService.getCurrentUser();
         this.paginatorPageSize = this.user.paginatorSettingsPageSize.childrenList;
         this.paginatorPageIndex = this.user.paginatorSettingsPageIndex.childrenList;
-        // this.paginatorPageSize = this.user.paginatorSettings.pageSize
-        //   ? this.user.paginatorSettings.pageSize.childrenList
-        //   : 10;
-        // this.paginatorPageIndex = this.user.paginatorSettings.pageIndex
-        //   ? this.user.paginatorSettings.pageIndex.childrenList
-        //   : 0;
         this.media.media$
             .pipe(Object(_ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_8__["untilDestroyed"])(this))
             .subscribe(function (change) {
