@@ -616,7 +616,7 @@ var AppModule = /** @class */ (function () {
                     enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
                 }),
                 angulartics2__WEBPACK_IMPORTED_MODULE_44__["Angulartics2Module"].forRoot({
-                    developerMode: _environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
+                    developerMode: !_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
                 }),
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
@@ -685,7 +685,7 @@ var AppModule = /** @class */ (function () {
                         enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
                     }),
                     angulartics2__WEBPACK_IMPORTED_MODULE_44__["Angulartics2Module"].forRoot({
-                        developerMode: _environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
+                        developerMode: !_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].production,
                     }),
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
