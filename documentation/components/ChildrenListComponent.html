@@ -1560,31 +1560,69 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;h1&gt;Children List&lt;/h1&gt;
 
-&lt;mat-expansion-panel expanded&#x3D;&quot;true&quot; fxLayout&#x3D;&quot;column wrap&quot; fxLayoutGap&#x3D;&quot;10px&quot; class&#x3D;&#x27;filter-panel&#x27;&gt;
+&lt;mat-expansion-panel
+  expanded&#x3D;&quot;true&quot;
+  fxLayout&#x3D;&quot;column wrap&quot;
+  fxLayoutGap&#x3D;&quot;10px&quot;
+  class&#x3D;&quot;filter-panel&quot;
+&gt;
   &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutGap&#x3D;&quot;10px&quot; fxLayoutAlign&#x3D;&quot;none end&quot;&gt;
     &lt;!-- text search --&gt;
-    &lt;div fxFlex&#x3D;&#x27;50&#x27;&gt;
-      &lt;mat-form-field style&#x3D;&#x27;width:100%&#x27;&gt;
-        &lt;input  matInput placeholder&#x3D;&quot;Filter&quot; (ngModelChange)&#x3D;&quot;applyFilter($event)&quot; [(ngModel)]&#x3D;&quot;filterString&quot;&gt;
-        &lt;button  mat-icon-button *ngIf&#x3D;&quot;filterString&quot; matSuffix aria-label&#x3D;&quot;Clear&quot; (click)&#x3D;&quot;filterString&#x3D;&#x27;&#x27;; applyFilter(&#x27;&#x27;);&quot;&gt;
+    &lt;div fxFlex&#x3D;&quot;50&quot;&gt;
+      &lt;mat-form-field style&#x3D;&quot;width: 100%;&quot;&gt;
+        &lt;input
+          matInput
+          placeholder&#x3D;&quot;Filter&quot;
+          (ngModelChange)&#x3D;&quot;applyFilter($event)&quot;
+          [(ngModel)]&#x3D;&quot;filterString&quot;
+        /&gt;
+        &lt;button
+          mat-icon-button
+          *ngIf&#x3D;&quot;filterString&quot;
+          matSuffix
+          aria-label&#x3D;&quot;Clear&quot;
+          (click)&#x3D;&quot;filterString &#x3D; &#x27;&#x27;; applyFilter(&#x27;&#x27;)&quot;
+        &gt;
           &lt;mat-icon fontIcon&#x3D;&quot;fa-times&quot;&gt;&lt;/mat-icon&gt;
         &lt;/button&gt;
       &lt;/mat-form-field&gt;
     &lt;/div&gt;
     &lt;!-- number of table entries --&gt;
-    &lt;div fxFlex&#x3D;&#x27;25&#x27; fxHide.xs&#x3D;&#x27;true&#x27; class&#x3D;&#x27;align-form-field&#x27;&gt;
-      (Showing {{childrenDataSource.filteredData.length}} children)
+    &lt;div fxFlex&#x3D;&quot;25&quot; fxHide.xs&#x3D;&quot;true&quot; class&#x3D;&quot;align-form-field&quot;&gt;
+      (Showing {{ childrenDataSource.filteredData.length }} children)
     &lt;/div&gt;
     &lt;!-- add new button --&gt;
-    &lt;div fxFlex&#x3D;&#x27;25&#x27; class&#x3D;&#x27;align-form-field&#x27;&gt;
-      &lt;button mat-stroked-button color&#x3D;&quot;accent&quot; [routerLink]&#x3D;&quot;[&#x27;/child&#x27;, &#x27;new&#x27;]&quot;&gt;
-        &lt;mat-icon class&#x3D;&quot;button-icon&quot; aria-label&#x3D;&quot;add child&quot; fontIcon&#x3D;&quot;fa-plus-circle&quot;&gt;&lt;/mat-icon&gt;
+    &lt;div fxFlex&#x3D;&quot;25&quot; class&#x3D;&quot;align-form-field&quot;&gt;
+      &lt;button
+        mat-stroked-button
+        color&#x3D;&quot;accent&quot;
+        [routerLink]&#x3D;&quot;[&#x27;/child&#x27;, &#x27;new&#x27;]&quot;
+        angulartics2On&#x3D;&quot;click&quot;
+        angularticsCategory&#x3D;&quot;UserAction&quot;
+        angularticsAction&#x3D;&quot;children_list_add_new&quot;
+      &gt;
+        &lt;mat-icon
+          class&#x3D;&quot;button-icon&quot;
+          aria-label&#x3D;&quot;add child&quot;
+          fontIcon&#x3D;&quot;fa-plus-circle&quot;
+        &gt;&lt;/mat-icon&gt;
         &lt;span fxHide.lt-md&#x3D;&quot;true&quot;&gt;
           Add New
         &lt;/span&gt;
       &lt;/button&gt;
-      &lt;app-export-data [data]&#x3D;&quot;childrenList&quot; format&#x3D;&quot;csv&quot; filename&#x3D;&quot;ChildrenList&quot;&gt;
-        &lt;mat-icon class&#x3D;&quot;button-icon&quot; aria-label&#x3D;&quot;download csv&quot; fontIcon&#x3D;&quot;fa-download&quot;&gt;&lt;/mat-icon&gt;
+      &lt;app-export-data
+        [data]&#x3D;&quot;childrenList&quot;
+        format&#x3D;&quot;csv&quot;
+        filename&#x3D;&quot;ChildrenList&quot;
+        angulartics2On&#x3D;&quot;click&quot;
+        angularticsCategory&#x3D;&quot;UserAction&quot;
+        angularticsAction&#x3D;&quot;children_list_csv_export&quot;
+      &gt;
+        &lt;mat-icon
+          class&#x3D;&quot;button-icon&quot;
+          aria-label&#x3D;&quot;download csv&quot;
+          fontIcon&#x3D;&quot;fa-download&quot;
+        &gt;&lt;/mat-icon&gt;
         &lt;span fxHide.lt-md&#x3D;&quot;true&quot;&gt;
           Download CSV
         &lt;/span&gt;
@@ -1601,30 +1639,61 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
     &lt;/mat-select&gt;
   &lt;/mat-form-field&gt;
   --&gt;
-  &lt;div fxLayout&#x3D;&#x27;row wrap&#x27; fxLayoutGap&#x3D;&#x27;10px&#x27; class&#x3D;&quot;filter-button&quot; fxHide.lt-sm&gt;
-    &lt;mat-button-toggle-group name&#x3D;&quot;columnSelection&quot; [(value)]&#x3D;&quot;columnGroupSelection&quot; fxLayout&#x3D;&quot;row wrap&quot;&gt;
-      &lt;mat-button-toggle *ngFor&#x3D;&quot;let item of columnGroups &quot; [value]&#x3D;&quot;item.name&quot;
-                         (click)&#x3D;&quot;displayColumnGroup(item.name)&quot;&gt;
-        {{item.name}}
+  &lt;div
+    fxLayout&#x3D;&quot;row wrap&quot;
+    fxLayoutGap&#x3D;&quot;10px&quot;
+    class&#x3D;&quot;filter-button&quot;
+    fxHide.lt-sm
+  &gt;
+    &lt;mat-button-toggle-group
+      name&#x3D;&quot;columnSelection&quot;
+      [(value)]&#x3D;&quot;columnGroupSelection&quot;
+      fxLayout&#x3D;&quot;row wrap&quot;
+    &gt;
+      &lt;mat-button-toggle
+        *ngFor&#x3D;&quot;let item of columnGroups&quot;
+        [value]&#x3D;&quot;item.name&quot;
+        (click)&#x3D;&quot;displayColumnGroup(item.name)&quot;
+      &gt;
+        {{ item.name }}
       &lt;/mat-button-toggle&gt;
     &lt;/mat-button-toggle-group&gt;
 
-    &lt;mat-button-toggle-group *ngFor&#x3D;&#x27;let filterSelection of filterSelections&#x27;
-      [name]&#x3D;&quot;filterSelection.name&quot; [value]&#x3D;&#x27;filterSelection.selectedOption&#x27;&gt;
-      &lt;mat-button-toggle *ngFor&#x3D;&#x27;let option of filterSelection.options&#x27; [value]&#x3D;&quot;option.key&quot;
-                         (click)&#x3D;&quot;filterSelection.selectedOption&#x3D;option.key; applyFilterSelections();&quot;
-                         &gt;
-        {{option.label}}
+    &lt;mat-button-toggle-group
+      *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot;
+      [name]&#x3D;&quot;filterSelection.name&quot;
+      [value]&#x3D;&quot;filterSelection.selectedOption&quot;
+    &gt;
+      &lt;mat-button-toggle
+        *ngFor&#x3D;&quot;let option of filterSelection.options&quot;
+        [value]&#x3D;&quot;option.key&quot;
+        (click)&#x3D;&quot;
+          filterSelection.selectedOption &#x3D; option.key; applyFilterSelections()
+        &quot;
+      &gt;
+        {{ option.label }}
       &lt;/mat-button-toggle&gt;
     &lt;/mat-button-toggle-group&gt;
   &lt;/div&gt;
   &lt;div fxLayout&#x3D;&quot;row wrap&quot; fxHide.gt-xs&gt;
-    &lt;mat-form-field *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot; style&#x3D;&quot;padding-right: 1%&quot;&gt;
-      &lt;mat-label&gt;{{filterSelection.name}}&lt;/mat-label&gt;
-      &lt;mat-select  [id]&#x3D;&quot;filterSelection.name&quot; [value]&#x3D;&quot;filterSelection.selectedOption&quot; placeholder&#x3D;&quot;filterSelection.name&quot;&gt;
-        &lt;mat-option *ngFor&#x3D;&quot;let option of filterSelection.options&quot; [value]&#x3D;&quot;option.key&quot;
-                    (click)&#x3D;&quot;filterSelection.selectedOption&#x3D;option.key; applyFilterSelections()&quot;&gt;
-          {{option.label}}
+    &lt;mat-form-field
+      *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot;
+      style&#x3D;&quot;padding-right: 1%;&quot;
+    &gt;
+      &lt;mat-label&gt;{{ filterSelection.name }}&lt;/mat-label&gt;
+      &lt;mat-select
+        [id]&#x3D;&quot;filterSelection.name&quot;
+        [value]&#x3D;&quot;filterSelection.selectedOption&quot;
+        placeholder&#x3D;&quot;filterSelection.name&quot;
+      &gt;
+        &lt;mat-option
+          *ngFor&#x3D;&quot;let option of filterSelection.options&quot;
+          [value]&#x3D;&quot;option.key&quot;
+          (click)&#x3D;&quot;
+            filterSelection.selectedOption &#x3D; option.key; applyFilterSelections()
+          &quot;
+        &gt;
+          {{ option.label }}
         &lt;/mat-option&gt;
       &lt;/mat-select&gt;
     &lt;/mat-form-field&gt;
@@ -1634,154 +1703,195 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
 &lt;!--&lt;mat-divider&gt;&lt;/mat-divider&gt;--&gt;
 
 &lt;div class&#x3D;&quot;mat-elevation-z8 table-list&quot;&gt;
-  &lt;table mat-table [dataSource]&#x3D;&quot;childrenDataSource&quot; matSort width&#x3D;&#x27;100%&#x27;&gt;
+  &lt;table mat-table [dataSource]&#x3D;&quot;childrenDataSource&quot; matSort width&#x3D;&quot;100%&quot;&gt;
     &lt;ng-container matColumnDef&#x3D;&quot;projectNumber&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; PN &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.projectNumber}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;PN&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.projectNumber }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Name &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; &lt;app-child-block [entity]&#x3D;&#x27;child&#x27;&gt;&lt;/app-child-block&gt; &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Name&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        &lt;app-child-block [entity]&#x3D;&quot;child&quot;&gt;&lt;/app-child-block&gt;
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;age&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Age &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.age}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Age&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.age }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;dateOfBirth&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; DoB &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.dateOfBirth | date:&#x27;longDate&#x27;}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;DoB&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.dateOfBirth | date: &quot;longDate&quot; }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;gender&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Gender &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.gender}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Gender&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.gender }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
-
     &lt;ng-container matColumnDef&#x3D;&quot;schoolClass&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Class &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.schoolClass}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Class&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.schoolClass }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;schoolId&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; School &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;&lt;app-school-block [entityId]&#x3D;&#x27;child.schoolId&#x27;&gt;&lt;/app-school-block&gt; &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;School&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        &lt;app-school-block [entityId]&#x3D;&quot;child.schoolId&quot;&gt;&lt;/app-school-block&gt;
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;attendance-school&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef&gt; Attendance (School)&lt;/th&gt;
+      &lt;th mat-header-cell *matHeaderCellDef&gt;Attendance (School)&lt;/th&gt;
       &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
-        &lt;app-attendance-block *ngFor&#x3D;&quot;let att of attendanceList.get(child.getId()) | filterBy: {&#x27;institution&#x27;: &#x27;school&#x27;} | slice:0:5&quot;
-                              [attendanceData]&#x3D;&quot;att&quot;&gt;&lt;/app-attendance-block&gt;
+        &lt;app-attendance-block
+          *ngFor&#x3D;&quot;
+            let att of attendanceList.get(child.getId())
+              | filterBy: { institution: &#x27;school&#x27; }
+              | slice: 0:5
+          &quot;
+          [attendanceData]&#x3D;&quot;att&quot;
+        &gt;&lt;/app-attendance-block&gt;
       &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;attendance-coaching&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef&gt; Attendance (Coaching)&lt;/th&gt;
+      &lt;th mat-header-cell *matHeaderCellDef&gt;Attendance (Coaching)&lt;/th&gt;
       &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
-        &lt;app-attendance-block *ngFor&#x3D;&quot;let att of attendanceList.get(child.getId()) | filterBy: {&#x27;institution&#x27;: &#x27;coaching&#x27;} | slice:0:5&quot;
-                              [attendanceData]&#x3D;&quot;att&quot;&gt;&lt;/app-attendance-block&gt;
+        &lt;app-attendance-block
+          *ngFor&#x3D;&quot;
+            let att of attendanceList.get(child.getId())
+              | filterBy: { institution: &#x27;coaching&#x27; }
+              | slice: 0:5
+          &quot;
+          [attendanceData]&#x3D;&quot;att&quot;
+        &gt;&lt;/app-attendance-block&gt;
       &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;center&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Center &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.center}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Center&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.center }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;status&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Status &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.status}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Status&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.status }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;admissionDate&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Admission &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.admissionDate}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Admission&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.admissionDate }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;motherTongue&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Mother Tongue &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.motherTongue}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Mother Tongue&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.motherTongue }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
-
     &lt;ng-container matColumnDef&#x3D;&quot;has_aadhar&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Aadhar &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.has_aadhar}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Aadhar&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.has_aadhar }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;has_bankAccount&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Bank Account &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.has_bankAccount}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Bank Account&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.has_bankAccount }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;has_kanyashree&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Kanyashree &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.has_kanyashree}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Kanyashree&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.has_kanyashree }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;has_rationCard&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Ration Card &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.has_rationCard}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Ration Card&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.has_rationCard }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;has_bplCard&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; BPL Card &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.has_BplCard}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;BPL Card&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.has_BplCard }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
-
     &lt;ng-container matColumnDef&#x3D;&quot;health_vaccinationStatus&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Vaccination Status &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_vaccinationStatus}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;
+        Vaccination Status
+      &lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.health_vaccinationStatus }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_bloodGroup&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Blood Group &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_bloodGroup}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Blood Group&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.health_bloodGroup }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_eyeHealthStatus&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Eye Status &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_eyeHealthStatus}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Eye Status&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.health_eyeHealthStatus }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_LastEyeCheckup&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last Eye Check-Up &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_lastEyeCheckup}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;
+        Last Eye Check-Up
+      &lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.health_lastEyeCheckup }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_LastDentalCheckup&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last Dental Check-Ups &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_lastDentalCheckup}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;
+        Last Dental Check-Ups
+      &lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.health_lastDentalCheckup }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_LastENTCheckup&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last ENT Check-Up &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_lastENTCheckup}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;
+        Last ENT Check-Up
+      &lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;
+        {{ child.health_lastENTCheckup }}
+      &lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_LastVitaminD&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last Vitamin D &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_lastVitaminD}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Last Vitamin D&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.health_lastVitaminD }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;health_LastDeworming&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last De-Worming &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt; {{child.health_lastDeworming}} &lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Last De-Worming&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let child&quot;&gt;{{ child.health_lastDeworming }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
-
-
     &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;columnsToDisplay&quot;&gt;&lt;/tr&gt;
-    &lt;tr mat-row *matRowDef&#x3D;&quot;let child; columns: columnsToDisplay&quot; [routerLink]&#x3D;&quot;[&#x27;/child&#x27;, child.getId()]&quot;
-        style&#x3D;&quot;cursor:pointer;&quot; class&#x3D;&quot;table-list-item&quot;&gt;&lt;/tr&gt;
-
+    &lt;tr
+      mat-row
+      *matRowDef&#x3D;&quot;let child; columns: columnsToDisplay&quot;
+      [routerLink]&#x3D;&quot;[&#x27;/child&#x27;, child.getId()]&quot;
+      style&#x3D;&quot;cursor: pointer;&quot;
+      class&#x3D;&quot;table-list-item&quot;
+    &gt;&lt;/tr&gt;
   &lt;/table&gt;
-  &lt;mat-paginator (page)&#x3D;&quot;onPaginateChange($event)&quot; [pageSize]&#x3D;&quot;paginatorPageSize&quot; [pageIndex]&#x3D;&quot;paginatorPageIndex&quot; [pageSizeOptions]&#x3D;&quot;[3, 10, 20, 50]&quot; [showFirstLastButtons]&#x3D;&quot;true&quot;&gt;&lt;/mat-paginator&gt;
+  &lt;mat-paginator
+    (page)&#x3D;&quot;onPaginateChange($event)&quot;
+    [pageSize]&#x3D;&quot;paginatorPageSize&quot;
+    [pageIndex]&#x3D;&quot;paginatorPageIndex&quot;
+    [pageSizeOptions]&#x3D;&quot;[3, 10, 20, 50]&quot;
+    [showFirstLastButtons]&#x3D;&quot;true&quot;
+  &gt;&lt;/mat-paginator&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -1842,7 +1952,7 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1>Children List</h1><mat-expansion-panel expanded="true" fxLayout="column wrap" fxLayoutGap="10px" class=\'filter-panel\'>  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="none end">    <!-- text search -->    <div fxFlex=\'50\'>      <mat-form-field style=\'width:100%\'>        <input  matInput placeholder="Filter" (ngModelChange)="applyFilter($event)" [(ngModel)]="filterString">        <button  mat-icon-button *ngIf="filterString" matSuffix aria-label="Clear" (click)="filterString=\'\'; applyFilter(\'\');">          <mat-icon fontIcon="fa-times"></mat-icon>        </button>      </mat-form-field>    </div>    <!-- number of table entries -->    <div fxFlex=\'25\' fxHide.xs=\'true\' class=\'align-form-field\'>      (Showing {{childrenDataSource.filteredData.length}} children)    </div>    <!-- add new button -->    <div fxFlex=\'25\' class=\'align-form-field\'>      <button mat-stroked-button color="accent" [routerLink]="[\'/child\', \'new\']">        <mat-icon class="button-icon" aria-label="add child" fontIcon="fa-plus-circle"></mat-icon>        <span fxHide.lt-md="true">          Add New        </span>      </button>      <app-export-data [data]="childrenList" format="csv" filename="ChildrenList">        <mat-icon class="button-icon" aria-label="download csv" fontIcon="fa-download"></mat-icon>        <span fxHide.lt-md="true">          Download CSV        </span>      </app-export-data>    </div>  </div>  <!--  <mat-form-field>    <mat-select fxShow.xs="true" [value]="columnGroupSelection">      <mat-option *ngFor="let item of columnGroups" [value]="item.name"                  (click)="displayColumnGroup(item.name)">        {{item.name}}      </mat-option>    </mat-select>  </mat-form-field>  -->  <div fxLayout=\'row wrap\' fxLayoutGap=\'10px\' class="filter-button" fxHide.lt-sm>    <mat-button-toggle-group name="columnSelection" [(value)]="columnGroupSelection" fxLayout="row wrap">      <mat-button-toggle *ngFor="let item of columnGroups " [value]="item.name"                         (click)="displayColumnGroup(item.name)">        {{item.name}}      </mat-button-toggle>    </mat-button-toggle-group>    <mat-button-toggle-group *ngFor=\'let filterSelection of filterSelections\'      [name]="filterSelection.name" [value]=\'filterSelection.selectedOption\'>      <mat-button-toggle *ngFor=\'let option of filterSelection.options\' [value]="option.key"                         (click)="filterSelection.selectedOption=option.key; applyFilterSelections();"                         >        {{option.label}}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div fxLayout="row wrap" fxHide.gt-xs>    <mat-form-field *ngFor="let filterSelection of filterSelections" style="padding-right: 1%">      <mat-label>{{filterSelection.name}}</mat-label>      <mat-select  [id]="filterSelection.name" [value]="filterSelection.selectedOption" placeholder="filterSelection.name">        <mat-option *ngFor="let option of filterSelection.options" [value]="option.key"                    (click)="filterSelection.selectedOption=option.key; applyFilterSelections()">          {{option.label}}        </mat-option>      </mat-select>    </mat-form-field>  </div></mat-expansion-panel><!--<mat-divider></mat-divider>--><div class="mat-elevation-z8 table-list">  <table mat-table [dataSource]="childrenDataSource" matSort width=\'100%\'>    <ng-container matColumnDef="projectNumber">      <th mat-header-cell *matHeaderCellDef mat-sort-header> PN </th>      <td mat-cell *matCellDef="let child"> {{child.projectNumber}}</td>    </ng-container>    <ng-container matColumnDef="name">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>      <td mat-cell *matCellDef="let child"> <app-child-block [entity]=\'child\'></app-child-block> </td>    </ng-container>    <ng-container matColumnDef="age">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>      <td mat-cell *matCellDef="let child"> {{child.age}} </td>    </ng-container>    <ng-container matColumnDef="dateOfBirth">      <th mat-header-cell *matHeaderCellDef mat-sort-header> DoB </th>      <td mat-cell *matCellDef="let child"> {{child.dateOfBirth | date:\'longDate\'}} </td>    </ng-container>    <ng-container matColumnDef="gender">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>      <td mat-cell *matCellDef="let child"> {{child.gender}} </td>    </ng-container>    <ng-container matColumnDef="schoolClass">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Class </th>      <td mat-cell *matCellDef="let child"> {{child.schoolClass}} </td>    </ng-container>    <ng-container matColumnDef="schoolId">      <th mat-header-cell *matHeaderCellDef mat-sort-header> School </th>      <td mat-cell *matCellDef="let child"><app-school-block [entityId]=\'child.schoolId\'></app-school-block> </td>    </ng-container>    <ng-container matColumnDef="attendance-school">      <th mat-header-cell *matHeaderCellDef> Attendance (School)</th>      <td mat-cell *matCellDef="let child">        <app-attendance-block *ngFor="let att of attendanceList.get(child.getId()) | filterBy: {\'institution\': \'school\'} | slice:0:5"                              [attendanceData]="att"></app-attendance-block>      </td>    </ng-container>    <ng-container matColumnDef="attendance-coaching">      <th mat-header-cell *matHeaderCellDef> Attendance (Coaching)</th>      <td mat-cell *matCellDef="let child">        <app-attendance-block *ngFor="let att of attendanceList.get(child.getId()) | filterBy: {\'institution\': \'coaching\'} | slice:0:5"                              [attendanceData]="att"></app-attendance-block>      </td>    </ng-container>    <ng-container matColumnDef="center">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Center </th>      <td mat-cell *matCellDef="let child"> {{child.center}} </td>    </ng-container>    <ng-container matColumnDef="status">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>      <td mat-cell *matCellDef="let child"> {{child.status}} </td>    </ng-container>    <ng-container matColumnDef="admissionDate">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Admission </th>      <td mat-cell *matCellDef="let child"> {{child.admissionDate}} </td>    </ng-container>    <ng-container matColumnDef="motherTongue">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mother Tongue </th>      <td mat-cell *matCellDef="let child"> {{child.motherTongue}} </td>    </ng-container>    <ng-container matColumnDef="has_aadhar">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Aadhar </th>      <td mat-cell *matCellDef="let child"> {{child.has_aadhar}}</td>    </ng-container>    <ng-container matColumnDef="has_bankAccount">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Bank Account </th>      <td mat-cell *matCellDef="let child"> {{child.has_bankAccount}}</td>    </ng-container>    <ng-container matColumnDef="has_kanyashree">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Kanyashree </th>      <td mat-cell *matCellDef="let child"> {{child.has_kanyashree}}</td>    </ng-container>    <ng-container matColumnDef="has_rationCard">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ration Card </th>      <td mat-cell *matCellDef="let child"> {{child.has_rationCard}}</td>    </ng-container>    <ng-container matColumnDef="has_bplCard">      <th mat-header-cell *matHeaderCellDef mat-sort-header> BPL Card </th>      <td mat-cell *matCellDef="let child"> {{child.has_BplCard}}</td>    </ng-container>    <ng-container matColumnDef="health_vaccinationStatus">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Vaccination Status </th>      <td mat-cell *matCellDef="let child"> {{child.health_vaccinationStatus}} </td>    </ng-container>    <ng-container matColumnDef="health_bloodGroup">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Blood Group </th>      <td mat-cell *matCellDef="let child"> {{child.health_bloodGroup}} </td>    </ng-container>    <ng-container matColumnDef="health_eyeHealthStatus">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Eye Status </th>      <td mat-cell *matCellDef="let child"> {{child.health_eyeHealthStatus}} </td>    </ng-container>    <ng-container matColumnDef="health_LastEyeCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Eye Check-Up </th>      <td mat-cell *matCellDef="let child"> {{child.health_lastEyeCheckup}} </td>    </ng-container>    <ng-container matColumnDef="health_LastDentalCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Dental Check-Ups </th>      <td mat-cell *matCellDef="let child"> {{child.health_lastDentalCheckup}} </td>    </ng-container>    <ng-container matColumnDef="health_LastENTCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last ENT Check-Up </th>      <td mat-cell *matCellDef="let child"> {{child.health_lastENTCheckup}} </td>    </ng-container>    <ng-container matColumnDef="health_LastVitaminD">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Vitamin D </th>      <td mat-cell *matCellDef="let child"> {{child.health_lastVitaminD}} </td>    </ng-container>    <ng-container matColumnDef="health_LastDeworming">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last De-Worming </th>      <td mat-cell *matCellDef="let child"> {{child.health_lastDeworming}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>    <tr mat-row *matRowDef="let child; columns: columnsToDisplay" [routerLink]="[\'/child\', child.getId()]"        style="cursor:pointer;" class="table-list-item"></tr>  </table>  <mat-paginator (page)="onPaginateChange($event)" [pageSize]="paginatorPageSize" [pageIndex]="paginatorPageIndex" [pageSizeOptions]="[3, 10, 20, 50]" [showFirstLastButtons]="true"></mat-paginator></div></div>'
+        var COMPONENT_TEMPLATE = '<div><h1>Children List</h1><mat-expansion-panel  expanded="true"  fxLayout="column wrap"  fxLayoutGap="10px"  class="filter-panel">  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="none end">    <!-- text search -->    <div fxFlex="50">      <mat-form-field style="width: 100%;">        <input          matInput          placeholder="Filter"          (ngModelChange)="applyFilter($event)"          [(ngModel)]="filterString"        />        <button          mat-icon-button          *ngIf="filterString"          matSuffix          aria-label="Clear"          (click)="filterString = \'\'; applyFilter(\'\')"        >          <mat-icon fontIcon="fa-times"></mat-icon>        </button>      </mat-form-field>    </div>    <!-- number of table entries -->    <div fxFlex="25" fxHide.xs="true" class="align-form-field">      (Showing {{ childrenDataSource.filteredData.length }} children)    </div>    <!-- add new button -->    <div fxFlex="25" class="align-form-field">      <button        mat-stroked-button        color="accent"        [routerLink]="[\'/child\', \'new\']"        angulartics2On="click"        angularticsCategory="UserAction"        angularticsAction="children_list_add_new"      >        <mat-icon          class="button-icon"          aria-label="add child"          fontIcon="fa-plus-circle"        ></mat-icon>        <span fxHide.lt-md="true">          Add New        </span>      </button>      <app-export-data        [data]="childrenList"        format="csv"        filename="ChildrenList"        angulartics2On="click"        angularticsCategory="UserAction"        angularticsAction="children_list_csv_export"      >        <mat-icon          class="button-icon"          aria-label="download csv"          fontIcon="fa-download"        ></mat-icon>        <span fxHide.lt-md="true">          Download CSV        </span>      </app-export-data>    </div>  </div>  <!--  <mat-form-field>    <mat-select fxShow.xs="true" [value]="columnGroupSelection">      <mat-option *ngFor="let item of columnGroups" [value]="item.name"                  (click)="displayColumnGroup(item.name)">        {{item.name}}      </mat-option>    </mat-select>  </mat-form-field>  -->  <div    fxLayout="row wrap"    fxLayoutGap="10px"    class="filter-button"    fxHide.lt-sm  >    <mat-button-toggle-group      name="columnSelection"      [(value)]="columnGroupSelection"      fxLayout="row wrap"    >      <mat-button-toggle        *ngFor="let item of columnGroups"        [value]="item.name"        (click)="displayColumnGroup(item.name)"      >        {{ item.name }}      </mat-button-toggle>    </mat-button-toggle-group>    <mat-button-toggle-group      *ngFor="let filterSelection of filterSelections"      [name]="filterSelection.name"      [value]="filterSelection.selectedOption"    >      <mat-button-toggle        *ngFor="let option of filterSelection.options"        [value]="option.key"        (click)="          filterSelection.selectedOption = option.key; applyFilterSelections()        "      >        {{ option.label }}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div fxLayout="row wrap" fxHide.gt-xs>    <mat-form-field      *ngFor="let filterSelection of filterSelections"      style="padding-right: 1%;"    >      <mat-label>{{ filterSelection.name }}</mat-label>      <mat-select        [id]="filterSelection.name"        [value]="filterSelection.selectedOption"        placeholder="filterSelection.name"      >        <mat-option          *ngFor="let option of filterSelection.options"          [value]="option.key"          (click)="            filterSelection.selectedOption = option.key; applyFilterSelections()          "        >          {{ option.label }}        </mat-option>      </mat-select>    </mat-form-field>  </div></mat-expansion-panel><!--<mat-divider></mat-divider>--><div class="mat-elevation-z8 table-list">  <table mat-table [dataSource]="childrenDataSource" matSort width="100%">    <ng-container matColumnDef="projectNumber">      <th mat-header-cell *matHeaderCellDef mat-sort-header>PN</th>      <td mat-cell *matCellDef="let child">{{ child.projectNumber }}</td>    </ng-container>    <ng-container matColumnDef="name">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>      <td mat-cell *matCellDef="let child">        <app-child-block [entity]="child"></app-child-block>      </td>    </ng-container>    <ng-container matColumnDef="age">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>      <td mat-cell *matCellDef="let child">{{ child.age }}</td>    </ng-container>    <ng-container matColumnDef="dateOfBirth">      <th mat-header-cell *matHeaderCellDef mat-sort-header>DoB</th>      <td mat-cell *matCellDef="let child">        {{ child.dateOfBirth | date: "longDate" }}      </td>    </ng-container>    <ng-container matColumnDef="gender">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>      <td mat-cell *matCellDef="let child">{{ child.gender }}</td>    </ng-container>    <ng-container matColumnDef="schoolClass">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Class</th>      <td mat-cell *matCellDef="let child">{{ child.schoolClass }}</td>    </ng-container>    <ng-container matColumnDef="schoolId">      <th mat-header-cell *matHeaderCellDef mat-sort-header>School</th>      <td mat-cell *matCellDef="let child">        <app-school-block [entityId]="child.schoolId"></app-school-block>      </td>    </ng-container>    <ng-container matColumnDef="attendance-school">      <th mat-header-cell *matHeaderCellDef>Attendance (School)</th>      <td mat-cell *matCellDef="let child">        <app-attendance-block          *ngFor="            let att of attendanceList.get(child.getId())              | filterBy: { institution: \'school\' }              | slice: 0:5          "          [attendanceData]="att"        ></app-attendance-block>      </td>    </ng-container>    <ng-container matColumnDef="attendance-coaching">      <th mat-header-cell *matHeaderCellDef>Attendance (Coaching)</th>      <td mat-cell *matCellDef="let child">        <app-attendance-block          *ngFor="            let att of attendanceList.get(child.getId())              | filterBy: { institution: \'coaching\' }              | slice: 0:5          "          [attendanceData]="att"        ></app-attendance-block>      </td>    </ng-container>    <ng-container matColumnDef="center">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Center</th>      <td mat-cell *matCellDef="let child">{{ child.center }}</td>    </ng-container>    <ng-container matColumnDef="status">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>      <td mat-cell *matCellDef="let child">{{ child.status }}</td>    </ng-container>    <ng-container matColumnDef="admissionDate">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Admission</th>      <td mat-cell *matCellDef="let child">{{ child.admissionDate }}</td>    </ng-container>    <ng-container matColumnDef="motherTongue">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mother Tongue</th>      <td mat-cell *matCellDef="let child">{{ child.motherTongue }}</td>    </ng-container>    <ng-container matColumnDef="has_aadhar">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Aadhar</th>      <td mat-cell *matCellDef="let child">{{ child.has_aadhar }}</td>    </ng-container>    <ng-container matColumnDef="has_bankAccount">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Bank Account</th>      <td mat-cell *matCellDef="let child">{{ child.has_bankAccount }}</td>    </ng-container>    <ng-container matColumnDef="has_kanyashree">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kanyashree</th>      <td mat-cell *matCellDef="let child">{{ child.has_kanyashree }}</td>    </ng-container>    <ng-container matColumnDef="has_rationCard">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ration Card</th>      <td mat-cell *matCellDef="let child">{{ child.has_rationCard }}</td>    </ng-container>    <ng-container matColumnDef="has_bplCard">      <th mat-header-cell *matHeaderCellDef mat-sort-header>BPL Card</th>      <td mat-cell *matCellDef="let child">{{ child.has_BplCard }}</td>    </ng-container>    <ng-container matColumnDef="health_vaccinationStatus">      <th mat-header-cell *matHeaderCellDef mat-sort-header>        Vaccination Status      </th>      <td mat-cell *matCellDef="let child">        {{ child.health_vaccinationStatus }}      </td>    </ng-container>    <ng-container matColumnDef="health_bloodGroup">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Blood Group</th>      <td mat-cell *matCellDef="let child">{{ child.health_bloodGroup }}</td>    </ng-container>    <ng-container matColumnDef="health_eyeHealthStatus">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Eye Status</th>      <td mat-cell *matCellDef="let child">        {{ child.health_eyeHealthStatus }}      </td>    </ng-container>    <ng-container matColumnDef="health_LastEyeCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header>        Last Eye Check-Up      </th>      <td mat-cell *matCellDef="let child">        {{ child.health_lastEyeCheckup }}      </td>    </ng-container>    <ng-container matColumnDef="health_LastDentalCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header>        Last Dental Check-Ups      </th>      <td mat-cell *matCellDef="let child">        {{ child.health_lastDentalCheckup }}      </td>    </ng-container>    <ng-container matColumnDef="health_LastENTCheckup">      <th mat-header-cell *matHeaderCellDef mat-sort-header>        Last ENT Check-Up      </th>      <td mat-cell *matCellDef="let child">        {{ child.health_lastENTCheckup }}      </td>    </ng-container>    <ng-container matColumnDef="health_LastVitaminD">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Vitamin D</th>      <td mat-cell *matCellDef="let child">{{ child.health_lastVitaminD }}</td>    </ng-container>    <ng-container matColumnDef="health_LastDeworming">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last De-Worming</th>      <td mat-cell *matCellDef="let child">{{ child.health_lastDeworming }}</td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>    <tr      mat-row      *matRowDef="let child; columns: columnsToDisplay"      [routerLink]="[\'/child\', child.getId()]"      style="cursor: pointer;"      class="table-list-item"    ></tr>  </table>  <mat-paginator    (page)="onPaginateChange($event)"    [pageSize]="paginatorPageSize"    [pageIndex]="paginatorPageIndex"    [pageSizeOptions]="[3, 10, 20, 50]"    [showFirstLastButtons]="true"  ></mat-paginator></div></div>'
     var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ChildrenListComponent'};

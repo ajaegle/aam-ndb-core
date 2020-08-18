@@ -484,18 +484,37 @@ export class AttendanceWarningsDashboardComponent implements OnInit {
     &lt;div mat-card-avatar&gt;
       &lt;mat-icon fontIcon&#x3D;&quot;fa-exclamation-triangle&quot;&gt;&lt;/mat-icon&gt;
     &lt;/div&gt;
-    &lt;mat-card-title&gt;{{lastMonthsLowAttendence.length}}&lt;/mat-card-title&gt;
+    &lt;mat-card-title&gt;{{ lastMonthsLowAttendence.length }}&lt;/mat-card-title&gt;
     &lt;mat-card-subtitle&gt;Students with low attendance&lt;/mat-card-subtitle&gt;
   &lt;/mat-card-header&gt;
   &lt;mat-card-content&gt;
     &lt;p class&#x3D;&quot;dashboard-desc&quot;&gt;
-      Students below {{ATTENDANCE_THRESHOLD | percent:&#x27;1.0-0&#x27;}} attendance last month:
+      Students below {{ ATTENDANCE_THRESHOLD | percent: &quot;1.0-0&quot; }} attendance
+      last month:
     &lt;/p&gt;
     &lt;table class&#x3D;&quot;dashboard-table&quot;&gt;
-      &lt;tr *ngFor&#x3D;&quot;let entry of lastMonthsLowAttendence&quot; class&#x3D;&quot;dashboard-table-row w-{{entry[2]}}&quot; (click)&#x3D;&quot;goToChild(entry[0].getId())&quot; style&#x3D;&quot;cursor: pointer;&quot;&gt;
-        &lt;td class&#x3D;&quot;dashboard-table-cell&quot;&gt;&lt;app-child-block *ngIf&#x3D;&quot;entry[0]&quot; [entity]&#x3D;&quot;entry[0]&quot;&gt;&lt;/app-child-block&gt;&lt;/td&gt;
-        &lt;td class&#x3D;&quot;dashboard-table-cell&quot; style&#x3D;&quot;text-align: right;&quot;&gt;{{entry[1] | percent:&#x27;1.0-0&#x27;}}&lt;/td&gt;
-        &lt;td class&#x3D;&quot;dashboard-table-cell&quot;&gt;&lt;span class&#x3D;&quot;fa fa-external-link-square&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+      &lt;tr
+        *ngFor&#x3D;&quot;let entry of lastMonthsLowAttendence; let i &#x3D; index&quot;
+        class&#x3D;&quot;dashboard-table-row w-{{ entry[2] }}&quot;
+        (click)&#x3D;&quot;goToChild(entry[0].getId())&quot;
+        style&#x3D;&quot;cursor: pointer;&quot;
+        angulartics2On&#x3D;&quot;click&quot;
+        angularticsCategory&#x3D;&quot;Navigation&quot;
+        angularticsAction&#x3D;&quot;dashboard_attendance_warnings_list_link&quot;
+        [angularticsLabel]&#x3D;&quot;&#x27;list-entry-&#x27; + i&quot;
+      &gt;
+        &lt;td class&#x3D;&quot;dashboard-table-cell&quot;&gt;
+          &lt;app-child-block
+            *ngIf&#x3D;&quot;entry[0]&quot;
+            [entity]&#x3D;&quot;entry[0]&quot;
+          &gt;&lt;/app-child-block&gt;
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;dashboard-table-cell&quot; style&#x3D;&quot;text-align: right;&quot;&gt;
+          {{ entry[1] | percent: &quot;1.0-0&quot; }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;dashboard-table-cell&quot;&gt;
+          &lt;span class&#x3D;&quot;fa fa-external-link-square&quot;&gt;&lt;/span&gt;
+        &lt;/td&gt;
       &lt;/tr&gt;
     &lt;/table&gt;
   &lt;/mat-card-content&gt;
@@ -546,7 +565,7 @@ export class AttendanceWarningsDashboardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-card class="dashboard-widget">  <mat-card-header class="app-attendance">    <div mat-card-avatar>      <mat-icon fontIcon="fa-exclamation-triangle"></mat-icon>    </div>    <mat-card-title>{{lastMonthsLowAttendence.length}}</mat-card-title>    <mat-card-subtitle>Students with low attendance</mat-card-subtitle>  </mat-card-header>  <mat-card-content>    <p class="dashboard-desc">      Students below {{ATTENDANCE_THRESHOLD | percent:\'1.0-0\'}} attendance last month:    </p>    <table class="dashboard-table">      <tr *ngFor="let entry of lastMonthsLowAttendence" class="dashboard-table-row w-{{entry[2]}}" (click)="goToChild(entry[0].getId())" style="cursor: pointer;">        <td class="dashboard-table-cell"><app-child-block *ngIf="entry[0]" [entity]="entry[0]"></app-child-block></td>        <td class="dashboard-table-cell" style="text-align: right;">{{entry[1] | percent:\'1.0-0\'}}</td>        <td class="dashboard-table-cell"><span class="fa fa-external-link-square"></span></td>      </tr>    </table>  </mat-card-content></mat-card></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-card class="dashboard-widget">  <mat-card-header class="app-attendance">    <div mat-card-avatar>      <mat-icon fontIcon="fa-exclamation-triangle"></mat-icon>    </div>    <mat-card-title>{{ lastMonthsLowAttendence.length }}</mat-card-title>    <mat-card-subtitle>Students with low attendance</mat-card-subtitle>  </mat-card-header>  <mat-card-content>    <p class="dashboard-desc">      Students below {{ ATTENDANCE_THRESHOLD | percent: "1.0-0" }} attendance      last month:    </p>    <table class="dashboard-table">      <tr        *ngFor="let entry of lastMonthsLowAttendence; let i = index"        class="dashboard-table-row w-{{ entry[2] }}"        (click)="goToChild(entry[0].getId())"        style="cursor: pointer;"        angulartics2On="click"        angularticsCategory="Navigation"        angularticsAction="dashboard_attendance_warnings_list_link"        [angularticsLabel]="\'list-entry-\' + i"      >        <td class="dashboard-table-cell">          <app-child-block            *ngIf="entry[0]"            [entity]="entry[0]"          ></app-child-block>        </td>        <td class="dashboard-table-cell" style="text-align: right;">          {{ entry[1] | percent: "1.0-0" }}        </td>        <td class="dashboard-table-cell">          <span class="fa fa-external-link-square"></span>        </td>      </tr>    </table>  </mat-card-content></mat-card></div>'
     var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AttendanceWarningsDashboardComponent'};

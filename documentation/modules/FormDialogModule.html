@@ -234,6 +234,7 @@ import { FormDialogService } from &quot;./form-dialog.service&quot;;
 import { FormDialogWrapperComponent } from &quot;./form-dialog-wrapper/form-dialog-wrapper.component&quot;;
 import { FormsModule } from &quot;@angular/forms&quot;;
 import { ConfirmationDialogModule } from &quot;../confirmation-dialog/confirmation-dialog.module&quot;;
+import { Angulartics2Module } from &quot;angulartics2&quot;;
 
 /**
  * A helper utility module to consistently and easily display forms
@@ -249,6 +250,7 @@ import { ConfirmationDialogModule } from &quot;../confirmation-dialog/confirmati
     MatButtonModule,
     FormsModule,
     ConfirmationDialogModule,
+    Angulartics2Module,
   ],
   declarations: [FormDialogWrapperComponent],
   providers: [FormDialogService],

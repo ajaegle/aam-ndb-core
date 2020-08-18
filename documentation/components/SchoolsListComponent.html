@@ -1085,49 +1085,97 @@ export class SchoolsListComponent implements OnInit, AfterViewInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;h1&gt;Schools List&lt;/h1&gt;
 
-&lt;mat-expansion-panel expanded&#x3D;&quot;true&quot; fxLayout&#x3D;&quot;column wrap&quot; fxLayoutGap&#x3D;&quot;10px&quot; class&#x3D;&#x27;filter-panel&#x27;&gt;
+&lt;mat-expansion-panel
+  expanded&#x3D;&quot;true&quot;
+  fxLayout&#x3D;&quot;column wrap&quot;
+  fxLayoutGap&#x3D;&quot;10px&quot;
+  class&#x3D;&quot;filter-panel&quot;
+&gt;
   &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutGap&#x3D;&quot;10px&quot; fxLayoutAlign&#x3D;&quot;none end&quot;&gt;
-    &lt;div fxFlex&#x3D;&#x27;50&#x27;&gt;
-      &lt;mat-form-field style&#x3D;&#x27;width:100%&#x27;&gt;
-        &lt;input matInput placeholder&#x3D;&quot;Filter&quot; (ngModelChange)&#x3D;&quot;applyFilter($event)&quot; [(ngModel)]&#x3D;&quot;filterString&quot;&gt;
-        &lt;button mat-icon-button *ngIf&#x3D;&quot;filterString&quot; matSuffix aria-label&#x3D;&quot;Clear&quot; (click)&#x3D;&quot;filterString&#x3D;&#x27;&#x27;; applyFilter(&#x27;&#x27;);&quot;&gt;
+    &lt;div fxFlex&#x3D;&quot;50&quot;&gt;
+      &lt;mat-form-field style&#x3D;&quot;width: 100%;&quot;&gt;
+        &lt;input
+          matInput
+          placeholder&#x3D;&quot;Filter&quot;
+          (ngModelChange)&#x3D;&quot;applyFilter($event)&quot;
+          [(ngModel)]&#x3D;&quot;filterString&quot;
+        /&gt;
+        &lt;button
+          mat-icon-button
+          *ngIf&#x3D;&quot;filterString&quot;
+          matSuffix
+          aria-label&#x3D;&quot;Clear&quot;
+          (click)&#x3D;&quot;filterString &#x3D; &#x27;&#x27;; applyFilter(&#x27;&#x27;)&quot;
+        &gt;
           &lt;mat-icon fontIcon&#x3D;&quot;fa-times&quot;&gt;&lt;/mat-icon&gt;
         &lt;/button&gt;
       &lt;/mat-form-field&gt;
     &lt;/div&gt;
 
-    &lt;div fxFlex&#x3D;&#x27;25&#x27; class&#x3D;&#x27;align-form-field&#x27; fxHide.xs&#x3D;&#x27;true&#x27;&gt;
-      (Showing {{schoolDataSource.filteredData.length}} schools)
+    &lt;div fxFlex&#x3D;&quot;25&quot; class&#x3D;&quot;align-form-field&quot; fxHide.xs&#x3D;&quot;true&quot;&gt;
+      (Showing {{ schoolDataSource.filteredData.length }} schools)
     &lt;/div&gt;
 
-    &lt;div fxFlex&#x3D;&#x27;25&#x27; class&#x3D;&#x27;align-form-field&#x27;&gt;
-      &lt;button mat-stroked-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;addSchoolClick()&quot; fxFlexAlign&#x3D;&quot;end&quot;&gt;
-        &lt;mat-icon class&#x3D;&quot;button-icon&quot; aria-label&#x3D;&quot;add child&quot; fontIcon&#x3D;&quot;fa-plus-circle&quot;&gt;&lt;/mat-icon&gt;
+    &lt;div fxFlex&#x3D;&quot;25&quot; class&#x3D;&quot;align-form-field&quot;&gt;
+      &lt;button
+        mat-stroked-button
+        color&#x3D;&quot;accent&quot;
+        (click)&#x3D;&quot;addSchoolClick()&quot;
+        fxFlexAlign&#x3D;&quot;end&quot;
+        angulartics2On&#x3D;&quot;click&quot;
+        angularticsCategory&#x3D;&quot;UserAction&quot;
+        angularticsAction&#x3D;&quot;school_list_add_school&quot;
+      &gt;
+        &lt;mat-icon
+          class&#x3D;&quot;button-icon&quot;
+          aria-label&#x3D;&quot;add child&quot;
+          fontIcon&#x3D;&quot;fa-plus-circle&quot;
+        &gt;&lt;/mat-icon&gt;
         &lt;span fxHide.lt-sm&gt;
           &lt;span fxHide.lt-md&#x3D;&quot;true&quot;&gt;
-          Add New
+            Add New
           &lt;/span&gt;
         &lt;/span&gt;
       &lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;div fxLayout&#x3D;&#x27;row wrap&#x27; fxLayoutGap&#x3D;&#x27;10px&#x27; fxHide.lt-sm&gt;
-    &lt;mat-button-toggle-group *ngFor&#x3D;&#x27;let filterSelection of filterSelections&#x27;
-                             [name]&#x3D;&quot;filterSelection.name&quot; [value]&#x3D;&#x27;filterSelection.selectedOption&#x27;&gt;
-      &lt;mat-button-toggle *ngFor&#x3D;&#x27;let option of filterSelection.options&#x27; [value]&#x3D;&quot;option.key&quot;
-                         (click)&#x3D;&quot;filterSelection.selectedOption&#x3D;option.key; applyFilterSelections();&quot;&gt;
-        {{option.label}}
+  &lt;div fxLayout&#x3D;&quot;row wrap&quot; fxLayoutGap&#x3D;&quot;10px&quot; fxHide.lt-sm&gt;
+    &lt;mat-button-toggle-group
+      *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot;
+      [name]&#x3D;&quot;filterSelection.name&quot;
+      [value]&#x3D;&quot;filterSelection.selectedOption&quot;
+    &gt;
+      &lt;mat-button-toggle
+        *ngFor&#x3D;&quot;let option of filterSelection.options&quot;
+        [value]&#x3D;&quot;option.key&quot;
+        (click)&#x3D;&quot;
+          filterSelection.selectedOption &#x3D; option.key; applyFilterSelections()
+        &quot;
+      &gt;
+        {{ option.label }}
       &lt;/mat-button-toggle&gt;
     &lt;/mat-button-toggle-group&gt;
   &lt;/div&gt;
   &lt;div fxLayout&#x3D;&quot;row wrap&quot; fxHide.gt-xs&gt;
-    &lt;mat-form-field *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot; style&#x3D;&quot;padding-right: 1%&quot;&gt;
-      &lt;mat-label&gt;{{filterSelection.name}}&lt;/mat-label&gt;
-      &lt;mat-select  [id]&#x3D;&quot;filterSelection.name&quot; [value]&#x3D;&quot;filterSelection.selectedOption&quot; placeholder&#x3D;&quot;filterSelection.name&quot; &gt;
-        &lt;mat-option *ngFor&#x3D;&quot;let option of filterSelection.options&quot; [value]&#x3D;&quot;option.key&quot;
-                    (click)&#x3D;&quot;filterSelection.selectedOption&#x3D;option.key; applyFilterSelections()&quot;&gt;
-          {{option.label}}
+    &lt;mat-form-field
+      *ngFor&#x3D;&quot;let filterSelection of filterSelections&quot;
+      style&#x3D;&quot;padding-right: 1%;&quot;
+    &gt;
+      &lt;mat-label&gt;{{ filterSelection.name }}&lt;/mat-label&gt;
+      &lt;mat-select
+        [id]&#x3D;&quot;filterSelection.name&quot;
+        [value]&#x3D;&quot;filterSelection.selectedOption&quot;
+        placeholder&#x3D;&quot;filterSelection.name&quot;
+      &gt;
+        &lt;mat-option
+          *ngFor&#x3D;&quot;let option of filterSelection.options&quot;
+          [value]&#x3D;&quot;option.key&quot;
+          (click)&#x3D;&quot;
+            filterSelection.selectedOption &#x3D; option.key; applyFilterSelections()
+          &quot;
+        &gt;
+          {{ option.label }}
         &lt;/mat-option&gt;
       &lt;/mat-select&gt;
     &lt;/mat-form-field&gt;
@@ -1137,37 +1185,49 @@ export class SchoolsListComponent implements OnInit, AfterViewInit {
 &lt;!--&lt;mat-divider&gt;&lt;/mat-divider&gt;--&gt;
 
 &lt;div *ngIf&#x3D;&quot;schoolDataSource&quot; class&#x3D;&quot;mat-elevation-z8 table-list&quot;&gt;
-  &lt;table mat-table [dataSource]&#x3D;&quot;schoolDataSource&quot; matSort width&#x3D;&#x27;100%&#x27;&gt;
+  &lt;table mat-table [dataSource]&#x3D;&quot;schoolDataSource&quot; matSort width&#x3D;&quot;100%&quot;&gt;
     &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Name &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt; {{school.name}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Name&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt;{{ school.name }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;medium&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Medium &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt; {{school.medium}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Medium&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt;{{ school.medium }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;privateSchool&quot;&gt;
-       &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Private School &lt;/th&gt;
-       &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt; {{school.privateSchool?&quot;✓&quot;:&quot;&quot;}} &lt;/td&gt;
-     &lt;/ng-container&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Private School&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt;
+        {{ school.privateSchool ? &quot;✓&quot; : &quot;&quot; }}
+      &lt;/td&gt;
+    &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;academicBoard&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Board &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt; {{school.academicBoard}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Board&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt;{{ school.academicBoard }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
     &lt;ng-container matColumnDef&#x3D;&quot;upToClass&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Up to class &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt; {{school.upToClass}}&lt;/td&gt;
+      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;Up to class&lt;/th&gt;
+      &lt;td mat-cell *matCellDef&#x3D;&quot;let school&quot;&gt;{{ school.upToClass }}&lt;/td&gt;
     &lt;/ng-container&gt;
 
-
     &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;columnsToDisplay&quot;&gt;&lt;/tr&gt;
-    &lt;tr mat-row *matRowDef&#x3D;&quot;let school; columns: columnsToDisplay&quot; (click)&#x3D;&quot;showSchoolDetails(school)&quot; style&#x3D;&quot;cursor:pointer;&quot;&gt;&lt;/tr&gt;
+    &lt;tr
+      mat-row
+      *matRowDef&#x3D;&quot;let school; columns: columnsToDisplay&quot;
+      (click)&#x3D;&quot;showSchoolDetails(school)&quot;
+      style&#x3D;&quot;cursor: pointer;&quot;
+    &gt;&lt;/tr&gt;
   &lt;/table&gt;
-  &lt;mat-paginator (page)&#x3D;&quot;onPaginateChange($event)&quot; [pageSize]&#x3D;&quot;paginatorPageSize&quot; [pageIndex]&#x3D;&quot;paginatorPageIndex&quot; [pageSizeOptions]&#x3D;&quot;[3, 10, 20, 50]&quot; [showFirstLastButtons]&#x3D;&quot;true&quot;&gt;&lt;/mat-paginator&gt;
+  &lt;mat-paginator
+    (page)&#x3D;&quot;onPaginateChange($event)&quot;
+    [pageSize]&#x3D;&quot;paginatorPageSize&quot;
+    [pageIndex]&#x3D;&quot;paginatorPageIndex&quot;
+    [pageSizeOptions]&#x3D;&quot;[3, 10, 20, 50]&quot;
+    [showFirstLastButtons]&#x3D;&quot;true&quot;
+  &gt;&lt;/mat-paginator&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -1232,7 +1292,7 @@ export class SchoolsListComponent implements OnInit, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1>Schools List</h1><mat-expansion-panel expanded="true" fxLayout="column wrap" fxLayoutGap="10px" class=\'filter-panel\'>  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="none end">    <div fxFlex=\'50\'>      <mat-form-field style=\'width:100%\'>        <input matInput placeholder="Filter" (ngModelChange)="applyFilter($event)" [(ngModel)]="filterString">        <button mat-icon-button *ngIf="filterString" matSuffix aria-label="Clear" (click)="filterString=\'\'; applyFilter(\'\');">          <mat-icon fontIcon="fa-times"></mat-icon>        </button>      </mat-form-field>    </div>    <div fxFlex=\'25\' class=\'align-form-field\' fxHide.xs=\'true\'>      (Showing {{schoolDataSource.filteredData.length}} schools)    </div>    <div fxFlex=\'25\' class=\'align-form-field\'>      <button mat-stroked-button color="accent" (click)="addSchoolClick()" fxFlexAlign="end">        <mat-icon class="button-icon" aria-label="add child" fontIcon="fa-plus-circle"></mat-icon>        <span fxHide.lt-sm>          <span fxHide.lt-md="true">          Add New          </span>        </span>      </button>    </div>  </div>  <div fxLayout=\'row wrap\' fxLayoutGap=\'10px\' fxHide.lt-sm>    <mat-button-toggle-group *ngFor=\'let filterSelection of filterSelections\'                             [name]="filterSelection.name" [value]=\'filterSelection.selectedOption\'>      <mat-button-toggle *ngFor=\'let option of filterSelection.options\' [value]="option.key"                         (click)="filterSelection.selectedOption=option.key; applyFilterSelections();">        {{option.label}}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div fxLayout="row wrap" fxHide.gt-xs>    <mat-form-field *ngFor="let filterSelection of filterSelections" style="padding-right: 1%">      <mat-label>{{filterSelection.name}}</mat-label>      <mat-select  [id]="filterSelection.name" [value]="filterSelection.selectedOption" placeholder="filterSelection.name" >        <mat-option *ngFor="let option of filterSelection.options" [value]="option.key"                    (click)="filterSelection.selectedOption=option.key; applyFilterSelections()">          {{option.label}}        </mat-option>      </mat-select>    </mat-form-field>  </div></mat-expansion-panel><!--<mat-divider></mat-divider>--><div *ngIf="schoolDataSource" class="mat-elevation-z8 table-list">  <table mat-table [dataSource]="schoolDataSource" matSort width=\'100%\'>    <ng-container matColumnDef="name">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>      <td mat-cell *matCellDef="let school"> {{school.name}}</td>    </ng-container>    <ng-container matColumnDef="medium">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Medium </th>      <td mat-cell *matCellDef="let school"> {{school.medium}}</td>    </ng-container>    <ng-container matColumnDef="privateSchool">       <th mat-header-cell *matHeaderCellDef mat-sort-header> Private School </th>       <td mat-cell *matCellDef="let school"> {{school.privateSchool?"✓":""}} </td>     </ng-container>    <ng-container matColumnDef="academicBoard">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Board </th>      <td mat-cell *matCellDef="let school"> {{school.academicBoard}}</td>    </ng-container>    <ng-container matColumnDef="upToClass">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Up to class </th>      <td mat-cell *matCellDef="let school"> {{school.upToClass}}</td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>    <tr mat-row *matRowDef="let school; columns: columnsToDisplay" (click)="showSchoolDetails(school)" style="cursor:pointer;"></tr>  </table>  <mat-paginator (page)="onPaginateChange($event)" [pageSize]="paginatorPageSize" [pageIndex]="paginatorPageIndex" [pageSizeOptions]="[3, 10, 20, 50]" [showFirstLastButtons]="true"></mat-paginator></div></div>'
+        var COMPONENT_TEMPLATE = '<div><h1>Schools List</h1><mat-expansion-panel  expanded="true"  fxLayout="column wrap"  fxLayoutGap="10px"  class="filter-panel">  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="none end">    <div fxFlex="50">      <mat-form-field style="width: 100%;">        <input          matInput          placeholder="Filter"          (ngModelChange)="applyFilter($event)"          [(ngModel)]="filterString"        />        <button          mat-icon-button          *ngIf="filterString"          matSuffix          aria-label="Clear"          (click)="filterString = \'\'; applyFilter(\'\')"        >          <mat-icon fontIcon="fa-times"></mat-icon>        </button>      </mat-form-field>    </div>    <div fxFlex="25" class="align-form-field" fxHide.xs="true">      (Showing {{ schoolDataSource.filteredData.length }} schools)    </div>    <div fxFlex="25" class="align-form-field">      <button        mat-stroked-button        color="accent"        (click)="addSchoolClick()"        fxFlexAlign="end"        angulartics2On="click"        angularticsCategory="UserAction"        angularticsAction="school_list_add_school"      >        <mat-icon          class="button-icon"          aria-label="add child"          fontIcon="fa-plus-circle"        ></mat-icon>        <span fxHide.lt-sm>          <span fxHide.lt-md="true">            Add New          </span>        </span>      </button>    </div>  </div>  <div fxLayout="row wrap" fxLayoutGap="10px" fxHide.lt-sm>    <mat-button-toggle-group      *ngFor="let filterSelection of filterSelections"      [name]="filterSelection.name"      [value]="filterSelection.selectedOption"    >      <mat-button-toggle        *ngFor="let option of filterSelection.options"        [value]="option.key"        (click)="          filterSelection.selectedOption = option.key; applyFilterSelections()        "      >        {{ option.label }}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div fxLayout="row wrap" fxHide.gt-xs>    <mat-form-field      *ngFor="let filterSelection of filterSelections"      style="padding-right: 1%;"    >      <mat-label>{{ filterSelection.name }}</mat-label>      <mat-select        [id]="filterSelection.name"        [value]="filterSelection.selectedOption"        placeholder="filterSelection.name"      >        <mat-option          *ngFor="let option of filterSelection.options"          [value]="option.key"          (click)="            filterSelection.selectedOption = option.key; applyFilterSelections()          "        >          {{ option.label }}        </mat-option>      </mat-select>    </mat-form-field>  </div></mat-expansion-panel><!--<mat-divider></mat-divider>--><div *ngIf="schoolDataSource" class="mat-elevation-z8 table-list">  <table mat-table [dataSource]="schoolDataSource" matSort width="100%">    <ng-container matColumnDef="name">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>      <td mat-cell *matCellDef="let school">{{ school.name }}</td>    </ng-container>    <ng-container matColumnDef="medium">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Medium</th>      <td mat-cell *matCellDef="let school">{{ school.medium }}</td>    </ng-container>    <ng-container matColumnDef="privateSchool">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Private School</th>      <td mat-cell *matCellDef="let school">        {{ school.privateSchool ? "✓" : "" }}      </td>    </ng-container>    <ng-container matColumnDef="academicBoard">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Board</th>      <td mat-cell *matCellDef="let school">{{ school.academicBoard }}</td>    </ng-container>    <ng-container matColumnDef="upToClass">      <th mat-header-cell *matHeaderCellDef mat-sort-header>Up to class</th>      <td mat-cell *matCellDef="let school">{{ school.upToClass }}</td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>    <tr      mat-row      *matRowDef="let school; columns: columnsToDisplay"      (click)="showSchoolDetails(school)"      style="cursor: pointer;"    ></tr>  </table>  <mat-paginator    (page)="onPaginateChange($event)"    [pageSize]="paginatorPageSize"    [pageIndex]="paginatorPageIndex"    [pageSizeOptions]="[3, 10, 20, 50]"    [showFirstLastButtons]="true"  ></mat-paginator></div></div>'
     var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SchoolsListComponent'};

@@ -122,12 +122,12 @@ Actual logic and UI structure is defined in other modules.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(viewContainerRef: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, dialog: MatDialog)</code>
+<code>constructor(viewContainerRef: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, dialog: MatDialog, analyticsService: <a href="../injectables/AnalyticsService.html">AnalyticsService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/app.component.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/app.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -168,6 +168,18 @@ Actual logic and UI structure is defined in other modules.</p>
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>analyticsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnalyticsService.html" target="_self" >AnalyticsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -191,6 +203,7 @@ Actual logic and UI structure is defined in other modules.</p>
 import { AppConfig } from &quot;./core/app-config/app-config&quot;;
 import { MatDialog } from &quot;@angular/material/dialog&quot;;
 import { DemoDataGeneratingProgressDialogComponent } from &quot;./core/demo-data/demo-data-generating-progress-dialog.component&quot;;
+import { AnalyticsService } from &quot;./core/analytics/analytics.service&quot;;
 
 /**
  * Component as the main entry point for the app.
@@ -203,8 +216,11 @@ import { DemoDataGeneratingProgressDialogComponent } from &quot;./core/demo-data
 export class AppComponent implements OnInit {
   constructor(
     private viewContainerRef: ViewContainerRef, // need this small hack in order to catch application root view container ref
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private analyticsService: AnalyticsService
+  ) {
+    analyticsService.init();
+  }
 
   ngOnInit() {
     this.loadDemoData();

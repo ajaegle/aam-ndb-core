@@ -358,6 +358,7 @@ import { SchoolsModule } from &quot;../../child-dev-project/schools/schools.modu
 import { FlexLayoutModule } from &quot;@angular/flex-layout&quot;;
 import { PrimaryActionComponent } from &quot;./primary-action/primary-action.component&quot;;
 import { NotesModule } from &quot;../../child-dev-project/notes/notes.module&quot;;
+import { Angulartics2Module } from &quot;angulartics2&quot;;
 
 /**
  * The core user interface structure that ties different components together into the overall app layout.
@@ -382,6 +383,7 @@ import { NotesModule } from &quot;../../child-dev-project/notes/notes.module&quo
     ChildrenModule,
     SchoolsModule,
     NotesModule,
+    Angulartics2Module,
   ],
   declarations: [SearchComponent, UiComponent, PrimaryActionComponent],
   exports: [UiComponent],
