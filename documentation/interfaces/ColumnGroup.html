@@ -167,8 +167,11 @@ import { ChildrenService } from &quot;../children.service&quot;;
 import { AttendanceMonth } from &quot;../../attendance/model/attendance-month&quot;;
 import { FilterSelection } from &quot;../../../core/filter/filter-selection/filter-selection&quot;;
 import { MediaChange, MediaObserver } from &quot;@angular/flex-layout&quot;;
-import { MatPaginator } from &quot;@angular/material/paginator&quot;;
+import { MatPaginator, PageEvent } from &quot;@angular/material/paginator&quot;;
 import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
+import { SessionService } from &quot;../../../core/session/session-service/session.service&quot;;
+import { User } from &quot;../../../core/user/user&quot;;
+import { EntityMapperService } from &quot;../../../core/entity/entity-mapper.service&quot;;
 
 export interface ColumnGroup {
   name: string;
@@ -271,16 +274,25 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   columnsToDisplay &#x3D; [&quot;projectNumber&quot;, &quot;name&quot;];
   filterString &#x3D; &quot;&quot;;
 
+  public paginatorPageSize: number;
+  public paginatorPageIndex: number;
+  private user: User;
+
   constructor(
     private childrenService: ChildrenService,
     private router: Router,
     private route: ActivatedRoute,
-    private media: MediaObserver
+    private media: MediaObserver,
+    private sessionService: SessionService,
+    private entityMapperService: EntityMapperService
   ) {}
 
   ngOnInit() {
     this.loadData();
     this.loadUrlParams();
+    this.user &#x3D; this.sessionService.getCurrentUser();
+    this.paginatorPageSize &#x3D; this.user.paginatorSettingsPageSize.childrenList;
+    this.paginatorPageIndex &#x3D; this.user.paginatorSettingsPageIndex.childrenList;
     this.media.media$
       .pipe(untilDestroyed(this))
       .subscribe((change: MediaChange) &#x3D;&gt; {
@@ -310,6 +322,22 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.childrenDataSource.sort &#x3D; this.sort;
     this.childrenDataSource.paginator &#x3D; this.paginator;
+    setTimeout(() &#x3D;&gt; {
+      this.paginator.pageIndex &#x3D; this.paginatorPageIndex;
+      this.paginator.page.next({
+        pageIndex: this.paginator.pageIndex,
+        pageSize: this.paginator.pageSize,
+        length: this.paginator.length,
+      });
+    });
+  }
+
+  onPaginateChange(event: PageEvent) {
+    this.paginatorPageSize &#x3D; event.pageSize;
+    this.paginatorPageIndex &#x3D; event.pageIndex;
+    this.user.paginatorSettingsPageSize.childrenList &#x3D; this.paginatorPageSize;
+    this.user.paginatorSettingsPageIndex.childrenList &#x3D; this.paginatorPageIndex;
+    this.entityMapperService.save&lt;User&gt;(this.user);
   }
 
   private loadData(replaceUrl: boolean &#x3D; false) {

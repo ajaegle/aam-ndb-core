@@ -1122,6 +1122,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IAppConfig.html" data-type="entity-link">IAppConfig</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/PaginatorSettings.html" data-type="entity-link">PaginatorSettings</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ProgressDashboardPart.html" data-type="entity-link">ProgressDashboardPart</a>
                             </li>
                             <li class="link">
