@@ -76,6 +76,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createDatabaseIndices">createDatabaseIndices</a>
+                            </li>
+                            <li>
                                 <a href="#getAserResultsOfChild">getAserResultsOfChild</a>
                             </li>
                             <li>
@@ -148,7 +152,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(entityMapper: <a href="../injectables/EntityMapperService.html">EntityMapperService</a>, entitySchemaService: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, db: <a href="../classes/Database.html">Database</a>, childPhotoService: <a href="../injectables/ChildPhotoService.html">ChildPhotoService</a>, logger: <a href="../injectables/LoggingService.html">LoggingService</a>)</code>
+<code>constructor(entityMapper: <a href="../injectables/EntityMapperService.html">EntityMapperService</a>, entitySchemaService: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, dbIndexing: <a href="../injectables/DatabaseIndexingService.html">DatabaseIndexingService</a>, childPhotoService: <a href="../injectables/ChildPhotoService.html">ChildPhotoService</a>, logger: <a href="../injectables/LoggingService.html">LoggingService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -195,10 +199,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>db</td>
+                                                        <td>dbIndexing</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Database.html" target="_self" >Database</a></code>
+                                                                        <code><a href="../injectables/DatabaseIndexingService.html" target="_self" >DatabaseIndexingService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -248,6 +252,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createDatabaseIndices"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            createDatabaseIndices
+                        </b>
+                        <a href="#createDatabaseIndices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createDatabaseIndices()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getAserResultsOfChild"></a>
                     <span class="name">
                         <b>
@@ -266,8 +311,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="428"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:428</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:435</a></div>
                 </td>
             </tr>
 
@@ -336,8 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:124</a></div>
                 </td>
             </tr>
 
@@ -375,8 +420,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:128</a></div>
                 </td>
             </tr>
 
@@ -445,8 +490,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:145</a></div>
                 </td>
             </tr>
 
@@ -515,8 +560,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:109</a></div>
                 </td>
             </tr>
 
@@ -592,8 +637,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -635,8 +680,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="436"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:436</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="443"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:443</a></div>
                 </td>
             </tr>
 
@@ -708,8 +753,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="353"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:353</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="360"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:360</a></div>
                 </td>
             </tr>
 
@@ -756,8 +801,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="401"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:401</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="408"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:408</a></div>
                 </td>
             </tr>
 
@@ -826,8 +871,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="418"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:418</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="425"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:425</a></div>
                 </td>
             </tr>
 
@@ -902,8 +947,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="332"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:332</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="339"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:339</a></div>
                 </td>
             </tr>
 
@@ -974,8 +1019,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="458"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:458</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="465"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:465</a></div>
                 </td>
             </tr>
 
@@ -1044,8 +1089,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="263"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:263</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="270"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:270</a></div>
                 </td>
             </tr>
 
@@ -1083,8 +1128,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="270"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:270</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="277"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:277</a></div>
                 </td>
             </tr>
 
@@ -1122,8 +1167,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="224"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:224</a></div>
                 </td>
             </tr>
 
@@ -1192,8 +1237,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="245"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:245</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:252</a></div>
                 </td>
             </tr>
 
@@ -1274,8 +1319,8 @@ This function should be considered refactored and should use a index, once they&
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="223"
-                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:223</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">src/app/child-dev-project/children/children.service.ts:230</a></div>
                 </td>
             </tr>
 
@@ -1345,7 +1390,6 @@ import { from, Observable, Subject } from &quot;rxjs&quot;;
 import { Child } from &quot;./model/child&quot;;
 import { EntityMapperService } from &quot;../../core/entity/entity-mapper.service&quot;;
 import { AttendanceMonth } from &quot;../attendance/model/attendance-month&quot;;
-import { Database } from &quot;../../core/database/database&quot;;
 import { Note } from &quot;../notes/model/note&quot;;
 import { EducationalMaterial } from &quot;../educational-material/model/educational-material&quot;;
 import { Aser } from &quot;../aser/model/aser&quot;;
@@ -1357,19 +1401,24 @@ import { LoadChildPhotoEntitySchemaDatatype } from &quot;./child-photo-service/d
 import moment from &quot;moment&quot;;
 import * as uniqid from &quot;uniqid&quot;;
 import { LoggingService } from &quot;../../core/logging/logging.service&quot;;
+import { DatabaseIndexingService } from &quot;../../core/entity/database-indexing/database-indexing.service&quot;;
 
 @Injectable()
 export class ChildrenService {
   constructor(
     private entityMapper: EntityMapperService,
     private entitySchemaService: EntitySchemaService,
-    private db: Database,
+    private dbIndexing: DatabaseIndexingService,
     childPhotoService: ChildPhotoService,
     private logger: LoggingService
   ) {
     this.entitySchemaService.registerSchemaDatatype(
       new LoadChildPhotoEntitySchemaDatatype(childPhotoService)
     );
+    this.createDatabaseIndices();
+  }
+
+  public createDatabaseIndices() {
     this.createAttendanceAnalysisIndex();
     this.createNotesIndex();
     this.createAttendancesIndex();
@@ -1464,8 +1513,11 @@ export class ChildrenService {
   }
 
   getAttendancesOfChild(childId: string): Observable&lt;AttendanceMonth[]&gt; {
-    const promise &#x3D; this.db
-      .query(&quot;attendances_index/by_child&quot;, { key: childId, include_docs: true })
+    const promise &#x3D; this.dbIndexing
+      .queryIndex(&quot;attendances_index/by_child&quot;, {
+        key: childId,
+        include_docs: true,
+      })
       .then((loadedEntities) &#x3D;&gt; {
         return loadedEntities.rows.map((loadedRecord) &#x3D;&gt; {
           const entity &#x3D; new AttendanceMonth(&quot;&quot;);
@@ -1480,8 +1532,8 @@ export class ChildrenService {
   getAttendancesOfMonth(month: Date): Observable&lt;AttendanceMonth[]&gt; {
     const monthString &#x3D;
       month.getFullYear().toString() + &quot;-&quot; + (month.getMonth() + 1).toString();
-    const promise &#x3D; this.db
-      .query(&quot;attendances_index/by_month&quot;, {
+    const promise &#x3D; this.dbIndexing
+      .queryIndex(&quot;attendances_index/by_month&quot;, {
         key: monthString,
         include_docs: true,
       })
@@ -1521,7 +1573,7 @@ export class ChildrenService {
       },
     };
 
-    return this.db.saveDatabaseIndex(designDoc);
+    return this.dbIndexing.createIndex(designDoc);
   }
 
   private createChildSchoolRelationIndex(): Promise&lt;any&gt; {
@@ -1553,7 +1605,7 @@ export class ChildrenService {
         },
       },
     };
-    return this.db.saveDatabaseIndex(designDoc);
+    return this.dbIndexing.createIndex(designDoc);
   }
 
   queryLatestRelation(childId: string): Promise&lt;ChildSchoolRelation&gt; {
@@ -1573,8 +1625,8 @@ export class ChildrenService {
       include_docs: true,
       limit: limit,
     };
-    return this.db
-      .query(&quot;childSchoolRelations_index/by_date&quot;, options)
+    return this.dbIndexing
+      .queryIndex(&quot;childSchoolRelations_index/by_date&quot;, options)
       .then((loadedEntities) &#x3D;&gt; {
         return loadedEntities.rows.map((loadedRecord) &#x3D;&gt; {
           const entity &#x3D; new ChildSchoolRelation(&quot;&quot;);
@@ -1588,8 +1640,8 @@ export class ChildrenService {
     queryType: &quot;child&quot; | &quot;school&quot;,
     id: string
   ): Promise&lt;ChildSchoolRelation[]&gt; {
-    return this.db
-      .query(&quot;childSchoolRelations_index/by_&quot; + queryType, {
+    return this.dbIndexing
+      .queryIndex(&quot;childSchoolRelations_index/by_&quot; + queryType, {
         key: id,
         include_docs: true,
       })
@@ -1603,14 +1655,14 @@ export class ChildrenService {
   }
 
   queryAttendanceLast3Months() {
-    return this.db.query(&quot;avg_attendance_index/three_months&quot;, {
+    return this.dbIndexing.queryIndex(&quot;avg_attendance_index/three_months&quot;, {
       reduce: true,
       group: true,
     });
   }
 
   queryAttendanceLastMonth() {
-    return this.db.query(&quot;avg_attendance_index/last_month&quot;, {
+    return this.dbIndexing.queryIndex(&quot;avg_attendance_index/last_month&quot;, {
       reduce: true,
       group: true,
     });
@@ -1631,7 +1683,7 @@ export class ChildrenService {
       },
     };
 
-    return this.db.saveDatabaseIndex(designDoc);
+    return this.dbIndexing.createIndex(designDoc);
   }
 
   private getAverageAttendanceMapFunction() {
@@ -1672,8 +1724,8 @@ export class ChildrenService {
   }
 
   getNotesOfChild(childId: string): Observable&lt;Note[]&gt; {
-    const promise &#x3D; this.db
-      .query(&quot;notes_index/by_child&quot;, { key: childId, include_docs: true })
+    const promise &#x3D; this.dbIndexing
+      .queryIndex(&quot;notes_index/by_child&quot;, { key: childId, include_docs: true })
       .then((loadedEntities) &#x3D;&gt; {
         return loadedEntities.rows.map((loadedRecord) &#x3D;&gt; {
           const entity &#x3D; new Note(&quot;&quot;);
@@ -1693,7 +1745,7 @@ export class ChildrenService {
    * @return A map of childIds as key and days since last note as value
    */
   public async getDaysSinceLastNoteOfEachChild(): Promise&lt;Map&lt;string, number&gt;&gt; {
-    const stats &#x3D; await this.db.query(
+    const stats &#x3D; await this.dbIndexing.queryIndex(
       &quot;notes_index/note_date_in_days_for_child&quot;,
       { reduce: true, group: true }
     );
@@ -1737,7 +1789,7 @@ export class ChildrenService {
       },
     };
 
-    return this.db.saveDatabaseIndex(designDoc);
+    return this.dbIndexing.createIndex(designDoc);
   }
 
   getEducationalMaterialsOfChild(

@@ -806,13 +806,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SyncStatusModule.html" data-type="entity-link">SyncStatusModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SyncStatusModule-7665b26ebdf11530d6048744606048f5"' : 'data-target="#xs-components-links-module-SyncStatusModule-7665b26ebdf11530d6048744606048f5"' }>
+                                            'data-target="#components-links-module-SyncStatusModule-56f34551911441ccb6d03a24b00cf015"' : 'data-target="#xs-components-links-module-SyncStatusModule-56f34551911441ccb6d03a24b00cf015"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SyncStatusModule-7665b26ebdf11530d6048744606048f5"' :
-                                            'id="xs-components-links-module-SyncStatusModule-7665b26ebdf11530d6048744606048f5"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SyncStatusModule-56f34551911441ccb6d03a24b00cf015"' :
+                                            'id="xs-components-links-module-SyncStatusModule-56f34551911441ccb6d03a24b00cf015"' }>
+                                            <li class="link">
+                                                <a href="components/BackgroundProcessingIndicatorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">BackgroundProcessingIndicatorComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/InitialSyncDialogComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">InitialSyncDialogComponent</a>
@@ -1033,6 +1037,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/ChildPhotoService.html" data-type="entity-link">ChildPhotoService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/DatabaseIndexingService.html" data-type="entity-link">DatabaseIndexingService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/DemoAserGeneratorService.html" data-type="entity-link">DemoAserGeneratorService</a>
                                 </li>
                                 <li class="link">
@@ -1111,6 +1118,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/AttendanceProfile.html" data-type="entity-link">AttendanceProfile</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/BackgroundProcessState.html" data-type="entity-link">BackgroundProcessState</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ColumnGroup.html" data-type="entity-link">ColumnGroup</a>
