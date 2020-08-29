@@ -158,7 +158,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, OnInit, ViewChild } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  HostListener,
+} from &quot;@angular/core&quot;;
 import { Child } from &quot;../model/child&quot;;
 import { MatSort } from &quot;@angular/material/sort&quot;;
 import { MatTableDataSource } from &quot;@angular/material/table&quot;;
@@ -172,6 +179,7 @@ import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
 import { SessionService } from &quot;../../../core/session/session-service/session.service&quot;;
 import { User } from &quot;../../../core/user/user&quot;;
 import { EntityMapperService } from &quot;../../../core/entity/entity-mapper.service&quot;;
+import { floor, min } from &quot;lodash&quot;;
 
 export interface ColumnGroup {
   name: string;
@@ -269,7 +277,10 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
         &quot;dateOfBirth&quot;,
       ],
     },
-    { name: &quot;Mobile&quot;, columns: [&quot;projectNumber&quot;, &quot;name&quot;, &quot;age&quot;, &quot;schoolId&quot;] },
+    {
+      name: &quot;Mobile&quot;,
+      columns: [&quot;projectNumber&quot;, &quot;name&quot;, &quot;age&quot;, &quot;schoolId&quot;],
+    },
   ];
   columnsToDisplay &#x3D; [&quot;projectNumber&quot;, &quot;name&quot;];
   filterString &#x3D; &quot;&quot;;
@@ -277,6 +288,11 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   public paginatorPageSize: number;
   public paginatorPageIndex: number;
   private user: User;
+
+  /** dynamically calculated number of attendance blocks displayed in a column to avoid overlap */
+  maxAttendanceBlocks: number &#x3D; 3;
+  @ViewChild(&quot;attendanceSchoolCell&quot;) schoolCell: ElementRef;
+  @ViewChild(&quot;attendanceCoachingCell&quot;) coachingCell: ElementRef;
 
   constructor(
     private childrenService: ChildrenService,
@@ -296,8 +312,26 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
     this.media.media$
       .pipe(untilDestroyed(this))
       .subscribe((change: MediaChange) &#x3D;&gt; {
-        if (change.mqAlias &#x3D;&#x3D;&#x3D; &quot;xs&quot;) {
-          this.displayColumnGroup(&quot;Mobile&quot;);
+        switch (change.mqAlias) {
+          case &quot;xs&quot;:
+          case &quot;sm&quot;: {
+            this.displayColumnGroup(&quot;Mobile&quot;);
+            this.maxAttendanceBlocks &#x3D; 1;
+            break;
+          }
+          case &quot;md&quot;: {
+            this.displayColumnGroup(&quot;School Info&quot;);
+            this.maxAttendanceBlocks &#x3D; 2;
+            break;
+          }
+          case &quot;lg&quot;: {
+            this.maxAttendanceBlocks &#x3D; 3;
+            break;
+          }
+          case &quot;xl&quot;: {
+            this.maxAttendanceBlocks &#x3D; 6;
+            break;
+          }
         }
       });
   }
