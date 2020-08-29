@@ -631,8 +631,8 @@ You can add a mock implementation here for your specific query/index if necessar
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="336"
-                            class="link-to-prism">src/app/core/database/mock-database.ts:336</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="346"
+                            class="link-to-prism">src/app/core/database/mock-database.ts:346</a></div>
                 </td>
             </tr>
 
@@ -1533,6 +1533,16 @@ export class MockDatabase extends Database {
             e.end &gt;&#x3D; new Date().setHours(0, 0, 0, 0)) &amp;&amp;
           e.schoolId &#x3D;&#x3D;&#x3D; options.key;
         break;
+      case &quot;search_index/by_name&quot;:
+        filterFun &#x3D; (e) &#x3D;&gt; {
+          return (
+            e.hasOwnProperty(&quot;searchIndices&quot;) &amp;&amp;
+            e.searchIndices.some((word) &#x3D;&gt;
+              word.toString().toLowerCase().includes(options.startkey)
+            )
+          );
+        };
+        break;
       case &quot;childSchoolRelations_index/by_date&quot;:
         return this.filterForLatestRelationOfChild(
           options.endkey,
@@ -1549,7 +1559,7 @@ export class MockDatabase extends Database {
         const allData &#x3D; await this.getAll();
         return {
           rows: allData.filter(filterFun).map((e) &#x3D;&gt; {
-            return { doc: e };
+            return { id: e._id, doc: e };
           }),
         };
       }
