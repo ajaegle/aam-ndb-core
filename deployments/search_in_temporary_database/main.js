@@ -18533,8 +18533,10 @@ var MockDatabase = /** @class */ (function (_super) {
                                 break;
                             case "search_index/by_name":
                                 filterFun = function (e) {
-                                    return (e.hasOwnProperty("name") &&
-                                        e.name.toLowerCase().includes(options.startkey));
+                                    return (e.hasOwnProperty("searchIndices") &&
+                                        e.searchIndices.some(function (word) {
+                                            return word.toString().toLowerCase().includes(options.startkey);
+                                        }));
                                 };
                                 break;
                             case "childSchoolRelations_index/by_date":
@@ -28159,7 +28161,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var environment = {
     production: false,
-    appVersion: "2.17.0",
+    appVersion: "2.17.1",
     repositoryId: "Aam-Digital/ndb-core",
     remoteLoggingDsn: undefined,
 };
