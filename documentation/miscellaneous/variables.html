@@ -1126,7 +1126,9 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       value &#x3D; new Date(value);
     }
     return (
-      value.getFullYear().toString() + &quot;-&quot; + (value.getMonth() + 1).toString()
+      value.getFullYear().toString() +
+      &quot;-&quot; +
+      (value.getMonth() + 1).toString().replace(/^(\d)$/g, &quot;0$1&quot;)
     );
   },
 
@@ -1135,6 +1137,10 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       return undefined;
     }
 
+    value &#x3D; value
+      .toString()
+      .replace(/-(\d)-/g, &quot;-0$1-&quot;)
+      .replace(/-(\d)$/g, &quot;-0$1&quot;);
     const date &#x3D; new Date(value);
     if (Number.isNaN(date.getTime())) {
       console.log(&quot;value aus datatype-month.ts: &quot; + value);
