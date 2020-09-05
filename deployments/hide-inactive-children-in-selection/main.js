@@ -6916,9 +6916,10 @@ var ChildSelectComponent = /** @class */ (function () {
         this.searchText = this.searchText.toLowerCase();
         this.suggestions = this.allChildren.filter(function (child) {
             var key = "" + child.name + " " + child.projectNumber;
-            var isActive = child.isActive();
-            var matchesKey = key.toLowerCase().includes(_this.searchText);
-            return _this.showOnlyActiveChildren ? matchesKey && isActive : matchesKey;
+            if (_this.showOnlyActiveChildren && !child.isActive()) {
+                return false;
+            }
+            return key.toLowerCase().includes(_this.searchText);
         });
     };
     ChildSelectComponent.prototype.showAll = function () {
