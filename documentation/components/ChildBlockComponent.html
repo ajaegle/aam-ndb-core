@@ -130,10 +130,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#tooltip">tooltip</a>
+                                <a href="#tooltipTimeout">tooltipTimeout</a>
                             </li>
                             <li>
-                                <a href="#tooltipTimeout">tooltipTimeout</a>
+                                <a href="#tooltipVisible">tooltipVisible</a>
                             </li>
                         </ul>
                     </td>
@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -260,8 +260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -299,8 +299,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:56</a></div>
                 </td>
             </tr>
 
@@ -338,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -365,32 +365,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="tooltip"></a>
-                        <span class="name">
-                            <b>
-                            tooltip</b>
-                            <a href="#tooltip"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:17</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="tooltipTimeout"></a>
                         <span class="name">
                             <b>
@@ -401,7 +375,33 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tooltipVisible"></a>
+                        <span class="name">
+                            <b>
+                            tooltipVisible</b>
+                            <a href="#tooltipVisible"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/child-dev-project/children/child-block/child-block.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -429,8 +429,13 @@ import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
 export class ChildBlockComponent implements OnInit {
   @Input() entity: Child;
   @Input() entityId: string;
+
+  /** prevent clicks on the component to navigate to the details page */
   @Input() linkDisabled: boolean;
-  tooltip &#x3D; false;
+
+  /** prevent additional details to be displayed in a tooltip on mouse over */
+  @Input() tooltipDisabled: boolean;
+  tooltipVisible &#x3D; false;
   tooltipTimeout;
 
   constructor(
@@ -450,13 +455,18 @@ export class ChildBlockComponent implements OnInit {
   }
 
   showTooltip() {
-    this.tooltip &#x3D; true;
+    if (this.tooltipDisabled) {
+      return;
+    }
+
+    this.tooltipVisible &#x3D; true;
     if (this.tooltipTimeout) {
       clearTimeout(this.tooltipTimeout);
     }
   }
+
   hideTooltip() {
-    this.tooltipTimeout &#x3D; setTimeout(() &#x3D;&gt; (this.tooltip &#x3D; false), 250);
+    this.tooltipTimeout &#x3D; setTimeout(() &#x3D;&gt; (this.tooltipVisible &#x3D; false), 250);
   }
 
   showDetailsPage() {
@@ -471,12 +481,14 @@ export class ChildBlockComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&quot;entity&quot; (mouseenter)&#x3D;&quot;showTooltip()&quot; (mouseleave)&#x3D;&quot;hideTooltip()&quot; (click)&#x3D;&quot;showDetailsPage()&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&quot;entity&quot;
+      (mouseenter)&#x3D;&quot;showTooltip()&quot; (mouseleave)&#x3D;&quot;hideTooltip()&quot; (click)&#x3D;&quot;showDetailsPage()&quot;
+      [ngClass]&#x3D;&quot;{ &#x27;inactive&#x27;: !entity.isActive() }&quot;&gt;
   &lt;img [src]&#x3D;&quot;entity?.photo?.value&quot; class&#x3D;&quot;child-pic&quot;&gt;
   {{entity?.name}} &lt;span style&#x3D;&quot;font-size: x-small&quot;&gt;({{entity?.projectNumber}})&lt;/span&gt;
 &lt;/span&gt;
 
-&lt;div style&#x3D;&quot;position:absolute;&quot; *ngIf&#x3D;&quot;tooltip&quot;&gt;
+&lt;div style&#x3D;&quot;position:absolute;&quot; *ngIf&#x3D;&quot;tooltipVisible&quot;&gt;
   &lt;div class&#x3D;&quot;mat-elevation-z5 child-tooltip&quot; (mouseenter)&#x3D;&quot;showTooltip()&quot; (mouseleave)&#x3D;&quot;hideTooltip()&quot; fxLayout&#x3D;&#x27;row&#x27;&gt;
     &lt;div fxFlex&#x3D;&#x27;30&#x27;&gt;
       &lt;img [src]&#x3D;&quot;entity?.photo?.value&quot; class&#x3D;&quot;child-pic-large&quot;&gt;
@@ -522,6 +534,10 @@ export class ChildBlockComponent implements OnInit {
   object-fit: cover;
   border: 1px solid black;
 }
+
+.inactive {
+  color: grey;
+}
 </code></pre>
     </div>
 
@@ -550,7 +566,7 @@ export class ChildBlockComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><span *ngIf="entity" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()" (click)="showDetailsPage()">  <img [src]="entity?.photo?.value" class="child-pic">  {{entity?.name}} <span style="font-size: x-small">({{entity?.projectNumber}})</span></span><div style="position:absolute;" *ngIf="tooltip">  <div class="mat-elevation-z5 child-tooltip" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()" fxLayout=\'row\'>    <div fxFlex=\'30\'>      <img [src]="entity?.photo?.value" class="child-pic-large">    </div>    <div fxFlex>      <h3>{{entity?.name}}</h3>      <p><span class=\'fa fa-phone\'></span> {{entity?.phone}}</p>      <p><app-school-block [entityId]=\'entity?.schoolId\'></app-school-block>,        class {{entity?.schoolClass}}      </p>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><span *ngIf="entity"      (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()" (click)="showDetailsPage()"      [ngClass]="{ \'inactive\': !entity.isActive() }">  <img [src]="entity?.photo?.value" class="child-pic">  {{entity?.name}} <span style="font-size: x-small">({{entity?.projectNumber}})</span></span><div style="position:absolute;" *ngIf="tooltipVisible">  <div class="mat-elevation-z5 child-tooltip" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()" fxLayout=\'row\'>    <div fxFlex=\'30\'>      <img [src]="entity?.photo?.value" class="child-pic-large">    </div>    <div fxFlex>      <h3>{{entity?.name}}</h3>      <p><span class=\'fa fa-phone\'></span> {{entity?.phone}}</p>      <p><app-school-block [entityId]=\'entity?.schoolId\'></app-school-block>,        class {{entity?.schoolClass}}      </p>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'BackgroundProcessingIndicatorComponent', 'selector': 'app-background-processing-indicator'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ChildBlockComponent'};
