@@ -3258,7 +3258,7 @@ var AttendanceDaysComponent = /** @class */ (function () {
     function AttendanceDaysComponent(dialog, entityMapper) {
         this.dialog = dialog;
         this.entityMapper = entityMapper;
-        this.records = new Array();
+        this.records = [];
         this.selectedRecordChanged = false;
         this.statusValues = _model_attendance_day__WEBPACK_IMPORTED_MODULE_1__["AttendanceStatus"];
         this.weekRecordsTrackByFunction = function (index, item) {
@@ -15209,18 +15209,29 @@ var SchoolDetailsComponent = /** @class */ (function () {
     SchoolDetailsComponent.prototype.removeSchool = function () {
         var _this = this;
         var dialogRef = this.confirmationDialog.openDialog("Delete?", "Are you sure you want to delete this School?");
-        dialogRef.afterClosed().subscribe(function (confirmed) {
-            if (confirmed) {
-                _this.entityMapperService
-                    .remove(_this.school)
-                    .then(function () { return _this.router.navigate(["/school"]); });
-                var snackBarRef = _this.snackBar.open('Deleted School "' + _this.school.name + '"', "Undo", { duration: 8000 });
-                snackBarRef.onAction().subscribe(function () {
-                    _this.entityMapperService.save(_this.school, true);
-                    _this.router.navigate(["/school", _this.school.getId()]);
-                });
-            }
-        });
+        dialogRef.afterClosed().subscribe(function (confirmed) { return __awaiter(_this, void 0, void 0, function () {
+            var snackBarRef;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!confirmed) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.entityMapperService.remove(this.school)];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.router.navigate(["/school"])];
+                    case 2:
+                        _a.sent();
+                        snackBarRef = this.snackBar.open('Deleted School "' + this.school.name + '"', "Undo", { duration: 8000 });
+                        snackBarRef.onAction().subscribe(function () {
+                            _this.entityMapperService.save(_this.school, true);
+                            _this.router.navigate(["/school", _this.school.getId()]);
+                        });
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); });
     };
     SchoolDetailsComponent.prototype.saveSchool = function () {
         var _this = this;
