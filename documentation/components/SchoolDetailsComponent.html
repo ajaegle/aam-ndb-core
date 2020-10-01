@@ -167,6 +167,7 @@
                                 <a href="#initializeForm">initializeForm</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#loadSchool">loadSchool</a>
                             </li>
                             <li>
@@ -373,8 +374,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -397,6 +398,7 @@
                     <a name="loadSchool"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Async</span>
                             loadSchool
                         </b>
                         <a href="#loadSchool"><span class="icon ion-ios-link"></span></a>
@@ -405,15 +407,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>loadSchool(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadSchool(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:76</a></div>
                 </td>
             </tr>
 
@@ -450,7 +453,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -640,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/child-dev-project/schools/school-details/school-details.component.ts:71</a></div>
                 </td>
             </tr>
 
@@ -913,7 +916,9 @@ export class SchoolDetailsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private confirmationDialog: ConfirmationDialogService,
     private schoolService: SchoolsService
-  ) {}
+  ) {
+    this.initializeForm();
+  }
 
   initializeForm() {
     this.form &#x3D; this.fb.group({
@@ -938,16 +943,9 @@ export class SchoolDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id &#x3D; this.route.snapshot.params[&quot;id&quot;];
-    if (id &#x3D;&#x3D;&#x3D; &quot;new&quot;) {
-      this.creatingNew &#x3D; true;
-      this.editing &#x3D; true;
-      this.school &#x3D; new School(uniqid());
-    } else {
-      this.studentDataSource.data &#x3D; [];
-      this.loadSchool(id);
-    }
-    this.initializeForm();
+    this.route.paramMap.subscribe((paramMap) &#x3D;&gt; {
+      this.loadSchool(paramMap.get(&quot;id&quot;));
+    });
   }
 
   switchEdit() {
@@ -955,12 +953,17 @@ export class SchoolDetailsComponent implements OnInit {
     this.initializeForm();
   }
 
-  loadSchool(id: string) {
-    this.entityMapperService
-      .load&lt;School&gt;(School, id)
-      .then((school) &#x3D;&gt; (this.school &#x3D; school))
-      .then(() &#x3D;&gt; this.initializeForm())
-      .then(() &#x3D;&gt; this.loadStudents());
+  async loadSchool(id: string) {
+    if (id &#x3D;&#x3D;&#x3D; &quot;new&quot;) {
+      this.creatingNew &#x3D; true;
+      this.editing &#x3D; true;
+      this.school &#x3D; new School(uniqid());
+    } else {
+      this.studentDataSource.data &#x3D; [];
+      this.school &#x3D; await this.entityMapperService.load&lt;School&gt;(School, id);
+    }
+    this.initializeForm();
+    await this.loadStudents();
   }
 
   async loadStudents() {
@@ -975,11 +978,11 @@ export class SchoolDetailsComponent implements OnInit {
       &quot;Are you sure you want to delete this School?&quot;
     );
 
-    dialogRef.afterClosed().subscribe((confirmed) &#x3D;&gt; {
+    dialogRef.afterClosed().subscribe(async (confirmed) &#x3D;&gt; {
       if (confirmed) {
-        this.entityMapperService
-          .remove&lt;School&gt;(this.school)
-          .then(() &#x3D;&gt; this.router.navigate([&quot;/school&quot;]));
+        await this.entityMapperService.remove&lt;School&gt;(this.school);
+
+        await this.router.navigate([&quot;/school&quot;]);
 
         const snackBarRef &#x3D; this.snackBar.open(
           &#x27;Deleted School &quot;&#x27; + this.school.name + &#x27;&quot;&#x27;,
