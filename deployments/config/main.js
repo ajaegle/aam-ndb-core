@@ -489,7 +489,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_analytics_analytics_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./core/analytics/analytics.service */ "./src/app/core/analytics/analytics.service.ts");
 /* harmony import */ var angulartics2_piwik__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! angulartics2/piwik */ "./node_modules/angulartics2/piwik/fesm2015/angulartics2-piwik.js");
 /* harmony import */ var _core_config_config_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./core/config/config.service */ "./src/app/core/config/config.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _core_view_view_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./core/view/view.module */ "./src/app/core/view/view.module.ts");
+/* harmony import */ var _core_view_router_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./core/view/router.service */ "./src/app/core/view/router.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __read = (undefined && undefined.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -578,6 +580,9 @@ var __spread = (undefined && undefined.__spread) || function () {
 
 
 
+
+
+
 function configFactory(configService) {
     return function () { return configService.loadConfig(); };
 }
@@ -587,13 +592,15 @@ function configFactory(configService) {
  * Real functionality should be implemented in separate modules and imported here rather than being part of this module.
  */
 var AppModule = /** @class */ (function () {
-    function AppModule(matIconRegistry) {
+    function AppModule(matIconRegistry, routerService) {
         this.matIconRegistry = matIconRegistry;
+        this.routerService = routerService;
         matIconRegistry.registerFontClassAlias("fontawesome", "fa");
         matIconRegistry.setDefaultFontSetClass("fa");
+        routerService.initRouting();
     }
     AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]] });
-    AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"])); }, providers: [
+    AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_core_view_router_service__WEBPACK_IMPORTED_MODULE_47__["RouterService"])); }, providers: [
             { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _core_logging_logging_error_handler__WEBPACK_IMPORTED_MODULE_28__["LoggingErrorHandler"] },
             _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"],
             ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__["CookieService"],
@@ -618,6 +625,7 @@ var AppModule = /** @class */ (function () {
                 _angular_flex_layout__WEBPACK_IMPORTED_MODULE_18__["FlexLayoutModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _app_routing__WEBPACK_IMPORTED_MODULE_8__["routing"],
+                _core_view_view_module__WEBPACK_IMPORTED_MODULE_46__["ViewModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _core_confirmation_dialog_confirmation_dialog_module__WEBPACK_IMPORTED_MODULE_39__["ConfirmationDialogModule"],
                 _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_40__["FormDialogModule"],
@@ -652,7 +660,8 @@ var AppModule = /** @class */ (function () {
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]], imports: [_angular_service_worker__WEBPACK_IMPORTED_MODULE_19__["ServiceWorkerModule"], angulartics2__WEBPACK_IMPORTED_MODULE_42__["Angulartics2Module"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
         _angular_flex_layout__WEBPACK_IMPORTED_MODULE_18__["FlexLayoutModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_router__WEBPACK_IMPORTED_MODULE_46__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_router__WEBPACK_IMPORTED_MODULE_48__["RouterModule"], _core_view_view_module__WEBPACK_IMPORTED_MODULE_46__["ViewModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
         _core_confirmation_dialog_confirmation_dialog_module__WEBPACK_IMPORTED_MODULE_39__["ConfirmationDialogModule"],
         _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_40__["FormDialogModule"],
         _core_alerts_alerts_module__WEBPACK_IMPORTED_MODULE_9__["AlertsModule"],
@@ -687,6 +696,7 @@ var AppModule = /** @class */ (function () {
                     _angular_flex_layout__WEBPACK_IMPORTED_MODULE_18__["FlexLayoutModule"],
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                     _app_routing__WEBPACK_IMPORTED_MODULE_8__["routing"],
+                    _core_view_view_module__WEBPACK_IMPORTED_MODULE_46__["ViewModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                     _core_confirmation_dialog_confirmation_dialog_module__WEBPACK_IMPORTED_MODULE_39__["ConfirmationDialogModule"],
                     _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_40__["FormDialogModule"],
@@ -731,7 +741,7 @@ var AppModule = /** @class */ (function () {
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
             }]
-    }], function () { return [{ type: _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"] }]; }, null); })();
+    }], function () { return [{ type: _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"] }, { type: _core_view_router_service__WEBPACK_IMPORTED_MODULE_47__["RouterService"] }]; }, null); })();
 // Initialize remote logging
 _core_logging_logging_service__WEBPACK_IMPORTED_MODULE_41__["LoggingService"].initRemoteLogging({
     dsn: _environments_environment__WEBPACK_IMPORTED_MODULE_20__["environment"].remoteLoggingDsn,
@@ -745,11 +755,12 @@ _core_logging_logging_service__WEBPACK_IMPORTED_MODULE_41__["LoggingService"].in
 /*!********************************!*\
   !*** ./src/app/app.routing.ts ***!
   \********************************/
-/*! exports provided: routes, routing */
+/*! exports provided: COMPONENT_MAP, routes, routing */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMPONENT_MAP", function() { return COMPONENT_MAP; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routing", function() { return routing; });
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
@@ -802,7 +813,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var nameComponentMap = {
+var COMPONENT_MAP = {
     Dashboard: _child_dev_project_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["DashboardComponent"],
     UserAccount: _core_user_user_account_user_account_component__WEBPACK_IMPORTED_MODULE_5__["UserAccountComponent"],
     NotesManager: _child_dev_project_notes_notes_manager_notes_manager_component__WEBPACK_IMPORTED_MODULE_10__["NotesManagerComponent"],
@@ -811,33 +822,19 @@ var nameComponentMap = {
     AttendanceManager: _child_dev_project_attendance_attendance_manager_attendance_manager_component__WEBPACK_IMPORTED_MODULE_13__["AttendanceManagerComponent"],
     AddMonthAttendance: _child_dev_project_attendance_add_month_attendance_add_month_attendance_component__WEBPACK_IMPORTED_MODULE_11__["AddMonthAttendanceComponent"],
     AddDayAttendance: _child_dev_project_attendance_add_day_attendance_add_day_attendance_component__WEBPACK_IMPORTED_MODULE_12__["AddDayAttendanceComponent"],
+    AttendanceAnalysis: _child_dev_project_attendance_attendance_analysis_attendance_analysis_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceAnalysisComponent"],
     SchoolsList: _child_dev_project_schools_schools_list_schools_list_component__WEBPACK_IMPORTED_MODULE_2__["SchoolsListComponent"],
     SchoolDetails: _child_dev_project_schools_school_details_school_details_component__WEBPACK_IMPORTED_MODULE_3__["SchoolDetailsComponent"],
     ChildrenList: _child_dev_project_children_children_list_children_list_component__WEBPACK_IMPORTED_MODULE_6__["ChildrenListComponent"],
     ChildDetails: _child_dev_project_children_child_details_child_details_component__WEBPACK_IMPORTED_MODULE_4__["ChildDetailsComponent"],
     ChildAttendance: _child_dev_project_attendance_child_attendance_child_attendance_component__WEBPACK_IMPORTED_MODULE_7__["ChildAttendanceComponent"],
+    Admin: _core_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_8__["AdminComponent"],
 };
-function createRoutes() {
-    return [];
-}
 /**
  * All routes configured for the main app routing.
  */
 var routes = [
-    { path: "", component: _child_dev_project_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["DashboardComponent"] },
-    { path: "user", component: _core_user_user_account_user_account_component__WEBPACK_IMPORTED_MODULE_5__["UserAccountComponent"] },
-    { path: "school", component: _child_dev_project_schools_schools_list_schools_list_component__WEBPACK_IMPORTED_MODULE_2__["SchoolsListComponent"] },
-    { path: "school/:id", component: _child_dev_project_schools_school_details_school_details_component__WEBPACK_IMPORTED_MODULE_3__["SchoolDetailsComponent"] },
-    { path: "child", component: _child_dev_project_children_children_list_children_list_component__WEBPACK_IMPORTED_MODULE_6__["ChildrenListComponent"] },
-    { path: "child/:id", component: _child_dev_project_children_child_details_child_details_component__WEBPACK_IMPORTED_MODULE_4__["ChildDetailsComponent"] },
-    { path: "child/:id/attendance", component: _child_dev_project_attendance_child_attendance_child_attendance_component__WEBPACK_IMPORTED_MODULE_7__["ChildAttendanceComponent"] },
-    { path: "note", component: _child_dev_project_notes_notes_manager_notes_manager_component__WEBPACK_IMPORTED_MODULE_10__["NotesManagerComponent"] },
-    { path: "attendance", component: _child_dev_project_attendance_attendance_manager_attendance_manager_component__WEBPACK_IMPORTED_MODULE_13__["AttendanceManagerComponent"] },
-    { path: "attendance/analysis", component: _child_dev_project_attendance_attendance_analysis_attendance_analysis_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceAnalysisComponent"] },
-    { path: "attendance/add/month", component: _child_dev_project_attendance_add_month_attendance_add_month_attendance_component__WEBPACK_IMPORTED_MODULE_11__["AddMonthAttendanceComponent"] },
-    { path: "attendance/add/day", component: _child_dev_project_attendance_add_day_attendance_add_day_attendance_component__WEBPACK_IMPORTED_MODULE_12__["AddDayAttendanceComponent"] },
-    { path: "admin", component: _core_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_8__["AdminComponent"], canActivate: [_core_admin_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]] },
-    { path: "users", component: _core_admin_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_15__["UserListComponent"], canActivate: [_core_admin_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]] },
+    // routes are added dynamically by the RouterService
     {
         path: "admin/conflicts",
         canActivate: [_core_admin_admin_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]],
@@ -845,7 +842,6 @@ var routes = [
             return __webpack_require__.e(/*! import() | conflict-resolution-conflict-resolution-module */ "conflict-resolution-conflict-resolution-module").then(__webpack_require__.bind(null, /*! ./conflict-resolution/conflict-resolution.module */ "./src/app/conflict-resolution/conflict-resolution.module.ts")).then(function (m) { return m["ConflictResolutionModule"]; });
         },
     },
-    { path: "help", component: _core_help_how_to_how_to_component__WEBPACK_IMPORTED_MODULE_14__["HowToComponent"] },
     { path: "**", redirectTo: "/" },
 ];
 /**
@@ -18132,10 +18128,10 @@ var AppConfig = /** @class */ (function () {
 /*!*********************************************!*\
   !*** ./src/app/core/config/config-fix.json ***!
   \*********************************************/
-/*! exports provided: navigationMenu, view:/, view:/user, view:/note, view:/admin, view:/admin/conflicts, view:/users, view:/help, view:/attendance, view:/attendance/analysis, view:/attendance/add/month, view:/attendance/add/day, view:/school, view:/school/:id, view:/child, view:/child/:id, view:/child/:id/attendance, default */
+/*! exports provided: navigationMenu, view:, view:user, view:note, view:admin, view:admin/conflicts, view:users, view:help, view:attendance, view:attendance/analysis, view:attendance/add/month, view:attendance/add/day, view:school, view:school/:id, view:child, view:child/:id, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"view:/\":{\"component\":\"Dashboard\"},\"view:/user\":{\"component\":\"UserAccount\"},\"view:/note\":{\"component\":\"NotesManager\"},\"view:/admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:/admin/conflicts\":{\"component\":\"Admin\",\"requiresAdmin\":true,\"ignoreForRouting\":true},\"view:/users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:/help\":{\"component\":\"Help\"},\"view:/attendance\":{\"component\":\"AttendanceManager\"},\"view:/attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:/attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:/attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:/school\":{\"component\":\"SchoolsList\"},\"view:/school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}},\"view:/child\":{\"component\":\"ChildrenList\"},\"view:/child/:id\":{\"component\":\"ChildLists\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}},\"view:/child/:id/attendance\":{\"component\":\"ChildAttendance\"}}");
+module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"view:\":{\"component\":\"Dashboard\",\"config\":{\"widgets\":[{\"dashboardComponent\":\"ChildrenCountDashboard\"},{\"dashboardComponent\":\"RecentNotesDashboard\"},{\"dashboardComponent\":\"NoRecentNotesDashboard\",\"sinceDays\":28,\"fromBeginningOfWeek\":false},{\"dashboardComponent\":\"AttendanceWeekDashboard\",\"daysOffset\":0,\"periodLabel\":\"last week\"},{\"dashboardComponent\":\"AttendanceWeekDashboard\",\"daysOffset\":7,\"periodLabel\":\"this week\"},{\"dashboardComponent\":\"ProgressDashboard\",\"dashboardConfigId\":\"1\"},{\"dashboardComponent\":\"AttendanceAverageDashboard\"},{\"dashboardComponent\":\"AttendanceWarningsDashboard\"}]}},\"view:user\":{\"component\":\"UserAccount\"},\"view:note\":{\"component\":\"NotesManager\"},\"view:admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:admin/conflicts\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:help\":{\"component\":\"Help\"},\"view:attendance\":{\"component\":\"AttendanceManager\"},\"view:attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:school\":{\"component\":\"SchoolsList\"},\"view:school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}},\"view:child\":{\"component\":\"ChildrenList\"},\"view:child/:id\":{\"component\":\"ChildDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}}}");
 
 /***/ }),
 
@@ -18226,6 +18222,17 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __values = (undefined && undefined.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
 
 
 
@@ -18247,10 +18254,29 @@ var ConfigService = /** @class */ (function () {
         });
     };
     ConfigService.prototype.getConfig = function (id) {
-        console.log("config", _config_fix_json__WEBPACK_IMPORTED_MODULE_1__);
         return _config_fix_json__WEBPACK_IMPORTED_MODULE_1__[id];
     };
-    ConfigService.PREFIX_VIEW_CONFIG = "view:";
+    ConfigService.prototype.getAllConfigs = function (prefix) {
+        var e_1, _a;
+        var matchingConfigs = [];
+        try {
+            for (var _b = __values(Object.keys(_config_fix_json__WEBPACK_IMPORTED_MODULE_1__)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var id = _c.value;
+                if (id.startsWith(prefix)) {
+                    _config_fix_json__WEBPACK_IMPORTED_MODULE_1__[id]._id = id;
+                    matchingConfigs.push(_config_fix_json__WEBPACK_IMPORTED_MODULE_1__[id]);
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return matchingConfigs;
+    };
     ConfigService.ɵfac = function ConfigService_Factory(t) { return new (t || ConfigService)(); };
     ConfigService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ConfigService, factory: ConfigService.ɵfac, providedIn: "root" });
     return ConfigService;
@@ -23890,7 +23916,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationItemsService", function() { return NavigationItemsService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _config_config_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/config.service */ "./src/app/core/config/config.service.ts");
-/* harmony import */ var _menu_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu-item */ "./src/app/core/navigation/menu-item.ts");
+/* harmony import */ var _view_router_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../view/router.service */ "./src/app/core/view/router.service.ts");
+/* harmony import */ var _menu_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu-item */ "./src/app/core/navigation/menu-item.ts");
 var __values = (undefined && undefined.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -23923,6 +23950,7 @@ var __values = (undefined && undefined.__values) || function(o) {
 
 
 
+
 /**
  * Manage menu items to be displayed in the main app menu.
  *
@@ -23941,7 +23969,7 @@ var NavigationItemsService = /** @class */ (function () {
         try {
             for (var _b = __values(config.items), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var configItem = _c.value;
-                this.addMenuItem(new _menu_item__WEBPACK_IMPORTED_MODULE_2__["MenuItem"](configItem.name, configItem.icon, [configItem.link], this.checkMenuItemPermissions(configItem.link)));
+                this.addMenuItem(new _menu_item__WEBPACK_IMPORTED_MODULE_3__["MenuItem"](configItem.name, configItem.icon, [configItem.link], this.checkMenuItemPermissions(configItem.link)));
             }
         }
         catch (e_1_1) { e_1 = { error: e_1_1 }; }
@@ -23956,7 +23984,7 @@ var NavigationItemsService = /** @class */ (function () {
      * Check whether the given path requires admin rights
      */
     NavigationItemsService.prototype.checkMenuItemPermissions = function (link) {
-        var viewConfig = this.configService.getConfig(_config_config_service__WEBPACK_IMPORTED_MODULE_1__["ConfigService"].PREFIX_VIEW_CONFIG + link);
+        var viewConfig = this.configService.getConfig(_view_router_service__WEBPACK_IMPORTED_MODULE_2__["RouterService"].PREFIX_VIEW_CONFIG + link.replace(/^\//, ""));
         return viewConfig === null || viewConfig === void 0 ? void 0 : viewConfig.requiresAdmin;
     };
     /**
@@ -27900,6 +27928,172 @@ var User = /** @class */ (function (_super) {
     return User;
 }(_entity_entity__WEBPACK_IMPORTED_MODULE_0__["Entity"]));
 
+
+
+/***/ }),
+
+/***/ "./src/app/core/view/router.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/core/view/router.service.ts ***!
+  \*********************************************/
+/*! exports provided: RouterService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterService", function() { return RouterService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_app_routing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
+/* harmony import */ var _config_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config/config.service */ "./src/app/core/config/config.service.ts");
+/* harmony import */ var _logging_logging_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../logging/logging.service */ "./src/app/core/logging/logging.service.ts");
+var __values = (undefined && undefined.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __read = (undefined && undefined.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __spread = (undefined && undefined.__spread) || function () {
+    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+    return ar;
+};
+
+
+
+
+
+
+
+
+
+
+var RouterService = /** @class */ (function () {
+    function RouterService(configService, router, loggingService) {
+        this.configService = configService;
+        this.router = router;
+        this.loggingService = loggingService;
+    }
+    /**
+     * Initialize routes from the config while respecting existing routes.
+     */
+    RouterService.prototype.initRouting = function () {
+        this.reloadRouting(this.router.config);
+    };
+    /**
+     * Reset the routing config and reload it from the global config.
+     *
+     * @param additionalRoutes Optional array of routes to keep in addition to the ones loaded from config
+     */
+    RouterService.prototype.reloadRouting = function (additionalRoutes) {
+        var e_1, _a;
+        if (additionalRoutes === void 0) { additionalRoutes = []; }
+        var routes = [];
+        var viewConfigs = this.configService.getAllConfigs(RouterService.PREFIX_VIEW_CONFIG);
+        var _loop_1 = function (view) {
+            var path = view._id.substring(RouterService.PREFIX_VIEW_CONFIG.length); // remove prefix to get actual path
+            if (additionalRoutes.find(function (r) { return r.path === path; })) {
+                this_1.loggingService.warn("ignoring route from view config because the path is already defined: " +
+                    view._id);
+                return "continue";
+            }
+            var route = {
+                path: path,
+                component: app_app_routing__WEBPACK_IMPORTED_MODULE_2__["COMPONENT_MAP"][view.component],
+            };
+            if (view.requiresAdmin) {
+                route.canActivate = [_admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]];
+            }
+            if (view.config) {
+                route.data = view.config;
+            }
+            routes.push(route);
+        };
+        var this_1 = this;
+        try {
+            for (var viewConfigs_1 = __values(viewConfigs), viewConfigs_1_1 = viewConfigs_1.next(); !viewConfigs_1_1.done; viewConfigs_1_1 = viewConfigs_1.next()) {
+                var view = viewConfigs_1_1.value;
+                _loop_1(view);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (viewConfigs_1_1 && !viewConfigs_1_1.done && (_a = viewConfigs_1.return)) _a.call(viewConfigs_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        routes.push.apply(routes, __spread(additionalRoutes));
+        this.router.resetConfig(routes);
+    };
+    RouterService.PREFIX_VIEW_CONFIG = "view:";
+    RouterService.ɵfac = function RouterService_Factory(t) { return new (t || RouterService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_config_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_logging_logging_service__WEBPACK_IMPORTED_MODULE_5__["LoggingService"])); };
+    RouterService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: RouterService, factory: RouterService.ɵfac, providedIn: "root" });
+    return RouterService;
+}());
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RouterService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: "root",
+            }]
+    }], function () { return [{ type: _config_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }, { type: _logging_logging_service__WEBPACK_IMPORTED_MODULE_5__["LoggingService"] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/core/view/view.module.ts":
+/*!******************************************!*\
+  !*** ./src/app/core/view/view.module.ts ***!
+  \******************************************/
+/*! exports provided: ViewModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewModule", function() { return ViewModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
+
+
+var ViewModule = /** @class */ (function () {
+    function ViewModule() {
+    }
+    ViewModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: ViewModule });
+    ViewModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function ViewModule_Factory(t) { return new (t || ViewModule)(); }, imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]] });
+    return ViewModule;
+}());
+
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ViewModule, { imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ViewModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                declarations: [],
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]],
+            }]
+    }], null, null); })();
 
 
 /***/ }),
