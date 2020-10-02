@@ -4150,6 +4150,7 @@ var AttendanceAverageDashboardComponent = /** @class */ (function () {
         this.ATTENDANCE_THRESHOLD = 0.9;
         this.lastMonthsTopAttendence = []; // [[Child, average_last_3_months, last_months_attendance]]
     }
+    AttendanceAverageDashboardComponent.prototype.initFromConfig = function (config) { };
     AttendanceAverageDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -4395,6 +4396,7 @@ var AttendanceWarningsDashboardComponent = /** @class */ (function () {
         this.ATTENDANCE_THRESHOLD = _model_attendance_month__WEBPACK_IMPORTED_MODULE_3__["AttendanceMonth"].THRESHOLD_WARNING;
         this.lastMonthsLowAttendence = []; // [[Child, last_months_attendance]]
     }
+    AttendanceWarningsDashboardComponent.prototype.initFromConfig = function (config) { };
     AttendanceWarningsDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -4594,6 +4596,14 @@ var AttendanceWeekDashboardComponent = /** @class */ (function () {
         this.router = router;
         this.recordTrackByFunction = function (index, item) { return item.childId; };
     }
+    AttendanceWeekDashboardComponent.prototype.initFromConfig = function (config) {
+        if (config === null || config === void 0 ? void 0 : config.daysOffset) {
+            this.daysOffset = config.daysOffset;
+        }
+        if (config === null || config === void 0 ? void 0 : config.periodLabel) {
+            this.periodLabel = config.periodLabel;
+        }
+    };
     AttendanceWeekDashboardComponent.prototype.ngOnInit = function () {
         this.loadAttendanceOfAbsentees(this.daysOffset);
     };
@@ -7205,6 +7215,7 @@ var ChildrenCountDashboardComponent = /** @class */ (function () {
         this.router = router;
         this.childrenByCenter = [];
     }
+    ChildrenCountDashboardComponent.prototype.initFromConfig = function (config) { };
     ChildrenCountDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.childrenService
@@ -10234,6 +10245,43 @@ var SelectGroupChildrenComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/child-dev-project/dashboard/dashboard-component-map.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/child-dev-project/dashboard/dashboard-component-map.ts ***!
+  \************************************************************************/
+/*! exports provided: DASHBOARD_COMPONENT_MAP */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DASHBOARD_COMPONENT_MAP", function() { return DASHBOARD_COMPONENT_MAP; });
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component */ "./src/app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component.ts");
+/* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts");
+
+
+
+
+
+
+
+var DASHBOARD_COMPONENT_MAP = new Map([
+    ["ChildrenCountDashboard", app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ChildrenCountDashboardComponent"]],
+    ["RecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["RecentNotesDashboardComponent"]],
+    ["NoRecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["NoRecentNotesDashboardComponent"]],
+    ["AttendanceWeekDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["AttendanceWeekDashboardComponent"]],
+    ["ProgressDashboard", _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["ProgressDashboardComponent"]],
+    ["AttendanceAverageDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["AttendanceAverageDashboardComponent"]],
+    ["AttendanceWarningsDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["AttendanceWarningsDashboardComponent"]],
+]);
+
+
+/***/ }),
+
 /***/ "./src/app/child-dev-project/dashboard/dashboard.module.ts":
 /*!*****************************************************************!*\
   !*** ./src/app/child-dev-project/dashboard/dashboard.module.ts ***!
@@ -10257,6 +10305,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _children_children_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../children/children.module */ "./src/app/child-dev-project/children/children.module.ts");
 /* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dashboard/dashboard-widget.directive */ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts");
 /*
  *     This file is part of ndb-core.
  *
@@ -10273,6 +10322,7 @@ __webpack_require__.r(__webpack_exports__);
  *     You should have received a copy of the GNU General Public License
  *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 
 
 
@@ -10306,7 +10356,9 @@ var DashboardModule = /** @class */ (function () {
     return DashboardModule;
 }());
 
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](DashboardModule, { declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"], _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](DashboardModule, { declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
+        _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__["DashboardWidgetDirective"],
+        _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
         _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"],
         _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardModule"],
@@ -10331,9 +10383,76 @@ var DashboardModule = /** @class */ (function () {
                     _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                     _children_children_module__WEBPACK_IMPORTED_MODULE_10__["ChildrenModule"],
                 ],
-                declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"], _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"]],
+                declarations: [
+                    _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
+                    _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__["DashboardWidgetDirective"],
+                    _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"],
+                ],
             }]
     }], null, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts ***!
+  \*************************************************************************************/
+/*! exports provided: DashboardWidgetDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardWidgetDirective", function() { return DashboardWidgetDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/core/logging/logging.service */ "./src/app/core/logging/logging.service.ts");
+/* harmony import */ var _dashboard_component_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dashboard-component-map */ "./src/app/child-dev-project/dashboard/dashboard-component-map.ts");
+
+
+
+
+
+/**
+ * Directive to mark a template into which a DashboardWidgetComponent should be loaded.
+ * Pass the DashboardWidgetConfig into the directive to define the widget.
+ */
+var DashboardWidgetDirective = /** @class */ (function () {
+    function DashboardWidgetDirective(viewContainerRef, componentFactoryResolver, loggingService) {
+        this.viewContainerRef = viewContainerRef;
+        this.componentFactoryResolver = componentFactoryResolver;
+        this.loggingService = loggingService;
+    }
+    DashboardWidgetDirective.prototype.ngOnChanges = function (changes) {
+        this.loadWidgetComponent();
+    };
+    DashboardWidgetDirective.prototype.loadWidgetComponent = function () {
+        if (!this.appDashboardWidget) {
+            return;
+        }
+        var component = _dashboard_component_map__WEBPACK_IMPORTED_MODULE_2__["DASHBOARD_COMPONENT_MAP"].get(this.appDashboardWidget.component);
+        if (!component) {
+            this.loggingService.warn("Could not load dashboard widget - component not found: " +
+                this.appDashboardWidget.component);
+            return;
+        }
+        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+        this.viewContainerRef.clear();
+        var componentRef = this.viewContainerRef.createComponent(componentFactory);
+        componentRef.instance.initFromConfig(this.appDashboardWidget.config);
+    };
+    DashboardWidgetDirective.ɵfac = function DashboardWidgetDirective_Factory(t) { return new (t || DashboardWidgetDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"])); };
+    DashboardWidgetDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DashboardWidgetDirective, selectors: [["", "appDashboardWidget", ""]], inputs: { appDashboardWidget: "appDashboardWidget" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
+    return DashboardWidgetDirective;
+}());
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardWidgetDirective, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: "[appDashboardWidget]",
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] }, { type: app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"] }]; }, { appDashboardWidget: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
 
 
 /***/ }),
@@ -10349,14 +10468,10 @@ var DashboardModule = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
-/* harmony import */ var _children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../children/children-count-dashboard/children-count-dashboard.component */ "./src/app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component.ts");
-/* harmony import */ var _notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component.ts");
-/* harmony import */ var _notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component.ts");
-/* harmony import */ var _attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component.ts");
-/* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts");
-/* harmony import */ var _attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component.ts");
-/* harmony import */ var _attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard-widget.directive */ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts");
 /*
  *     This file is part of ndb-core.
  *
@@ -10380,35 +10495,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
+function DashboardComponent_div_1_ng_template_1_Template(rf, ctx) { }
+function DashboardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_ng_template_1_Template, 0, 0, "ng-template", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var widgetConfig_r1 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("appDashboardWidget", widgetConfig_r1);
+} }
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(activatedRoute) {
+        this.activatedRoute = activatedRoute;
+        this.widgets = [];
     }
-    DashboardComponent.prototype.ngOnInit = function () { };
-    DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(); };
-    DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DashboardComponent, selectors: [["app-dashboard"]], decls: 9, vars: 5, consts: [["fxLayout", "row wrap", "fxLayout.xs", "column wrap", "fxLayoutGap", "20px", 1, "widget-wrapper"], ["fxFlex", "30"], ["fxFlex", "30", 3, "sinceDays", "fromBeginningOfWeek"], ["fxFlex", "30", "periodLabel", "last week", 3, "daysOffset"], ["fxFlex", "30", "periodLabel", "this week", 3, "daysOffset"], ["fxFlex", "30", 3, "dashboardConfigId"]], template: function DashboardComponent_Template(rf, ctx) { if (rf & 1) {
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.data.subscribe(function (config) {
+            _this.widgets = config.widgets;
+        });
+    };
+    DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"])); };
+    DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DashboardComponent, selectors: [["app-dashboard"]], decls: 2, vars: 1, consts: [["fxLayout", "row wrap", "fxLayout.xs", "column wrap", "fxLayoutGap", "20px", 1, "widget-wrapper"], ["fxFlex", "30", 4, "ngFor", "ngForOf"], ["fxFlex", "30"], [3, "appDashboardWidget"]], template: function DashboardComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-children-count-dashboard", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-recent-notes-dashboard", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "app-no-recent-notes-dashboard", 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-attendance-week-dashboard", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "app-attendance-week-dashboard", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-progress-dashboard", 5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-attendance-average-dashboard", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-attendance-warnings-dashboard", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_Template, 2, 1, "div", 1);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("sinceDays", 28)("fromBeginningOfWeek", false);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("daysOffset", 0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("daysOffset", 7);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dashboardConfigId", "1");
-        } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_1__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_1__["DefaultLayoutGapDirective"], _children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["ChildrenCountDashboardComponent"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_1__["DefaultFlexDirective"], _notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["RecentNotesDashboardComponent"], _notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["NoRecentNotesDashboardComponent"], _attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["AttendanceWeekDashboardComponent"], _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["ProgressDashboardComponent"], _attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["AttendanceAverageDashboardComponent"], _attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["AttendanceWarningsDashboardComponent"]], styles: [".widget-wrapper[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  min-width: -webkit-min-content;\n  min-width: -moz-min-content;\n  min-width: min-content;\n  margin-right: 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvZGFzaGJvYXJkL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7RUFBQTtBQWlCQTtFQUNFLG1CQUFBO0VBQ0EsOEJBQUE7RUFBQSwyQkFBQTtFQUFBLHNCQUFBO0VBQ0EsNkJBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqICAgICBUaGlzIGZpbGUgaXMgcGFydCBvZiBuZGItY29yZS5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeVxuICogICAgIGl0IHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5XG4gKiAgICAgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiwgZWl0aGVyIHZlcnNpb24gMyBvZiB0aGUgTGljZW5zZSwgb3JcbiAqICAgICAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLFxuICogICAgIGJ1dCBXSVRIT1VUIEFOWSBXQVJSQU5UWTsgd2l0aG91dCBldmVuIHRoZSBpbXBsaWVkIHdhcnJhbnR5IG9mXG4gKiAgICAgTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZVxuICogICAgIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuXG4gKlxuICogICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlXG4gKiAgICAgYWxvbmcgd2l0aCBuZGItY29yZS4gIElmIG5vdCwgc2VlIDxodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvPi5cbiAqL1xuXG4ud2lkZ2V0LXdyYXBwZXIgPiAqIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgbWluLXdpZHRoOiBtaW4tY29udGVudDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4ICFpbXBvcnRhbnQ7XG59XG5cbiIsIi8qXG4gKiAgICAgVGhpcyBmaWxlIGlzIHBhcnQgb2YgbmRiLWNvcmUuXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGZyZWUgc29mdHdhcmU6IHlvdSBjYW4gcmVkaXN0cmlidXRlIGl0IGFuZC9vciBtb2RpZnlcbiAqICAgICBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGFzIHB1Ymxpc2hlZCBieVxuICogICAgIHRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIGVpdGhlciB2ZXJzaW9uIDMgb2YgdGhlIExpY2Vuc2UsIG9yXG4gKiAgICAgKGF0IHlvdXIgb3B0aW9uKSBhbnkgbGF0ZXIgdmVyc2lvbi5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCxcbiAqICAgICBidXQgV0lUSE9VVCBBTlkgV0FSUkFOVFk7IHdpdGhvdXQgZXZlbiB0aGUgaW1wbGllZCB3YXJyYW50eSBvZlxuICogICAgIE1FUkNIQU5UQUJJTElUWSBvciBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRS4gIFNlZSB0aGVcbiAqICAgICBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbW9yZSBkZXRhaWxzLlxuICpcbiAqICAgICBZb3Ugc2hvdWxkIGhhdmUgcmVjZWl2ZWQgYSBjb3B5IG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZVxuICogICAgIGFsb25nIHdpdGggbmRiLWNvcmUuICBJZiBub3QsIHNlZSA8aHR0cDovL3d3dy5nbnUub3JnL2xpY2Vuc2VzLz4uXG4gKi9cbi53aWRnZXQtd3JhcHBlciA+ICoge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBtaW4td2lkdGg6IG1pbi1jb250ZW50O1xuICBtYXJnaW4tcmlnaHQ6IDEwcHggIWltcG9ydGFudDtcbn0iXX0= */"] });
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.widgets);
+        } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutGapDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultFlexDirective"], _dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_4__["DashboardWidgetDirective"]], styles: [".widget-wrapper[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  min-width: -webkit-min-content;\n  min-width: -moz-min-content;\n  min-width: min-content;\n  margin-right: 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvZGFzaGJvYXJkL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7RUFBQTtBQWlCQTtFQUNFLG1CQUFBO0VBQ0EsOEJBQUE7RUFBQSwyQkFBQTtFQUFBLHNCQUFBO0VBQ0EsNkJBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqICAgICBUaGlzIGZpbGUgaXMgcGFydCBvZiBuZGItY29yZS5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeVxuICogICAgIGl0IHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5XG4gKiAgICAgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiwgZWl0aGVyIHZlcnNpb24gMyBvZiB0aGUgTGljZW5zZSwgb3JcbiAqICAgICAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLFxuICogICAgIGJ1dCBXSVRIT1VUIEFOWSBXQVJSQU5UWTsgd2l0aG91dCBldmVuIHRoZSBpbXBsaWVkIHdhcnJhbnR5IG9mXG4gKiAgICAgTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZVxuICogICAgIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuXG4gKlxuICogICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlXG4gKiAgICAgYWxvbmcgd2l0aCBuZGItY29yZS4gIElmIG5vdCwgc2VlIDxodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvPi5cbiAqL1xuXG4ud2lkZ2V0LXdyYXBwZXIgPiAqIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgbWluLXdpZHRoOiBtaW4tY29udGVudDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4ICFpbXBvcnRhbnQ7XG59XG5cbiIsIi8qXG4gKiAgICAgVGhpcyBmaWxlIGlzIHBhcnQgb2YgbmRiLWNvcmUuXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGZyZWUgc29mdHdhcmU6IHlvdSBjYW4gcmVkaXN0cmlidXRlIGl0IGFuZC9vciBtb2RpZnlcbiAqICAgICBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGFzIHB1Ymxpc2hlZCBieVxuICogICAgIHRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIGVpdGhlciB2ZXJzaW9uIDMgb2YgdGhlIExpY2Vuc2UsIG9yXG4gKiAgICAgKGF0IHlvdXIgb3B0aW9uKSBhbnkgbGF0ZXIgdmVyc2lvbi5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCxcbiAqICAgICBidXQgV0lUSE9VVCBBTlkgV0FSUkFOVFk7IHdpdGhvdXQgZXZlbiB0aGUgaW1wbGllZCB3YXJyYW50eSBvZlxuICogICAgIE1FUkNIQU5UQUJJTElUWSBvciBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRS4gIFNlZSB0aGVcbiAqICAgICBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbW9yZSBkZXRhaWxzLlxuICpcbiAqICAgICBZb3Ugc2hvdWxkIGhhdmUgcmVjZWl2ZWQgYSBjb3B5IG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZVxuICogICAgIGFsb25nIHdpdGggbmRiLWNvcmUuICBJZiBub3QsIHNlZSA8aHR0cDovL3d3dy5nbnUub3JnL2xpY2Vuc2VzLz4uXG4gKi9cbi53aWRnZXQtd3JhcHBlciA+ICoge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBtaW4td2lkdGg6IG1pbi1jb250ZW50O1xuICBtYXJnaW4tcmlnaHQ6IDEwcHggIWltcG9ydGFudDtcbn0iXX0= */"] });
     return DashboardComponent;
 }());
 
@@ -10419,7 +10535,7 @@ var DashboardComponent = /** @class */ (function () {
                 templateUrl: "./dashboard.component.html",
                 styleUrls: ["./dashboard.component.scss"],
             }]
-    }], function () { return []; }, null); })();
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] }]; }, null); })();
 
 
 /***/ }),
@@ -10806,6 +10922,9 @@ var ProgressDashboardComponent = /** @class */ (function () {
         this.dashboardConfigId = "";
         this.configure = false;
     }
+    ProgressDashboardComponent.prototype.initFromConfig = function (config) {
+        this.dashboardConfigId = config.dashboardConfigId;
+    };
     ProgressDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.data = new _progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__["ProgressDashboardConfig"](this.dashboardConfigId);
@@ -11953,6 +12072,14 @@ var NoRecentNotesDashboardComponent = /** @class */ (function () {
         this.columnsToDisplay = ["name", "daysSinceLastNote"];
         this.childrenWithNoteInfoDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
     }
+    NoRecentNotesDashboardComponent.prototype.initFromConfig = function (config) {
+        if (config === null || config === void 0 ? void 0 : config.sinceDays) {
+            this.sinceDays = config.sinceDays;
+        }
+        if (config === null || config === void 0 ? void 0 : config.fromBeginningOfWeek) {
+            this.fromBeginningOfWeek = config.fromBeginningOfWeek;
+        }
+    };
     NoRecentNotesDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -12228,6 +12355,14 @@ var RecentNotesDashboardComponent = /** @class */ (function () {
         /** number of children with recent notes */
         this.count = 0;
     }
+    RecentNotesDashboardComponent.prototype.initFromConfig = function (config) {
+        if (config === null || config === void 0 ? void 0 : config.sinceDays) {
+            this.sinceDays = config.sinceDays;
+        }
+        if (config === null || config === void 0 ? void 0 : config.fromBeginningOfWeek) {
+            this.fromBeginningOfWeek = config.fromBeginningOfWeek;
+        }
+    };
     RecentNotesDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -18131,7 +18266,7 @@ var AppConfig = /** @class */ (function () {
 /*! exports provided: navigationMenu, view:, view:user, view:note, view:admin, view:admin/conflicts, view:users, view:help, view:attendance, view:attendance/analysis, view:attendance/add/month, view:attendance/add/day, view:school, view:school/:id, view:child, view:child/:id, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"view:\":{\"component\":\"Dashboard\",\"config\":{\"widgets\":[{\"dashboardComponent\":\"ChildrenCountDashboard\"},{\"dashboardComponent\":\"RecentNotesDashboard\"},{\"dashboardComponent\":\"NoRecentNotesDashboard\",\"sinceDays\":28,\"fromBeginningOfWeek\":false},{\"dashboardComponent\":\"AttendanceWeekDashboard\",\"daysOffset\":0,\"periodLabel\":\"last week\"},{\"dashboardComponent\":\"AttendanceWeekDashboard\",\"daysOffset\":7,\"periodLabel\":\"this week\"},{\"dashboardComponent\":\"ProgressDashboard\",\"dashboardConfigId\":\"1\"},{\"dashboardComponent\":\"AttendanceAverageDashboard\"},{\"dashboardComponent\":\"AttendanceWarningsDashboard\"}]}},\"view:user\":{\"component\":\"UserAccount\"},\"view:note\":{\"component\":\"NotesManager\"},\"view:admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:admin/conflicts\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:help\":{\"component\":\"Help\"},\"view:attendance\":{\"component\":\"AttendanceManager\"},\"view:attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:school\":{\"component\":\"SchoolsList\"},\"view:school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}},\"view:child\":{\"component\":\"ChildrenList\"},\"view:child/:id\":{\"component\":\"ChildDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}}}");
+module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"view:\":{\"component\":\"Dashboard\",\"config\":{\"widgets\":[{\"component\":\"ChildrenCountDashboard\"},{\"component\":\"RecentNotesDashboard\"},{\"component\":\"NoRecentNotesDashboard\",\"config\":{\"sinceDays\":28,\"fromBeginningOfWeek\":false}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":0,\"periodLabel\":\"last week\"}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":7,\"periodLabel\":\"this week\"}},{\"component\":\"ProgressDashboard\",\"config\":{\"dashboardConfigId\":\"1\"}},{\"component\":\"AttendanceAverageDashboard\"},{\"component\":\"AttendanceWarningsDashboard\"}]}},\"view:user\":{\"component\":\"UserAccount\"},\"view:note\":{\"component\":\"NotesManager\"},\"view:admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:admin/conflicts\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:help\":{\"component\":\"Help\"},\"view:attendance\":{\"component\":\"AttendanceManager\"},\"view:attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:school\":{\"component\":\"SchoolsList\"},\"view:school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}},\"view:child\":{\"component\":\"ChildrenList\"},\"view:child/:id\":{\"component\":\"ChildDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}]}}}");
 
 /***/ }),
 
