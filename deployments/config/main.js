@@ -24023,14 +24023,11 @@ var MenuItem = /** @class */ (function () {
      * @param label The text to be displayed in the menu.
      * @param icon The icon to be displayed left of the label.
      * @param routerLinkParameters The Angular routerLink parameters to which the item will route to (e.g. ['/dashboard'])
-     * @param requiresAdmin Whether the menu item is only visible for users with admin rights.
      */
-    function MenuItem(label, icon, routerLinkParameters, requiresAdmin) {
-        if (requiresAdmin === void 0) { requiresAdmin = false; }
+    function MenuItem(label, icon, routerLinkParameters) {
         this.label = label;
         this.icon = icon;
         this.routerLinkParameters = routerLinkParameters;
-        this.requiresAdmin = requiresAdmin;
     }
     return MenuItem;
 }());
@@ -24039,20 +24036,130 @@ var MenuItem = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/core/navigation/navigation-items.service.ts":
-/*!*************************************************************!*\
-  !*** ./src/app/core/navigation/navigation-items.service.ts ***!
-  \*************************************************************/
-/*! exports provided: NavigationItemsService */
+/***/ "./src/app/core/navigation/navigation.module.ts":
+/*!******************************************************!*\
+  !*** ./src/app/core/navigation/navigation.module.ts ***!
+  \******************************************************/
+/*! exports provided: NavigationModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationItemsService", function() { return NavigationItemsService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationModule", function() { return NavigationModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _config_config_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/config.service */ "./src/app/core/config/config.service.ts");
-/* harmony import */ var _view_router_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../view/router.service */ "./src/app/core/view/router.service.ts");
-/* harmony import */ var _menu_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu-item */ "./src/app/core/navigation/menu-item.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/core/navigation/navigation/navigation.component.ts");
+/* harmony import */ var _session_session_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../session/session.module */ "./src/app/core/session/session.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/fesm5/list.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/fesm5/tooltip.js");
+/* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
+/* harmony import */ var _config_config_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../config/config.module */ "./src/app/core/config/config.module.ts");
+/*
+ *     This file is part of ndb-core.
+ *
+ *     ndb-core is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     ndb-core is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Manages the main app navigation menu
+ * which can dynamically be configured through the {@link NavigationItemsService}.
+ */
+var NavigationModule = /** @class */ (function () {
+    function NavigationModule() {
+    }
+    NavigationModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NavigationModule });
+    NavigationModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NavigationModule_Factory(t) { return new (t || NavigationModule)(); }, providers: [], imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
+                _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_8__["MatTooltipModule"],
+                angulartics2__WEBPACK_IMPORTED_MODULE_9__["Angulartics2Module"],
+                _config_config_module__WEBPACK_IMPORTED_MODULE_10__["ConfigModule"],
+            ]] });
+    return NavigationModule;
+}());
+
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](NavigationModule, { declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
+        _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
+        _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+        _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
+        _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_8__["MatTooltipModule"],
+        angulartics2__WEBPACK_IMPORTED_MODULE_9__["Angulartics2Module"],
+        _config_config_module__WEBPACK_IMPORTED_MODULE_10__["ConfigModule"]], exports: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NavigationModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
+                    _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
+                    _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
+                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+                    _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
+                    _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_8__["MatTooltipModule"],
+                    angulartics2__WEBPACK_IMPORTED_MODULE_9__["Angulartics2Module"],
+                    _config_config_module__WEBPACK_IMPORTED_MODULE_10__["ConfigModule"],
+                ],
+                declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]],
+                exports: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]],
+                providers: [],
+            }]
+    }], null, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/core/navigation/navigation/navigation.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/core/navigation/navigation/navigation.component.ts ***!
+  \********************************************************************/
+/*! exports provided: NavigationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationComponent", function() { return NavigationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _menu_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../menu-item */ "./src/app/core/navigation/menu-item.ts");
+/* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
+/* harmony import */ var app_core_config_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/config/config.service */ "./src/app/core/config/config.service.ts");
+/* harmony import */ var _view_router_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../view/router.service */ "./src/app/core/view/router.service.ts");
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/fesm5/list.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/divider */ "./node_modules/@angular/material/fesm5/divider.js");
 var __values = (undefined && undefined.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -24082,211 +24189,6 @@ var __values = (undefined && undefined.__values) || function(o) {
  */
 
 
-
-
-
-
-/**
- * Manage menu items to be displayed in the main app menu.
- *
- * Inject this service in your classes to add your own custom menu entries.
- */
-var NavigationItemsService = /** @class */ (function () {
-    function NavigationItemsService(configService) {
-        this.configService = configService;
-        this.CONFIG_ID = "navigationMenu";
-        this.menuItems = [];
-        this.initMenuItemsFromConfig();
-    }
-    NavigationItemsService.prototype.initMenuItemsFromConfig = function () {
-        var e_1, _a;
-        var config = this.configService.getConfig(this.CONFIG_ID);
-        try {
-            for (var _b = __values(config.items), _c = _b.next(); !_c.done; _c = _b.next()) {
-                var configItem = _c.value;
-                this.addMenuItem(new _menu_item__WEBPACK_IMPORTED_MODULE_3__["MenuItem"](configItem.name, configItem.icon, [configItem.link], this.checkMenuItemPermissions(configItem.link)));
-            }
-        }
-        catch (e_1_1) { e_1 = { error: e_1_1 }; }
-        finally {
-            try {
-                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-            }
-            finally { if (e_1) throw e_1.error; }
-        }
-    };
-    /**
-     * Check whether the given path requires admin rights
-     */
-    NavigationItemsService.prototype.checkMenuItemPermissions = function (link) {
-        var viewConfig = this.configService.getConfig(_view_router_service__WEBPACK_IMPORTED_MODULE_2__["RouterService"].PREFIX_VIEW_CONFIG + link.replace(/^\//, ""));
-        return viewConfig === null || viewConfig === void 0 ? void 0 : viewConfig.requiresAdmin;
-    };
-    /**
-     * Get all registered menu items.
-     */
-    NavigationItemsService.prototype.getMenuItems = function () {
-        return this.menuItems;
-    };
-    /**
-     * Register a new menu item to be display in the menu.
-     * @param menuItem
-     */
-    NavigationItemsService.prototype.addMenuItem = function (menuItem) {
-        this.menuItems.push(menuItem);
-    };
-    NavigationItemsService.ɵfac = function NavigationItemsService_Factory(t) { return new (t || NavigationItemsService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_config_config_service__WEBPACK_IMPORTED_MODULE_1__["ConfigService"])); };
-    NavigationItemsService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: NavigationItemsService, factory: NavigationItemsService.ɵfac });
-    return NavigationItemsService;
-}());
-
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NavigationItemsService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
-    }], function () { return [{ type: _config_config_service__WEBPACK_IMPORTED_MODULE_1__["ConfigService"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/core/navigation/navigation.module.ts":
-/*!******************************************************!*\
-  !*** ./src/app/core/navigation/navigation.module.ts ***!
-  \******************************************************/
-/*! exports provided: NavigationModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationModule", function() { return NavigationModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/core/navigation/navigation/navigation.component.ts");
-/* harmony import */ var _session_session_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../session/session.module */ "./src/app/core/session/session.module.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _navigation_items_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navigation-items.service */ "./src/app/core/navigation/navigation-items.service.ts");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/fesm5/list.js");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/fesm5/tooltip.js");
-/* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
-/* harmony import */ var _config_config_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../config/config.module */ "./src/app/core/config/config.module.ts");
-/*
- *     This file is part of ndb-core.
- *
- *     ndb-core is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     ndb-core is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Manages the main app navigation menu
- * which can dynamically be configured through the {@link NavigationItemsService}.
- */
-var NavigationModule = /** @class */ (function () {
-    function NavigationModule() {
-    }
-    NavigationModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NavigationModule });
-    NavigationModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NavigationModule_Factory(t) { return new (t || NavigationModule)(); }, providers: [_navigation_items_service__WEBPACK_IMPORTED_MODULE_5__["NavigationItemsService"]], imports: [[
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
-                _angular_material_list__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
-                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__["MatTooltipModule"],
-                angulartics2__WEBPACK_IMPORTED_MODULE_10__["Angulartics2Module"],
-                _config_config_module__WEBPACK_IMPORTED_MODULE_11__["ConfigModule"],
-            ]] });
-    return NavigationModule;
-}());
-
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](NavigationModule, { declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-        _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
-        _angular_material_list__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
-        _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-        _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
-        _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__["MatTooltipModule"],
-        angulartics2__WEBPACK_IMPORTED_MODULE_10__["Angulartics2Module"],
-        _config_config_module__WEBPACK_IMPORTED_MODULE_11__["ConfigModule"]], exports: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]] }); })();
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NavigationModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{
-                imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                    _session_session_module__WEBPACK_IMPORTED_MODULE_3__["SessionModule"],
-                    _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
-                    _angular_material_list__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
-                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-                    _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
-                    _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__["MatTooltipModule"],
-                    angulartics2__WEBPACK_IMPORTED_MODULE_10__["Angulartics2Module"],
-                    _config_config_module__WEBPACK_IMPORTED_MODULE_11__["ConfigModule"],
-                ],
-                declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]],
-                exports: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"]],
-                providers: [_navigation_items_service__WEBPACK_IMPORTED_MODULE_5__["NavigationItemsService"]],
-            }]
-    }], null, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/core/navigation/navigation/navigation.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/core/navigation/navigation/navigation.component.ts ***!
-  \********************************************************************/
-/*! exports provided: NavigationComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationComponent", function() { return NavigationComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _navigation_items_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navigation-items.service */ "./src/app/core/navigation/navigation-items.service.ts");
-/* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/fesm5/list.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/divider */ "./node_modules/@angular/material/fesm5/divider.js");
-/*
- *     This file is part of ndb-core.
- *
- *     ndb-core is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     ndb-core is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
- */
 
 
 
@@ -24321,25 +24223,55 @@ function NavigationComponent_mat_list_item_1_Template(rf, ctx) { if (rf & 1) {
  * To add new entries use {@link NavigationItemsService}.
  */
 var NavigationComponent = /** @class */ (function () {
-    function NavigationComponent(_navigationItemService, adminGuard) {
-        this._navigationItemService = _navigationItemService;
+    function NavigationComponent(adminGuard, configService) {
         this.adminGuard = adminGuard;
+        this.configService = configService;
+        /** name of config array in the config json file */
+        this.CONFIG_ID = "navigationMenu";
+        /** all menu items to be displayed */
+        this.menuItems = [];
     }
     NavigationComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.menu_main = this._navigationItemService
-            .getMenuItems()
-            .filter(function (e) { return !e.requiresAdmin || _this.adminGuard.isAdmin(); });
+        this.initMenuItemsFromConfig();
     };
-    NavigationComponent.ɵfac = function NavigationComponent_Factory(t) { return new (t || NavigationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_navigation_items_service__WEBPACK_IMPORTED_MODULE_1__["NavigationItemsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__["AdminGuard"])); };
+    /**
+     * Load menu items from config file
+     */
+    NavigationComponent.prototype.initMenuItemsFromConfig = function () {
+        var e_1, _a;
+        var config = this.configService.getConfig(this.CONFIG_ID);
+        try {
+            for (var _b = __values(config.items), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var configItem = _c.value;
+                if (this.checkMenuItemPermissions(configItem.link)) {
+                    this.menuItems.push(new _menu_item__WEBPACK_IMPORTED_MODULE_1__["MenuItem"](configItem.name, configItem.icon, [configItem.link]));
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    };
+    /**
+     * Check whether the user has the required rights
+     */
+    NavigationComponent.prototype.checkMenuItemPermissions = function (link) {
+        var viewConfig = this.configService.getConfig(_view_router_service__WEBPACK_IMPORTED_MODULE_4__["RouterService"].PREFIX_VIEW_CONFIG + link.replace(/^\//, ""));
+        return !(viewConfig === null || viewConfig === void 0 ? void 0 : viewConfig.requiresAdmin) || this.adminGuard.isAdmin();
+    };
+    NavigationComponent.ɵfac = function NavigationComponent_Factory(t) { return new (t || NavigationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__["AdminGuard"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_config_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"])); };
     NavigationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NavigationComponent, selectors: [["app-navigation"]], decls: 2, vars: 1, consts: [["angulartics2On", "click", "angularticsCategory", "Navigation", "angularticsAction", "app_navigation_link_click", 3, "angularticsLabel", "routerLink", 4, "ngFor", "ngForOf"], ["angulartics2On", "click", "angularticsCategory", "Navigation", "angularticsAction", "app_navigation_link_click", 3, "angularticsLabel", "routerLink"], [1, "nav-icon", 3, "fontIcon"]], template: function NavigationComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-nav-list");
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, NavigationComponent_mat_list_item_1_Template, 5, 4, "mat-list-item", 0);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         } if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.menu_main);
-        } }, directives: [_angular_material_list__WEBPACK_IMPORTED_MODULE_3__["MatNavList"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_material_list__WEBPACK_IMPORTED_MODULE_3__["MatListItem"], angulartics2__WEBPACK_IMPORTED_MODULE_5__["Angulartics2On"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterLink"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIcon"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_8__["MatDivider"]], styles: [".divider[_ngcontent-%COMP%] {\n  background-color: #e5e5e5;\n  height: 1px;\n  margin: 9px 0;\n  overflow: hidden;\n}\n.nav-history[_ngcontent-%COMP%] {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY29yZS9uYXZpZ2F0aW9uL25hdmlnYXRpb24vbmF2aWdhdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9uYXZpZ2F0aW9uL25hdmlnYXRpb24vbmF2aWdhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0VBQUE7QUFrQkE7RUFDRSx5QkFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUNERjtBRFFBO0VBQ0Usa0JBQUE7QUNMRiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvbmF2aWdhdGlvbi9uYXZpZ2F0aW9uL25hdmlnYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogICAgIFRoaXMgZmlsZSBpcyBwYXJ0IG9mIG5kYi1jb3JlLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBmcmVlIHNvZnR3YXJlOiB5b3UgY2FuIHJlZGlzdHJpYnV0ZSBpdCBhbmQvb3IgbW9kaWZ5XG4gKiAgICAgaXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBhcyBwdWJsaXNoZWQgYnlcbiAqICAgICB0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCBlaXRoZXIgdmVyc2lvbiAzIG9mIHRoZSBMaWNlbnNlLCBvclxuICogICAgIChhdCB5b3VyIG9wdGlvbikgYW55IGxhdGVyIHZlcnNpb24uXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGRpc3RyaWJ1dGVkIGluIHRoZSBob3BlIHRoYXQgaXQgd2lsbCBiZSB1c2VmdWwsXG4gKiAgICAgYnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2ZcbiAqICAgICBNRVJDSEFOVEFCSUxJVFkgb3IgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UuICBTZWUgdGhlXG4gKiAgICAgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgZm9yIG1vcmUgZGV0YWlscy5cbiAqXG4gKiAgICAgWW91IHNob3VsZCBoYXZlIHJlY2VpdmVkIGEgY29weSBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2VcbiAqICAgICBhbG9uZyB3aXRoIG5kYi1jb3JlLiAgSWYgbm90LCBzZWUgPGh0dHA6Ly93d3cuZ251Lm9yZy9saWNlbnNlcy8+LlxuICovXG5cblxuLmRpdmlkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTVlNWU1O1xuICBoZWlnaHQ6IDFweDtcbiAgbWFyZ2luOiA5cHggMDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLm5hdi1pY29uIHtcblxufVxuXG4ubmF2LWhpc3Rvcnkge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4iLCIvKlxuICogICAgIFRoaXMgZmlsZSBpcyBwYXJ0IG9mIG5kYi1jb3JlLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBmcmVlIHNvZnR3YXJlOiB5b3UgY2FuIHJlZGlzdHJpYnV0ZSBpdCBhbmQvb3IgbW9kaWZ5XG4gKiAgICAgaXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBhcyBwdWJsaXNoZWQgYnlcbiAqICAgICB0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCBlaXRoZXIgdmVyc2lvbiAzIG9mIHRoZSBMaWNlbnNlLCBvclxuICogICAgIChhdCB5b3VyIG9wdGlvbikgYW55IGxhdGVyIHZlcnNpb24uXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGRpc3RyaWJ1dGVkIGluIHRoZSBob3BlIHRoYXQgaXQgd2lsbCBiZSB1c2VmdWwsXG4gKiAgICAgYnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2ZcbiAqICAgICBNRVJDSEFOVEFCSUxJVFkgb3IgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UuICBTZWUgdGhlXG4gKiAgICAgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgZm9yIG1vcmUgZGV0YWlscy5cbiAqXG4gKiAgICAgWW91IHNob3VsZCBoYXZlIHJlY2VpdmVkIGEgY29weSBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2VcbiAqICAgICBhbG9uZyB3aXRoIG5kYi1jb3JlLiAgSWYgbm90LCBzZWUgPGh0dHA6Ly93d3cuZ251Lm9yZy9saWNlbnNlcy8+LlxuICovXG4uZGl2aWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlNWU1ZTU7XG4gIGhlaWdodDogMXB4O1xuICBtYXJnaW46IDlweCAwO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4ubmF2LWhpc3Rvcnkge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59Il19 */"] });
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.menuItems);
+        } }, directives: [_angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatNavList"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListItem"], angulartics2__WEBPACK_IMPORTED_MODULE_7__["Angulartics2On"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterLink"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_10__["MatDivider"]], styles: [".divider[_ngcontent-%COMP%] {\n  background-color: #e5e5e5;\n  height: 1px;\n  margin: 9px 0;\n  overflow: hidden;\n}\n.nav-history[_ngcontent-%COMP%] {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY29yZS9uYXZpZ2F0aW9uL25hdmlnYXRpb24vbmF2aWdhdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9uYXZpZ2F0aW9uL25hdmlnYXRpb24vbmF2aWdhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0VBQUE7QUFrQkE7RUFDRSx5QkFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUNERjtBRElBO0VBQ0Usa0JBQUE7QUNERiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvbmF2aWdhdGlvbi9uYXZpZ2F0aW9uL25hdmlnYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogICAgIFRoaXMgZmlsZSBpcyBwYXJ0IG9mIG5kYi1jb3JlLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBmcmVlIHNvZnR3YXJlOiB5b3UgY2FuIHJlZGlzdHJpYnV0ZSBpdCBhbmQvb3IgbW9kaWZ5XG4gKiAgICAgaXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBhcyBwdWJsaXNoZWQgYnlcbiAqICAgICB0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCBlaXRoZXIgdmVyc2lvbiAzIG9mIHRoZSBMaWNlbnNlLCBvclxuICogICAgIChhdCB5b3VyIG9wdGlvbikgYW55IGxhdGVyIHZlcnNpb24uXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGRpc3RyaWJ1dGVkIGluIHRoZSBob3BlIHRoYXQgaXQgd2lsbCBiZSB1c2VmdWwsXG4gKiAgICAgYnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2ZcbiAqICAgICBNRVJDSEFOVEFCSUxJVFkgb3IgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UuICBTZWUgdGhlXG4gKiAgICAgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgZm9yIG1vcmUgZGV0YWlscy5cbiAqXG4gKiAgICAgWW91IHNob3VsZCBoYXZlIHJlY2VpdmVkIGEgY29weSBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2VcbiAqICAgICBhbG9uZyB3aXRoIG5kYi1jb3JlLiAgSWYgbm90LCBzZWUgPGh0dHA6Ly93d3cuZ251Lm9yZy9saWNlbnNlcy8+LlxuICovXG5cblxuLmRpdmlkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTVlNWU1O1xuICBoZWlnaHQ6IDFweDtcbiAgbWFyZ2luOiA5cHggMDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLm5hdi1oaXN0b3J5IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuIiwiLypcbiAqICAgICBUaGlzIGZpbGUgaXMgcGFydCBvZiBuZGItY29yZS5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeVxuICogICAgIGl0IHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5XG4gKiAgICAgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiwgZWl0aGVyIHZlcnNpb24gMyBvZiB0aGUgTGljZW5zZSwgb3JcbiAqICAgICAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLFxuICogICAgIGJ1dCBXSVRIT1VUIEFOWSBXQVJSQU5UWTsgd2l0aG91dCBldmVuIHRoZSBpbXBsaWVkIHdhcnJhbnR5IG9mXG4gKiAgICAgTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZVxuICogICAgIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuXG4gKlxuICogICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlXG4gKiAgICAgYWxvbmcgd2l0aCBuZGItY29yZS4gIElmIG5vdCwgc2VlIDxodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvPi5cbiAqL1xuLmRpdmlkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTVlNWU1O1xuICBoZWlnaHQ6IDFweDtcbiAgbWFyZ2luOiA5cHggMDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLm5hdi1oaXN0b3J5IHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */"] });
     return NavigationComponent;
 }());
 
@@ -24350,7 +24282,7 @@ var NavigationComponent = /** @class */ (function () {
                 templateUrl: "./navigation.component.html",
                 styleUrls: ["./navigation.component.scss"],
             }]
-    }], function () { return [{ type: _navigation_items_service__WEBPACK_IMPORTED_MODULE_1__["NavigationItemsService"] }, { type: _admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__["AdminGuard"] }]; }, null); })();
+    }], function () { return [{ type: _admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__["AdminGuard"] }, { type: app_core_config_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"] }]; }, null); })();
 
 
 /***/ }),
