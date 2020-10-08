@@ -6013,7 +6013,7 @@ var ChildDetailsComponent = /** @class */ (function () {
                     _this.router.navigate(["/child", _this.child.getId()]);
                     _this.creatingNew = false;
                 }
-                _this.alertService.addInfo("Saving Succesfull");
+                _this.alertService.addInfo("Saving Successful");
                 _this.switchEdit();
             })
                 .catch(function (err) {
