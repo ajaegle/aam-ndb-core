@@ -77,7 +77,6 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
                     <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
     </p>
 
@@ -184,7 +183,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -277,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:108</a></div>
                 </td>
             </tr>
 
@@ -370,7 +369,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -396,7 +395,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -428,7 +427,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/child-dev-project/notes/notes-of-child/notes-of-child.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -457,6 +456,7 @@ import { SessionService } from &quot;../../../core/session/session-service/sessi
 import { ColumnDescription } from &quot;../../../core/entity-subrecord/entity-subrecord/column-description&quot;;
 import { ColumnDescriptionInputType } from &quot;../../../core/entity-subrecord/entity-subrecord/column-description-input-type.enum&quot;;
 import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
+import { Child } from &quot;../../children/model/child&quot;;
 
 /**
  * The component that is responsible for listing the Notes that are related to a certain child
@@ -467,8 +467,8 @@ import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
   templateUrl: &quot;./notes-of-child.component.html&quot;,
   styleUrls: [&quot;./notes-of-child.component.scss&quot;],
 })
-export class NotesOfChildComponent implements OnInit, OnChanges {
-  @Input() childId: string;
+export class NotesOfChildComponent implements OnChanges {
+  @Input() child: Child;
   records: Array&lt;Note&gt; &#x3D; [];
   detailsComponent &#x3D; NoteDetailsComponent;
 
@@ -525,23 +525,15 @@ export class NotesOfChildComponent implements OnInit, OnChanges {
     private datePipe: DatePipe
   ) {}
 
-  ngOnInit() {
-    this.initNotesOfChild();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.hasOwnProperty(&quot;childId&quot;)) {
+    if (changes.hasOwnProperty(&quot;child&quot;)) {
       this.initNotesOfChild();
     }
   }
 
   private initNotesOfChild() {
-    if (!this.childId || this.childId &#x3D;&#x3D;&#x3D; &quot;&quot;) {
-      return;
-    }
-
     this.childrenService
-      .getNotesOfChild(this.childId)
+      .getNotesOfChild(this.child.getId())
       .pipe(untilDestroyed(this))
       .subscribe((notes: Note[]) &#x3D;&gt; {
         notes.sort((a, b) &#x3D;&gt; {
@@ -560,7 +552,7 @@ export class NotesOfChildComponent implements OnInit, OnChanges {
     const user &#x3D; this.sessionService.getCurrentUser()
       ? this.sessionService.getCurrentUser().name
       : &quot;&quot;;
-    const childId &#x3D; this.childId;
+    const childId &#x3D; this.child.getId();
 
     return () &#x3D;&gt; {
       const newNote &#x3D; new Note(Date.now().toString());
@@ -580,7 +572,7 @@ export class NotesOfChildComponent implements OnInit, OnChanges {
                       [columns]&#x3D;&quot;columns&quot;
                       [newRecordFactory]&#x3D;&quot;generateNewRecordFactory()&quot;
                       [detailsComponent]&#x3D;&quot;detailsComponent&quot;
-                      [entityId]&#x3D;&quot;childId&quot;&gt;
+                      [entityId]&#x3D;&quot;child.getId()&quot;&gt;
 &lt;/app-entity-subrecord&gt;
 </code></pre>
     </div>
@@ -617,8 +609,8 @@ export class NotesOfChildComponent implements OnInit, OnChanges {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-entity-subrecord [records]="records"                      [columns]="columns"                      [newRecordFactory]="generateNewRecordFactory()"                      [detailsComponent]="detailsComponent"                      [entityId]="childId"></app-entity-subrecord></div>'
-    var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAnalysisComponent', 'selector': 'app-attendance-analysis'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'BackgroundProcessingIndicatorComponent', 'selector': 'app-background-processing-indicator'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+        var COMPONENT_TEMPLATE = '<div><app-entity-subrecord [records]="records"                      [columns]="columns"                      [newRecordFactory]="generateNewRecordFactory()"                      [detailsComponent]="detailsComponent"                      [entityId]="child.getId()"></app-entity-subrecord></div>'
+    var COMPONENTS = [{'name': 'AddDayAttendanceComponent', 'selector': 'app-add-day-attendance'},{'name': 'AddMonthAttendanceComponent', 'selector': 'app-add-month-attendance'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AlertComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppVersionComponent', 'selector': 'app-version'},{'name': 'AserComponent', 'selector': 'app-aser'},{'name': 'AttendanceAnalysisComponent', 'selector': 'app-attendance-analysis'},{'name': 'AttendanceAverageDashboardComponent', 'selector': 'app-attendance-average-dashboard'},{'name': 'AttendanceBlockComponent', 'selector': 'app-attendance-block'},{'name': 'AttendanceDayBlockComponent', 'selector': 'app-attendance-day-block]'},{'name': 'AttendanceDaysComponent', 'selector': 'app-attendance-days'},{'name': 'AttendanceDetailsComponent', 'selector': 'app-attendance-details'},{'name': 'AttendanceManagerComponent', 'selector': 'app-attendance-manager'},{'name': 'AttendanceWarningsDashboardComponent', 'selector': 'app-attendance-warnings-dashboard'},{'name': 'AttendanceWeekDashboardComponent', 'selector': 'app-attendance-week-dashboard'},{'name': 'BackgroundProcessingIndicatorComponent', 'selector': 'app-background-processing-indicator'},{'name': 'ChangelogComponent', 'selector': ''},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ChildBlockComponent', 'selector': 'app-child-block'},{'name': 'ChildDetailsComponent', 'selector': 'app-child-details'},{'name': 'ChildMeetingNoteAttendanceComponent', 'selector': 'app-child-meeting-note-attendance'},{'name': 'ChildrenCountDashboardComponent', 'selector': 'app-children-count-dashboard'},{'name': 'ChildrenListComponent', 'selector': 'app-children-list'},{'name': 'ChildSelectComponent', 'selector': 'app-child-select'},{'name': 'CloudFileServiceUserSettingsComponent', 'selector': 'app-cloud-file-service-user-settings'},{'name': 'CompareRevComponent', 'selector': 'app-compare-rev'},{'name': 'ConfirmationDialogComponent', 'selector': 'app-confirmation-dialog'},{'name': 'ConflictResolutionListComponent', 'selector': 'app-conflict-resolution-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoDataGeneratingProgressDialogComponent', 'selector': ''},{'name': 'DropoutFormComponent', 'selector': 'app-dropout-form'},{'name': 'EducationalMaterialComponent', 'selector': 'app-educational-material'},{'name': 'EntitySubrecordComponent', 'selector': 'app-entity-subrecord'},{'name': 'ExportDataComponent', 'selector': 'app-export-data'},{'name': 'FormDialogWrapperComponent', 'selector': 'app-form-dialog-wrapper'},{'name': 'GroupedChildAttendanceComponent', 'selector': 'app-grouped-child-attendance'},{'name': 'HealthCheckupComponent', 'selector': 'app-health-checkup'},{'name': 'HealthFormComponent', 'selector': 'app-health-form'},{'name': 'HowToComponent', 'selector': 'app-help'},{'name': 'InitialSyncDialogComponent', 'selector': ''},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NoRecentNotesDashboardComponent', 'selector': 'app-no-recent-notes-dashboard'},{'name': 'NoteDetailsComponent', 'selector': 'app-note-details'},{'name': 'NotePresenceListComponent', 'selector': 'app-note-presence-list'},{'name': 'NotesManagerComponent', 'selector': 'app-notes-manager'},{'name': 'NotesOfChildComponent', 'selector': 'app-notes-of-child'},{'name': 'PreviousSchoolsComponent', 'selector': 'app-previous-schools'},{'name': 'PrimaryActionComponent', 'selector': 'app-primary-action'},{'name': 'ProgressDashboardComponent', 'selector': 'app-progress-dashboard'},{'name': 'RecentNotesDashboardComponent', 'selector': 'app-recent-notes-dashboard'},{'name': 'RollCallComponent', 'selector': 'app-roll-call'},{'name': 'SchoolBlockComponent', 'selector': 'app-school-block'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolsListComponent', 'selector': 'app-schools-list'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectGroupChildrenComponent', 'selector': 'app-select-group-children'},{'name': 'SyncStatusComponent', 'selector': 'app-sync-status'},{'name': 'UiComponent', 'selector': 'app-ui'},{'name': 'UserAccountComponent', 'selector': 'app-user-account'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NotesOfChildComponent'};
 </script>

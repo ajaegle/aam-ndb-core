@@ -306,13 +306,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ChildrenModule.html" data-type="entity-link">ChildrenModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' : 'data-target="#xs-components-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' }>
+                                            'data-target="#components-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' : 'data-target="#xs-components-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' :
-                                            'id="xs-components-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' :
+                                            'id="xs-components-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' }>
                                             <li class="link">
                                                 <a href="components/AddDayAttendanceComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AddDayAttendanceComponent</a>
@@ -386,12 +386,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ChildrenListComponent</a>
                                             </li>
                                             <li class="link">
+                                                <a href="components/DropoutFormComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DropoutFormComponent</a>
+                                            </li>
+                                            <li class="link">
                                                 <a href="components/EducationalMaterialComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">EducationalMaterialComponent</a>
                                             </li>
                                             <li class="link">
+                                                <a href="components/GroupedChildAttendanceComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GroupedChildAttendanceComponent</a>
+                                            </li>
+                                            <li class="link">
                                                 <a href="components/HealthCheckupComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">HealthCheckupComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/HealthFormComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">HealthFormComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/NoRecentNotesDashboardComponent.html"
@@ -421,13 +433,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' : 'data-target="#xs-injectables-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' }>
+                                        'data-target="#injectables-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' : 'data-target="#xs-injectables-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' :
-                                        'id="xs-injectables-links-module-ChildrenModule-2fe32b0a6d94fe735bbbf1659a73af30"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' :
+                                        'id="xs-injectables-links-module-ChildrenModule-876200079cb06937067da2f01f39906b"' }>
                                         <li class="link">
                                             <a href="injectables/ChildrenService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ChildrenService</a>
