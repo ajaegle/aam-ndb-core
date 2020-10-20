@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content interface">
                    <div class="content-data">
 
 
@@ -36,9 +36,14 @@
 
 
 
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>NavigationItemsService</li>
+  <li>Interfaces</li>
+  <li>OnInitDynamicComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,53 +61,40 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/navigation/navigation-items.service.ts</code>
+            <code>src/app/core/view/dynamic-components/on-init-dynamic-component.interface.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Manage menu items to be displayed in the main app menu.</p>
-<p>Inject this service in your classes to add your own custom menu entries.</p>
+                <p>Base for any component used as a dynamically injected component
+to allow inputs being initialized from a config object.</p>
 
             </p>
 
 
-
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#addMenuItem">addMenuItem</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getMenuItems">getMenuItems</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#onInitFromDynamicConfig">onInitFromDynamicConfig</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
             <section>
     
@@ -113,35 +105,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addMenuItem"></a>
+                    <a name="onInitFromDynamicConfig"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            addMenuItem
+                            onInitFromDynamicConfig
                         </b>
-                        <a href="#addMenuItem"><span class="icon ion-ios-link"></span></a>
+                        <a href="#onInitFromDynamicConfig"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addMenuItem(menuItem: <a href="../classes/MenuItem.html">MenuItem</a>)</code>
+<code>onInitFromDynamicConfig(config: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/core/navigation/navigation-items.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/app/core/view/dynamic-components/on-init-dynamic-component.interface.ts:10</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Register a new menu item to be display in the menu.</p>
+                    <div class="io-description"><p>Initialize any inputs of the component from a config object.</p>
 </div>
 
                     <div class="io-description">
@@ -152,13 +142,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>menuItem</td>
+                                    <td>config</td>
                                     <td>
-                                                <code><a href="../classes/MenuItem.html" target="_self" >MenuItem</a></code>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                     </td>
 
                                     <td>
@@ -166,6 +157,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The config object as retrieved from the config database</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -173,54 +168,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMenuItems"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            getMenuItems
-                        </b>
-                        <a href="#getMenuItems"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getMenuItems()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/core/navigation/navigation-items.service.ts:33</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Get all registered menu items.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/MenuItem.html" target="_self" >MenuItem[]</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -232,42 +184,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
-import { MenuItem } from &quot;./menu-item&quot;;
-
-/**
- * Manage menu items to be displayed in the main app menu.
- *
- * Inject this service in your classes to add your own custom menu entries.
- */
-@Injectable()
-export class NavigationItemsService {
-  private menuItems: MenuItem[] &#x3D; [];
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface OnInitDynamicComponent {
   /**
-   * Get all registered menu items.
+   * Initialize any inputs of the component from a config object.
+   * @param config The config object as retrieved from the config database
    */
-  public getMenuItems(): MenuItem[] {
-    return this.menuItems;
-  }
-
-  /**
-   * Register a new menu item to be display in the menu.
-   * @param menuItem
-   */
-  public addMenuItem(menuItem: MenuItem) {
-    this.menuItems.push(menuItem);
-  }
+  onInitFromDynamicConfig(config: any);
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
-
 
 
                    
@@ -291,8 +217,8 @@ export class NavigationItemsService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'NavigationItemsService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'OnInitDynamicComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

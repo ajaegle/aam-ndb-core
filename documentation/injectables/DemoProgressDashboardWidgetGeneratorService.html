@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>DemoWidgetGeneratorService</li>
+  <li>DemoProgressDashboardWidgetGeneratorService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/child-dev-project/dashboard/demo-widget-generator.service.ts</code>
+            <code>src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts</code>
         </p>
 
 
@@ -134,7 +134,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/child-dev-project/dashboard/demo-widget-generator.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -169,8 +169,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/child-dev-project/dashboard/demo-widget-generator.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts:33</a></div>
                 </td>
             </tr>
 
@@ -210,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/child-dev-project/dashboard/demo-widget-generator.service.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -219,7 +219,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>This function returns a provider object to be used in an Angular Module configuration:
-   <code>providers: [DemoWidgetGeneratorService.provider()]</code></p>
+   <code>providers: [DemoProgressDashboardWidgetGeneratorService.provider()]</code></p>
 </div>
 
                     <div class="io-description">
@@ -386,16 +386,18 @@ import { DemoDataGenerator } from &quot;../../core/demo-data/demo-data-generator
 import { ProgressDashboardConfig } from &quot;./progress-dashboard/progress-dashboard-config&quot;;
 
 @Injectable()
-export class DemoWidgetGeneratorService extends DemoDataGenerator&lt;any&gt; {
+export class DemoProgressDashboardWidgetGeneratorService extends DemoDataGenerator&lt;
+  any
+&gt; {
   /**
    * This function returns a provider object to be used in an Angular Module configuration:
-   *   &#x60;providers: [DemoWidgetGeneratorService.provider()]&#x60;
+   *   &#x60;providers: [DemoProgressDashboardWidgetGeneratorService.provider()]&#x60;
    */
   static provider() {
     return [
       {
-        provide: DemoWidgetGeneratorService,
-        useClass: DemoWidgetGeneratorService,
+        provide: DemoProgressDashboardWidgetGeneratorService,
+        useClass: DemoProgressDashboardWidgetGeneratorService,
       },
     ];
   }
@@ -466,7 +468,7 @@ export class DemoWidgetGeneratorService extends DemoDataGenerator&lt;any&gt; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'DemoWidgetGeneratorService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DemoProgressDashboardWidgetGeneratorService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
