@@ -28408,23 +28408,14 @@ var RouterService = /** @class */ (function () {
         var routes = [];
         var viewConfigs = this.configService.getAllConfigs(RouterService.PREFIX_VIEW_CONFIG);
         var _loop_1 = function (view) {
-            var path = view._id.substring(RouterService.PREFIX_VIEW_CONFIG.length); // remove prefix to get actual path
-            if (additionalRoutes.find(function (r) { return r.path === path; })) {
+            var route = this_1.generateRouteFromConfig(view);
+            if (additionalRoutes.find(function (r) { return r.path === route.path; })) {
                 this_1.loggingService.warn("ignoring route from view config because the path is already defined: " +
                     view._id);
-                return "continue";
             }
-            var route = {
-                path: path,
-                component: app_app_routing__WEBPACK_IMPORTED_MODULE_2__["COMPONENT_MAP"][view.component],
-            };
-            if (view.requiresAdmin) {
-                route.canActivate = [_admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]];
+            else {
+                routes.push(route);
             }
-            if (view.config) {
-                route.data = view.config;
-            }
-            routes.push(route);
         };
         var this_1 = this;
         try {
@@ -28440,8 +28431,23 @@ var RouterService = /** @class */ (function () {
             }
             finally { if (e_1) throw e_1.error; }
         }
+        // add routes from other sources (e.g. pre-existing  hard-coded routes)
         routes.push.apply(routes, __spread(additionalRoutes));
         this.router.resetConfig(routes);
+    };
+    RouterService.prototype.generateRouteFromConfig = function (view) {
+        var path = view._id.substring(RouterService.PREFIX_VIEW_CONFIG.length); // remove prefix to get actual path
+        var route = {
+            path: path,
+            component: app_app_routing__WEBPACK_IMPORTED_MODULE_2__["COMPONENT_MAP"][view.component],
+        };
+        if (view.requiresAdmin) {
+            route.canActivate = [_admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]];
+        }
+        if (view.config) {
+            route.data = view.config;
+        }
+        return route;
     };
     RouterService.PREFIX_VIEW_CONFIG = "view:";
     RouterService.ɵfac = function RouterService_Factory(t) { return new (t || RouterService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_config_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_logging_logging_service__WEBPACK_IMPORTED_MODULE_5__["LoggingService"])); };
