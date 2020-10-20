@@ -28,10 +28,6 @@
 <title>cluster_LatestChangesModule_declarations</title>
 <polygon fill="none" stroke="black" points="958,-78 958,-130 1284,-130 1284,-78 958,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_LatestChangesModule_exports</title>
-<polygon fill="none" stroke="black" points="694,-208 694,-260 864,-260 864,-208 694,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_LatestChangesModule_imports</title>
 <polygon fill="none" stroke="black" points="720,-78 720,-130 950,-130 950,-78 720,-78"/>
@@ -39,6 +35,10 @@
 <g id="clust8" class="cluster">
 <title>cluster_LatestChangesModule_providers</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 712,-130 712,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_LatestChangesModule_exports</title>
+<polygon fill="none" stroke="black" points="694,-208 694,-260 864,-260 864,-208 694,-208"/>
 </g>
 <!-- AppVersionComponent -->
 <g id="node1" class="node">
