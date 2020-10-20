@@ -458,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./core/navigation/navigation.module */ "./src/app/core/navigation/navigation.module.ts");
 /* harmony import */ var _core_latest_changes_latest_changes_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./core/latest-changes/latest-changes.module */ "./src/app/core/latest-changes/latest-changes.module.ts");
 /* harmony import */ var _core_user_user_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./core/user/user.module */ "./src/app/core/user/user.module.ts");
-/* harmony import */ var _child_dev_project_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./child-dev-project/dashboard/dashboard.module */ "./src/app/child-dev-project/dashboard/dashboard.module.ts");
+/* harmony import */ var _child_dev_project_progress_dashboard_widget_progress_dashboard_widget_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./child-dev-project/progress-dashboard-widget/progress-dashboard-widget.module */ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard-widget.module.ts");
 /* harmony import */ var _child_dev_project_children_children_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./child-dev-project/children/children.module */ "./src/app/child-dev-project/children/children.module.ts");
 /* harmony import */ var _child_dev_project_schools_schools_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./child-dev-project/schools/schools.module */ "./src/app/child-dev-project/schools/schools.module.ts");
 /* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
@@ -480,7 +480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _child_dev_project_aser_demo_aser_generator_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./child-dev-project/aser/demo-aser-generator.service */ "./src/app/child-dev-project/aser/demo-aser-generator.service.ts");
 /* harmony import */ var _child_dev_project_educational_material_demo_educational_material_generator_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./child-dev-project/educational-material/demo-educational-material-generator.service */ "./src/app/child-dev-project/educational-material/demo-educational-material-generator.service.ts");
 /* harmony import */ var _child_dev_project_health_checkup_demo_data_demo_health_check_generator_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./child-dev-project/health-checkup/demo-data/demo-health-check-generator.service */ "./src/app/child-dev-project/health-checkup/demo-data/demo-health-check-generator.service.ts");
-/* harmony import */ var _child_dev_project_dashboard_demo_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./child-dev-project/dashboard/demo-widget-generator.service */ "./src/app/child-dev-project/dashboard/demo-widget-generator.service.ts");
+/* harmony import */ var _child_dev_project_progress_dashboard_widget_demo_progress_dashboard_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service */ "./src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts");
 /* harmony import */ var _core_user_demo_user_generator_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./core/user/demo-user-generator.service */ "./src/app/core/user/demo-user-generator.service.ts");
 /* harmony import */ var _core_confirmation_dialog_confirmation_dialog_module__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./core/confirmation-dialog/confirmation-dialog.module */ "./src/app/core/confirmation-dialog/confirmation-dialog.module.ts");
 /* harmony import */ var _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./core/form-dialog/form-dialog.module */ "./src/app/core/form-dialog/form-dialog.module.ts");
@@ -490,7 +490,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angulartics2_piwik__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! angulartics2/piwik */ "./node_modules/angulartics2/piwik/fesm2015/angulartics2-piwik.js");
 /* harmony import */ var _core_config_config_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./core/config/config.service */ "./src/app/core/config/config.service.ts");
 /* harmony import */ var _core_view_view_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./core/view/view.module */ "./src/app/core/view/view.module.ts");
-/* harmony import */ var _core_view_router_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./core/view/router.service */ "./src/app/core/view/router.service.ts");
+/* harmony import */ var _core_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./core/dashboard/dashboard.module */ "./src/app/core/dashboard/dashboard.module.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __read = (undefined && undefined.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
@@ -582,7 +582,6 @@ var __spread = (undefined && undefined.__spread) || function () {
 
 
 
-
 function configFactory(configService) {
     return function () { return configService.loadConfig(); };
 }
@@ -592,15 +591,13 @@ function configFactory(configService) {
  * Real functionality should be implemented in separate modules and imported here rather than being part of this module.
  */
 var AppModule = /** @class */ (function () {
-    function AppModule(matIconRegistry, routerService) {
+    function AppModule(matIconRegistry) {
         this.matIconRegistry = matIconRegistry;
-        this.routerService = routerService;
         matIconRegistry.registerFontClassAlias("fontawesome", "fa");
         matIconRegistry.setDefaultFontSetClass("fa");
-        routerService.initRouting();
     }
     AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]] });
-    AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_core_view_router_service__WEBPACK_IMPORTED_MODULE_47__["RouterService"])); }, providers: [
+    AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"])); }, providers: [
             { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _core_logging_logging_error_handler__WEBPACK_IMPORTED_MODULE_28__["LoggingErrorHandler"] },
             _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"],
             ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__["CookieService"],
@@ -638,7 +635,8 @@ var AppModule = /** @class */ (function () {
                 _core_latest_changes_latest_changes_module__WEBPACK_IMPORTED_MODULE_13__["LatestChangesModule"],
                 _core_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_12__["NavigationModule"],
                 _core_user_user_module__WEBPACK_IMPORTED_MODULE_14__["UserModule"],
-                _child_dev_project_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__["DashboardModule"],
+                _core_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_47__["DashboardModule"],
+                _child_dev_project_progress_dashboard_widget_progress_dashboard_widget_module__WEBPACK_IMPORTED_MODULE_15__["ProgressDashboardWidgetModule"],
                 _child_dev_project_children_children_module__WEBPACK_IMPORTED_MODULE_16__["ChildrenModule"],
                 _child_dev_project_schools_schools_module__WEBPACK_IMPORTED_MODULE_17__["SchoolsModule"],
                 _core_admin_admin_module__WEBPACK_IMPORTED_MODULE_22__["AdminModule"],
@@ -652,7 +650,7 @@ var AppModule = /** @class */ (function () {
                 }), _child_dev_project_aser_demo_aser_generator_service__WEBPACK_IMPORTED_MODULE_34__["DemoAserGeneratorService"].provider(), _child_dev_project_educational_material_demo_educational_material_generator_service__WEBPACK_IMPORTED_MODULE_35__["DemoEducationalMaterialGeneratorService"].provider({
                     minCount: 3,
                     maxCount: 8,
-                }), _child_dev_project_health_checkup_demo_data_demo_health_check_generator_service__WEBPACK_IMPORTED_MODULE_36__["DemoHealthCheckGeneratorService"].provider(), _child_dev_project_dashboard_demo_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__["DemoWidgetGeneratorService"].provider(), _core_user_demo_user_generator_service__WEBPACK_IMPORTED_MODULE_38__["DemoUserGeneratorService"].provider())),
+                }), _child_dev_project_health_checkup_demo_data_demo_health_check_generator_service__WEBPACK_IMPORTED_MODULE_36__["DemoHealthCheckGeneratorService"].provider(), _child_dev_project_progress_dashboard_widget_demo_progress_dashboard_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__["DemoProgressDashboardWidgetGeneratorService"].provider(), _core_user_demo_user_generator_service__WEBPACK_IMPORTED_MODULE_38__["DemoUserGeneratorService"].provider())),
             ]] });
     return AppModule;
 }());
@@ -673,7 +671,8 @@ var AppModule = /** @class */ (function () {
         _core_latest_changes_latest_changes_module__WEBPACK_IMPORTED_MODULE_13__["LatestChangesModule"],
         _core_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_12__["NavigationModule"],
         _core_user_user_module__WEBPACK_IMPORTED_MODULE_14__["UserModule"],
-        _child_dev_project_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__["DashboardModule"],
+        _core_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_47__["DashboardModule"],
+        _child_dev_project_progress_dashboard_widget_progress_dashboard_widget_module__WEBPACK_IMPORTED_MODULE_15__["ProgressDashboardWidgetModule"],
         _child_dev_project_children_children_module__WEBPACK_IMPORTED_MODULE_16__["ChildrenModule"],
         _child_dev_project_schools_schools_module__WEBPACK_IMPORTED_MODULE_17__["SchoolsModule"],
         _core_admin_admin_module__WEBPACK_IMPORTED_MODULE_22__["AdminModule"],
@@ -709,7 +708,8 @@ var AppModule = /** @class */ (function () {
                     _core_latest_changes_latest_changes_module__WEBPACK_IMPORTED_MODULE_13__["LatestChangesModule"],
                     _core_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_12__["NavigationModule"],
                     _core_user_user_module__WEBPACK_IMPORTED_MODULE_14__["UserModule"],
-                    _child_dev_project_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__["DashboardModule"],
+                    _core_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_47__["DashboardModule"],
+                    _child_dev_project_progress_dashboard_widget_progress_dashboard_widget_module__WEBPACK_IMPORTED_MODULE_15__["ProgressDashboardWidgetModule"],
                     _child_dev_project_children_children_module__WEBPACK_IMPORTED_MODULE_16__["ChildrenModule"],
                     _child_dev_project_schools_schools_module__WEBPACK_IMPORTED_MODULE_17__["SchoolsModule"],
                     _core_admin_admin_module__WEBPACK_IMPORTED_MODULE_22__["AdminModule"],
@@ -723,7 +723,7 @@ var AppModule = /** @class */ (function () {
                     }), _child_dev_project_aser_demo_aser_generator_service__WEBPACK_IMPORTED_MODULE_34__["DemoAserGeneratorService"].provider(), _child_dev_project_educational_material_demo_educational_material_generator_service__WEBPACK_IMPORTED_MODULE_35__["DemoEducationalMaterialGeneratorService"].provider({
                         minCount: 3,
                         maxCount: 8,
-                    }), _child_dev_project_health_checkup_demo_data_demo_health_check_generator_service__WEBPACK_IMPORTED_MODULE_36__["DemoHealthCheckGeneratorService"].provider(), _child_dev_project_dashboard_demo_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__["DemoWidgetGeneratorService"].provider(), _core_user_demo_user_generator_service__WEBPACK_IMPORTED_MODULE_38__["DemoUserGeneratorService"].provider())),
+                    }), _child_dev_project_health_checkup_demo_data_demo_health_check_generator_service__WEBPACK_IMPORTED_MODULE_36__["DemoHealthCheckGeneratorService"].provider(), _child_dev_project_progress_dashboard_widget_demo_progress_dashboard_widget_generator_service__WEBPACK_IMPORTED_MODULE_37__["DemoProgressDashboardWidgetGeneratorService"].provider(), _core_user_demo_user_generator_service__WEBPACK_IMPORTED_MODULE_38__["DemoUserGeneratorService"].provider())),
                 ],
                 providers: [
                     { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _core_logging_logging_error_handler__WEBPACK_IMPORTED_MODULE_28__["LoggingErrorHandler"] },
@@ -741,7 +741,7 @@ var AppModule = /** @class */ (function () {
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
             }]
-    }], function () { return [{ type: _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"] }, { type: _core_view_router_service__WEBPACK_IMPORTED_MODULE_47__["RouterService"] }]; }, null); })();
+    }], function () { return [{ type: _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__["MatIconRegistry"] }]; }, null); })();
 // Initialize remote logging
 _core_logging_logging_service__WEBPACK_IMPORTED_MODULE_41__["LoggingService"].initRemoteLogging({
     dsn: _environments_environment__WEBPACK_IMPORTED_MODULE_20__["environment"].remoteLoggingDsn,
@@ -764,7 +764,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routing", function() { return routing; });
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _child_dev_project_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./child-dev-project/dashboard/dashboard/dashboard.component */ "./src/app/child-dev-project/dashboard/dashboard/dashboard.component.ts");
+/* harmony import */ var _core_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/dashboard/dashboard/dashboard.component */ "./src/app/core/dashboard/dashboard/dashboard.component.ts");
 /* harmony import */ var _child_dev_project_schools_schools_list_schools_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./child-dev-project/schools/schools-list/schools-list.component */ "./src/app/child-dev-project/schools/schools-list/schools-list.component.ts");
 /* harmony import */ var _child_dev_project_schools_school_details_school_details_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./child-dev-project/schools/school-details/school-details.component */ "./src/app/child-dev-project/schools/school-details/school-details.component.ts");
 /* harmony import */ var _child_dev_project_children_child_details_child_details_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./child-dev-project/children/child-details/child-details.component */ "./src/app/child-dev-project/children/child-details/child-details.component.ts");
@@ -814,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var COMPONENT_MAP = {
-    Dashboard: _child_dev_project_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["DashboardComponent"],
+    Dashboard: _core_dashboard_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["DashboardComponent"],
     UserAccount: _core_user_user_account_user_account_component__WEBPACK_IMPORTED_MODULE_5__["UserAccountComponent"],
     NotesManager: _child_dev_project_notes_notes_manager_notes_manager_component__WEBPACK_IMPORTED_MODULE_10__["NotesManagerComponent"],
     UserList: _core_admin_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_15__["UserListComponent"],
@@ -4151,7 +4151,7 @@ var AttendanceAverageDashboardComponent = /** @class */ (function () {
         this.ATTENDANCE_THRESHOLD = 0.9;
         this.lastMonthsTopAttendence = []; // [[Child, average_last_3_months, last_months_attendance]]
     }
-    AttendanceAverageDashboardComponent.prototype.initFromConfig = function (config) { };
+    AttendanceAverageDashboardComponent.prototype.onInitFromDynamicConfig = function (config) { };
     AttendanceAverageDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -4397,7 +4397,7 @@ var AttendanceWarningsDashboardComponent = /** @class */ (function () {
         this.ATTENDANCE_THRESHOLD = _model_attendance_month__WEBPACK_IMPORTED_MODULE_3__["AttendanceMonth"].THRESHOLD_WARNING;
         this.lastMonthsLowAttendence = []; // [[Child, last_months_attendance]]
     }
-    AttendanceWarningsDashboardComponent.prototype.initFromConfig = function (config) { };
+    AttendanceWarningsDashboardComponent.prototype.onInitFromDynamicConfig = function (config) { };
     AttendanceWarningsDashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -4597,7 +4597,7 @@ var AttendanceWeekDashboardComponent = /** @class */ (function () {
         this.router = router;
         this.recordTrackByFunction = function (index, item) { return item.childId; };
     }
-    AttendanceWeekDashboardComponent.prototype.initFromConfig = function (config) {
+    AttendanceWeekDashboardComponent.prototype.onInitFromDynamicConfig = function (config) {
         if (config === null || config === void 0 ? void 0 : config.daysOffset) {
             this.daysOffset = config.daysOffset;
         }
@@ -7465,7 +7465,7 @@ var ChildrenCountDashboardComponent = /** @class */ (function () {
         this.router = router;
         this.childrenByCenter = [];
     }
-    ChildrenCountDashboardComponent.prototype.initFromConfig = function (config) { };
+    ChildrenCountDashboardComponent.prototype.onInitFromDynamicConfig = function (config) { };
     ChildrenCountDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.childrenService
@@ -10507,801 +10507,6 @@ var SelectGroupChildrenComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/child-dev-project/dashboard/dashboard-component-map.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/dashboard-component-map.ts ***!
-  \************************************************************************/
-/*! exports provided: DASHBOARD_COMPONENT_MAP */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DASHBOARD_COMPONENT_MAP", function() { return DASHBOARD_COMPONENT_MAP; });
-/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component.ts");
-/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component.ts");
-/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component.ts");
-/* harmony import */ var app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component */ "./src/app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component.ts");
-/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component.ts");
-/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component.ts");
-/* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts");
-
-
-
-
-
-
-
-var DASHBOARD_COMPONENT_MAP = new Map([
-    ["ChildrenCountDashboard", app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ChildrenCountDashboardComponent"]],
-    ["RecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["RecentNotesDashboardComponent"]],
-    ["NoRecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["NoRecentNotesDashboardComponent"]],
-    ["AttendanceWeekDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["AttendanceWeekDashboardComponent"]],
-    ["ProgressDashboard", _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["ProgressDashboardComponent"]],
-    ["AttendanceAverageDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["AttendanceAverageDashboardComponent"]],
-    ["AttendanceWarningsDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["AttendanceWarningsDashboardComponent"]],
-]);
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/dashboard.module.ts":
-/*!*****************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/dashboard.module.ts ***!
-  \*****************************************************************/
-/*! exports provided: DashboardModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardModule", function() { return DashboardModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/child-dev-project/dashboard/dashboard/dashboard.component.ts");
-/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
-/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/fesm5/progress-bar.js");
-/* harmony import */ var _children_children_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../children/children.module */ "./src/app/child-dev-project/children/children.module.ts");
-/* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dashboard/dashboard-widget.directive */ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts");
-/*
- *     This file is part of ndb-core.
- *
- *     ndb-core is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     ndb-core is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var DashboardModule = /** @class */ (function () {
-    function DashboardModule() {
-    }
-    DashboardModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: DashboardModule });
-    DashboardModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function DashboardModule_Factory(t) { return new (t || DashboardModule)(); }, imports: [[
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
-                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
-                _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_9__["MatProgressBarModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
-                _children_children_module__WEBPACK_IMPORTED_MODULE_10__["ChildrenModule"],
-            ]] });
-    return DashboardModule;
-}());
-
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](DashboardModule, { declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
-        _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__["DashboardWidgetDirective"],
-        _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
-        _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"],
-        _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardModule"],
-        _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-        _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
-        _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_9__["MatProgressBarModule"],
-        _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
-        _children_children_module__WEBPACK_IMPORTED_MODULE_10__["ChildrenModule"]] }); })();
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{
-                imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
-                    _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"],
-                    _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardModule"],
-                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-                    _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
-                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_9__["MatProgressBarModule"],
-                    _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-                    _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
-                    _children_children_module__WEBPACK_IMPORTED_MODULE_10__["ChildrenModule"],
-                ],
-                declarations: [
-                    _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"],
-                    _dashboard_dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_13__["DashboardWidgetDirective"],
-                    _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ProgressDashboardComponent"],
-                ],
-            }]
-    }], null, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts ***!
-  \*************************************************************************************/
-/*! exports provided: DashboardWidgetDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardWidgetDirective", function() { return DashboardWidgetDirective; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/core/logging/logging.service */ "./src/app/core/logging/logging.service.ts");
-/* harmony import */ var _dashboard_component_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dashboard-component-map */ "./src/app/child-dev-project/dashboard/dashboard-component-map.ts");
-
-
-
-
-
-/**
- * Directive to mark a template into which a DashboardWidgetComponent should be loaded.
- * Pass the DashboardWidgetConfig into the directive to define the widget.
- */
-var DashboardWidgetDirective = /** @class */ (function () {
-    function DashboardWidgetDirective(viewContainerRef, componentFactoryResolver, loggingService) {
-        this.viewContainerRef = viewContainerRef;
-        this.componentFactoryResolver = componentFactoryResolver;
-        this.loggingService = loggingService;
-    }
-    DashboardWidgetDirective.prototype.ngOnChanges = function (changes) {
-        this.loadWidgetComponent();
-    };
-    DashboardWidgetDirective.prototype.loadWidgetComponent = function () {
-        if (!this.appDashboardWidget) {
-            return;
-        }
-        var component = _dashboard_component_map__WEBPACK_IMPORTED_MODULE_2__["DASHBOARD_COMPONENT_MAP"].get(this.appDashboardWidget.component);
-        if (!component) {
-            this.loggingService.warn("Could not load dashboard widget - component not found: " +
-                this.appDashboardWidget.component);
-            return;
-        }
-        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-        this.viewContainerRef.clear();
-        var componentRef = this.viewContainerRef.createComponent(componentFactory);
-        componentRef.instance.initFromConfig(this.appDashboardWidget.config);
-    };
-    DashboardWidgetDirective.ɵfac = function DashboardWidgetDirective_Factory(t) { return new (t || DashboardWidgetDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"])); };
-    DashboardWidgetDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DashboardWidgetDirective, selectors: [["", "appDashboardWidget", ""]], inputs: { appDashboardWidget: "appDashboardWidget" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
-    return DashboardWidgetDirective;
-}());
-
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardWidgetDirective, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-        args: [{
-                selector: "[appDashboardWidget]",
-            }]
-    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] }, { type: app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"] }]; }, { appDashboardWidget: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }] }); })();
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/dashboard/dashboard.component.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/dashboard/dashboard.component.ts ***!
-  \******************************************************************************/
-/*! exports provided: DashboardComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard-widget.directive */ "./src/app/child-dev-project/dashboard/dashboard/dashboard-widget.directive.ts");
-/*
- *     This file is part of ndb-core.
- *
- *     ndb-core is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     ndb-core is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-
-
-
-
-
-
-function DashboardComponent_div_1_ng_template_1_Template(rf, ctx) { }
-function DashboardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_ng_template_1_Template, 0, 0, "ng-template", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var widgetConfig_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("appDashboardWidget", widgetConfig_r1);
-} }
-var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(activatedRoute) {
-        this.activatedRoute = activatedRoute;
-        this.widgets = [];
-    }
-    DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.activatedRoute.data.subscribe(function (config) {
-            _this.widgets = config.widgets;
-        });
-    };
-    DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"])); };
-    DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DashboardComponent, selectors: [["app-dashboard"]], decls: 2, vars: 1, consts: [["fxLayout", "row wrap", "fxLayout.xs", "column wrap", "fxLayoutGap", "20px", 1, "widget-wrapper"], ["fxFlex", "30", 4, "ngFor", "ngForOf"], ["fxFlex", "30"], [3, "appDashboardWidget"]], template: function DashboardComponent_Template(rf, ctx) { if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_Template, 2, 1, "div", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.widgets);
-        } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutGapDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultFlexDirective"], _dashboard_widget_directive__WEBPACK_IMPORTED_MODULE_4__["DashboardWidgetDirective"]], styles: [".widget-wrapper[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  min-width: -webkit-min-content;\n  min-width: -moz-min-content;\n  min-width: min-content;\n  margin-right: 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvZGFzaGJvYXJkL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7RUFBQTtBQWlCQTtFQUNFLG1CQUFBO0VBQ0EsOEJBQUE7RUFBQSwyQkFBQTtFQUFBLHNCQUFBO0VBQ0EsNkJBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqICAgICBUaGlzIGZpbGUgaXMgcGFydCBvZiBuZGItY29yZS5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeVxuICogICAgIGl0IHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5XG4gKiAgICAgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiwgZWl0aGVyIHZlcnNpb24gMyBvZiB0aGUgTGljZW5zZSwgb3JcbiAqICAgICAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLFxuICogICAgIGJ1dCBXSVRIT1VUIEFOWSBXQVJSQU5UWTsgd2l0aG91dCBldmVuIHRoZSBpbXBsaWVkIHdhcnJhbnR5IG9mXG4gKiAgICAgTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZVxuICogICAgIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuXG4gKlxuICogICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlXG4gKiAgICAgYWxvbmcgd2l0aCBuZGItY29yZS4gIElmIG5vdCwgc2VlIDxodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvPi5cbiAqL1xuXG4ud2lkZ2V0LXdyYXBwZXIgPiAqIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgbWluLXdpZHRoOiBtaW4tY29udGVudDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4ICFpbXBvcnRhbnQ7XG59XG5cbiIsIi8qXG4gKiAgICAgVGhpcyBmaWxlIGlzIHBhcnQgb2YgbmRiLWNvcmUuXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGZyZWUgc29mdHdhcmU6IHlvdSBjYW4gcmVkaXN0cmlidXRlIGl0IGFuZC9vciBtb2RpZnlcbiAqICAgICBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGFzIHB1Ymxpc2hlZCBieVxuICogICAgIHRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIGVpdGhlciB2ZXJzaW9uIDMgb2YgdGhlIExpY2Vuc2UsIG9yXG4gKiAgICAgKGF0IHlvdXIgb3B0aW9uKSBhbnkgbGF0ZXIgdmVyc2lvbi5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCxcbiAqICAgICBidXQgV0lUSE9VVCBBTlkgV0FSUkFOVFk7IHdpdGhvdXQgZXZlbiB0aGUgaW1wbGllZCB3YXJyYW50eSBvZlxuICogICAgIE1FUkNIQU5UQUJJTElUWSBvciBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRS4gIFNlZSB0aGVcbiAqICAgICBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbW9yZSBkZXRhaWxzLlxuICpcbiAqICAgICBZb3Ugc2hvdWxkIGhhdmUgcmVjZWl2ZWQgYSBjb3B5IG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZVxuICogICAgIGFsb25nIHdpdGggbmRiLWNvcmUuICBJZiBub3QsIHNlZSA8aHR0cDovL3d3dy5nbnUub3JnL2xpY2Vuc2VzLz4uXG4gKi9cbi53aWRnZXQtd3JhcHBlciA+ICoge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBtaW4td2lkdGg6IG1pbi1jb250ZW50O1xuICBtYXJnaW4tcmlnaHQ6IDEwcHggIWltcG9ydGFudDtcbn0iXX0= */"] });
-    return DashboardComponent;
-}());
-
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-                selector: "app-dashboard",
-                templateUrl: "./dashboard.component.html",
-                styleUrls: ["./dashboard.component.scss"],
-            }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/demo-widget-generator.service.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/demo-widget-generator.service.ts ***!
-  \******************************************************************************/
-/*! exports provided: DemoWidgetGeneratorService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DemoWidgetGeneratorService", function() { return DemoWidgetGeneratorService; });
-/* harmony import */ var _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/demo-data/faker */ "./src/app/core/demo-data/faker.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _core_demo_data_demo_data_generator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/demo-data/demo-data-generator */ "./src/app/core/demo-data/demo-data-generator.ts");
-/* harmony import */ var _progress_dashboard_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard-config */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard-config.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __values = (undefined && undefined.__values) || function(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-};
-
-
-
-
-
-var DemoWidgetGeneratorService = /** @class */ (function (_super) {
-    __extends(DemoWidgetGeneratorService, _super);
-    function DemoWidgetGeneratorService() {
-        var _this = _super.call(this) || this;
-        _this.DEMO_TASKS = [
-            "Clubs visited",
-            "Schools checked",
-            "Government Officials met",
-        ];
-        return _this;
-    }
-    /**
-     * This function returns a provider object to be used in an Angular Module configuration:
-     *   `providers: [DemoWidgetGeneratorService.provider()]`
-     */
-    DemoWidgetGeneratorService.provider = function () {
-        return [
-            {
-                provide: DemoWidgetGeneratorService,
-                useClass: DemoWidgetGeneratorService,
-            },
-        ];
-    };
-    DemoWidgetGeneratorService.prototype.generateEntities = function () {
-        var data = [];
-        data.push(this.generateDashboardWidgetSurveyStatus());
-        return data;
-    };
-    DemoWidgetGeneratorService.prototype.generateDashboardWidgetSurveyStatus = function () {
-        var e_1, _a;
-        var dashboardProgressWidget = new _progress_dashboard_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_3__["ProgressDashboardConfig"]("1");
-        dashboardProgressWidget.title = "Annual Survey";
-        try {
-            for (var _b = __values(this.DEMO_TASKS), _c = _b.next(); !_c.done; _c = _b.next()) {
-                var task = _c.value;
-                var targetNumber = _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__["faker"].random.number({ min: 5, max: 50 });
-                dashboardProgressWidget.parts.push({
-                    label: task,
-                    currentValue: _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__["faker"].random.number(targetNumber),
-                    targetValue: targetNumber,
-                });
-            }
-        }
-        catch (e_1_1) { e_1 = { error: e_1_1 }; }
-        finally {
-            try {
-                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-            }
-            finally { if (e_1) throw e_1.error; }
-        }
-        return dashboardProgressWidget;
-    };
-    DemoWidgetGeneratorService.ɵfac = function DemoWidgetGeneratorService_Factory(t) { return new (t || DemoWidgetGeneratorService)(); };
-    DemoWidgetGeneratorService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: DemoWidgetGeneratorService, factory: DemoWidgetGeneratorService.ɵfac });
-    return DemoWidgetGeneratorService;
-}(_core_demo_data_demo_data_generator__WEBPACK_IMPORTED_MODULE_2__["DemoDataGenerator"]));
-
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DemoWidgetGeneratorService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
-    }], function () { return []; }, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard-config.ts":
-/*!*********************************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard-config.ts ***!
-  \*********************************************************************************************/
-/*! exports provided: ProgressDashboardConfig */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressDashboardConfig", function() { return ProgressDashboardConfig; });
-/* harmony import */ var _core_entity_entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/entity/entity */ "./src/app/core/entity/entity.ts");
-/* harmony import */ var _core_entity_database_entity_decorator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../core/entity/database-entity.decorator */ "./src/app/core/entity/database-entity.decorator.ts");
-/* harmony import */ var _core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/entity/database-field.decorator */ "./src/app/core/entity/database-field.decorator.ts");
-/*
- *     This file is part of ndb-core.
- *
- *     ndb-core is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     ndb-core is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
- */
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ProgressDashboardConfig = /** @class */ (function (_super) {
-    __extends(ProgressDashboardConfig, _super);
-    function ProgressDashboardConfig() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.title = "Progress Widget";
-        _this.parts = [];
-        return _this;
-    }
-    ProgressDashboardConfig.prototype.getTotalPercentage = function () {
-        var currentTotal = this.parts.reduce(function (acc, entry) { return acc + entry.currentValue; }, 0);
-        var targetTotal = this.parts.reduce(function (acc, entry) { return acc + entry.targetValue; }, 0);
-        return currentTotal / targetTotal;
-    };
-    __decorate([
-        Object(_core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__["DatabaseField"])(),
-        __metadata("design:type", String)
-    ], ProgressDashboardConfig.prototype, "title", void 0);
-    __decorate([
-        Object(_core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__["DatabaseField"])(),
-        __metadata("design:type", Array)
-    ], ProgressDashboardConfig.prototype, "parts", void 0);
-    ProgressDashboardConfig = __decorate([
-        Object(_core_entity_database_entity_decorator__WEBPACK_IMPORTED_MODULE_1__["DatabaseEntity"])("ProgressDashboardConfig")
-    ], ProgressDashboardConfig);
-    return ProgressDashboardConfig;
-}(_core_entity_entity__WEBPACK_IMPORTED_MODULE_0__["Entity"]));
-
-
-
-/***/ }),
-
-/***/ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts":
-/*!************************************************************************************************!*\
-  !*** ./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard.component.ts ***!
-  \************************************************************************************************/
-/*! exports provided: ProgressDashboardComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressDashboardComponent", function() { return ProgressDashboardComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./progress-dashboard-config */ "./src/app/child-dev-project/dashboard/progress-dashboard/progress-dashboard-config.ts");
-/* harmony import */ var _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/entity/entity-mapper.service */ "./src/app/core/entity/entity-mapper.service.ts");
-/* harmony import */ var _core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/alerts/alert.service */ "./src/app/core/alerts/alert.service.ts");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout/extended */ "./node_modules/@angular/flex-layout/esm5/extended.es5.js");
-/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/fesm5/progress-bar.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function ProgressDashboardComponent_tr_13_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "td", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "mat-progress-bar", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "td", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](7, "percent");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var entry_r6 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](entry_r6.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r6.currentValue / entry_r6.targetValue * 100);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](7, 5, entry_r6.currentValue / entry_r6.targetValue, "1.0-0"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", entry_r6.currentValue, " / ", entry_r6.targetValue, "");
-} }
-function ProgressDashboardComponent_button_16_Template(rf, ctx) { if (rf & 1) {
-    var _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_16_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.addPart(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function ProgressDashboardComponent_button_17_Template(rf, ctx) { if (rf & 1) {
-    var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_17_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10); var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.save(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function ProgressDashboardComponent_button_18_Template(rf, ctx) { if (rf & 1) {
-    var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_18_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12); var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r11.configure = true; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function ProgressDashboardComponent_div_19_Template(rf, ctx) { if (rf & 1) {
-    var _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-form-field", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function ProgressDashboardComponent_div_19_Template_input_input_2_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r14); var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r13.data.title = $event.target.value; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx_r4.data.title);
-} }
-function ProgressDashboardComponent_table_20_tr_1_Template(rf, ctx) { if (rf & 1) {
-    var _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-form-field", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function ProgressDashboardComponent_table_20_tr_1_Template_input_input_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.label = $event.target.value; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "td", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-form-field", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProgressDashboardComponent_table_20_tr_1_Template_input_change_6_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.currentValue = $event.target.valueAsNumber; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "mat-form-field", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "input", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProgressDashboardComponent_table_20_tr_1_Template_input_change_8_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.targetValue = $event.target.valueAsNumber; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_table_20_tr_1_Template_button_click_10_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var i_r17 = ctx.index; var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r22.data.parts.splice(i_r17, 1); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "mat-icon", 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var entry_r16 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.currentValue);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.targetValue);
-} }
-function ProgressDashboardComponent_table_20_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProgressDashboardComponent_table_20_tr_1_Template, 12, 3, "tr", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r5.data.parts);
-} }
-var _c0 = function (a0) { return { "dashboard-config": a0 }; };
-var ProgressDashboardComponent = /** @class */ (function () {
-    function ProgressDashboardComponent(entityMapper, alertService) {
-        this.entityMapper = entityMapper;
-        this.alertService = alertService;
-        this.dashboardConfigId = "";
-        this.configure = false;
-    }
-    ProgressDashboardComponent.prototype.initFromConfig = function (config) {
-        this.dashboardConfigId = config.dashboardConfigId;
-    };
-    ProgressDashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.data = new _progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__["ProgressDashboardConfig"](this.dashboardConfigId);
-        this.entityMapper
-            .load(_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__["ProgressDashboardConfig"], this.dashboardConfigId)
-            .then(function (config) {
-            _this.data = config;
-        })
-            .catch(function (e) {
-            if (e.status === 404) {
-                _this.alertService.addDebug("ProgressDashboardConfig (" + _this.dashboardConfigId + ") not found. Creating ...");
-                _this.createDefaultConfig();
-            }
-            else {
-                _this.alertService.addWarning("Error loading ProgressDashboardConfig (" + _this.dashboardConfigId + "): " + e.message);
-            }
-        });
-    };
-    ProgressDashboardComponent.prototype.createDefaultConfig = function () {
-        this.data.title = "Progress of X";
-        this.addPart();
-        this.addPart();
-        this.save();
-    };
-    ProgressDashboardComponent.prototype.addPart = function () {
-        var newPart = {
-            label: "Part",
-            currentValue: 1,
-            targetValue: 10,
-        };
-        this.data.parts.push(newPart);
-    };
-    ProgressDashboardComponent.prototype.save = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.entityMapper.save(this.data)];
-                    case 1:
-                        _a.sent();
-                        this.configure = false;
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    ProgressDashboardComponent.ɵfac = function ProgressDashboardComponent_Factory(t) { return new (t || ProgressDashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"])); };
-    ProgressDashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProgressDashboardComponent, selectors: [["app-progress-dashboard"]], inputs: { dashboardConfigId: "dashboardConfigId" }, decls: 21, vars: 14, consts: [[1, "dashboard-widget"], [1, "app-child"], ["mat-card-avatar", ""], ["fontIcon", "fa-list"], [1, "dashboard-desc"], [1, "dashboard-table"], ["class", "dashboard-table-row", 4, "ngFor", "ngForOf"], [3, "ngClass"], [2, "text-align", "right"], ["mat-icon-button", "", 3, "click", 4, "ngIf"], ["class", "dashboard-table-cell", "style", "border-bottom: 1px solid black", 4, "ngIf"], ["class", "dashboard-table", 4, "ngIf"], [1, "dashboard-table-row"], [1, "dashboard-table-cell"], [1, "dashboard-table-cell", "filler"], ["mode", "determinate", 3, "value"], [1, "dashboard-table-cell", 2, "white-space", "nowrap"], ["mat-icon-button", "", 3, "click"], ["aria-label", "add part", "fontIcon", "fa-plus"], ["aria-label", "save", "fontIcon", "fa-check"], ["aria-label", "configure", "fontIcon", "fa-wrench"], [1, "dashboard-table-cell", 2, "border-bottom", "1px solid black"], [2, "margin-bottom", "-10px"], ["matInput", "", "type", "text", "placeholder", "Title", 3, "value", "input"], [1, "dashboard-table-cell", 2, "width", "calc(100% - 20px)", "display", "inline-block"], [1, "filler"], ["matInput", "", "type", "text", "placeholder", "Label", 3, "value", "input"], [1, "dashboard-table-cell", 2, "display", "inline-block", "margin-top", "-20px", "margin-bottom", "-10px"], [1, "small"], ["matInput", "", "type", "number", "placeholder", "Current", 3, "value", "change"], [1, "small", 2, "margin", "0px 10px"], ["matInput", "", "type", "number", "placeholder", "Target", 3, "value", "change"], ["aria-label", "remove", "fontIcon", "fa-trash"]], template: function ProgressDashboardComponent_Template(rf, ctx) { if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-header", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "mat-icon", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-card-title");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](6, "percent");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "mat-card-subtitle");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-card-content");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Status of current processes: ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "table", 5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, ProgressDashboardComponent_tr_13_Template, 10, 8, "tr", 6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 7);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 8);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, ProgressDashboardComponent_button_16_Template, 2, 0, "button", 9);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ProgressDashboardComponent_button_17_Template, 2, 0, "button", 9);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ProgressDashboardComponent_button_18_Template, 2, 0, "button", 9);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ProgressDashboardComponent_div_19_Template, 3, 1, "div", 10);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, ProgressDashboardComponent_table_20_Template, 2, 1, "table", 11);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](6, 9, ctx.data.getTotalPercentage(), "1.0-0"));
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.data.title);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.data == null ? null : ctx.data.parts);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](12, _c0, ctx.configure));
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.configure);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
-        } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardAvatar"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__["MatIcon"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__["DefaultClassDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__["MatProgressBar"], _angular_material_button__WEBPACK_IMPORTED_MODULE_9__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["PercentPipe"]], styles: [".dashboard-table-row[_ngcontent-%COMP%] {\n  border-top: 1px solid black;\n}\n\n.dashboard-table[_ngcontent-%COMP%]   tr[_ngcontent-%COMP%]:first-child {\n  border-top: none;\n}\n\n.dashboard-table[_ngcontent-%COMP%] {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.filler[_ngcontent-%COMP%] {\n  width: 100%;\n}\n\n.dashboard-config[_ngcontent-%COMP%] {\n  background-color: lightgray;\n}\n\n.dashboard-widget[_ngcontent-%COMP%]   .part-bar[_ngcontent-%COMP%] {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n\n.dashboard-widget[_ngcontent-%COMP%]   mat-form-field.small[_ngcontent-%COMP%] {\n  width: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvZGFzaGJvYXJkL3Byb2dyZXNzLWRhc2hib2FyZC9wcm9ncmVzcy1kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2Rhc2hib2FyZC9wcm9ncmVzcy1kYXNoYm9hcmQvcHJvZ3Jlc3MtZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMkJBQUE7QUNDRjs7QURDQTtFQUNFLGdCQUFBO0FDRUY7O0FEQ0E7RUFDRSxXQUFBO0VBQ0EseUJBQUE7QUNFRjs7QURBQTtFQUNFLFdBQUE7QUNHRjs7QURBQTtFQUNFLDJCQUFBO0FDR0Y7O0FEQUE7RUFDRSxrQkFBQTtFQUNBLG1CQUFBO0FDR0Y7O0FEQUE7RUFDRSxXQUFBO0FDR0YiLCJmaWxlIjoic3JjL2FwcC9jaGlsZC1kZXYtcHJvamVjdC9kYXNoYm9hcmQvcHJvZ3Jlc3MtZGFzaGJvYXJkL3Byb2dyZXNzLWRhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kYXNoYm9hcmQtdGFibGUtcm93IHtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIGJsYWNrO1xufVxuLmRhc2hib2FyZC10YWJsZSB0cjpmaXJzdC1jaGlsZCB7XG4gIGJvcmRlci10b3A6IG5vbmU7XG59XG5cbi5kYXNoYm9hcmQtdGFibGUge1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbn1cbi5maWxsZXIge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmRhc2hib2FyZC1jb25maWcge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyYXk7XG59XG5cbi5kYXNoYm9hcmQtd2lkZ2V0IC5wYXJ0LWJhciB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgcGFkZGluZy1yaWdodDogMTBweDtcbn1cblxuLmRhc2hib2FyZC13aWRnZXQgbWF0LWZvcm0tZmllbGQuc21hbGwge1xuICB3aWR0aDogNDBweDtcbn1cbiIsIi5kYXNoYm9hcmQtdGFibGUtcm93IHtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIGJsYWNrO1xufVxuXG4uZGFzaGJvYXJkLXRhYmxlIHRyOmZpcnN0LWNoaWxkIHtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbn1cblxuLmRhc2hib2FyZC10YWJsZSB7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xufVxuXG4uZmlsbGVyIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5kYXNoYm9hcmQtY29uZmlnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRncmF5O1xufVxuXG4uZGFzaGJvYXJkLXdpZGdldCAucGFydC1iYXIge1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XG59XG5cbi5kYXNoYm9hcmQtd2lkZ2V0IG1hdC1mb3JtLWZpZWxkLnNtYWxsIHtcbiAgd2lkdGg6IDQwcHg7XG59Il19 */"] });
-    return ProgressDashboardComponent;
-}());
-
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProgressDashboardComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-                selector: "app-progress-dashboard",
-                templateUrl: "./progress-dashboard.component.html",
-                styleUrls: ["./progress-dashboard.component.scss"],
-            }]
-    }], function () { return [{ type: _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__["EntityMapperService"] }, { type: _core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"] }]; }, { dashboardConfigId: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }] }); })();
-
-
-/***/ }),
-
 /***/ "./src/app/child-dev-project/educational-material/demo-educational-material-generator.service.ts":
 /*!*******************************************************************************************************!*\
   !*** ./src/app/child-dev-project/educational-material/demo-educational-material-generator.service.ts ***!
@@ -12325,7 +11530,7 @@ var NoRecentNotesDashboardComponent = /** @class */ (function () {
         this.columnsToDisplay = ["name", "daysSinceLastNote"];
         this.childrenWithNoteInfoDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
     }
-    NoRecentNotesDashboardComponent.prototype.initFromConfig = function (config) {
+    NoRecentNotesDashboardComponent.prototype.onInitFromDynamicConfig = function (config) {
         if (config === null || config === void 0 ? void 0 : config.sinceDays) {
             this.sinceDays = config.sinceDays;
         }
@@ -12608,7 +11813,7 @@ var RecentNotesDashboardComponent = /** @class */ (function () {
         /** number of children with recent notes */
         this.count = 0;
     }
-    RecentNotesDashboardComponent.prototype.initFromConfig = function (config) {
+    RecentNotesDashboardComponent.prototype.onInitFromDynamicConfig = function (config) {
         if (config === null || config === void 0 ? void 0 : config.sinceDays) {
             this.sinceDays = config.sinceDays;
         }
@@ -14932,6 +14137,608 @@ var PreviousSchoolsComponent = /** @class */ (function () {
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], changedRecordInEntitySubrecord: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }] }); })();
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts":
+/*!*****************************************************************************************************************!*\
+  !*** ./src/app/child-dev-project/progress-dashboard-widget/demo-progress-dashboard-widget-generator.service.ts ***!
+  \*****************************************************************************************************************/
+/*! exports provided: DemoProgressDashboardWidgetGeneratorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DemoProgressDashboardWidgetGeneratorService", function() { return DemoProgressDashboardWidgetGeneratorService; });
+/* harmony import */ var _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/demo-data/faker */ "./src/app/core/demo-data/faker.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _core_demo_data_demo_data_generator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/demo-data/demo-data-generator */ "./src/app/core/demo-data/demo-data-generator.ts");
+/* harmony import */ var _progress_dashboard_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard-config */ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard-config.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __values = (undefined && undefined.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+
+
+
+
+
+var DemoProgressDashboardWidgetGeneratorService = /** @class */ (function (_super) {
+    __extends(DemoProgressDashboardWidgetGeneratorService, _super);
+    function DemoProgressDashboardWidgetGeneratorService() {
+        var _this = _super.call(this) || this;
+        _this.DEMO_TASKS = [
+            "Clubs visited",
+            "Schools checked",
+            "Government Officials met",
+        ];
+        return _this;
+    }
+    /**
+     * This function returns a provider object to be used in an Angular Module configuration:
+     *   `providers: [DemoProgressDashboardWidgetGeneratorService.provider()]`
+     */
+    DemoProgressDashboardWidgetGeneratorService.provider = function () {
+        return [
+            {
+                provide: DemoProgressDashboardWidgetGeneratorService,
+                useClass: DemoProgressDashboardWidgetGeneratorService,
+            },
+        ];
+    };
+    DemoProgressDashboardWidgetGeneratorService.prototype.generateEntities = function () {
+        var data = [];
+        data.push(this.generateDashboardWidgetSurveyStatus());
+        return data;
+    };
+    DemoProgressDashboardWidgetGeneratorService.prototype.generateDashboardWidgetSurveyStatus = function () {
+        var e_1, _a;
+        var dashboardProgressWidget = new _progress_dashboard_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_3__["ProgressDashboardConfig"]("1");
+        dashboardProgressWidget.title = "Annual Survey";
+        try {
+            for (var _b = __values(this.DEMO_TASKS), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var task = _c.value;
+                var targetNumber = _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__["faker"].random.number({ min: 5, max: 50 });
+                dashboardProgressWidget.parts.push({
+                    label: task,
+                    currentValue: _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_0__["faker"].random.number(targetNumber),
+                    targetValue: targetNumber,
+                });
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return dashboardProgressWidget;
+    };
+    DemoProgressDashboardWidgetGeneratorService.ɵfac = function DemoProgressDashboardWidgetGeneratorService_Factory(t) { return new (t || DemoProgressDashboardWidgetGeneratorService)(); };
+    DemoProgressDashboardWidgetGeneratorService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: DemoProgressDashboardWidgetGeneratorService, factory: DemoProgressDashboardWidgetGeneratorService.ɵfac });
+    return DemoProgressDashboardWidgetGeneratorService;
+}(_core_demo_data_demo_data_generator__WEBPACK_IMPORTED_MODULE_2__["DemoDataGenerator"]));
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DemoProgressDashboardWidgetGeneratorService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard-widget.module.ts":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard-widget.module.ts ***!
+  \*************************************************************************************************/
+/*! exports provided: ProgressDashboardWidgetModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressDashboardWidgetModule", function() { return ProgressDashboardWidgetModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
+/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/fesm5/progress-bar.js");
+/* harmony import */ var _children_children_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../children/children.module */ "./src/app/child-dev-project/children/children.module.ts");
+/* harmony import */ var _progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/*
+ *     This file is part of ndb-core.
+ *
+ *     ndb-core is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     ndb-core is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ProgressDashboardWidgetModule = /** @class */ (function () {
+    function ProgressDashboardWidgetModule() {
+    }
+    ProgressDashboardWidgetModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: ProgressDashboardWidgetModule });
+    ProgressDashboardWidgetModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function ProgressDashboardWidgetModule_Factory(t) { return new (t || ProgressDashboardWidgetModule)(); }, imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__["FlexLayoutModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+                _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__["MatProgressBarModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__["MatFormFieldModule"],
+                _children_children_module__WEBPACK_IMPORTED_MODULE_9__["ChildrenModule"],
+            ]] });
+    return ProgressDashboardWidgetModule;
+}());
+
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ProgressDashboardWidgetModule, { declarations: [_progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["ProgressDashboardComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+        _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__["FlexLayoutModule"],
+        _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"],
+        _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+        _angular_material_button__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+        _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__["MatProgressBarModule"],
+        _angular_material_input__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
+        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__["MatFormFieldModule"],
+        _children_children_module__WEBPACK_IMPORTED_MODULE_9__["ChildrenModule"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProgressDashboardWidgetModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+                    _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__["FlexLayoutModule"],
+                    _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"],
+                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
+                    _angular_material_button__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__["MatProgressBarModule"],
+                    _angular_material_input__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
+                    _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__["MatFormFieldModule"],
+                    _children_children_module__WEBPACK_IMPORTED_MODULE_9__["ChildrenModule"],
+                ],
+                declarations: [_progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["ProgressDashboardComponent"]],
+            }]
+    }], null, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard-config.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard-config.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: ProgressDashboardConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressDashboardConfig", function() { return ProgressDashboardConfig; });
+/* harmony import */ var _core_entity_entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/entity/entity */ "./src/app/core/entity/entity.ts");
+/* harmony import */ var _core_entity_database_entity_decorator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../core/entity/database-entity.decorator */ "./src/app/core/entity/database-entity.decorator.ts");
+/* harmony import */ var _core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/entity/database-field.decorator */ "./src/app/core/entity/database-field.decorator.ts");
+/*
+ *     This file is part of ndb-core.
+ *
+ *     ndb-core is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     ndb-core is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
+ */
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProgressDashboardConfig = /** @class */ (function (_super) {
+    __extends(ProgressDashboardConfig, _super);
+    function ProgressDashboardConfig() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.title = "Progress Widget";
+        _this.parts = [];
+        return _this;
+    }
+    ProgressDashboardConfig.prototype.getTotalPercentage = function () {
+        var currentTotal = this.parts.reduce(function (acc, entry) { return acc + entry.currentValue; }, 0);
+        var targetTotal = this.parts.reduce(function (acc, entry) { return acc + entry.targetValue; }, 0);
+        return currentTotal / targetTotal;
+    };
+    __decorate([
+        Object(_core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__["DatabaseField"])(),
+        __metadata("design:type", String)
+    ], ProgressDashboardConfig.prototype, "title", void 0);
+    __decorate([
+        Object(_core_entity_database_field_decorator__WEBPACK_IMPORTED_MODULE_2__["DatabaseField"])(),
+        __metadata("design:type", Array)
+    ], ProgressDashboardConfig.prototype, "parts", void 0);
+    ProgressDashboardConfig = __decorate([
+        Object(_core_entity_database_entity_decorator__WEBPACK_IMPORTED_MODULE_1__["DatabaseEntity"])("ProgressDashboardConfig")
+    ], ProgressDashboardConfig);
+    return ProgressDashboardConfig;
+}(_core_entity_entity__WEBPACK_IMPORTED_MODULE_0__["Entity"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard.component.ts":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard.component.ts ***!
+  \****************************************************************************************************************/
+/*! exports provided: ProgressDashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressDashboardComponent", function() { return ProgressDashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./progress-dashboard-config */ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard-config.ts");
+/* harmony import */ var _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/entity/entity-mapper.service */ "./src/app/core/entity/entity-mapper.service.ts");
+/* harmony import */ var _core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/alerts/alert.service */ "./src/app/core/alerts/alert.service.ts");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout/extended */ "./node_modules/@angular/flex-layout/esm5/extended.es5.js");
+/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/fesm5/progress-bar.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ProgressDashboardComponent_tr_13_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "td", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "mat-progress-bar", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "td", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](7, "percent");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var entry_r6 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](entry_r6.label);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r6.currentValue / entry_r6.targetValue * 100);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](7, 5, entry_r6.currentValue / entry_r6.targetValue, "1.0-0"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", entry_r6.currentValue, " / ", entry_r6.targetValue, "");
+} }
+function ProgressDashboardComponent_button_16_Template(rf, ctx) { if (rf & 1) {
+    var _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_16_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.addPart(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function ProgressDashboardComponent_button_17_Template(rf, ctx) { if (rf & 1) {
+    var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_17_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10); var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.save(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function ProgressDashboardComponent_button_18_Template(rf, ctx) { if (rf & 1) {
+    var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_button_18_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12); var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r11.configure = true; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "mat-icon", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function ProgressDashboardComponent_div_19_Template(rf, ctx) { if (rf & 1) {
+    var _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-form-field", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function ProgressDashboardComponent_div_19_Template_input_input_2_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r14); var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r13.data.title = $event.target.value; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx_r4.data.title);
+} }
+function ProgressDashboardComponent_table_20_tr_1_Template(rf, ctx) { if (rf & 1) {
+    var _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-form-field", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function ProgressDashboardComponent_table_20_tr_1_Template_input_input_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.label = $event.target.value; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "td", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-form-field", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProgressDashboardComponent_table_20_tr_1_Template_input_change_6_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.currentValue = $event.target.valueAsNumber; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "mat-form-field", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "input", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProgressDashboardComponent_table_20_tr_1_Template_input_change_8_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var entry_r16 = ctx.$implicit; return entry_r16.targetValue = $event.target.valueAsNumber; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProgressDashboardComponent_table_20_tr_1_Template_button_click_10_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); var i_r17 = ctx.index; var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r22.data.parts.splice(i_r17, 1); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "mat-icon", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var entry_r16 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.label);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.currentValue);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", entry_r16.targetValue);
+} }
+function ProgressDashboardComponent_table_20_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProgressDashboardComponent_table_20_tr_1_Template, 12, 3, "tr", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r5.data.parts);
+} }
+var _c0 = function (a0) { return { "dashboard-config": a0 }; };
+var ProgressDashboardComponent = /** @class */ (function () {
+    function ProgressDashboardComponent(entityMapper, alertService) {
+        this.entityMapper = entityMapper;
+        this.alertService = alertService;
+        this.dashboardConfigId = "";
+        this.configure = false;
+    }
+    ProgressDashboardComponent.prototype.onInitFromDynamicConfig = function (config) {
+        this.dashboardConfigId = config.dashboardConfigId;
+    };
+    ProgressDashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data = new _progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__["ProgressDashboardConfig"](this.dashboardConfigId);
+        this.entityMapper
+            .load(_progress_dashboard_config__WEBPACK_IMPORTED_MODULE_1__["ProgressDashboardConfig"], this.dashboardConfigId)
+            .then(function (config) {
+            _this.data = config;
+        })
+            .catch(function (e) {
+            if (e.status === 404) {
+                _this.alertService.addDebug("ProgressDashboardConfig (" + _this.dashboardConfigId + ") not found. Creating ...");
+                _this.createDefaultConfig();
+            }
+            else {
+                _this.alertService.addWarning("Error loading ProgressDashboardConfig (" + _this.dashboardConfigId + "): " + e.message);
+            }
+        });
+    };
+    ProgressDashboardComponent.prototype.createDefaultConfig = function () {
+        this.data.title = "Progress of X";
+        this.addPart();
+        this.addPart();
+        this.save();
+    };
+    ProgressDashboardComponent.prototype.addPart = function () {
+        var newPart = {
+            label: "Part",
+            currentValue: 1,
+            targetValue: 10,
+        };
+        this.data.parts.push(newPart);
+    };
+    ProgressDashboardComponent.prototype.save = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.entityMapper.save(this.data)];
+                    case 1:
+                        _a.sent();
+                        this.configure = false;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ProgressDashboardComponent.ɵfac = function ProgressDashboardComponent_Factory(t) { return new (t || ProgressDashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"])); };
+    ProgressDashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProgressDashboardComponent, selectors: [["app-progress-dashboard"]], inputs: { dashboardConfigId: "dashboardConfigId" }, decls: 21, vars: 14, consts: [[1, "dashboard-widget"], [1, "app-child"], ["mat-card-avatar", ""], ["fontIcon", "fa-list"], [1, "dashboard-desc"], [1, "dashboard-table"], ["class", "dashboard-table-row", 4, "ngFor", "ngForOf"], [3, "ngClass"], [2, "text-align", "right"], ["mat-icon-button", "", 3, "click", 4, "ngIf"], ["class", "dashboard-table-cell", "style", "border-bottom: 1px solid black", 4, "ngIf"], ["class", "dashboard-table", 4, "ngIf"], [1, "dashboard-table-row"], [1, "dashboard-table-cell"], [1, "dashboard-table-cell", "filler"], ["mode", "determinate", 3, "value"], [1, "dashboard-table-cell", 2, "white-space", "nowrap"], ["mat-icon-button", "", 3, "click"], ["aria-label", "add part", "fontIcon", "fa-plus"], ["aria-label", "save", "fontIcon", "fa-check"], ["aria-label", "configure", "fontIcon", "fa-wrench"], [1, "dashboard-table-cell", 2, "border-bottom", "1px solid black"], [2, "margin-bottom", "-10px"], ["matInput", "", "type", "text", "placeholder", "Title", 3, "value", "input"], [1, "dashboard-table-cell", 2, "width", "calc(100% - 20px)", "display", "inline-block"], [1, "filler"], ["matInput", "", "type", "text", "placeholder", "Label", 3, "value", "input"], [1, "dashboard-table-cell", 2, "display", "inline-block", "margin-top", "-20px", "margin-bottom", "-10px"], [1, "small"], ["matInput", "", "type", "number", "placeholder", "Current", 3, "value", "change"], [1, "small", 2, "margin", "0 10px"], ["matInput", "", "type", "number", "placeholder", "Target", 3, "value", "change"], ["aria-label", "remove", "fontIcon", "fa-trash"]], template: function ProgressDashboardComponent_Template(rf, ctx) { if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-header", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "mat-icon", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-card-title");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](6, "percent");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "mat-card-subtitle");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-card-content");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Status of current processes: ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "table", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, ProgressDashboardComponent_tr_13_Template, 10, 8, "tr", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, ProgressDashboardComponent_button_16_Template, 2, 0, "button", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ProgressDashboardComponent_button_17_Template, 2, 0, "button", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ProgressDashboardComponent_button_18_Template, 2, 0, "button", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ProgressDashboardComponent_div_19_Template, 3, 1, "div", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, ProgressDashboardComponent_table_20_Template, 2, 1, "table", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        } if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](6, 9, ctx.data.getTotalPercentage(), "1.0-0"));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.data.title);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.data == null ? null : ctx.data.parts);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](12, _c0, ctx.configure));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.configure);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.configure);
+        } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardAvatar"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__["MatIcon"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__["DefaultClassDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_8__["MatProgressBar"], _angular_material_button__WEBPACK_IMPORTED_MODULE_9__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["PercentPipe"]], styles: [".dashboard-table-row[_ngcontent-%COMP%] {\n  border-top: 1px solid black;\n}\n\n.dashboard-table[_ngcontent-%COMP%]   tr[_ngcontent-%COMP%]:first-child {\n  border-top: none;\n}\n\n.dashboard-table[_ngcontent-%COMP%] {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.filler[_ngcontent-%COMP%] {\n  width: 100%;\n}\n\n.dashboard-config[_ngcontent-%COMP%] {\n  background-color: lightgray;\n}\n\n.dashboard-widget[_ngcontent-%COMP%]   .part-bar[_ngcontent-%COMP%] {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n\n.dashboard-widget[_ngcontent-%COMP%]   mat-form-field.small[_ngcontent-%COMP%] {\n  width: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvcHJvZ3Jlc3MtZGFzaGJvYXJkLXdpZGdldC9wcm9ncmVzcy1kYXNoYm9hcmQvcHJvZ3Jlc3MtZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jaGlsZC1kZXYtcHJvamVjdC9wcm9ncmVzcy1kYXNoYm9hcmQtd2lkZ2V0L3Byb2dyZXNzLWRhc2hib2FyZC9wcm9ncmVzcy1kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyQkFBQTtBQ0NGOztBRENBO0VBQ0UsZ0JBQUE7QUNFRjs7QURDQTtFQUNFLFdBQUE7RUFDQSx5QkFBQTtBQ0VGOztBREFBO0VBQ0UsV0FBQTtBQ0dGOztBREFBO0VBQ0UsMkJBQUE7QUNHRjs7QURBQTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7QUNHRjs7QURBQTtFQUNFLFdBQUE7QUNHRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L3Byb2dyZXNzLWRhc2hib2FyZC13aWRnZXQvcHJvZ3Jlc3MtZGFzaGJvYXJkL3Byb2dyZXNzLWRhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kYXNoYm9hcmQtdGFibGUtcm93IHtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIGJsYWNrO1xufVxuLmRhc2hib2FyZC10YWJsZSB0cjpmaXJzdC1jaGlsZCB7XG4gIGJvcmRlci10b3A6IG5vbmU7XG59XG5cbi5kYXNoYm9hcmQtdGFibGUge1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbn1cbi5maWxsZXIge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmRhc2hib2FyZC1jb25maWcge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyYXk7XG59XG5cbi5kYXNoYm9hcmQtd2lkZ2V0IC5wYXJ0LWJhciB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgcGFkZGluZy1yaWdodDogMTBweDtcbn1cblxuLmRhc2hib2FyZC13aWRnZXQgbWF0LWZvcm0tZmllbGQuc21hbGwge1xuICB3aWR0aDogNDBweDtcbn1cbiIsIi5kYXNoYm9hcmQtdGFibGUtcm93IHtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIGJsYWNrO1xufVxuXG4uZGFzaGJvYXJkLXRhYmxlIHRyOmZpcnN0LWNoaWxkIHtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbn1cblxuLmRhc2hib2FyZC10YWJsZSB7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xufVxuXG4uZmlsbGVyIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5kYXNoYm9hcmQtY29uZmlnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRncmF5O1xufVxuXG4uZGFzaGJvYXJkLXdpZGdldCAucGFydC1iYXIge1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XG59XG5cbi5kYXNoYm9hcmQtd2lkZ2V0IG1hdC1mb3JtLWZpZWxkLnNtYWxsIHtcbiAgd2lkdGg6IDQwcHg7XG59Il19 */"] });
+    return ProgressDashboardComponent;
+}());
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProgressDashboardComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: "app-progress-dashboard",
+                templateUrl: "./progress-dashboard.component.html",
+                styleUrls: ["./progress-dashboard.component.scss"],
+            }]
+    }], function () { return [{ type: _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_2__["EntityMapperService"] }, { type: _core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"] }]; }, { dashboardConfigId: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }] }); })();
 
 
@@ -18907,6 +18714,146 @@ var ConfirmationDialogComponent = /** @class */ (function () {
                 type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
                 args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]]
             }] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/core/dashboard/dashboard.module.ts":
+/*!****************************************************!*\
+  !*** ./src/app/core/dashboard/dashboard.module.ts ***!
+  \****************************************************/
+/*! exports provided: DashboardModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardModule", function() { return DashboardModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/core/dashboard/dashboard/dashboard.component.ts");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _view_view_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../view/view.module */ "./src/app/core/view/view.module.ts");
+/*
+ *     This file is part of ndb-core.
+ *
+ *     ndb-core is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     ndb-core is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+
+
+
+var DashboardModule = /** @class */ (function () {
+    function DashboardModule() {
+    }
+    DashboardModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: DashboardModule });
+    DashboardModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function DashboardModule_Factory(t) { return new (t || DashboardModule)(); }, imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"], _view_view_module__WEBPACK_IMPORTED_MODULE_4__["ViewModule"]]] });
+    return DashboardModule;
+}());
+
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](DashboardModule, { declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"], _view_view_module__WEBPACK_IMPORTED_MODULE_4__["ViewModule"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"], _view_view_module__WEBPACK_IMPORTED_MODULE_4__["ViewModule"]],
+                declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"]],
+            }]
+    }], null, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/core/dashboard/dashboard/dashboard.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/core/dashboard/dashboard/dashboard.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _view_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../view/dynamic-components/dynamic-component.directive */ "./src/app/core/view/dynamic-components/dynamic-component.directive.ts");
+/*
+ *     This file is part of ndb-core.
+ *
+ *     ndb-core is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     ndb-core is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ndb-core.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+
+
+
+
+function DashboardComponent_div_1_ng_template_1_Template(rf, ctx) { }
+function DashboardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_ng_template_1_Template, 0, 0, "ng-template", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var widgetConfig_r1 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("appDynamicComponent", widgetConfig_r1);
+} }
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent(activatedRoute) {
+        this.activatedRoute = activatedRoute;
+        this.widgets = [];
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.data.subscribe(function (config) {
+            _this.widgets = config.widgets;
+        });
+    };
+    DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"])); };
+    DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DashboardComponent, selectors: [["app-dashboard"]], decls: 2, vars: 1, consts: [["fxLayout", "row wrap", "fxLayout.xs", "column wrap", "fxLayoutGap", "20px", 1, "widget-wrapper"], ["fxFlex", "30", 4, "ngFor", "ngForOf"], ["fxFlex", "30"], [3, "appDynamicComponent"]], template: function DashboardComponent_Template(rf, ctx) { if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DashboardComponent_div_1_Template, 2, 1, "div", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        } if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.widgets);
+        } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutGapDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultFlexDirective"], _view_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_4__["DynamicComponentDirective"]], styles: [".widget-wrapper[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  min-width: -webkit-min-content;\n  min-width: -moz-min-content;\n  min-width: min-content;\n  margin-right: 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY29yZS9kYXNoYm9hcmQvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9kYXNoYm9hcmQvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0VBQUE7QUFpQkE7RUFDRSxtQkFBQTtFQUNBLDhCQUFBO0VBQUEsMkJBQUE7RUFBQSxzQkFBQTtFQUNBLDZCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9jb3JlL2Rhc2hib2FyZC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqICAgICBUaGlzIGZpbGUgaXMgcGFydCBvZiBuZGItY29yZS5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeVxuICogICAgIGl0IHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5XG4gKiAgICAgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiwgZWl0aGVyIHZlcnNpb24gMyBvZiB0aGUgTGljZW5zZSwgb3JcbiAqICAgICAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLlxuICpcbiAqICAgICBuZGItY29yZSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLFxuICogICAgIGJ1dCBXSVRIT1VUIEFOWSBXQVJSQU5UWTsgd2l0aG91dCBldmVuIHRoZSBpbXBsaWVkIHdhcnJhbnR5IG9mXG4gKiAgICAgTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZVxuICogICAgIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuXG4gKlxuICogICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlXG4gKiAgICAgYWxvbmcgd2l0aCBuZGItY29yZS4gIElmIG5vdCwgc2VlIDxodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvPi5cbiAqL1xuXG4ud2lkZ2V0LXdyYXBwZXIgPiAqIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgbWluLXdpZHRoOiBtaW4tY29udGVudDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4ICFpbXBvcnRhbnQ7XG59XG5cbiIsIi8qXG4gKiAgICAgVGhpcyBmaWxlIGlzIHBhcnQgb2YgbmRiLWNvcmUuXG4gKlxuICogICAgIG5kYi1jb3JlIGlzIGZyZWUgc29mdHdhcmU6IHlvdSBjYW4gcmVkaXN0cmlidXRlIGl0IGFuZC9vciBtb2RpZnlcbiAqICAgICBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGFzIHB1Ymxpc2hlZCBieVxuICogICAgIHRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIGVpdGhlciB2ZXJzaW9uIDMgb2YgdGhlIExpY2Vuc2UsIG9yXG4gKiAgICAgKGF0IHlvdXIgb3B0aW9uKSBhbnkgbGF0ZXIgdmVyc2lvbi5cbiAqXG4gKiAgICAgbmRiLWNvcmUgaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCxcbiAqICAgICBidXQgV0lUSE9VVCBBTlkgV0FSUkFOVFk7IHdpdGhvdXQgZXZlbiB0aGUgaW1wbGllZCB3YXJyYW50eSBvZlxuICogICAgIE1FUkNIQU5UQUJJTElUWSBvciBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRS4gIFNlZSB0aGVcbiAqICAgICBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbW9yZSBkZXRhaWxzLlxuICpcbiAqICAgICBZb3Ugc2hvdWxkIGhhdmUgcmVjZWl2ZWQgYSBjb3B5IG9mIHRoZSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZVxuICogICAgIGFsb25nIHdpdGggbmRiLWNvcmUuICBJZiBub3QsIHNlZSA8aHR0cDovL3d3dy5nbnUub3JnL2xpY2Vuc2VzLz4uXG4gKi9cbi53aWRnZXQtd3JhcHBlciA+ICoge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBtaW4td2lkdGg6IG1pbi1jb250ZW50O1xuICBtYXJnaW4tcmlnaHQ6IDEwcHggIWltcG9ydGFudDtcbn0iXX0= */"] });
+    return DashboardComponent;
+}());
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DashboardComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: "app-dashboard",
+                templateUrl: "./dashboard.component.html",
+                styleUrls: ["./dashboard.component.scss"],
+            }]
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] }]; }, null); })();
 
 
 /***/ }),
@@ -24425,7 +24372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../menu-item */ "./src/app/core/navigation/menu-item.ts");
 /* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
 /* harmony import */ var app_core_config_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/config/config.service */ "./src/app/core/config/config.service.ts");
-/* harmony import */ var _view_router_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../view/router.service */ "./src/app/core/view/router.service.ts");
+/* harmony import */ var _view_dynamic_routing_router_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../view/dynamic-routing/router.service */ "./src/app/core/view/dynamic-routing/router.service.ts");
 /* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/fesm5/list.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
@@ -24532,7 +24479,7 @@ var NavigationComponent = /** @class */ (function () {
      * Check whether the user has the required rights
      */
     NavigationComponent.prototype.checkMenuItemPermissions = function (link) {
-        var viewConfig = this.configService.getConfig(_view_router_service__WEBPACK_IMPORTED_MODULE_4__["RouterService"].PREFIX_VIEW_CONFIG + link.replace(/^\//, ""));
+        var viewConfig = this.configService.getConfig(_view_dynamic_routing_router_service__WEBPACK_IMPORTED_MODULE_4__["RouterService"].PREFIX_VIEW_CONFIG + link.replace(/^\//, ""));
         return !(viewConfig === null || viewConfig === void 0 ? void 0 : viewConfig.requiresAdmin) || this.adminGuard.isAdmin();
     };
     NavigationComponent.ɵfac = function NavigationComponent_Factory(t) { return new (t || NavigationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_admin_admin_guard__WEBPACK_IMPORTED_MODULE_2__["AdminGuard"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_config_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"])); };
@@ -28271,10 +28218,114 @@ var User = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/app/core/view/router.service.ts":
-/*!*********************************************!*\
-  !*** ./src/app/core/view/router.service.ts ***!
-  \*********************************************/
+/***/ "./src/app/core/view/dynamic-components-map.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/core/view/dynamic-components-map.ts ***!
+  \*****************************************************/
+/*! exports provided: DYNAMIC_COMPONENTS_MAP */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DYNAMIC_COMPONENTS_MAP", function() { return DYNAMIC_COMPONENTS_MAP; });
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-average-dashboard/attendance-average-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-warnings-dashboard/attendance-warnings-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component */ "./src/app/child-dev-project/attendance/dashboard-widgets/attendance-week-dashboard/attendance-week-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component */ "./src/app/child-dev-project/children/children-count-dashboard/children-count-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/no-recent-notes-dashboard/no-recent-notes-dashboard.component.ts");
+/* harmony import */ var app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component */ "./src/app/child-dev-project/notes/dashboard-widgets/recent-notes-dashboard/recent-notes-dashboard.component.ts");
+/* harmony import */ var _child_dev_project_progress_dashboard_widget_progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard.component */ "./src/app/child-dev-project/progress-dashboard-widget/progress-dashboard/progress-dashboard.component.ts");
+
+
+
+
+
+
+
+var DYNAMIC_COMPONENTS_MAP = new Map([
+    ["ChildrenCountDashboard", app_child_dev_project_children_children_count_dashboard_children_count_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ChildrenCountDashboardComponent"]],
+    ["RecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_recent_notes_dashboard_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["RecentNotesDashboardComponent"]],
+    ["NoRecentNotesDashboard", app_child_dev_project_notes_dashboard_widgets_no_recent_notes_dashboard_no_recent_notes_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["NoRecentNotesDashboardComponent"]],
+    ["AttendanceWeekDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_week_dashboard_attendance_week_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["AttendanceWeekDashboardComponent"]],
+    ["ProgressDashboard", _child_dev_project_progress_dashboard_widget_progress_dashboard_progress_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["ProgressDashboardComponent"]],
+    ["AttendanceAverageDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_average_dashboard_attendance_average_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["AttendanceAverageDashboardComponent"]],
+    ["AttendanceWarningsDashboard", app_child_dev_project_attendance_dashboard_widgets_attendance_warnings_dashboard_attendance_warnings_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["AttendanceWarningsDashboardComponent"]],
+]);
+
+
+/***/ }),
+
+/***/ "./src/app/core/view/dynamic-components/dynamic-component.directive.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/core/view/dynamic-components/dynamic-component.directive.ts ***!
+  \*****************************************************************************/
+/*! exports provided: DynamicComponentDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicComponentDirective", function() { return DynamicComponentDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/core/logging/logging.service */ "./src/app/core/logging/logging.service.ts");
+/* harmony import */ var _dynamic_components_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dynamic-components-map */ "./src/app/core/view/dynamic-components-map.ts");
+
+
+
+
+
+/**
+ * Directive to mark a template into which a component that is dynamically injected from config should be loaded
+ *
+ * Pass the DynamicComponentConfig into the directive to define the component to be injected.
+ *
+ * A component that is dynamically injected must implement the {@link OnInitDynamicComponent} interface
+ * to allow initialization of input properties from a dynamic config object.
+ */
+var DynamicComponentDirective = /** @class */ (function () {
+    function DynamicComponentDirective(viewContainerRef, componentFactoryResolver, loggingService) {
+        this.viewContainerRef = viewContainerRef;
+        this.componentFactoryResolver = componentFactoryResolver;
+        this.loggingService = loggingService;
+    }
+    DynamicComponentDirective.prototype.ngOnChanges = function (changes) {
+        this.loadDynamicComponent();
+    };
+    DynamicComponentDirective.prototype.loadDynamicComponent = function () {
+        if (!this.appDynamicComponent) {
+            return;
+        }
+        var component = _dynamic_components_map__WEBPACK_IMPORTED_MODULE_2__["DYNAMIC_COMPONENTS_MAP"].get(this.appDynamicComponent.component);
+        if (!component) {
+            this.loggingService.warn("Could not load dashboard widget - component not found: " +
+                this.appDynamicComponent.component);
+            return;
+        }
+        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+        this.viewContainerRef.clear();
+        var componentRef = this.viewContainerRef.createComponent(componentFactory);
+        componentRef.instance.onInitFromDynamicConfig(this.appDynamicComponent.config);
+    };
+    DynamicComponentDirective.ɵfac = function DynamicComponentDirective_Factory(t) { return new (t || DynamicComponentDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"])); };
+    DynamicComponentDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DynamicComponentDirective, selectors: [["", "appDynamicComponent", ""]], inputs: { appDynamicComponent: "appDynamicComponent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
+    return DynamicComponentDirective;
+}());
+
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DynamicComponentDirective, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: "[appDynamicComponent]",
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] }, { type: app_core_logging_logging_service__WEBPACK_IMPORTED_MODULE_1__["LoggingService"] }]; }, { appDynamicComponent: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+
+/***/ }),
+
+/***/ "./src/app/core/view/dynamic-routing/router.service.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/core/view/dynamic-routing/router.service.ts ***!
+  \*************************************************************/
 /*! exports provided: RouterService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -28284,9 +28335,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_app_routing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
-/* harmony import */ var _config_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config/config.service */ "./src/app/core/config/config.service.ts");
-/* harmony import */ var _logging_logging_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../logging/logging.service */ "./src/app/core/logging/logging.service.ts");
+/* harmony import */ var _admin_admin_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../admin/admin.guard */ "./src/app/core/admin/admin.guard.ts");
+/* harmony import */ var _config_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config/config.service */ "./src/app/core/config/config.service.ts");
+/* harmony import */ var _logging_logging_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../logging/logging.service */ "./src/app/core/logging/logging.service.ts");
 var __values = (undefined && undefined.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -28328,6 +28379,12 @@ var __spread = (undefined && undefined.__spread) || function () {
 
 
 
+/**
+ * The RouterService dynamically sets up Angular routing from config loaded through the {@link ConfigService}.
+ *
+ * You can define {@link ViewConfig} objects in the central configuration and build the routing at runtime
+ * rather than hard-coding the available paths and settings.
+ */
 var RouterService = /** @class */ (function () {
     function RouterService(configService, router, loggingService) {
         this.configService = configService;
@@ -28414,25 +28471,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewModule", function() { return ViewModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dynamic-components/dynamic-component.directive */ "./src/app/core/view/dynamic-components/dynamic-component.directive.ts");
+/* harmony import */ var _dynamic_routing_router_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dynamic-routing/router.service */ "./src/app/core/view/dynamic-routing/router.service.ts");
 
 
 
+
+
+
+/**
+ * Generic components and services to allow assembling the app dynamically from config objects.
+ */
 var ViewModule = /** @class */ (function () {
-    function ViewModule() {
+    function ViewModule(routerService) {
+        this.routerService = routerService;
+        routerService.initRouting();
     }
     ViewModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: ViewModule });
-    ViewModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function ViewModule_Factory(t) { return new (t || ViewModule)(); }, imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]] });
+    ViewModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function ViewModule_Factory(t) { return new (t || ViewModule)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_dynamic_routing_router_service__WEBPACK_IMPORTED_MODULE_3__["RouterService"])); }, imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]] });
     return ViewModule;
 }());
 
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ViewModule, { imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]] }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ViewModule, { declarations: [_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_2__["DynamicComponentDirective"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]], exports: [_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_2__["DynamicComponentDirective"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ViewModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-                declarations: [],
+                declarations: [_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_2__["DynamicComponentDirective"]],
                 imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]],
+                exports: [_dynamic_components_dynamic_component_directive__WEBPACK_IMPORTED_MODULE_2__["DynamicComponentDirective"]],
             }]
-    }], null, null); })();
+    }], function () { return [{ type: _dynamic_routing_router_service__WEBPACK_IMPORTED_MODULE_3__["RouterService"] }]; }, null); })();
 
 
 /***/ }),
