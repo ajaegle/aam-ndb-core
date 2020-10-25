@@ -24,10 +24,6 @@
 <title>cluster_FormDialogModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 634,-268 634,-70 8,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_FormDialogModule_exports</title>
-<polygon fill="none" stroke="black" points="212,-208 212,-260 430,-260 430,-208 212,-208"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_FormDialogModule_providers</title>
 <polygon fill="none" stroke="black" points="436,-78 436,-130 626,-130 626,-78 436,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust2" class="cluster">
 <title>cluster_FormDialogModule_declarations</title>
 <polygon fill="none" stroke="black" points="214,-78 214,-130 428,-130 428,-78 214,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_FormDialogModule_exports</title>
+<polygon fill="none" stroke="black" points="212,-208 212,-260 430,-260 430,-208 212,-208"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_FormDialogModule_imports</title>

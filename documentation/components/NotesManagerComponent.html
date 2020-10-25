@@ -332,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:200</a></div>
                 </td>
             </tr>
 
@@ -371,8 +371,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="181"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:181</a></div>
                 </td>
             </tr>
 
@@ -441,8 +441,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="177"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:177</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:187</a></div>
                 </td>
             </tr>
 
@@ -480,8 +480,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:139</a></div>
                 </td>
             </tr>
 
@@ -620,8 +620,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="202"
-                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:202</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">src/app/child-dev-project/notes/notes-manager/notes-manager.component.ts:212</a></div>
                 </td>
             </tr>
 
@@ -1239,9 +1239,19 @@ export class NotesManagerComponent implements OnInit, AfterViewInit {
   onPaginateChange(event: PageEvent) {
     this.paginatorPageSize &#x3D; event.pageSize;
     this.paginatorPageIndex &#x3D; event.pageIndex;
-    this.user.paginatorSettingsPageSize.notesList &#x3D; this.paginatorPageSize;
+    this.updateUserPaginationSettings();
+  }
+
+  private updateUserPaginationSettings() {
+    const hasChangesToBeSaved &#x3D;
+      this.paginatorPageSize !&#x3D;&#x3D; this.user.paginatorSettingsPageSize.notesList;
+
     this.user.paginatorSettingsPageIndex.notesList &#x3D; this.paginatorPageIndex;
-    this.entityMapperService.save&lt;User&gt;(this.user);
+    this.user.paginatorSettingsPageSize.notesList &#x3D; this.paginatorPageSize;
+
+    if (hasChangesToBeSaved) {
+      this.entityMapperService.save&lt;User&gt;(this.user);
+    }
   }
 
   private sortAndAdd(newNotes: Note[]) {

@@ -320,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:130</a></div>
                 </td>
             </tr>
 
@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:114</a></div>
                 </td>
             </tr>
 
@@ -429,8 +429,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:120</a></div>
                 </td>
             </tr>
 
@@ -538,8 +538,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/child-dev-project/schools/schools-list/schools-list.component.ts:134</a></div>
                 </td>
             </tr>
 
@@ -1050,9 +1050,20 @@ export class SchoolsListComponent implements OnInit, AfterViewInit {
   onPaginateChange(event: PageEvent) {
     this.paginatorPageSize &#x3D; event.pageSize;
     this.paginatorPageIndex &#x3D; event.pageIndex;
-    this.user.paginatorSettingsPageSize.schoolsList &#x3D; this.paginatorPageSize;
+    this.updateUserPaginationSettings();
+  }
+
+  private updateUserPaginationSettings() {
+    const hasChangesToBeSaved &#x3D;
+      this.paginatorPageSize !&#x3D;&#x3D;
+      this.user.paginatorSettingsPageSize.schoolsList;
+
     this.user.paginatorSettingsPageIndex.schoolsList &#x3D; this.paginatorPageIndex;
-    this.entityMapperService.save&lt;User&gt;(this.user);
+    this.user.paginatorSettingsPageSize.schoolsList &#x3D; this.paginatorPageSize;
+
+    if (hasChangesToBeSaved) {
+      this.entityMapperService.save&lt;User&gt;(this.user);
+    }
   }
 
   applyFilter(filterValue: string) {

@@ -164,7 +164,6 @@
   OnInit,
   ViewChild,
   ElementRef,
-  HostListener,
 } from &quot;@angular/core&quot;;
 import { Child } from &quot;../model/child&quot;;
 import { MatSort } from &quot;@angular/material/sort&quot;;
@@ -179,7 +178,6 @@ import { UntilDestroy, untilDestroyed } from &quot;@ngneat/until-destroy&quot;;
 import { SessionService } from &quot;../../../core/session/session-service/session.service&quot;;
 import { User } from &quot;../../../core/user/user&quot;;
 import { EntityMapperService } from &quot;../../../core/entity/entity-mapper.service&quot;;
-import { floor, min } from &quot;lodash&quot;;
 
 export interface ColumnGroup {
   name: string;
@@ -369,9 +367,20 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   onPaginateChange(event: PageEvent) {
     this.paginatorPageSize &#x3D; event.pageSize;
     this.paginatorPageIndex &#x3D; event.pageIndex;
-    this.user.paginatorSettingsPageSize.childrenList &#x3D; this.paginatorPageSize;
+    this.updateUserPaginationSettings();
+  }
+
+  private updateUserPaginationSettings() {
+    const hasChangesToBeSaved &#x3D;
+      this.paginatorPageSize !&#x3D;&#x3D;
+      this.user.paginatorSettingsPageSize.childrenList;
+
     this.user.paginatorSettingsPageIndex.childrenList &#x3D; this.paginatorPageIndex;
-    this.entityMapperService.save&lt;User&gt;(this.user);
+    this.user.paginatorSettingsPageSize.childrenList &#x3D; this.paginatorPageSize;
+
+    if (hasChangesToBeSaved) {
+      this.entityMapperService.save&lt;User&gt;(this.user);
+    }
   }
 
   private loadData(replaceUrl: boolean &#x3D; false) {
