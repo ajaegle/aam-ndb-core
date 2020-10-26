@@ -5890,7 +5890,8 @@ var BasicInfoComponent = /** @class */ (function (_super) {
         });
     };
     BasicInfoComponent.prototype.getFormConfig = function () {
-        return { controlsConfig: {
+        return {
+            controlsConfig: {
                 name: [
                     { value: this.child.name, disabled: !this.editing },
                     _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
@@ -5899,7 +5900,9 @@ var BasicInfoComponent = /** @class */ (function (_super) {
                 projectNumber: [
                     { value: this.child.projectNumber, disabled: !this.editing },
                 ],
-                dateOfBirth: [{ value: this.child.dateOfBirth, disabled: !this.editing }],
+                dateOfBirth: [
+                    { value: this.child.dateOfBirth, disabled: !this.editing },
+                ],
                 motherTongue: [
                     { value: this.child.motherTongue, disabled: !this.editing },
                 ],
@@ -5924,9 +5927,7 @@ var BasicInfoComponent = /** @class */ (function (_super) {
                     },
                 ],
                 photoFile: [{ value: this.child.photoFile, disabled: !this.editing }],
-                has_aadhar: [
-                    { value: this.child.has_aadhar, disabled: !this.editing },
-                ],
+                has_aadhar: [{ value: this.child.has_aadhar, disabled: !this.editing }],
                 has_kanyashree: [
                     { value: this.child.has_kanyashree, disabled: !this.editing },
                 ],
@@ -5939,7 +5940,8 @@ var BasicInfoComponent = /** @class */ (function (_super) {
                 has_BplCard: [
                     { value: this.child.has_BplCard, disabled: !this.editing },
                 ],
-            } };
+            },
+        };
     };
     BasicInfoComponent.ɵfac = function BasicInfoComponent_Factory(t) { return new (t || BasicInfoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_6__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_7__["AlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_child_photo_service_child_photo_service__WEBPACK_IMPORTED_MODULE_4__["ChildPhotoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"])); };
     BasicInfoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BasicInfoComponent, selectors: [["app-basic-info"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 81, vars: 34, consts: [[3, "formGroup"], ["fxLayout", "row", "fxLayout.xs", "column wrap", "fxLayout.md", "column wrap", "fxLayout.sm", "column wrap"], ["fxFlex", "160px", 1, "child-pic-container"], ["alt", "child's photo", 1, "child-pic", 3, "src"], ["type", "file", "accept", ".jpg, .jpeg, .png", 2, "display", "none", 3, "change"], ["fileUpload", ""], ["class", "child-pic-upload", 3, "click", 4, "ngIf"], ["class", "child-pic-photofile", 4, "ngIf"], ["fxFlex", ""], [2, "width", "300px"], ["matInput", "", "formControlName", "name", "placeholder", "Name", "title", "name", "type", "text"], [4, "ngIf"], [2, "width", "100px"], ["matInput", "", "formControlName", "projectNumber", "placeholder", "Project Number", "type", "text"], ["matInput", "", "formControlName", "center", "placeholder", "Center", "type", "text"], ["matInput", "", "formControlName", "status", "placeholder", "Project Status", "type", "text"], [2, "width", "50px"], ["matInput", "", "placeholder", "Age", "type", "number", 3, "value", "disabled"], [2, "width", "120px"], ["matInput", "", "formControlName", "dateOfBirth", "placeholder", "Date of Birth", 3, "matDatepicker", "disabled"], ["matSuffix", "", 3, "for"], ["dateOfBirthDatepicker", ""], [3, "disabled", "ngModel", "ngModelOptions", "ngModelChange"], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", "formControlName", "motherTongue", "placeholder", "Mother Tongue", "type", "text"], ["matInput", "", "formControlName", "religion", "placeholder", "Religion", "title", "Religion", "type", "text"], [2, "width", "180px"], ["matInput", "", "formControlName", "admissionDate", "placeholder", "Admission Date", 3, "matDatepicker", "disabled"], ["admissionDatepicker", ""], ["formControlName", "has_aadhar", 3, "disabled"], ["formControlName", "has_kanyashree", 3, "disabled"], ["formControlName", "has_bankAccount", 3, "disabled"], ["formControlName", "has_rationCard", 3, "disabled"], ["formControlName", "has_BplCard", 3, "disabled"], ["matInput", "", "type", "text", "formControlName", "address", "placeholder", "Address"], ["matInput", "", "type", "text", "formControlName", "phone", "placeholder", "Phone No."], ["matInput", "", "type", "text", "formControlName", "guardianName", "placeholder", "Guardians"], ["matInput", "", "type", "text", "formControlName", "preferredTimeForGuardianMeeting", "placeholder", "Preferred time for guardians meeting"], ["mat-stroked-button", "", "class", "edit-button", 3, "click", 4, "ngIf"], [1, "child-pic-upload", 3, "click"], ["fontIcon", "fa-upload", 1, "upload-icon"], [1, "child-pic-photofile"], ["matTooltip", "filename for child photo uploaded by server administrator", "matInput", "", "formControlName", "photoFile", "placeholder", "Photo filename", "title", "photoFile", "type", "text"], ["photoFileInput", ""], ["matSuffix", "", 1, "fa", "fa-times", 3, "click"], [3, "value"], ["mat-stroked-button", "", 1, "edit-button", 3, "click"]], template: function BasicInfoComponent_Template(rf, ctx) { if (rf & 1) {
