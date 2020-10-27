@@ -6192,6 +6192,7 @@ var BasicInfoComponent = /** @class */ (function (_super) {
             "",
         ];
         _this.creatingNew = true;
+        _this.enablePhotoUpload = false;
         _this.gender = _model_Gender__WEBPACK_IMPORTED_MODULE_3__["Gender"];
         _this.genders = _model_Gender__WEBPACK_IMPORTED_MODULE_3__["Gender"];
         _this.isAdminUser = _this.sessionService.getCurrentUser().admin;
