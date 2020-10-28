@@ -12536,10 +12536,46 @@ var Note = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/app/child-dev-project/notes/note-config-loader.service.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/child-dev-project/notes/note-config-loader.service.ts ***!
-  \***********************************************************************/
+/***/ "./src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: InteractionSchemaDatatype */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InteractionSchemaDatatype", function() { return InteractionSchemaDatatype; });
+var InteractionSchemaDatatype = /** @class */ (function () {
+    function InteractionSchemaDatatype(interactionTypesFromConfig) {
+        this.interactionTypesFromConfig = interactionTypesFromConfig;
+        this.name = "interaction-type";
+    }
+    InteractionSchemaDatatype.prototype.transformToDatabaseFormat = function (value) {
+        return this.getKeyByValue(this.interactionTypesFromConfig.InteractionTypes, value);
+    };
+    InteractionSchemaDatatype.prototype.transformToObjectFormat = function (value) {
+        if (value) {
+            return this.interactionTypesFromConfig.InteractionTypes[value];
+        }
+        else {
+            return { name: null };
+        }
+    };
+    InteractionSchemaDatatype.prototype.getKeyByValue = function (object, value) {
+        return Object.keys(object).find(function (key) { return object[key] === value; });
+    };
+    return InteractionSchemaDatatype;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts ***!
+  \******************************************************************************************/
 /*! exports provided: NoteConfigLoaderService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12549,7 +12585,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var app_core_config_config_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/core/config/config.service */ "./src/app/core/config/config.service.ts");
 /* harmony import */ var app_core_entity_schema_entity_schema_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/core/entity/schema/entity-schema.service */ "./src/app/core/entity/schema/entity-schema.service.ts");
-/* harmony import */ var _note_details_interaction_schema_datatype__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./note-details/interaction-schema-datatype */ "./src/app/child-dev-project/notes/note-details/interaction-schema-datatype.ts");
+/* harmony import */ var _interaction_schema_datatype__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./interaction-schema-datatype */ "./src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts");
 
 
 
@@ -12558,7 +12594,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Service loads data from config file regarding notes; inject to components where necessary
+ * Service loads data from config file regarding notes and registers them with the entity schema service;
+ * inject to components where necessary
  */
 var NoteConfigLoaderService = /** @class */ (function () {
     function NoteConfigLoaderService(configService, entitySchemaService) {
@@ -12568,7 +12605,7 @@ var NoteConfigLoaderService = /** @class */ (function () {
         this.CONFIG_ID = "notes";
         this.config = this.configService.getConfig(this.CONFIG_ID);
         // setupt interaction-type with entity schema service based upon categorys from config
-        this.entitySchemaService.registerSchemaDatatype(new _note_details_interaction_schema_datatype__WEBPACK_IMPORTED_MODULE_3__["InteractionSchemaDatatype"](this.config));
+        this.entitySchemaService.registerSchemaDatatype(new _interaction_schema_datatype__WEBPACK_IMPORTED_MODULE_3__["InteractionSchemaDatatype"](this.config));
         // retrieve note categorys from config file
         this.interactionTypes = Object.values(this.config.InteractionTypes);
     }
@@ -12676,42 +12713,6 @@ var ChildMeetingNoteAttendanceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/child-dev-project/notes/note-details/interaction-schema-datatype.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/app/child-dev-project/notes/note-details/interaction-schema-datatype.ts ***!
-  \*************************************************************************************/
-/*! exports provided: InteractionSchemaDatatype */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InteractionSchemaDatatype", function() { return InteractionSchemaDatatype; });
-var InteractionSchemaDatatype = /** @class */ (function () {
-    function InteractionSchemaDatatype(interactionTypesFromConfig) {
-        this.interactionTypesFromConfig = interactionTypesFromConfig;
-        this.name = "interaction-type";
-    }
-    InteractionSchemaDatatype.prototype.transformToDatabaseFormat = function (value, a, b, c) {
-        return this.getKeyByValue(this.interactionTypesFromConfig.InteractionTypes, value);
-    };
-    InteractionSchemaDatatype.prototype.transformToObjectFormat = function (value, a, b, c) {
-        if (value) {
-            return this.interactionTypesFromConfig.InteractionTypes[value];
-        }
-        else {
-            return { name: null };
-        }
-    };
-    InteractionSchemaDatatype.prototype.getKeyByValue = function (object, value) {
-        return Object.keys(object).find(function (key) { return object[key] === value; });
-    };
-    return InteractionSchemaDatatype;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/child-dev-project/notes/note-details/note-details.component.ts":
 /*!********************************************************************************!*\
   !*** ./src/app/child-dev-project/notes/note-details/note-details.component.ts ***!
@@ -12724,7 +12725,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoteDetailsComponent", function() { return NoteDetailsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _model_note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/note */ "./src/app/child-dev-project/notes/model/note.ts");
-/* harmony import */ var _note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader.service.ts");
+/* harmony import */ var _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../note-config-loader/note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts");
 /* harmony import */ var _core_form_dialog_form_dialog_wrapper_form_dialog_wrapper_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/form-dialog/form-dialog-wrapper/form-dialog-wrapper.component */ "./src/app/core/form-dialog/form-dialog-wrapper/form-dialog-wrapper.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
@@ -12795,7 +12796,7 @@ var NoteDetailsComponent = /** @class */ (function () {
         // get all note categorys from config file
         this.interactionTypes = this.configLoader.interactionTypes;
     };
-    NoteDetailsComponent.ɵfac = function NoteDetailsComponent_Factory(t) { return new (t || NoteDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__["NoteConfigLoaderService"])); };
+    NoteDetailsComponent.ɵfac = function NoteDetailsComponent_Factory(t) { return new (t || NoteDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__["NoteConfigLoaderService"])); };
     NoteDetailsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NoteDetailsComponent, selectors: [["app-note-details"]], viewQuery: function NoteDetailsComponent_Query(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstaticViewQuery"](_c0, true);
         } if (rf & 2) {
@@ -12916,7 +12917,7 @@ var NoteDetailsComponent = /** @class */ (function () {
                 templateUrl: "./note-details.component.html",
                 styleUrls: ["./note-details.component.scss"],
             }]
-    }], function () { return [{ type: _note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__["NoteConfigLoaderService"] }]; }, { entity: [{
+    }], function () { return [{ type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_2__["NoteConfigLoaderService"] }]; }, { entity: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], formDialogWrapper: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
@@ -13048,7 +13049,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../core/session/session-service/session.service */ "./src/app/core/session/session-service/session.service.ts");
 /* harmony import */ var _core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../core/form-dialog/form-dialog.service */ "./src/app/core/form-dialog/form-dialog.service.ts");
 /* harmony import */ var _ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngneat/until-destroy */ "./node_modules/@ngneat/until-destroy/fesm5/ngneat-until-destroy.js");
-/* harmony import */ var _note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader.service.ts");
+/* harmony import */ var _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../note-config-loader/note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts");
 /* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/fesm5/expansion.js");
 /* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
 /* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
@@ -13485,7 +13486,7 @@ var NotesManagerComponent = /** @class */ (function () {
         var color = entity.category.color;
         return color ? "" : color;
     };
-    NotesManagerComponent.ɵfac = function NotesManagerComponent_Factory(t) { return new (t || NotesManagerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_11__["FormDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_8__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"])); };
+    NotesManagerComponent.ɵfac = function NotesManagerComponent_Factory(t) { return new (t || NotesManagerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_11__["FormDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_8__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"])); };
     NotesManagerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesManagerComponent, selectors: [["app-notes-manager"]], viewQuery: function NotesManagerComponent_Query(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], true);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_6__["MatPaginator"], true);
@@ -13587,7 +13588,7 @@ var NotesManagerComponent = /** @class */ (function () {
             _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
             _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"],
             _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_8__["EntityMapperService"],
-            _note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"]])
+            _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"]])
     ], NotesManagerComponent);
     return NotesManagerComponent;
 }());
@@ -13599,7 +13600,7 @@ var NotesManagerComponent = /** @class */ (function () {
                 templateUrl: "./notes-manager.component.html",
                 styleUrls: ["./notes-manager.component.scss"],
             }]
-    }], function () { return [{ type: _core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_11__["FormDialogService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }, { type: _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"] }, { type: _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_8__["EntityMapperService"] }, { type: _note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"] }]; }, { sort: [{
+    }], function () { return [{ type: _core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_11__["FormDialogService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }, { type: _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"] }, { type: _core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_8__["EntityMapperService"] }, { type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_13__["NoteConfigLoaderService"] }]; }, { sort: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
             args: [_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"]]
         }], paginator: [{
@@ -13795,7 +13796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_confirmation_dialog_confirmation_dialog_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../core/confirmation-dialog/confirmation-dialog.module */ "./src/app/core/confirmation-dialog/confirmation-dialog.module.ts");
 /* harmony import */ var _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../core/form-dialog/form-dialog.module */ "./src/app/core/form-dialog/form-dialog.module.ts");
 /* harmony import */ var angulartics2__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! angulartics2 */ "./node_modules/angulartics2/fesm2015/angulartics2.js");
-/* harmony import */ var _note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader.service.ts");
+/* harmony import */ var _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./note-config-loader/note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts");
 
 
 
@@ -13842,7 +13843,7 @@ var NotesModule = /** @class */ (function () {
     function NotesModule() {
     }
     NotesModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NotesModule });
-    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(); }, providers: [_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
+    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(); }, providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _core_entity_subrecord_entity_subrecord_module__WEBPACK_IMPORTED_MODULE_36__["EntitySubrecordModule"],
@@ -13978,7 +13979,7 @@ var NotesModule = /** @class */ (function () {
                     _core_form_dialog_form_dialog_module__WEBPACK_IMPORTED_MODULE_38__["FormDialogModule"],
                     angulartics2__WEBPACK_IMPORTED_MODULE_39__["Angulartics2Module"],
                 ],
-                providers: [_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]],
+                providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]],
             }]
     }], null, null); })();
 
