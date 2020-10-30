@@ -132,7 +132,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transformToDatabaseFormat(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, schemaField: <a href="../interfaces/EntitySchemaField.html">EntitySchemaField</a>, schemaService: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, parent: <a href="../classes/Entity.html">Entity</a>)</code>
+<code>transformToDatabaseFormat(value: <a href="../classes/Entity.html">EntityType</a>, schemaField?: <a href="../interfaces/EntitySchemaField.html">EntitySchemaField</a>, schemaService?: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, parent?: <a href="../classes/Entity.html">Entity</a>)</code>
                 </td>
             </tr>
 
@@ -166,7 +166,7 @@ in the format used in database objects.</p>
                                 <tr>
                                     <td>value</td>
                                     <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                <code><a href="../classes/Entity.html" target="_self" >EntityType</a></code>
                                     </td>
 
                                     <td>
@@ -186,7 +186,7 @@ in the format used in database objects.</p>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -203,7 +203,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -219,7 +219,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -234,7 +234,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>DBType</code>
 
                     </div>
                     <div class="io-description">
@@ -259,7 +259,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transformToObjectFormat(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, schemaField: <a href="../interfaces/EntitySchemaField.html">EntitySchemaField</a>, schemaService: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, parent: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>transformToObjectFormat(value: DBType, schemaField?: <a href="../interfaces/EntitySchemaField.html">EntitySchemaField</a>, schemaService?: <a href="../injectables/EntitySchemaService.html">EntitySchemaService</a>, parent?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
@@ -293,7 +293,7 @@ in the format used in entity instances.</p>
                                 <tr>
                                     <td>value</td>
                                     <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            <code>DBType</code>
                                     </td>
 
                                     <td>
@@ -313,7 +313,7 @@ in the format used in entity instances.</p>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -330,7 +330,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -346,7 +346,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -361,7 +361,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Entity.html" target="_self" >EntityType</a></code>
 
                     </div>
                     <div class="io-description">
@@ -406,7 +406,7 @@ This can be set as a parameter to the <code>@DatabaseField()</code> annotation i
                                 <td class="col-md-4">
                                     <div class="io-description"><p>Key for this datatype that must be specified in the DatabaseField annotation to use this transformation.</p>
 <p>for example <code>@DatabaseField({dataType: &#39;foo&#39;}) myField</code> will trigger the datatype implementation with <code>name</code> &quot;foo&quot;.</p>
-<p>If you set the name to an TypeScript type, class properties with this type will automatically use
+<p>If you set the name to a TypeScript type, class properties with this type will automatically use
 that EntitySchemaDatatype without the need to explicitly state the dataType config in the annotation
 (e.g. <code>@DatabaseField() myField: string</code> is triggering the EntitySchemaDatatype with <code>name</code> &quot;string&quot;.</p>
 </div>
@@ -426,13 +426,13 @@ import { Entity } from &quot;../entity&quot;;
 /**
  * Interface to be implemented by any Datatype transformer of the Schema system.
  */
-export interface EntitySchemaDatatype {
+export interface EntitySchemaDatatype&lt;EntityType &#x3D; any, DBType &#x3D; any&gt; {
   /**
    * Key for this datatype that must be specified in the DatabaseField annotation to use this transformation.
    *
    * for example &#x60;@DatabaseField({dataType: &#x27;foo&#x27;}) myField&#x60; will trigger the datatype implementation with &#x60;name&#x60; &quot;foo&quot;.
    *
-   * If you set the name to an TypeScript type, class properties with this type will automatically use
+   * If you set the name to a TypeScript type, class properties with this type will automatically use
    * that EntitySchemaDatatype without the need to explicitly state the dataType config in the annotation
    * (e.g. &#x60;@DatabaseField() myField: string&#x60; is triggering the EntitySchemaDatatype with &#x60;name&#x60; &quot;string&quot;.
    */
@@ -449,11 +449,11 @@ export interface EntitySchemaDatatype {
    * @param parent The full entity instance this value is part of (e.g. to allow cross-related transformations)
    */
   transformToDatabaseFormat(
-    value: any,
-    schemaField: EntitySchemaField,
-    schemaService: EntitySchemaService,
-    parent: Entity
-  ): any;
+    value: EntityType,
+    schemaField?: EntitySchemaField,
+    schemaService?: EntitySchemaService,
+    parent?: Entity
+  ): DBType;
 
   /**
    * Transformation function taking a value in the format that is used in database objects and returning the value
@@ -466,11 +466,11 @@ export interface EntitySchemaDatatype {
    * @param parent The full entity instance this value is part of (e.g. to allow cross-related transformations)
    */
   transformToObjectFormat(
-    value: any,
-    schemaField: EntitySchemaField,
-    schemaService: EntitySchemaService,
-    parent: any
-  ): any;
+    value: DBType,
+    schemaField?: EntitySchemaField,
+    schemaService?: EntitySchemaService,
+    parent?: any
+  ): EntityType;
 }
 </code></pre>
     </div>

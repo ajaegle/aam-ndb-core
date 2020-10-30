@@ -115,9 +115,6 @@
                             <a href="#heightRangeForAge" title="src/app/child-dev-project/health-checkup/demo-data/height-weight.ts"><b>heightRangeForAge</b>&nbsp;&nbsp;&nbsp;(src/.../height-weight.ts)</a>
                         </li>
                         <li>
-                            <a href="#INTERACTION_TYPE_COLORS" title="src/app/child-dev-project/notes/interaction-types.enum.ts"><b>INTERACTION_TYPE_COLORS</b>&nbsp;&nbsp;&nbsp;(src/.../interaction-types.enum.ts)</a>
-                        </li>
-                        <li>
                             <a href="#languages" title="src/app/child-dev-project/children/demo-data-generators/fixtures/languages.ts"><b>languages</b>&nbsp;&nbsp;&nbsp;(src/.../languages.ts)</a>
                         </li>
                         <li>
@@ -1108,44 +1105,6 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
             </tbody>
         </table>
 </section>
-    <h3>src/app/child-dev-project/notes/interaction-types.enum.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="INTERACTION_TYPE_COLORS"></a>
-                        <span class="name">
-                            <b>
-                            INTERACTION_TYPE_COLORS</b>
-                            <a href="#INTERACTION_TYPE_COLORS"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#InteractionTypes" target="_self" >Map&lt;InteractionTypes, string&gt;</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Map([
-  [InteractionTypes.GUARDIAN_MEETING, &quot;#E1F5FE&quot;],
-  [InteractionTypes.CHILDREN_MEETING, &quot;#E1F5FE&quot;],
-  [InteractionTypes.RATION_DISTRIBUTION, &quot;#E1F5FE&quot;],
-  [InteractionTypes.EXCURSION, &quot;#E1F5FE&quot;],
-  [InteractionTypes.DISCUSSION, &quot;#E1BEE7&quot;],
-  [InteractionTypes.ANNUAL_SURVEY, &quot;#FFFDE7&quot;],
-  [InteractionTypes.DAILY_ROUTINE, &quot;#F1F8E9&quot;],
-])</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>src/app/child-dev-project/children/demo-data-generators/fixtures/languages.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1306,14 +1265,14 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
   {
-    category: &quot;Guardians&#x27; Meeting&quot;,
+    category: &quot;GUARDIAN_MEETING&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Guardians Meeting&quot;,
     text:
       &quot;Our regular monthly meeting. Find the agenda and minutes in our meeting folder.&quot;,
   },
   {
-    category: &quot;Guardians&#x27; Meeting&quot;,
+    category: &quot;GUARDIAN_MEETING&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Guardians Meeting&quot;,
     text:
@@ -1321,21 +1280,21 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;Children&#x27;s Meeting&quot;,
+    category: &quot;CHILDREN_MEETING&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Children Meeting&quot;,
     text:
       &quot;Our regular monthly meeting. Find the agenda and minutes in our meeting folder.&quot;,
   },
   {
-    category: &quot;Children&#x27;s Meeting&quot;,
+    category: &quot;CHILDREN_MEETING&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Children Meeting&quot;,
     text:
       &quot;Our regular monthly meeting. Find the agenda and minutes in our meeting folder.&quot;,
   },
   {
-    category: &quot;Children&#x27;s Meeting&quot;,
+    category: &quot;CHILDREN_MEETING&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Drug Prevention Workshop&quot;,
     text: &quot;Expert conducted a two day workshop on drug prevention.&quot;,
@@ -1372,7 +1331,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
   {
-    category: &quot;Home Visit&quot;,
+    category: &quot;HOME_VISIT&quot;,
     warningLevel: WarningLevel.WARNING,
     subject: &quot;Mother sick&quot;,
     text:
@@ -1381,7 +1340,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       &quot;Told her to see doctor. We should follow up next week.&quot;,
   },
   {
-    category: &quot;Talk with Guardians&quot;,
+    category: &quot;GUARDIAN_TALK&quot;,
     warningLevel: WarningLevel.WARNING,
     subject: &quot;Discussed school change&quot;,
     text:
@@ -1390,21 +1349,21 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;Phone Call&quot;,
+    category: &quot;PHONE_CALL&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Follow up for school absence&quot;,
     text:
       &quot;Called to ask for reason about absence. Mother made excuses but promised to send the child tomorrow.&quot;,
   },
   {
-    category: &quot;Phone Call&quot;,
+    category: &quot;PHONE_CALL&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;absent because ill&quot;,
     text:
       &quot;Mother has called in the morning. Child cannot come to class because of fever.&quot;,
   },
   {
-    category: &quot;Phone Call&quot;,
+    category: &quot;PHONE_CALL&quot;,
     warningLevel: WarningLevel.URGENT,
     subject: &quot;Absence without information&quot;,
     text:
@@ -1413,7 +1372,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;School/Hostel Visit&quot;,
+    category: &quot;VISIT&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;School is happy about progress&quot;,
     text:
@@ -1421,7 +1380,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       &quot;and behaviour.&quot;,
   },
   {
-    category: &quot;Talk with Coaching Teacher&quot;,
+    category: &quot;COACHING_TALK&quot;,
     warningLevel: WarningLevel.WARNING,
     subject: &quot;Needs to work more for school&quot;,
     text:
@@ -1430,7 +1389,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;Incident&quot;,
+    category: &quot;INCIDENT&quot;,
     warningLevel: WarningLevel.URGENT,
     subject: &quot;Fight at school&quot;,
     text:
@@ -1439,7 +1398,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;Discussion/Decision&quot;,
+    category: &quot;DISCUSSION&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Special help for family&quot;,
     text:
@@ -1447,7 +1406,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       &quot;After home visits and discussion in our team we decided to refer them to a special support programme.&quot;,
   },
   {
-    category: &quot;Discussion/Decision&quot;,
+    category: &quot;DISCUSSION&quot;,
     warningLevel: WarningLevel.OK,
     subject: &quot;Chance to repeat class&quot;,
     text:
@@ -1457,7 +1416,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
   },
 
   {
-    category: &quot;Talk with Child&quot;,
+    category: &quot;CHILD_TALK&quot;,
     warningLevel: WarningLevel.WARNING,
     subject: &quot;Distracted in class&quot;,
     text:
@@ -1465,7 +1424,7 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
       &quot;Discussed with him - there are a lot of problems in the family currently.&quot;,
   },
   {
-    category: &quot;Talk with Child&quot;,
+    category: &quot;CHILD_TALK&quot;,
     warningLevel: WarningLevel.WARNING,
     subject: &quot;Disturbing class&quot;,
     text:
