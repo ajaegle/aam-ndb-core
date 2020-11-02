@@ -6165,13 +6165,13 @@ var FormComponent = /** @class */ (function () {
     }
     FormComponent.prototype.ngOnChanges = function (changes) {
         if (changes.hasOwnProperty("child")) {
-            this.initForm(this.getFormConfig());
+            this.initForm();
         }
     };
     FormComponent.prototype.onInitFromDynamicConfig = function (config) {
         this.child = config.child;
         this.config = config.config;
-        this.initForm(this.getFormConfig());
+        this.initForm();
         if (!config.child.name) {
             this.creatingNew = true;
             this.switchEdit();
@@ -6179,7 +6179,7 @@ var FormComponent = /** @class */ (function () {
     };
     FormComponent.prototype.switchEdit = function () {
         this.editing = !this.editing;
-        this.initForm(this.getFormConfig());
+        this.initForm();
         console.log("before", this.enablePhotoUpload);
         this.enablePhotoUpload = this.childPhotoService.canSetImage();
         console.log("after", this.enablePhotoUpload);
@@ -6242,7 +6242,7 @@ var FormComponent = /** @class */ (function () {
             });
         });
     };
-    FormComponent.prototype.getFormConfig = function () {
+    FormComponent.prototype.buildFormConfig = function () {
         var _this = this;
         // TODO save after first computation
         var formConfig = {};
@@ -6272,8 +6272,8 @@ var FormComponent = /** @class */ (function () {
         }
         return invalid;
     };
-    FormComponent.prototype.initForm = function (config) {
-        this.form = this.fb.group(config.controlsConfig, config.options);
+    FormComponent.prototype.initForm = function () {
+        this.form = this.fb.group(this.buildFormConfig());
     };
     FormComponent.ɵfac = function FormComponent_Factory(t) { return new (t || FormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_3__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_child_photo_service_child_photo_service__WEBPACK_IMPORTED_MODULE_5__["ChildPhotoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"])); };
     FormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FormComponent, selectors: [["app-form"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 7, vars: 5, consts: [[3, "formGroup"], ["fxLayout", "row wrap", "fxLayout.xs", "row wrap", "fxLayout.md", "row wrap", "fxLayout.sm", "row wrap"], ["fxFlex", "", 4, "ngFor", "ngForOf"], ["mat-stroked-button", "", "class", "edit-button", 3, "click", 4, "ngIf"], ["fxFlex", ""], [4, "ngFor", "ngForOf"], ["class", "child-pic-container", 4, "ngIf"], [4, "ngIf"], ["style", "width: 180px", 4, "ngIf"], [1, "child-pic-container"], ["alt", "child's photo", 1, "child-pic", 3, "src"], ["type", "file", "accept", ".jpg, .jpeg, .png", 2, "display", "none", 3, "change"], ["fileUpload", ""], ["class", "child-pic-upload", 3, "click", 4, "ngIf"], ["class", "child-pic-photofile", 4, "ngIf"], [1, "child-pic-upload", 3, "click"], ["fontIcon", "fa-upload", 1, "upload-icon"], [1, "child-pic-photofile"], ["matTooltip", "filename for child photo uploaded by server administrator", "matInput", "", "type", "text", 3, "formControlName", "placeholder", "title"], ["photoFileInput", ""], ["matSuffix", "", 1, "fa", "fa-times", 3, "click"], ["matInput", "", "type", "text", 3, "formControlName", "placeholder", "title"], [2, "width", "50px"], ["matInput", "", "placeholder", "Age", "type", "number", 3, "value", "disabled"], [2, "width", "120px"], ["matInput", "", "formControlName", "dateOfBirth", "placeholder", "Date of Birth", 3, "matDatepicker", "disabled"], ["matSuffix", "", 3, "for"], ["dateOfBirthDatepicker", ""], [3, "disabled", "formControlName"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "width", "180px"], ["matInput", "", 3, "formControlName", "placeholder", "matDatepicker", "disabled"], ["datepickerComp", ""], ["mat-stroked-button", "", 1, "edit-button", 3, "click"]], template: function FormComponent_Template(rf, ctx) { if (rf & 1) {
