@@ -195,6 +195,8 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   attendanceList &#x3D; new Map&lt;string, AttendanceMonth[]&gt;();
   childrenDataSource &#x3D; new MatTableDataSource();
 
+  listName: String;
+
   centerFS &#x3D; new FilterSelection(&quot;center&quot;, []);
   dropoutFS &#x3D; new FilterSelection(&quot;status&quot;, [
     {
@@ -302,6 +304,9 @@ export class ChildrenListComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    this.route.data.subscribe((config) &#x3D;&gt; {
+      this.listName &#x3D; config.title;
+    });
     this.loadData();
     this.loadUrlParams();
     this.user &#x3D; this.sessionService.getCurrentUser();
