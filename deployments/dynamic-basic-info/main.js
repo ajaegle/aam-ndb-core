@@ -5804,12 +5804,6 @@ var ChildDetailsComponent = /** @class */ (function () {
             });
         });
     };
-    ChildDetailsComponent.prototype.getConfig = function (componentConfig) {
-        return {
-            component: componentConfig.component,
-            config: { child: this.child },
-        };
-    };
     ChildDetailsComponent.prototype.removeChild = function () {
         var _this = this;
         var dialogRef = this.confirmationDialog.openDialog("Delete?", "Are you sure you want to delete this Child?");
