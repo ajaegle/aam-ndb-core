@@ -5945,26 +5945,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __read = (undefined && undefined.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spread = (undefined && undefined.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
-};
 
 
 
@@ -6200,20 +6180,15 @@ var FormComponent = /** @class */ (function () {
     FormComponent.prototype.switchEdit = function () {
         this.editing = !this.editing;
         this.initForm();
-        console.log("before", this.enablePhotoUpload);
         this.enablePhotoUpload = this.childPhotoService.canSetImage();
-        console.log("after", this.enablePhotoUpload);
     };
     FormComponent.prototype.save = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var err_1, invalidFields;
+            var err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        // errors regarding invalid fields wont be displayed unless marked as touched
-                        this.form.markAllAsTouched();
-                        this.validateForm = true;
-                        if (!this.form.valid) return [3 /*break*/, 5];
+                        this.checkFormValidity();
                         this.assignFormValuesToChild(this.child, this.form);
                         _a.label = 1;
                     case 1:
@@ -6222,7 +6197,7 @@ var FormComponent = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         if (this.creatingNew) {
-                            return [2 /*return*/, this.router.navigate(["/child", this.child.getId()])];
+                            this.router.navigate(["/child", this.child.getId()]);
                         }
                         this.alertService.addInfo("Saving Successful");
                         this.switchEdit();
@@ -6231,12 +6206,7 @@ var FormComponent = /** @class */ (function () {
                         err_1 = _a.sent();
                         this.alertService.addDanger('Could not save Child "' + this.child.name + '": ' + err_1);
                         throw new Error(err_1);
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
-                        invalidFields = this.getInvalidFields();
-                        this.alertService.addDanger("Form invalid, required fields (" + invalidFields + ") missing");
-                        throw new Error("Form invalid, required fields(" + invalidFields + ") missing");
-                    case 6: return [2 /*return*/];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -6265,14 +6235,17 @@ var FormComponent = /** @class */ (function () {
     FormComponent.prototype.buildFormConfig = function () {
         var _this = this;
         var formConfig = {};
-        // Flattening the cols array, array.flat() is not yet available in current browsers
-        [].concat.apply([], __spread(this.config.cols)).forEach(function (c) {
-            formConfig[c.id] = [{ value: _this.child[c.id], disabled: !_this.editing }];
-            if (c.required) {
-                formConfig[c.id].push(_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required);
-            }
+        this.config.cols.forEach(function (c) {
+            return c.forEach(function (r) {
+                formConfig[r.id] = [
+                    { value: _this.child[r.id], disabled: !_this.editing },
+                ];
+                if (r.required) {
+                    formConfig[r.id].push(_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required);
+                }
+            });
         });
-        return { controlsConfig: formConfig };
+        return formConfig;
     };
     FormComponent.prototype.assignFormValuesToChild = function (child, form) {
         Object.keys(form.controls).forEach(function (key) {
@@ -6294,6 +6267,16 @@ var FormComponent = /** @class */ (function () {
     };
     FormComponent.prototype.initForm = function () {
         this.form = this.fb.group(this.buildFormConfig());
+    };
+    FormComponent.prototype.checkFormValidity = function () {
+        // errors regarding invalid fields wont be displayed unless marked as touched
+        this.form.markAllAsTouched();
+        this.validateForm = true;
+        if (!this.form.valid) {
+            var invalidFields = this.getInvalidFields();
+            this.alertService.addDanger("Form invalid, required fields (" + invalidFields + ") missing");
+            throw new Error("Form invalid, required fields(" + invalidFields + ") missing");
+        }
     };
     FormComponent.ɵfac = function FormComponent_Factory(t) { return new (t || FormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_3__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_child_photo_service_child_photo_service__WEBPACK_IMPORTED_MODULE_5__["ChildPhotoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"])); };
     FormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FormComponent, selectors: [["app-form"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 7, vars: 5, consts: [[3, "formGroup"], ["fxLayout", "row wrap", "fxLayout.xs", "row wrap", "fxLayout.md", "row wrap", "fxLayout.sm", "row wrap"], ["fxFlex", "", 4, "ngFor", "ngForOf"], ["mat-stroked-button", "", "class", "edit-button", 3, "click", 4, "ngIf"], ["fxFlex", ""], [4, "ngFor", "ngForOf"], ["class", "child-pic-container", 4, "ngIf"], [4, "ngIf"], ["style", "width: 180px", 4, "ngIf"], [1, "child-pic-container"], ["alt", "child's photo", 1, "child-pic", 3, "src"], ["type", "file", "accept", ".jpg, .jpeg, .png", 2, "display", "none", 3, "change"], ["fileUpload", ""], ["class", "child-pic-upload", 3, "click", 4, "ngIf"], ["class", "child-pic-photofile", 4, "ngIf"], [1, "child-pic-upload", 3, "click"], ["fontIcon", "fa-upload", 1, "upload-icon"], [1, "child-pic-photofile"], ["matTooltip", "filename for child photo uploaded by server administrator", "matInput", "", "type", "text", 3, "formControlName", "placeholder", "title"], ["photoFileInput", ""], ["matSuffix", "", 1, "fa", "fa-times", 3, "click"], ["matInput", "", "type", "text", 3, "formControlName", "placeholder", "title"], [2, "width", "50px"], ["matInput", "", "placeholder", "Age", "type", "number", 3, "value", "disabled"], [2, "width", "120px"], ["matInput", "", "formControlName", "dateOfBirth", "placeholder", "Date of Birth", 3, "matDatepicker", "disabled"], ["matSuffix", "", 3, "for"], ["dateOfBirthDatepicker", ""], [3, "disabled", "formControlName"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "width", "180px"], ["matInput", "", 3, "formControlName", "placeholder", "matDatepicker", "disabled"], ["datepickerComp", ""], ["mat-stroked-button", "", 1, "edit-button", 3, "click"]], template: function FormComponent_Template(rf, ctx) { if (rf & 1) {
