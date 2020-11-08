@@ -13656,7 +13656,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_entity_subrecord_entity_subrecord_column_description_input_type_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/column-description-input-type.enum */ "./src/app/core/entity-subrecord/entity-subrecord/column-description-input-type.enum.ts");
 /* harmony import */ var _ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngneat/until-destroy */ "./node_modules/@ngneat/until-destroy/fesm5/ngneat-until-destroy.js");
 /* harmony import */ var _children_model_child__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../children/model/child */ "./src/app/child-dev-project/children/model/child.ts");
-/* harmony import */ var _core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/entity-subrecord.component */ "./src/app/core/entity-subrecord/entity-subrecord/entity-subrecord.component.ts");
+/* harmony import */ var _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../note-config-loader/note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts");
+/* harmony import */ var _core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/entity-subrecord.component */ "./src/app/core/entity-subrecord/entity-subrecord/entity-subrecord.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13682,15 +13683,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * The component that is responsible for listing the Notes that are related to a certain child
  */
 var NotesOfChildComponent = /** @class */ (function () {
-    function NotesOfChildComponent(childrenService, sessionService, datePipe) {
+    function NotesOfChildComponent(childrenService, sessionService, datePipe, noteConfigLoaderService) {
         var _this = this;
         this.childrenService = childrenService;
         this.sessionService = sessionService;
         this.datePipe = datePipe;
+        this.noteConfigLoaderService = noteConfigLoaderService;
         this.records = [];
         this.detailsComponent = _note_details_note_details_component__WEBPACK_IMPORTED_MODULE_2__["NoteDetailsComponent"];
         this.columns = [
@@ -13745,17 +13749,18 @@ var NotesOfChildComponent = /** @class */ (function () {
             return newNote;
         };
     };
-    NotesOfChildComponent.ɵfac = function NotesOfChildComponent_Factory(t) { return new (t || NotesOfChildComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"])); };
+    NotesOfChildComponent.ɵfac = function NotesOfChildComponent_Factory(t) { return new (t || NotesOfChildComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"])); };
     NotesOfChildComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesOfChildComponent, selectors: [["app-notes-of-child"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 1, vars: 6, consts: [[3, "records", "columns", "newRecordFactory", "detailsComponent", "entityId", "getBackgroundColor"]], template: function NotesOfChildComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-entity-subrecord", 0);
         } if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("records", ctx.records)("columns", ctx.columns)("newRecordFactory", ctx.generateNewRecordFactory())("detailsComponent", ctx.detailsComponent)("entityId", ctx.child.getId())("getBackgroundColor", ctx.getColor);
-        } }, directives: [_core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_11__["EntitySubrecordComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L25vdGVzL25vdGVzLW9mLWNoaWxkL25vdGVzLW9mLWNoaWxkLmNvbXBvbmVudC5zY3NzIn0= */"] });
+        } }, directives: [_core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_12__["EntitySubrecordComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L25vdGVzL25vdGVzLW9mLWNoaWxkL25vdGVzLW9mLWNoaWxkLmNvbXBvbmVudC5zY3NzIn0= */"] });
     NotesOfChildComponent = __decorate([
         Object(_ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_9__["UntilDestroy"])(),
         __metadata("design:paramtypes", [_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"],
             _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]])
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"],
+            _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"]])
     ], NotesOfChildComponent);
     return NotesOfChildComponent;
 }());
@@ -13767,7 +13772,7 @@ var NotesOfChildComponent = /** @class */ (function () {
                 templateUrl: "./notes-of-child.component.html",
                 styleUrls: ["./notes-of-child.component.scss"],
             }]
-    }], function () { return [{ type: _children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] }]; }, { child: [{
+    }], function () { return [{ type: _children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] }, { type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"] }]; }, { child: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }] }); })();
 
