@@ -12431,7 +12431,7 @@ var Note = /** @class */ (function (_super) {
             return Object(_warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevelColor"])(_warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevel"].WARNING);
         }
         var color = this.category.color;
-        return color ? "" : color;
+        return color ? color : "";
     };
     Note.prototype.getColorForId = function (entityId) {
         if (this.category.isMeeting && !this.isPresent(entityId)) {
@@ -13504,7 +13504,7 @@ var NotesManagerComponent = /** @class */ (function () {
             return Object(_warning_level__WEBPACK_IMPORTED_MODULE_8__["WarningLevelColor"])(_warning_level__WEBPACK_IMPORTED_MODULE_8__["WarningLevel"].WARNING);
         }
         var color = entity.category.color;
-        return color ? "" : color;
+        return color ? color : "";
     };
     NotesManagerComponent.ɵfac = function NotesManagerComponent_Factory(t) { return new (t || NotesManagerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_12__["FormDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_9__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_14__["NoteConfigLoaderService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"])); };
     NotesManagerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesManagerComponent, selectors: [["app-notes-manager"]], viewQuery: function NotesManagerComponent_Query(rf, ctx) { if (rf & 1) {
