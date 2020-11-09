@@ -12157,33 +12157,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noteGroupStories", function() { return noteGroupStories; });
 /* harmony import */ var _warning_level__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../warning-level */ "./src/app/child-dev-project/warning-level.ts");
 
+/**
+ * Contains demo group notes. This data is used to create new Note instances with the provided values which then get saved to the MockDB.
+ */
 var noteGroupStories = [
     {
-        category: "GUARDIAN_MEETING",
+        category: { name: "Guardians' Meeting", color: "#E1F5FE", isMeeting: true },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Guardians Meeting",
         text: "Our regular monthly meeting. Find the agenda and minutes in our meeting folder.",
     },
     {
-        category: "GUARDIAN_MEETING",
+        category: { name: "Guardians' Meeting", color: "#E1F5FE", isMeeting: true },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Guardians Meeting",
         text: "Our regular monthly meeting. Find the agenda and minutes in our meeting folder.",
     },
     {
-        category: "CHILDREN_MEETING",
+        category: { name: "Children's Meeting", color: "#E1F5FE", isMeeting: true },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Children Meeting",
         text: "Our regular monthly meeting. Find the agenda and minutes in our meeting folder.",
     },
     {
-        category: "CHILDREN_MEETING",
+        category: { name: "Children's Meeting", color: "#E1F5FE", isMeeting: true },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Children Meeting",
         text: "Our regular monthly meeting. Find the agenda and minutes in our meeting folder.",
     },
     {
-        category: "CHILDREN_MEETING",
+        category: { name: "Children's Meeting", color: "#E1F5FE", isMeeting: true },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Drug Prevention Workshop",
         text: "Expert conducted a two day workshop on drug prevention.",
@@ -12205,9 +12208,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noteIndividualStories", function() { return noteIndividualStories; });
 /* harmony import */ var _warning_level__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../warning-level */ "./src/app/child-dev-project/warning-level.ts");
 
+/**
+ * Contains demo notes. This data is used to create new Note instances with the provided values which then get saved to the MockDB.
+ */
 var noteIndividualStories = [
     {
-        category: "HOME_VISIT",
+        category: { name: "Home Visit" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].WARNING,
         subject: "Mother sick",
         text: "Visited family after we heard that mother is seriously ill. She cannot get up. " +
@@ -12215,61 +12221,61 @@ var noteIndividualStories = [
             "Told her to see doctor. We should follow up next week.",
     },
     {
-        category: "GUARDIAN_TALK",
+        category: { name: "Talk with Guardians" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].WARNING,
         subject: "Discussed school change",
         text: "Discussed future of the child with the parents. They agree that changing school can be a good option. " +
             "Will discuss further together with the child.",
     },
     {
-        category: "PHONE_CALL",
+        category: { name: "Phone Call" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Follow up for school absence",
         text: "Called to ask for reason about absence. Mother made excuses but promised to send the child tomorrow.",
     },
     {
-        category: "PHONE_CALL",
+        category: { name: "Phone Call" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "absent because ill",
         text: "Mother has called in the morning. Child cannot come to class because of fever.",
     },
     {
-        category: "PHONE_CALL",
+        category: { name: "Phone Call" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].URGENT,
         subject: "Absence without information",
         text: "Child was not in school whole last week again. When calling the mother she didn't know about it. " +
             "Need to follow up urgently to discuss with the child and the guardians.",
     },
     {
-        category: "VISIT",
+        category: { name: "School/Hostel Visit" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "School is happy about progress",
         text: "Visited the school and talked to the class teacher and principal. They are happy about the progress " +
             "and behaviour.",
     },
     {
-        category: "COACHING_TALK",
+        category: { name: "Talk with Coaching Teacher" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].WARNING,
         subject: "Needs to work more for school",
         text: "Discussed the child's progress with coaching teacher. He is still a weak student and needs more support. " +
             "We should consider arranging an extra class for him. Discuss next social worker meeting.",
     },
     {
-        category: "INCIDENT",
+        category: { name: "Incident" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].URGENT,
         subject: "Fight at school",
         text: "Principal called us today. Our student got into a fight and was suspended for a week. " +
             "Need to follow up with the child and discuss the matter.",
     },
     {
-        category: "DISCUSSION",
+        category: { name: "Discussion/Decision", color: "#E1BEE7" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Special help for family",
         text: "Since the father has lost his job the family is struggling to survive. " +
             "After home visits and discussion in our team we decided to refer them to a special support programme.",
     },
     {
-        category: "DISCUSSION",
+        category: { name: "Discussion/Decision", color: "#E1BEE7" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].OK,
         subject: "Chance to repeat class",
         text: "Child has failed this school year as she did not go to school regularly. " +
@@ -12277,14 +12283,14 @@ var noteIndividualStories = [
             "and she promised to attend school regularly.",
     },
     {
-        category: "CHILD_TALK",
+        category: { name: "Talk with Child" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].WARNING,
         subject: "Distracted in class",
         text: "Teacher has let us know that he is very unfocused during class these days. " +
             "Discussed with him - there are a lot of problems in the family currently.",
     },
     {
-        category: "CHILD_TALK",
+        category: { name: "Talk with Child" },
         warningLevel: _warning_level__WEBPACK_IMPORTED_MODULE_0__["WarningLevel"].WARNING,
         subject: "Disturbing class",
         text: "She refused to listen to the teacher was disturbing the class. " +
@@ -12414,7 +12420,7 @@ var Note = /** @class */ (function (_super) {
         _this.text = "";
         _this.author = "";
         _this.category = {
-            name: "NONE",
+            name: "",
         };
         _this.warningLevel = _warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevel"].OK;
         return _this;
@@ -12563,9 +12569,17 @@ var InteractionSchemaDatatype = /** @class */ (function () {
         this.interactionTypesFromConfig = interactionTypesFromConfig;
         this.name = "interaction-type";
     }
+    /**
+     * transforms Objects of InteractionType to strings to save in DB
+     * @param value Object to be saved as specefied in config file; e.g. {name:'Phone Call', color:'#FFFFFF'}
+     */
     InteractionSchemaDatatype.prototype.transformToDatabaseFormat = function (value) {
         return this.getKeyByValue(this.interactionTypesFromConfig.InteractionTypes, value);
     };
+    /**
+     * transforms saved strings from the DB to Objects of InteractionType
+     * @param value string from database as specified in config file; e.g. 'PHONE_CALL'
+     */
     InteractionSchemaDatatype.prototype.transformToObjectFormat = function (value) {
         if (value) {
             return this.interactionTypesFromConfig.InteractionTypes[value];
@@ -12574,8 +12588,13 @@ var InteractionSchemaDatatype = /** @class */ (function () {
             return { name: null };
         }
     };
+    /**
+     * retrieves the key of the property of object with the provided value by comparing the string representations.
+     * @param object object with the key:value-pair we are looking for
+     * @param value the value of the property which key we want
+     */
     InteractionSchemaDatatype.prototype.getKeyByValue = function (object, value) {
-        return Object.keys(object).find(function (key) { return object[key] === value; });
+        return Object.keys(object).find(function (key) { return JSON.stringify(object[key]) === JSON.stringify(value); });
     };
     return InteractionSchemaDatatype;
 }());
@@ -13656,8 +13675,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_entity_subrecord_entity_subrecord_column_description_input_type_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/column-description-input-type.enum */ "./src/app/core/entity-subrecord/entity-subrecord/column-description-input-type.enum.ts");
 /* harmony import */ var _ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngneat/until-destroy */ "./node_modules/@ngneat/until-destroy/fesm5/ngneat-until-destroy.js");
 /* harmony import */ var _children_model_child__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../children/model/child */ "./src/app/child-dev-project/children/model/child.ts");
-/* harmony import */ var _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../note-config-loader/note-config-loader.service */ "./src/app/child-dev-project/notes/note-config-loader/note-config-loader.service.ts");
-/* harmony import */ var _core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/entity-subrecord.component */ "./src/app/core/entity-subrecord/entity-subrecord/entity-subrecord.component.ts");
+/* harmony import */ var _core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../core/entity-subrecord/entity-subrecord/entity-subrecord.component */ "./src/app/core/entity-subrecord/entity-subrecord/entity-subrecord.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13683,18 +13701,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
-
 /**
  * The component that is responsible for listing the Notes that are related to a certain child
  */
 var NotesOfChildComponent = /** @class */ (function () {
-    function NotesOfChildComponent(childrenService, sessionService, datePipe, noteConfigLoaderService) {
+    function NotesOfChildComponent(childrenService, sessionService, datePipe) {
         var _this = this;
         this.childrenService = childrenService;
         this.sessionService = sessionService;
         this.datePipe = datePipe;
-        this.noteConfigLoaderService = noteConfigLoaderService;
         this.records = [];
         this.detailsComponent = _note_details_note_details_component__WEBPACK_IMPORTED_MODULE_2__["NoteDetailsComponent"];
         this.columns = [
@@ -13749,18 +13764,17 @@ var NotesOfChildComponent = /** @class */ (function () {
             return newNote;
         };
     };
-    NotesOfChildComponent.ɵfac = function NotesOfChildComponent_Factory(t) { return new (t || NotesOfChildComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"])); };
+    NotesOfChildComponent.ɵfac = function NotesOfChildComponent_Factory(t) { return new (t || NotesOfChildComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"])); };
     NotesOfChildComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesOfChildComponent, selectors: [["app-notes-of-child"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 1, vars: 6, consts: [[3, "records", "columns", "newRecordFactory", "detailsComponent", "entityId", "getBackgroundColor"]], template: function NotesOfChildComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-entity-subrecord", 0);
         } if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("records", ctx.records)("columns", ctx.columns)("newRecordFactory", ctx.generateNewRecordFactory())("detailsComponent", ctx.detailsComponent)("entityId", ctx.child.getId())("getBackgroundColor", ctx.getColor);
-        } }, directives: [_core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_12__["EntitySubrecordComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L25vdGVzL25vdGVzLW9mLWNoaWxkL25vdGVzLW9mLWNoaWxkLmNvbXBvbmVudC5zY3NzIn0= */"] });
+        } }, directives: [_core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_11__["EntitySubrecordComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L25vdGVzL25vdGVzLW9mLWNoaWxkL25vdGVzLW9mLWNoaWxkLmNvbXBvbmVudC5zY3NzIn0= */"] });
     NotesOfChildComponent = __decorate([
         Object(_ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_9__["UntilDestroy"])(),
         __metadata("design:paramtypes", [_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"],
             _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"],
-            _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"]])
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]])
     ], NotesOfChildComponent);
     return NotesOfChildComponent;
 }());
@@ -13772,7 +13786,7 @@ var NotesOfChildComponent = /** @class */ (function () {
                 templateUrl: "./notes-of-child.component.html",
                 styleUrls: ["./notes-of-child.component.scss"],
             }]
-    }], function () { return [{ type: _children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] }, { type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_11__["NoteConfigLoaderService"] }]; }, { child: [{
+    }], function () { return [{ type: _children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"] }, { type: _core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] }]; }, { child: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }] }); })();
 
@@ -13872,11 +13886,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var NotesModule = /** @class */ (function () {
-    function NotesModule() {
+    // ensure that the config loader gets called when using the module
+    function NotesModule(noteConfigLoaderService) {
+        this.noteConfigLoaderService = noteConfigLoaderService;
     }
     NotesModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NotesModule });
-    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(); }, providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
+    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"])); }, providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _core_entity_subrecord_entity_subrecord_module__WEBPACK_IMPORTED_MODULE_36__["EntitySubrecordModule"],
@@ -14014,7 +14031,7 @@ var NotesModule = /** @class */ (function () {
                 ],
                 providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]],
             }]
-    }], null, null); })();
+    }], function () { return [{ type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"] }]; }, null); })();
 
 
 /***/ }),
