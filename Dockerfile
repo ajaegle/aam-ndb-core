@@ -13,5 +13,5 @@ RUN $(npm bin)/ng build --prod
 
 FROM nginx:1.19.4-alpine
 COPY ./deploy/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist/ndb-core/ /usr/share/nginx/html
+COPY --from=builder /app/dist/ /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
