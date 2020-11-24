@@ -11976,6 +11976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remarks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./remarks */ "./src/app/child-dev-project/notes/demo-data/remarks.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _core_entity_schema_entity_schema_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../core/entity/schema/entity-schema.service */ "./src/app/core/entity/schema/entity-schema.service.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12014,6 +12015,8 @@ var __values = (undefined && undefined.__values) || function(o) {
 
 
 
+
+
 var DemoNoteConfig = /** @class */ (function () {
     function DemoNoteConfig() {
     }
@@ -12026,10 +12029,11 @@ var DemoNoteConfig = /** @class */ (function () {
  */
 var DemoNoteGeneratorService = /** @class */ (function (_super) {
     __extends(DemoNoteGeneratorService, _super);
-    function DemoNoteGeneratorService(config, demoChildren) {
+    function DemoNoteGeneratorService(config, demoChildren, schemaService) {
         var _this = _super.call(this) || this;
         _this.config = config;
         _this.demoChildren = demoChildren;
+        _this.schemaService = schemaService;
         return _this;
     }
     /**
@@ -12112,6 +12116,8 @@ var DemoNoteGeneratorService = /** @class */ (function (_super) {
         var note = new _model_note__WEBPACK_IMPORTED_MODULE_3__["Note"](_core_demo_data_faker__WEBPACK_IMPORTED_MODULE_5__["faker"].random.uuid());
         var selectedStory = _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_5__["faker"].random.arrayElement(_notes_individual_stories__WEBPACK_IMPORTED_MODULE_7__["noteIndividualStories"]);
         Object.assign(note, selectedStory);
+        // transform to ensure the category object is loaded from the generic config
+        note = this.schemaService.transformDatabaseToEntityFormat(note, _model_note__WEBPACK_IMPORTED_MODULE_3__["Note"].schema);
         note.addChild(child.getId());
         note.author = _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_5__["faker"].random.arrayElement(this.teamMembers);
         if (!date) {
@@ -12121,6 +12127,9 @@ var DemoNoteGeneratorService = /** @class */ (function (_super) {
         this.removeFollowUpMarkerForOldNotes(note);
         return note;
     };
+    /**
+     * Set all older notes to be "resolved" in order to keep the list of notes needing follow-up limited in the demo.
+     */
     DemoNoteGeneratorService.prototype.removeFollowUpMarkerForOldNotes = function (note) {
         var lastMonths = new Date();
         lastMonths.setMonth(lastMonths.getMonth() - 1);
@@ -12132,6 +12141,8 @@ var DemoNoteGeneratorService = /** @class */ (function (_super) {
         var note = new _model_note__WEBPACK_IMPORTED_MODULE_3__["Note"](_core_demo_data_faker__WEBPACK_IMPORTED_MODULE_5__["faker"].random.uuid());
         var selectedStory = _core_demo_data_faker__WEBPACK_IMPORTED_MODULE_5__["faker"].random.arrayElement(_notes_group_stories__WEBPACK_IMPORTED_MODULE_8__["noteGroupStories"]);
         Object.assign(note, selectedStory);
+        // transform to ensure the category object is loaded from the generic config
+        note = this.schemaService.transformDatabaseToEntityFormat(note, _model_note__WEBPACK_IMPORTED_MODULE_3__["Note"].schema);
         note.children = children.map(function (c) { return c.getId(); });
         note.attendances = children.map(function (child) {
             var attendance = new _meeting_note_attendance__WEBPACK_IMPORTED_MODULE_4__["MeetingNoteAttendance"](child.getId());
@@ -12147,14 +12158,14 @@ var DemoNoteGeneratorService = /** @class */ (function (_super) {
         this.removeFollowUpMarkerForOldNotes(note);
         return note;
     };
-    DemoNoteGeneratorService.ɵfac = function DemoNoteGeneratorService_Factory(t) { return new (t || DemoNoteGeneratorService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](DemoNoteConfig), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_children_demo_data_generators_demo_child_generator_service__WEBPACK_IMPORTED_MODULE_0__["DemoChildGenerator"])); };
+    DemoNoteGeneratorService.ɵfac = function DemoNoteGeneratorService_Factory(t) { return new (t || DemoNoteGeneratorService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](DemoNoteConfig), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_children_demo_data_generators_demo_child_generator_service__WEBPACK_IMPORTED_MODULE_0__["DemoChildGenerator"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_core_entity_schema_entity_schema_service__WEBPACK_IMPORTED_MODULE_12__["EntitySchemaService"])); };
     DemoNoteGeneratorService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: DemoNoteGeneratorService, factory: DemoNoteGeneratorService.ɵfac });
     return DemoNoteGeneratorService;
 }(_core_demo_data_demo_data_generator__WEBPACK_IMPORTED_MODULE_1__["DemoDataGenerator"]));
 
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](DemoNoteGeneratorService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"]
-    }], function () { return [{ type: DemoNoteConfig }, { type: _children_demo_data_generators_demo_child_generator_service__WEBPACK_IMPORTED_MODULE_0__["DemoChildGenerator"] }]; }, null); })();
+    }], function () { return [{ type: DemoNoteConfig }, { type: _children_demo_data_generators_demo_child_generator_service__WEBPACK_IMPORTED_MODULE_0__["DemoChildGenerator"] }, { type: _core_entity_schema_entity_schema_service__WEBPACK_IMPORTED_MODULE_12__["EntitySchemaService"] }]; }, null); })();
 
 
 /***/ }),
@@ -12428,7 +12439,7 @@ var Note = /** @class */ (function (_super) {
         _this.text = "";
         _this.author = "";
         _this.category = {
-            name: "NONE",
+            name: "",
         };
         _this.warningLevel = _warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevel"].OK;
         return _this;
@@ -12445,7 +12456,7 @@ var Note = /** @class */ (function (_super) {
             return Object(_warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevelColor"])(_warning_level__WEBPACK_IMPORTED_MODULE_4__["WarningLevel"].WARNING);
         }
         var color = this.category.color;
-        return color ? "" : color;
+        return color ? color : "";
     };
     Note.prototype.getColorForId = function (entityId) {
         if (this.category.isMeeting && !this.isPresent(entityId)) {
@@ -12577,9 +12588,17 @@ var InteractionSchemaDatatype = /** @class */ (function () {
         this.interactionTypesFromConfig = interactionTypesFromConfig;
         this.name = "interaction-type";
     }
+    /**
+     * transforms Objects of InteractionType to strings to save in DB
+     * @param value Object to be saved as specefied in config file; e.g. {name:'Phone Call', color:'#FFFFFF'}
+     */
     InteractionSchemaDatatype.prototype.transformToDatabaseFormat = function (value) {
         return this.getKeyByValue(this.interactionTypesFromConfig.InteractionTypes, value);
     };
+    /**
+     * transforms saved strings from the DB to Objects of InteractionType
+     * @param value string from database as specified in config file; e.g. 'PHONE_CALL'
+     */
     InteractionSchemaDatatype.prototype.transformToObjectFormat = function (value) {
         if (value) {
             return this.interactionTypesFromConfig.InteractionTypes[value];
@@ -12588,8 +12607,13 @@ var InteractionSchemaDatatype = /** @class */ (function () {
             return { name: null };
         }
     };
+    /**
+     * retrieves the key of the property of object with the provided value by comparing the string representations.
+     * @param object object with the key:value-pair we are looking for
+     * @param value the value of the property which key we want
+     */
     InteractionSchemaDatatype.prototype.getKeyByValue = function (object, value) {
-        return Object.keys(object).find(function (key) { return object[key] === value; });
+        return Object.keys(object).find(function (key) { return JSON.stringify(object[key]) === JSON.stringify(value); });
     };
     return InteractionSchemaDatatype;
 }());
@@ -13518,7 +13542,7 @@ var NotesManagerComponent = /** @class */ (function () {
             return Object(_warning_level__WEBPACK_IMPORTED_MODULE_8__["WarningLevelColor"])(_warning_level__WEBPACK_IMPORTED_MODULE_8__["WarningLevel"].WARNING);
         }
         var color = entity.category.color;
-        return color ? "" : color;
+        return color ? color : "";
     };
     NotesManagerComponent.ɵfac = function NotesManagerComponent_Factory(t) { return new (t || NotesManagerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_12__["FormDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["MediaObserver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_9__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_14__["NoteConfigLoaderService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"])); };
     NotesManagerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesManagerComponent, selectors: [["app-notes-manager"]], viewQuery: function NotesManagerComponent_Query(rf, ctx) { if (rf & 1) {
@@ -13718,6 +13742,11 @@ var NotesOfChildComponent = /** @class */ (function () {
                 { value: "URGENT", label: "Urgent Follow-Up" },
             ], function () { return ""; }, "md"),
         ];
+        /**
+         * returns the color for a note; passed to the entity subrecored component
+         * @param note note to get color for
+         */
+        this.getColor = function (note) { return note === null || note === void 0 ? void 0 : note.getColorForId(_this.child.getId()); };
     }
     NotesOfChildComponent.prototype.ngOnChanges = function (changes) {
         if (changes.hasOwnProperty("child")) {
@@ -13755,10 +13784,10 @@ var NotesOfChildComponent = /** @class */ (function () {
         };
     };
     NotesOfChildComponent.ɵfac = function NotesOfChildComponent_Factory(t) { return new (t || NotesOfChildComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_4__["ChildrenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_session_session_service_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"])); };
-    NotesOfChildComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesOfChildComponent, selectors: [["app-notes-of-child"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 1, vars: 5, consts: [[3, "records", "columns", "newRecordFactory", "detailsComponent", "entityId"]], template: function NotesOfChildComponent_Template(rf, ctx) { if (rf & 1) {
+    NotesOfChildComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NotesOfChildComponent, selectors: [["app-notes-of-child"]], inputs: { child: "child" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 1, vars: 6, consts: [[3, "records", "columns", "newRecordFactory", "detailsComponent", "entityId", "getBackgroundColor"]], template: function NotesOfChildComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-entity-subrecord", 0);
         } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("records", ctx.records)("columns", ctx.columns)("newRecordFactory", ctx.generateNewRecordFactory())("detailsComponent", ctx.detailsComponent)("entityId", ctx.child.getId());
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("records", ctx.records)("columns", ctx.columns)("newRecordFactory", ctx.generateNewRecordFactory())("detailsComponent", ctx.detailsComponent)("entityId", ctx.child.getId())("getBackgroundColor", ctx.getColor);
         } }, directives: [_core_entity_subrecord_entity_subrecord_entity_subrecord_component__WEBPACK_IMPORTED_MODULE_11__["EntitySubrecordComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L25vdGVzL25vdGVzLW9mLWNoaWxkL25vdGVzLW9mLWNoaWxkLmNvbXBvbmVudC5zY3NzIn0= */"] });
     NotesOfChildComponent = __decorate([
         Object(_ngneat_until_destroy__WEBPACK_IMPORTED_MODULE_9__["UntilDestroy"])(),
@@ -13876,11 +13905,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var NotesModule = /** @class */ (function () {
-    function NotesModule() {
+    // ensure that the config loader gets called when using the module
+    function NotesModule(noteConfigLoaderService) {
+        this.noteConfigLoaderService = noteConfigLoaderService;
     }
     NotesModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NotesModule });
-    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(); }, providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
+    NotesModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NotesModule_Factory(t) { return new (t || NotesModule)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"])); }, providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]], imports: [[
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _core_entity_subrecord_entity_subrecord_module__WEBPACK_IMPORTED_MODULE_36__["EntitySubrecordModule"],
@@ -14018,7 +14050,7 @@ var NotesModule = /** @class */ (function () {
                 ],
                 providers: [_note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"]],
             }]
-    }], null, null); })();
+    }], function () { return [{ type: _note_config_loader_note_config_loader_service__WEBPACK_IMPORTED_MODULE_40__["NoteConfigLoaderService"] }]; }, null); })();
 
 
 /***/ }),
@@ -21067,7 +21099,7 @@ function EntitySubrecordComponent_tr_6_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     var rec_r103 = ctx.$implicit;
     var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](1, _c4, ctx_r4.getColor(rec_r103)));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", ctx_r4.getBackgroundColor && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](1, _c4, ctx_r4.getBackgroundColor(rec_r103)));
 } }
 /**
  * Generically configurable component to display and edit a list of entities in a compact way
@@ -21296,27 +21328,13 @@ var EntitySubrecordComponent = /** @class */ (function () {
         return (inputType === _column_description_input_type_enum__WEBPACK_IMPORTED_MODULE_8__["ColumnDescriptionInputType"].FUNCTION ||
             inputType === _column_description_input_type_enum__WEBPACK_IMPORTED_MODULE_8__["ColumnDescriptionInputType"].READONLY);
     };
-    /**
-     * returns the color for a record.
-     * If this entity id is undefined, this will return the default color. Otherwise it will attempt
-     * to get a specific color for this specific entity id
-     * @param record The record to check for. The record must be an entity that has a <code>getColor()</code>-Method specified.
-     * If this entityId is set, a <code>getColorForId()</code>-Method must be specified, that accepts this id.
-     */
-    EntitySubrecordComponent.prototype.getColor = function (record) {
-        // TODO add typing, create interface?
-        if (this.entityId !== undefined) {
-            return record.getColorForId(this.entityId);
-        }
-        return record.getColor();
-    };
     EntitySubrecordComponent.ɵfac = function EntitySubrecordComponent_Factory(t) { return new (t || EntitySubrecordComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_entity_entity_mapper_service__WEBPACK_IMPORTED_MODULE_4__["EntityMapperService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_confirmation_dialog_confirmation_dialog_service__WEBPACK_IMPORTED_MODULE_7__["ConfirmationDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_form_dialog_form_dialog_service__WEBPACK_IMPORTED_MODULE_9__["FormDialogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_alerts_alert_service__WEBPACK_IMPORTED_MODULE_6__["AlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_flex_layout__WEBPACK_IMPORTED_MODULE_5__["MediaObserver"])); };
     EntitySubrecordComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EntitySubrecordComponent, selectors: [["app-entity-subrecord"]], viewQuery: function EntitySubrecordComponent_Query(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_2__["MatSort"], true);
         } if (rf & 2) {
             var _t;
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
-        } }, inputs: { records: "records", columns: "columns", newRecordFactory: "newRecordFactory", detailsComponent: "detailsComponent", showAddButton: "showAddButton", formValidation: "formValidation", entityId: "entityId" }, outputs: { changedRecordsInEntitySubrecordEvent: "changedRecordsInEntitySubrecordEvent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 7, vars: 4, consts: [["mat-table", "", "matSort", "", 1, "mat-elevation-z1", "subrecord-table", 3, "dataSource"], [3, "matColumnDef", 4, "ngFor", "ngForOf"], ["matColumnDef", "actions"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 3, "ngStyle", 4, "matRowDef", "matRowDefColumns"], [3, "matColumnDef"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "ngClass", "click", 4, "matCellDef"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", "", 3, "ngClass", "click"], ["class", "table-show-number", 4, "ngIf"], [3, "ngStyle", "ngClass", 4, "ngIf"], [4, "ngIf"], [1, "table-show-number"], [3, "ngStyle", "ngClass"], [3, "ngClass"], ["matInput", "", "type", "text", 3, "title", "value", "change", 4, "ngIf"], ["matInput", "", "type", "number", "min", "0", 3, "title", "value", "change", 4, "ngIf"], ["matInput", "", 3, "title", "value", "matDatepicker", "dateChange", 4, "ngIf"], ["matSuffix", "", 3, "for", 4, "ngIf"], ["subrecordDatepicker", ""], ["matInput", "", "type", "month", 3, "title", "valueAsDate", "change", 4, "ngIf"], ["matInput", "", 3, "title", "value", "change", 4, "ngIf"], [3, "value", "valueChange", 4, "ngIf"], ["matInput", "", "type", "text", 3, "title", "value", "change"], ["matInput", "", "type", "number", "min", "0", 3, "title", "value", "change"], ["matInput", "", 3, "title", "value", "matDatepicker", "dateChange"], ["matSuffix", "", 3, "for"], ["matInput", "", "type", "month", 3, "title", "valueAsDate", "change"], ["matInput", "", 3, "title", "value", "change"], [3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], ["matInput", "", "type", "text", 3, "matAutocomplete", "title", "value", "input", "change"], [3, "optionSelected"], ["auto", "matAutocomplete"], ["mat-header-cell", ""], ["mat-stroked-button", "", "class", "table-action-button", "color", "accent", 3, "click", 4, "ngIf"], ["mat-stroked-button", "", "color", "accent", 1, "table-action-button", 3, "click"], ["aria-label", "add", "fontIcon", "fa-plus-circle", 1, "table-action-icon"], ["mat-cell", ""], ["mat-icon-button", "", 3, "click", 4, "ngIf"], ["mat-icon-button", "", 3, "click"], ["aria-label", "delete", "fontIcon", "fa-trash", 1, "table-action-icon"], ["aria-label", "edit", "fontIcon", "fa-pencil", 1, "table-action-icon"], ["aria-label", "save", "fontIcon", "fa-check-circle", 1, "table-action-icon"], ["aria-label", "cancel", "fontIcon", "fa-times-circle", 1, "table-action-icon"], ["mat-header-row", ""], ["mat-row", "", 3, "ngStyle"]], template: function EntitySubrecordComponent_Template(rf, ctx) { if (rf & 1) {
+        } }, inputs: { records: "records", columns: "columns", newRecordFactory: "newRecordFactory", detailsComponent: "detailsComponent", showAddButton: "showAddButton", formValidation: "formValidation", entityId: "entityId", getBackgroundColor: "getBackgroundColor" }, outputs: { changedRecordsInEntitySubrecordEvent: "changedRecordsInEntitySubrecordEvent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 7, vars: 4, consts: [["mat-table", "", "matSort", "", 1, "mat-elevation-z1", "subrecord-table", 3, "dataSource"], [3, "matColumnDef", 4, "ngFor", "ngForOf"], ["matColumnDef", "actions"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 3, "ngStyle", 4, "matRowDef", "matRowDefColumns"], [3, "matColumnDef"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "ngClass", "click", 4, "matCellDef"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", "", 3, "ngClass", "click"], ["class", "table-show-number", 4, "ngIf"], [3, "ngStyle", "ngClass", 4, "ngIf"], [4, "ngIf"], [1, "table-show-number"], [3, "ngStyle", "ngClass"], [3, "ngClass"], ["matInput", "", "type", "text", 3, "title", "value", "change", 4, "ngIf"], ["matInput", "", "type", "number", "min", "0", 3, "title", "value", "change", 4, "ngIf"], ["matInput", "", 3, "title", "value", "matDatepicker", "dateChange", 4, "ngIf"], ["matSuffix", "", 3, "for", 4, "ngIf"], ["subrecordDatepicker", ""], ["matInput", "", "type", "month", 3, "title", "valueAsDate", "change", 4, "ngIf"], ["matInput", "", 3, "title", "value", "change", 4, "ngIf"], [3, "value", "valueChange", 4, "ngIf"], ["matInput", "", "type", "text", 3, "title", "value", "change"], ["matInput", "", "type", "number", "min", "0", 3, "title", "value", "change"], ["matInput", "", 3, "title", "value", "matDatepicker", "dateChange"], ["matSuffix", "", 3, "for"], ["matInput", "", "type", "month", 3, "title", "valueAsDate", "change"], ["matInput", "", 3, "title", "value", "change"], [3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], ["matInput", "", "type", "text", 3, "matAutocomplete", "title", "value", "input", "change"], [3, "optionSelected"], ["auto", "matAutocomplete"], ["mat-header-cell", ""], ["mat-stroked-button", "", "class", "table-action-button", "color", "accent", 3, "click", 4, "ngIf"], ["mat-stroked-button", "", "color", "accent", 1, "table-action-button", 3, "click"], ["aria-label", "add", "fontIcon", "fa-plus-circle", 1, "table-action-icon"], ["mat-cell", ""], ["mat-icon-button", "", 3, "click", 4, "ngIf"], ["mat-icon-button", "", 3, "click"], ["aria-label", "delete", "fontIcon", "fa-trash", 1, "table-action-icon"], ["aria-label", "edit", "fontIcon", "fa-pencil", 1, "table-action-icon"], ["aria-label", "save", "fontIcon", "fa-check-circle", 1, "table-action-icon"], ["aria-label", "cancel", "fontIcon", "fa-times-circle", 1, "table-action-icon"], ["mat-header-row", ""], ["mat-row", "", 3, "ngStyle"]], template: function EntitySubrecordComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 0);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, EntitySubrecordComponent_ng_container_1_Template, 3, 1, "ng-container", 1);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](2, 2);
@@ -21369,6 +21387,8 @@ var EntitySubrecordComponent = /** @class */ (function () {
         }], changedRecordsInEntitySubrecordEvent: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
         }], entityId: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], getBackgroundColor: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], sort: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
@@ -21862,7 +21882,7 @@ var EntityMapperService = /** @class */ (function () {
                         return [4 /*yield*/, this._db.put(rawData, forceUpdate)];
                     case 1:
                         result = _a.sent();
-                        if (result.ok) {
+                        if (result === null || result === void 0 ? void 0 : result.ok) {
                             entity._rev = result.rev;
                         }
                         return [2 /*return*/, result];
