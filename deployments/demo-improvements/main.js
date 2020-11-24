@@ -1304,55 +1304,16 @@ var Aser = /** @class */ (function (_super) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddDayAttendanceComponent", function() { return AddDayAttendanceComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _children_children_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../children/children.service */ "./src/app/child-dev-project/children/children.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
-/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/fesm5/datepicker.js");
-/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/fesm5/button-toggle.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
-/* harmony import */ var _children_select_group_children_select_group_children_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../children/select-group-children/select-group-children.component */ "./src/app/child-dev-project/children/select-group-children/select-group-children.component.ts");
-/* harmony import */ var _roll_call_roll_call_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./roll-call/roll-call.component */ "./src/app/child-dev-project/attendance/add-day-attendance/roll-call/roll-call.component.ts");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/esm5/flex.es5.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/fesm5/datepicker.js");
+/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/fesm5/button-toggle.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
+/* harmony import */ var _children_select_group_children_select_group_children_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../children/select-group-children/select-group-children.component */ "./src/app/child-dev-project/children/select-group-children/select-group-children.component.ts");
+/* harmony import */ var _roll_call_roll_call_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./roll-call/roll-call.component */ "./src/app/child-dev-project/attendance/add-day-attendance/roll-call/roll-call.component.ts");
 
 
 
@@ -1428,27 +1389,14 @@ function AddDayAttendanceComponent_div_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("day", ctx_r2.day)("attendanceType", ctx_r2.attendanceType)("students", ctx_r2.students);
 } }
 var AddDayAttendanceComponent = /** @class */ (function () {
-    function AddDayAttendanceComponent(childrenService) {
-        this.childrenService = childrenService;
+    function AddDayAttendanceComponent() {
         this.currentStage = 0;
         this.day = new Date();
         this.students = [];
         this.stages = ["Setup Roll Call", "Select Student Group", "Roll Call"];
     }
     AddDayAttendanceComponent.prototype.finishBasicInformationStage = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var allKids;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.childrenService.getChildren().toPromise()];
-                    case 1:
-                        allKids = (_a.sent()).filter(function (c) { return c.isActive(); });
-                        this.students = [allKids[0], allKids[1]];
-                        this.currentStage = 2;
-                        return [2 /*return*/];
-                }
-            });
-        });
+        this.currentStage = 1;
     };
     AddDayAttendanceComponent.prototype.finishStudentSelectionStage = function (selectedStudents) {
         this.students = selectedStudents;
@@ -1457,7 +1405,7 @@ var AddDayAttendanceComponent = /** @class */ (function () {
     AddDayAttendanceComponent.prototype.finishRollCallState = function () {
         this.currentStage = 0;
     };
-    AddDayAttendanceComponent.ɵfac = function AddDayAttendanceComponent_Factory(t) { return new (t || AddDayAttendanceComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_children_children_service__WEBPACK_IMPORTED_MODULE_1__["ChildrenService"])); };
+    AddDayAttendanceComponent.ɵfac = function AddDayAttendanceComponent_Factory(t) { return new (t || AddDayAttendanceComponent)(); };
     AddDayAttendanceComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddDayAttendanceComponent, selectors: [["app-add-day-attendance"]], decls: 7, vars: 4, consts: [["fxLayout", "column", "fxLayoutAlign", "space-around start", 4, "ngIf"], ["fxLayout", "column", 4, "ngIf"], [4, "ngIf"], ["fxLayout", "column", "fxLayoutAlign", "space-around start"], ["matInput", "", "placeholder", "Date", 3, "value", "matDatepicker", "dateChange"], ["matSuffix", "", 3, "for"], ["addDayAttendanceDatepicker", ""], ["fxFlex", "", 1, "form-field"], ["name", "attendanceType", 3, "ngModel", "ngModelChange"], ["value", "school"], ["value", "coaching"], ["mat-stroked-button", "", "fxFlex", "", 3, "disabled", "click"], ["fxLayout", "column"], [3, "valueChange"], ["mat-stroked-button", "", "fxFlex", "", 1, "nav-button", 3, "click"], [3, "day", "attendanceType", "students", "complete"]], template: function AddDayAttendanceComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Add Daily Attendance");
@@ -1477,7 +1425,7 @@ var AddDayAttendanceComponent = /** @class */ (function () {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.currentStage === 1);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.currentStage === 2);
-        } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_4__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_5__["MatInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_6__["MatDatepickerInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_6__["MatDatepickerToggle"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_4__["MatSuffix"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_6__["MatDatepicker"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_3__["DefaultFlexDirective"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_7__["MatButtonToggleGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["NgModel"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_7__["MatButtonToggle"], _angular_material_button__WEBPACK_IMPORTED_MODULE_9__["MatButton"], _children_select_group_children_select_group_children_component__WEBPACK_IMPORTED_MODULE_10__["SelectGroupChildrenComponent"], _roll_call_roll_call_component__WEBPACK_IMPORTED_MODULE_11__["RollCallComponent"]], styles: [".form-field[_ngcontent-%COMP%] {\n  padding-bottom: 17px;\n}\n\n.nav-button[_ngcontent-%COMP%] {\n  margin: 10px;\n  flex: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvYXR0ZW5kYW5jZS9hZGQtZGF5LWF0dGVuZGFuY2UvYWRkLWRheS1hdHRlbmRhbmNlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jaGlsZC1kZXYtcHJvamVjdC9hdHRlbmRhbmNlL2FkZC1kYXktYXR0ZW5kYW5jZS9hZGQtZGF5LWF0dGVuZGFuY2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxvQkFBQTtBQ0NGOztBREVBO0VBQ0UsWUFBQTtFQUNBLFVBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2F0dGVuZGFuY2UvYWRkLWRheS1hdHRlbmRhbmNlL2FkZC1kYXktYXR0ZW5kYW5jZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWZpZWxkIHtcbiAgcGFkZGluZy1ib3R0b206IDE3cHg7XG59XG5cbi5uYXYtYnV0dG9uIHtcbiAgbWFyZ2luOiAxMHB4O1xuICBmbGV4OiBub25lO1xufVxuIiwiLmZvcm0tZmllbGQge1xuICBwYWRkaW5nLWJvdHRvbTogMTdweDtcbn1cblxuLm5hdi1idXR0b24ge1xuICBtYXJnaW46IDEwcHg7XG4gIGZsZXg6IG5vbmU7XG59Il19 */"] });
+        } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_3__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_4__["MatInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_5__["MatDatepickerInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_5__["MatDatepickerToggle"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_3__["MatSuffix"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_5__["MatDatepicker"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_2__["DefaultFlexDirective"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_6__["MatButtonToggleGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgModel"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_6__["MatButtonToggle"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _children_select_group_children_select_group_children_component__WEBPACK_IMPORTED_MODULE_9__["SelectGroupChildrenComponent"], _roll_call_roll_call_component__WEBPACK_IMPORTED_MODULE_10__["RollCallComponent"]], styles: [".form-field[_ngcontent-%COMP%] {\n  padding-bottom: 17px;\n}\n\n.nav-button[_ngcontent-%COMP%] {\n  margin: 10px;\n  flex: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL25kYi1jb3JlL25kYi1jb3JlL3NyYy9hcHAvY2hpbGQtZGV2LXByb2plY3QvYXR0ZW5kYW5jZS9hZGQtZGF5LWF0dGVuZGFuY2UvYWRkLWRheS1hdHRlbmRhbmNlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jaGlsZC1kZXYtcHJvamVjdC9hdHRlbmRhbmNlL2FkZC1kYXktYXR0ZW5kYW5jZS9hZGQtZGF5LWF0dGVuZGFuY2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxvQkFBQTtBQ0NGOztBREVBO0VBQ0UsWUFBQTtFQUNBLFVBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NoaWxkLWRldi1wcm9qZWN0L2F0dGVuZGFuY2UvYWRkLWRheS1hdHRlbmRhbmNlL2FkZC1kYXktYXR0ZW5kYW5jZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWZpZWxkIHtcbiAgcGFkZGluZy1ib3R0b206IDE3cHg7XG59XG5cbi5uYXYtYnV0dG9uIHtcbiAgbWFyZ2luOiAxMHB4O1xuICBmbGV4OiBub25lO1xufVxuIiwiLmZvcm0tZmllbGQge1xuICBwYWRkaW5nLWJvdHRvbTogMTdweDtcbn1cblxuLm5hdi1idXR0b24ge1xuICBtYXJnaW46IDEwcHg7XG4gIGZsZXg6IG5vbmU7XG59Il19 */"] });
     return AddDayAttendanceComponent;
 }());
 
@@ -1488,7 +1436,7 @@ var AddDayAttendanceComponent = /** @class */ (function () {
                 templateUrl: "./add-day-attendance.component.html",
                 styleUrls: ["./add-day-attendance.component.scss"],
             }]
-    }], function () { return [{ type: _children_children_service__WEBPACK_IMPORTED_MODULE_1__["ChildrenService"] }]; }, null); })();
+    }], function () { return []; }, null); })();
 
 
 /***/ }),
@@ -18589,7 +18537,7 @@ var AppConfig = /** @class */ (function () {
 /*! exports provided: navigationMenu, notes, view:, view:user, view:note, view:admin, view:users, view:help, view:attendance, view:attendance/analysis, view:attendance/add/month, view:attendance/add/day, view:school, view:school/:id, view:child, view:child/:id, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"notes\":{\"InteractionTypes\":{\"NONE\":{\"name\":\"\"},\"HOME_VISIT\":{\"name\":\"Home Visit\"},\"GUARDIAN_TALK\":{\"name\":\"Talk with Guardians\"},\"CHILD_TALK\":{\"name\":\"Talk with Child\"},\"INCIDENT\":{\"name\":\"Incident\"},\"DISCUSSION\":{\"name\":\"Discussion/Decision\",\"color\":\"#E1BEE7\"},\"VISIT\":{\"name\":\"School/Hostel Visit\"},\"PHONE_CALL\":{\"name\":\"Phone Call\"},\"COACHING_TALK\":{\"name\":\"Talk with Coaching Teacher\"},\"PEER_TALK\":{\"name\":\"Talk with Peer\"},\"NEIGHBOUR_TALK\":{\"name\":\"Talk with Neighbours\"},\"GUARDIAN_MEETING\":{\"name\":\"Guardians' Meeting\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"CHILDREN_MEETING\":{\"name\":\"Children's Meeting\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"DAILY_ROUTINE\":{\"name\":\"Daily Routine\",\"color\":\"#F1F8E9\"},\"ANNUAL_SURVEY\":{\"name\":\"Annual Survey\",\"color\":\"#FFFDE7\"},\"EXCURSION\":{\"name\":\"Excursion/Trip\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"PARTNER_CONTACT\":{\"name\":\"Contact with other partners (club/NGO/...)\"},\"RATION_DISTRIBUTION\":{\"name\":\"Ration Distribution\",\"color\":\"#E1F5FE\",\"isMeeting\":true}}},\"view:\":{\"component\":\"Dashboard\",\"config\":{\"widgets\":[{\"component\":\"ChildrenCountDashboard\"},{\"component\":\"RecentNotesDashboard\"},{\"component\":\"NoRecentNotesDashboard\",\"config\":{\"sinceDays\":28,\"fromBeginningOfWeek\":false}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":0,\"periodLabel\":\"last week\"}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":7,\"periodLabel\":\"this week\"}},{\"component\":\"AttendanceWarningsDashboard\"},{\"component\":\"AttendanceAverageDashboard\"},{\"component\":\"ProgressDashboard\",\"config\":{\"dashboardConfigId\":\"1\"}},{\"component\":\"ProgressDashboard\",\"config\":{\"dashboardConfigId\":\"2\"}}]}},\"view:user\":{\"component\":\"UserAccount\"},\"view:note\":{\"component\":\"NotesManager\",\"config\":{\"title\":\"Notes & Reports\"}},\"view:admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:help\":{\"component\":\"Help\"},\"view:attendance\":{\"component\":\"AttendanceManager\"},\"view:attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:school\":{\"component\":\"SchoolsList\",\"config\":{\"title\":\"Schools List\"}},\"view:school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}],\"icon\":\"university\"}},\"view:child\":{\"component\":\"ChildrenList\",\"config\":{\"title\":\"Children List\"}},\"view:child/:id\":{\"component\":\"ChildDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}],\"icon\":\"child\"}}}");
+module.exports = JSON.parse("{\"navigationMenu\":{\"items\":[{\"name\":\"Dashboard\",\"icon\":\"home\",\"link\":\"/dashboard\"},{\"name\":\"Children\",\"icon\":\"child\",\"link\":\"/child\"},{\"name\":\"Schools\",\"icon\":\"university\",\"link\":\"/school\"},{\"name\":\"Notes\",\"icon\":\"file-text\",\"link\":\"/note\"},{\"name\":\"Attendance Register\",\"icon\":\"table\",\"link\":\"/attendance\"},{\"name\":\"Admin\",\"icon\":\"wrench\",\"link\":\"/admin\"},{\"name\":\"Users\",\"icon\":\"user\",\"link\":\"/users\"},{\"name\":\"Database Conflicts\",\"icon\":\"wrench\",\"link\":\"/admin/conflicts\"},{\"name\":\"Help\",\"icon\":\"question-circle\",\"link\":\"/help\"}]},\"notes\":{\"InteractionTypes\":{\"NONE\":{\"name\":\"\"},\"HOME_VISIT\":{\"name\":\"Home Visit\"},\"GUARDIAN_TALK\":{\"name\":\"Talk with Guardians\"},\"CHILD_TALK\":{\"name\":\"Talk with Child\"},\"INCIDENT\":{\"name\":\"Incident\"},\"DISCUSSION\":{\"name\":\"Discussion/Decision\",\"color\":\"#E1BEE7\"},\"VISIT\":{\"name\":\"School/Hostel Visit\"},\"PHONE_CALL\":{\"name\":\"Phone Call\"},\"COACHING_TALK\":{\"name\":\"Talk with Coaching Teacher\"},\"PEER_TALK\":{\"name\":\"Talk with Peer\"},\"NEIGHBOUR_TALK\":{\"name\":\"Talk with Neighbours\"},\"GUARDIAN_MEETING\":{\"name\":\"Guardians' Meeting\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"CHILDREN_MEETING\":{\"name\":\"Children's Meeting\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"DAILY_ROUTINE\":{\"name\":\"Daily Routine\",\"color\":\"#F1F8E9\"},\"ANNUAL_SURVEY\":{\"name\":\"Annual Survey\",\"color\":\"#FFFDE7\"},\"EXCURSION\":{\"name\":\"Excursion/Trip\",\"color\":\"#E1F5FE\",\"isMeeting\":true},\"PARTNER_CONTACT\":{\"name\":\"Contact with other partners (club/NGO/...)\"},\"RATION_DISTRIBUTION\":{\"name\":\"Ration Distribution\",\"color\":\"#E1F5FE\",\"isMeeting\":true}}},\"view:\":{\"component\":\"Dashboard\",\"config\":{\"widgets\":[{\"component\":\"ChildrenCountDashboard\"},{\"component\":\"RecentNotesDashboard\"},{\"component\":\"NoRecentNotesDashboard\",\"config\":{\"sinceDays\":28,\"fromBeginningOfWeek\":false}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":0,\"periodLabel\":\"last week\"}},{\"component\":\"AttendanceWeekDashboard\",\"config\":{\"daysOffset\":7,\"periodLabel\":\"this week\"}},{\"component\":\"ProgressDashboard\",\"config\":{\"dashboardConfigId\":\"1\"}},{\"component\":\"AttendanceAverageDashboard\"},{\"component\":\"AttendanceWarningsDashboard\"}]}},\"view:user\":{\"component\":\"UserAccount\"},\"view:note\":{\"component\":\"NotesManager\",\"config\":{\"title\":\"Notes & Reports\"}},\"view:admin\":{\"component\":\"Admin\",\"requiresAdmin\":true},\"view:users\":{\"component\":\"UserList\",\"requiresAdmin\":true},\"view:help\":{\"component\":\"Help\"},\"view:attendance\":{\"component\":\"AttendanceManager\"},\"view:attendance/analysis\":{\"component\":\"AttendanceAnalysis\"},\"view:attendance/add/month\":{\"component\":\"AddMonthAttendance\"},\"view:attendance/add/day\":{\"component\":\"AddDayAttendance\"},\"view:school\":{\"component\":\"SchoolsList\",\"config\":{\"title\":\"Schools List\"}},\"view:school/:id\":{\"component\":\"SchoolDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}],\"icon\":\"university\"}},\"view:child\":{\"component\":\"ChildrenList\",\"config\":{\"title\":\"Children List\"}},\"view:child/:id\":{\"component\":\"ChildDetails\",\"config\":{\"submenu\":[{\"name\":\"Education\",\"components\":[\"previousSchools\",\"aserResults\"]}],\"icon\":\"child\"}}}");
 
 /***/ }),
 
