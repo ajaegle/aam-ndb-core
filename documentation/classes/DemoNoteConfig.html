@@ -127,7 +127,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -154,7 +154,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -181,7 +181,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/child-dev-project/notes/demo-data/demo-note-generator.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -212,6 +212,7 @@ import { noteIndividualStories } from &quot;./notes_individual-stories&quot;;
 import { noteGroupStories } from &quot;./notes_group-stories&quot;;
 import { centersUnique } from &quot;../../children/demo-data-generators/fixtures/centers&quot;;
 import { absenceRemarks } from &quot;./remarks&quot;;
+import { EntitySchemaService } from &quot;../../../core/entity/schema/entity-schema.service&quot;;
 
 export class DemoNoteConfig {
   minNotesPerChild: number;
@@ -256,7 +257,8 @@ export class DemoNoteGeneratorService extends DemoDataGenerator&lt;Note&gt; {
 
   constructor(
     private config: DemoNoteConfig,
-    private demoChildren: DemoChildGenerator
+    private demoChildren: DemoChildGenerator,
+    private schemaService: EntitySchemaService
   ) {
     super();
   }
@@ -287,10 +289,15 @@ export class DemoNoteGeneratorService extends DemoDataGenerator&lt;Note&gt; {
   }
 
   private generateNoteForChild(child: Child): Note {
-    const note &#x3D; new Note(faker.random.uuid());
+    let note &#x3D; new Note(faker.random.uuid());
 
     const selectedStory &#x3D; faker.random.arrayElement(noteIndividualStories);
     Object.assign(note, selectedStory);
+    // transform to ensure the category object is loaded from the generic config
+    note &#x3D; this.schemaService.transformDatabaseToEntityFormat(
+      note,
+      Note.schema
+    );
 
     note.addChild(child.getId());
     note.author &#x3D; faker.random.arrayElement(this.teamMembers);
@@ -304,6 +311,9 @@ export class DemoNoteGeneratorService extends DemoDataGenerator&lt;Note&gt; {
     return note;
   }
 
+  /**
+   * Set all older notes to be &quot;resolved&quot; in order to keep the list of notes needing follow-up limited in the demo.
+   */
   private removeFollowUpMarkerForOldNotes(note: Note) {
     const lastMonths &#x3D; new Date();
     lastMonths.setMonth(lastMonths.getMonth() - 1);
@@ -313,10 +323,15 @@ export class DemoNoteGeneratorService extends DemoDataGenerator&lt;Note&gt; {
   }
 
   private generateGroupNote(children: Child[]) {
-    const note &#x3D; new Note(faker.random.uuid());
+    let note &#x3D; new Note(faker.random.uuid());
 
     const selectedStory &#x3D; faker.random.arrayElement(noteGroupStories);
     Object.assign(note, selectedStory);
+    // transform to ensure the category object is loaded from the generic config
+    note &#x3D; this.schemaService.transformDatabaseToEntityFormat(
+      note,
+      Note.schema
+    );
 
     note.children &#x3D; children.map((c) &#x3D;&gt; c.getId());
     note.attendances &#x3D; children.map((child) &#x3D;&gt; {

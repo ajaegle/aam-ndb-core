@@ -241,14 +241,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts:17</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>transforms Objects of InteractionType to strings to save in DB</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -258,6 +260,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -272,6 +275,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Object to be saved as specefied in config file; e.g. {name:&#39;Phone Call&#39;, color:&#39;#FFFFFF&#39;}</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -313,14 +320,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/child-dev-project/notes/note-config-loader/interaction-schema-datatype.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>transforms saved strings from the DB to Objects of InteractionType</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -330,6 +339,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -344,6 +354,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>string from database as specified in config file; e.g. &#39;PHONE_CALL&#39;</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -383,6 +397,10 @@ export class InteractionSchemaDatatype
 
   constructor(private interactionTypesFromConfig: NoteConfig) {}
 
+  /**
+   * transforms Objects of InteractionType to strings to save in DB
+   * @param value Object to be saved as specefied in config file; e.g. {name:&#x27;Phone Call&#x27;, color:&#x27;#FFFFFF&#x27;}
+   */
   public transformToDatabaseFormat(value: InteractionType): string {
     return this.getKeyByValue(
       this.interactionTypesFromConfig.InteractionTypes,
@@ -390,6 +408,10 @@ export class InteractionSchemaDatatype
     );
   }
 
+  /**
+   * transforms saved strings from the DB to Objects of InteractionType
+   * @param value string from database as specified in config file; e.g. &#x27;PHONE_CALL&#x27;
+   */
   public transformToObjectFormat(value: string): InteractionType {
     if (value) {
       return this.interactionTypesFromConfig.InteractionTypes[value];
@@ -398,8 +420,15 @@ export class InteractionSchemaDatatype
     }
   }
 
+  /**
+   * retrieves the key of the property of object with the provided value by comparing the string representations.
+   * @param object object with the key:value-pair we are looking for
+   * @param value the value of the property which key we want
+   */
   private getKeyByValue(object, value) {
-    return Object.keys(object).find((key) &#x3D;&gt; object[key] &#x3D;&#x3D;&#x3D; value);
+    return Object.keys(object).find(
+      (key) &#x3D;&gt; JSON.stringify(object[key]) &#x3D;&#x3D;&#x3D; JSON.stringify(value)
+    );
   }
 }
 </code></pre>

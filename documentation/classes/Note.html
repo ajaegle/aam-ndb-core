@@ -329,7 +329,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    name: &quot;NONE&quot;,
+    name: &quot;&quot;,
   }</code>
                         </td>
                     </tr>
@@ -2060,7 +2060,7 @@ export class Note extends Entity {
   @DatabaseField() text: string &#x3D; &quot;&quot;;
   @DatabaseField() author: string &#x3D; &quot;&quot;;
   @DatabaseField({ dataType: &quot;interaction-type&quot; }) category: InteractionType &#x3D; {
-    name: &quot;NONE&quot;,
+    name: &quot;&quot;,
   };
   @DatabaseField({ dataType: &quot;string&quot; }) warningLevel: WarningLevel &#x3D;
     WarningLevel.OK;
@@ -2079,7 +2079,7 @@ export class Note extends Entity {
     }
 
     const color &#x3D; this.category.color;
-    return color ? &quot;&quot; : color;
+    return color ? color : &quot;&quot;;
   }
 
   public getColorForId(entityId: string) {

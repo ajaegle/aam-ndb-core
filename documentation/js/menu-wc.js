@@ -736,13 +736,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/NotesModule.html" data-type="entity-link">NotesModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' : 'data-target="#xs-components-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' }>
+                                            'data-target="#components-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' : 'data-target="#xs-components-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' :
-                                            'id="xs-components-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' :
+                                            'id="xs-components-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' }>
                                             <li class="link">
                                                 <a href="components/ChildMeetingNoteAttendanceComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ChildMeetingNoteAttendanceComponent</a>
@@ -763,13 +763,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' : 'data-target="#xs-injectables-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' }>
+                                        'data-target="#injectables-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' : 'data-target="#xs-injectables-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' :
-                                        'id="xs-injectables-links-module-NotesModule-63af2a56de6a92c6d2198dcdfa8b3729"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' :
+                                        'id="xs-injectables-links-module-NotesModule-0b0c21052f6a6c58841fdfc03ddeced9"' }>
                                         <li class="link">
                                             <a href="injectables/NoteConfigLoaderService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>NoteConfigLoaderService</a>
