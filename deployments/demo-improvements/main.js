@@ -29419,7 +29419,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var environment = {
     production: false,
-    appVersion: "2.20.1",
+    appVersion: "2.20.2",
     repositoryId: "Aam-Digital/ndb-core",
     remoteLoggingDsn: undefined,
 };
