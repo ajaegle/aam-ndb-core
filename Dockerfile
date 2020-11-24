@@ -1,11 +1,12 @@
-# FROM node:15.1.0-alpine3.12 as builder
-FROM node:10.23.0-alpine3.11 as builder
+FROM node:15.1.0-alpine3.12 as builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --verbose
+RUN npm ci --no-progress
+COPY patch-webpack.js .
+# postinstall executes ngcc and runs the webpack-patch
+RUN npm run postinstall
 RUN $(npm bin)/ng version
 COPY . .
-# make use of the ng binary installed from package.json (there is no global one)
 RUN $(npm bin)/ng build --prod
 
 ### PROD image
